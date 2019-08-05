@@ -17,13 +17,16 @@ namespace PrototypeApp
     public partial class Main_Form : Form
     {
         public string connectionString;
-
+        AnimationFunc Anim = new AnimationFunc();
         public Main_Form()
         {
             InitializeComponent();
-            connectionString = "Data Source=" + GetLocalIPAddress() + ",49170;Initial Catalog = Prototype; Integrated Security = True";
+            connectionString = "Data Source=" + "192.168.1.21" + ",49170;Initial Catalog = Prototype; Integrated Security = True";
+            //MessageBox.Show(connectionString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Media.FlatAppearance.BorderColor = Color.White;
             Correspondence.FlatAppearance.BorderColor = Color.White;
+            Anim.AddAnimation(Media , "Media" , 75 , 403);
+            Anim.AddAnimation(Correspondence , "Correspondence", 75, 403);
         }
 
         public static string GetLocalIPAddress()
@@ -39,18 +42,15 @@ namespace PrototypeApp
             throw new Exception("No network adapters with an IPv4 address in the system!");
         }
 
-        private void Images_Click(object sender, EventArgs e)
+        private void Media_MouseHover(object sender, EventArgs e)
         {
-            Images_Form form = new Images_Form();
-            form.ShowDialog();
+            
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Media_Click(object sender, EventArgs e)
         {
-            FtpClient client = new FtpClient("192.168.1.21");
-            client.Credentials = new NetworkCredential("FTP-user", "1234");
-            client.Connect();
-            client.Rename("/cover4.jpg", "/test.jpg");
+            Media_Form form = new Media_Form();
+            form.ShowDialog();
         }
     }
 }

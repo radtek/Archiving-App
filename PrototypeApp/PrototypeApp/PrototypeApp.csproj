@@ -59,12 +59,13 @@
     <Compile Include="Add_Media.Designer.cs">
       <DependentUpon>Add_Media.cs</DependentUpon>
     </Compile>
+    <Compile Include="AnimationFunc.cs" />
     <Compile Include="GlobalFunc.cs" />
-    <Compile Include="Images_Form.cs">
+    <Compile Include="Media_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Images_Form.Designer.cs">
-      <DependentUpon>Images_Form.cs</DependentUpon>
+    <Compile Include="Media_Form.Designer.cs">
+      <DependentUpon>Media_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Main_Form.cs">
       <SubType>Form</SubType>
@@ -74,17 +75,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View_Media.cs">
+    <Compile Include="View_Edit_Media.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View_Media.Designer.cs">
-      <DependentUpon>View_Media.cs</DependentUpon>
+    <Compile Include="View_Edit_Media.Designer.cs">
+      <DependentUpon>View_Edit_Media.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Add_Media.resx">
       <DependentUpon>Add_Media.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Images_Form.resx">
-      <DependentUpon>Images_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Media_Form.resx">
+      <DependentUpon>Media_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
@@ -99,8 +100,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="View_Media.resx">
-      <DependentUpon>View_Media.cs</DependentUpon>
+    <EmbeddedResource Include="View_Edit_Media.resx">
+      <DependentUpon>View_Edit_Media.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -12,11 +12,11 @@ using System.IO;
 
 namespace PrototypeApp
 {
-    public partial class Images_Form : Form
+    public partial class Media_Form : Form
     {
         static Form MainForm = Application.OpenForms["Main_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
-        public Images_Form()
+        public Media_Form()
         {
             InitializeComponent();
             Add.FlatAppearance.BorderColor = Color.White;
@@ -91,10 +91,10 @@ namespace PrototypeApp
 
         private void View_Info_Click(object sender, EventArgs e)
         {
-            if (Media_Grid.SelectedRows.Count == 0)
+            if (Media_Grid.SelectedCells.Count == 0)
                 return;
             string name = Media_Grid.CurrentRow.Cells["MediaN"].Value.ToString(), path = Media_Grid.CurrentRow.Cells["Path"].Value.ToString(), ext = Media_Grid.CurrentRow.Cells["Extension"].Value.ToString();
-            View_Media form = new View_Media(name , path , ext);
+            View_Edit_Media form = new View_Edit_Media(name , path , ext , false);
             form.ShowDialog();
         }
 
@@ -102,7 +102,7 @@ namespace PrototypeApp
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            if (Media_Grid.SelectedRows.Count == 0)
+            if (Media_Grid.SelectedCells.Count == 0)
                 return;
             DialogResult res = MessageBox.Show("Are you sure you want to delete selected records?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.No)
@@ -117,6 +117,15 @@ namespace PrototypeApp
             }
             MessageBox.Show("Successfully deleted selected records!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
             conn.Close();
+        }
+
+        private void Edit_Click(object sender, EventArgs e)
+        {
+            if (Media_Grid.SelectedCells.Count == 0)
+                return;
+            string name = Media_Grid.CurrentRow.Cells["MediaN"].Value.ToString(), path = Media_Grid.CurrentRow.Cells["Path"].Value.ToString(), ext = Media_Grid.CurrentRow.Cells["Extension"].Value.ToString();
+            View_Edit_Media form = new View_Edit_Media(name, path, ext, true);
+            form.ShowDialog();
         }
     }
 }

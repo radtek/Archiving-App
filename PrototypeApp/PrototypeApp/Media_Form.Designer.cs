@@ -1,6 +1,6 @@
 ﻿namespace PrototypeApp
 {
-    partial class Images_Form
+    partial class Media_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Images_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Media_Form));
             this.Search = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SearchN = new System.Windows.Forms.TextBox();
             this.Media_Grid = new System.Windows.Forms.DataGridView();
+            this.MediaN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Add = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.View_Info = new System.Windows.Forms.Button();
@@ -43,9 +46,6 @@
             this.SearchP = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SearchE = new System.Windows.Forms.TextBox();
-            this.MediaN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Media_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +73,10 @@
             this.imageList1.Images.SetKeyName(2, "edit.png");
             this.imageList1.Images.SetKeyName(3, "search.png");
             this.imageList1.Images.SetKeyName(4, "view.png");
+            this.imageList1.Images.SetKeyName(5, "add.png");
+            this.imageList1.Images.SetKeyName(6, "error.png");
+            this.imageList1.Images.SetKeyName(7, "folder.png");
+            this.imageList1.Images.SetKeyName(8, "success.png");
             // 
             // SearchN
             // 
@@ -96,17 +100,44 @@
             this.Media_Grid.Location = new System.Drawing.Point(12, 169);
             this.Media_Grid.Name = "Media_Grid";
             this.Media_Grid.ReadOnly = true;
-            this.Media_Grid.Size = new System.Drawing.Size(896, 426);
+            this.Media_Grid.Size = new System.Drawing.Size(896, 500);
             this.Media_Grid.TabIndex = 0;
             this.Media_Grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Media_Grid_CellClick);
             this.Media_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Images_Grid_CellDoubleClick);
+            // 
+            // MediaN
+            // 
+            this.MediaN.DataPropertyName = "MediaN";
+            this.MediaN.FillWeight = 86.0406F;
+            this.MediaN.HeaderText = "Name";
+            this.MediaN.Name = "MediaN";
+            this.MediaN.ReadOnly = true;
+            this.MediaN.Width = 245;
+            // 
+            // Path
+            // 
+            this.Path.DataPropertyName = "Path";
+            this.Path.FillWeight = 86.0406F;
+            this.Path.HeaderText = "Path";
+            this.Path.Name = "Path";
+            this.Path.ReadOnly = true;
+            this.Path.Width = 444;
+            // 
+            // Extension
+            // 
+            this.Extension.DataPropertyName = "Extension";
+            this.Extension.FillWeight = 127.9188F;
+            this.Extension.HeaderText = "Extension";
+            this.Extension.Name = "Extension";
+            this.Extension.ReadOnly = true;
+            this.Extension.Width = 164;
             // 
             // Add
             // 
             this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Add.ImageIndex = 1;
+            this.Add.ImageIndex = 5;
             this.Add.ImageList = this.imageList1;
             this.Add.Location = new System.Drawing.Point(12, 119);
             this.Add.Name = "Add";
@@ -159,6 +190,7 @@
             this.Edit.TabIndex = 7;
             this.Edit.Text = "Edit";
             this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
             // 
             // label1
             // 
@@ -208,39 +240,12 @@
             this.SearchE.Size = new System.Drawing.Size(797, 21);
             this.SearchE.TabIndex = 12;
             // 
-            // MediaN
-            // 
-            this.MediaN.DataPropertyName = "MediaN";
-            this.MediaN.FillWeight = 86.0406F;
-            this.MediaN.HeaderText = "Name";
-            this.MediaN.Name = "MediaN";
-            this.MediaN.ReadOnly = true;
-            this.MediaN.Width = 245;
-            // 
-            // Path
-            // 
-            this.Path.DataPropertyName = "Path";
-            this.Path.FillWeight = 86.0406F;
-            this.Path.HeaderText = "Path";
-            this.Path.Name = "Path";
-            this.Path.ReadOnly = true;
-            this.Path.Width = 444;
-            // 
-            // Extension
-            // 
-            this.Extension.DataPropertyName = "Extension";
-            this.Extension.FillWeight = 127.9188F;
-            this.Extension.HeaderText = "Extension";
-            this.Extension.Name = "Extension";
-            this.Extension.ReadOnly = true;
-            this.Extension.Width = 164;
-            // 
-            // Images_Form
+            // Media_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(920, 607);
+            this.ClientSize = new System.Drawing.Size(920, 681);
             this.Controls.Add(this.SearchE);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SearchP);
@@ -254,7 +259,8 @@
             this.Controls.Add(this.Search);
             this.Controls.Add(this.Media_Grid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Images_Form";
+            this.MaximizeBox = false;
+            this.Name = "Media_Form";
             this.Text = "Images_Form";
             ((System.ComponentModel.ISupportInitialize)(this.Media_Grid)).EndInit();
             this.ResumeLayout(false);

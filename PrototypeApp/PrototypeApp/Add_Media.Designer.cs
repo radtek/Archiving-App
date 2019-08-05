@@ -102,6 +102,7 @@
             // 
             // File_Extension
             // 
+            this.File_Extension.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.File_Extension.Location = new System.Drawing.Point(99, 121);
             this.File_Extension.Name = "File_Extension";
             this.File_Extension.Size = new System.Drawing.Size(467, 20);

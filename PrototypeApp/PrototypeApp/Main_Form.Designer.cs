@@ -43,11 +43,10 @@
             this.Correspondence.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Correspondence.ImageIndex = 9;
             this.Correspondence.ImageList = this.imageList1;
-            this.Correspondence.Location = new System.Drawing.Point(12, 168);
+            this.Correspondence.Location = new System.Drawing.Point(0, 168);
             this.Correspondence.Name = "Correspondence";
-            this.Correspondence.Size = new System.Drawing.Size(363, 84);
+            this.Correspondence.Size = new System.Drawing.Size(86, 84);
             this.Correspondence.TabIndex = 1;
-            this.Correspondence.Text = "    Correspondence";
             this.Correspondence.UseVisualStyleBackColor = false;
             // 
             // imageList1
@@ -74,13 +73,13 @@
             this.Media.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Media.ImageIndex = 8;
             this.Media.ImageList = this.imageList1;
-            this.Media.Location = new System.Drawing.Point(12, 78);
+            this.Media.Location = new System.Drawing.Point(0, 78);
             this.Media.Name = "Media";
-            this.Media.Size = new System.Drawing.Size(363, 84);
+            this.Media.Size = new System.Drawing.Size(86, 84);
             this.Media.TabIndex = 0;
-            this.Media.Text = "    Media";
             this.Media.UseVisualStyleBackColor = false;
-            this.Media.Click += new System.EventHandler(this.Images_Click);
+            this.Media.Click += new System.EventHandler(this.Media_Click);
+            this.Media.MouseHover += new System.EventHandler(this.Media_MouseHover);
             // 
             // Main_Form
             // 
@@ -91,6 +90,7 @@
             this.Controls.Add(this.Correspondence);
             this.Controls.Add(this.Media);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Main_Form";
             this.Text = "(Company name)";
             this.ResumeLayout(false);

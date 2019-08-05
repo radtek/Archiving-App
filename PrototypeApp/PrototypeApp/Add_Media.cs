@@ -17,6 +17,8 @@ namespace PrototypeApp
         static Form MainForm = Application.OpenForms["Main_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
         GlobalFunc gf = new GlobalFunc();
+        string imagesf = "Image (*.bmp;*.jpg;*.gif,*.png,*.tiff)|*.bmp;*.jpg;*.gif;*.png;*.tiff|Image (*.bmp)|*.bmp|Image(*.jpg)|*.jpg|Image(*.gif)|*.gif|Image(*.png)|*.png|Image(*.tiff)|*.tiff";
+        string videof = "Video(*.mp4;*.wmv;*.mov)|*.mp4;*.wmv;*.mov|Video (*.mp4)|*.mp4|Video(*.wmv)|*.wmv|Video(*.mov)|*.mov";
         public Add_Media()
         {
             InitializeComponent();
@@ -25,19 +27,17 @@ namespace PrototypeApp
         private void Browse_Click(object sender, EventArgs e)
         {
             OpenFileDialog Browse_File_Wind = new OpenFileDialog();
-            string imagesf = "Image (*.bmp;*.jpg;*.gif,*.png,*.tiff)|*.bmp;*.jpg;*.gif;*.png;*.tiff|Image (*.bmp)|*.bmp|Image(*.jpg)|*.jpg|Image(*.gif)|*.gif|Image(*.png)|*.png|Image(*.tiff)|*.tiff";
-            string videof = "Video(*.mp4;*.wmv;*.mov)|*.mp4;*.wmv;*.mov|Video (*.mp4)|*.mp4|Video(*.wmv)|*.wmv|Video(*.mov)|*.mov";
             Browse_File_Wind.Filter = imagesf + "|" + videof;
             if (Browse_File_Wind.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 if(!gf.CheckExtension(Path.GetExtension(Browse_File_Wind.FileName) , Browse_File_Wind.Filter))
                 {
-                    MessageBox.Show("Chosen file isn't an Image nor a Video.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Chosen file isn't an Image nor a Video, or file format isn't supported.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 string loc = Browse_File_Wind.FileName;
-                File_Name.Text = System.IO.Path.GetFileNameWithoutExtension(loc);
-                File_Path.Text = System.IO.Path.GetDirectoryName(loc);
+                File_Name.Text = Path.GetFileNameWithoutExtension(loc);
+                File_Path.Text = Path.GetDirectoryName(loc);
                 File_Extension.Text = Path.GetExtension(loc);
             }
         }
@@ -45,6 +45,11 @@ namespace PrototypeApp
         private void Add_Click(object sender, EventArgs e)
         {
             string name = File_Name.Text.Replace("'", "''"), path = File_Path.Text.Replace("'", "''"), ext = File_Extension.Text.Replace("'", "''"), desc = File_Desc.Text.Replace("'", "''");
+            if (!gf.CheckExtension(File_Extension.Text, imagesf+videof))
+            {
+                MessageBox.Show("Chosen file isn't an Image nor a Video, or file format isn't supported.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!File.Exists(File_Path.Text + "\\" + File_Name.Text + File_Extension.Text))
             {
                 DialogResult res = MessageBox.Show("File doesn't exist. Continue anyway?", "Warning", MessageBoxButtons.YesNo , MessageBoxIcon.Information);
