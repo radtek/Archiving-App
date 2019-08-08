@@ -30,24 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
-            this.Correspondence = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.Correspondence = new System.Windows.Forms.Button();
             this.Media = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // Correspondence
-            // 
-            this.Correspondence.BackColor = System.Drawing.Color.Transparent;
-            this.Correspondence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Correspondence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Correspondence.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Correspondence.ImageIndex = 9;
-            this.Correspondence.ImageList = this.imageList1;
-            this.Correspondence.Location = new System.Drawing.Point(0, 168);
-            this.Correspondence.Name = "Correspondence";
-            this.Correspondence.Size = new System.Drawing.Size(86, 84);
-            this.Correspondence.TabIndex = 1;
-            this.Correspondence.UseVisualStyleBackColor = false;
             // 
             // imageList1
             // 
@@ -63,6 +49,21 @@
             this.imageList1.Images.SetKeyName(7, "envelope.png");
             this.imageList1.Images.SetKeyName(8, "play-button.png");
             this.imageList1.Images.SetKeyName(9, "paper-plane.png");
+            // 
+            // Correspondence
+            // 
+            this.Correspondence.BackColor = System.Drawing.Color.Transparent;
+            this.Correspondence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Correspondence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Correspondence.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Correspondence.ImageIndex = 9;
+            this.Correspondence.ImageList = this.imageList1;
+            this.Correspondence.Location = new System.Drawing.Point(0, 168);
+            this.Correspondence.Name = "Correspondence";
+            this.Correspondence.Size = new System.Drawing.Size(86, 84);
+            this.Correspondence.TabIndex = 1;
+            this.Correspondence.UseVisualStyleBackColor = false;
+            this.Correspondence.Click += new System.EventHandler(this.Correspondence_Click);
             // 
             // Media
             // 

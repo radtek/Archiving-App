@@ -82,9 +82,9 @@
             // 
             this.SearchN.BackColor = System.Drawing.Color.White;
             this.SearchN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchN.Location = new System.Drawing.Point(91, 15);
+            this.SearchN.Location = new System.Drawing.Point(111, 15);
             this.SearchN.Name = "SearchN";
-            this.SearchN.Size = new System.Drawing.Size(817, 21);
+            this.SearchN.Size = new System.Drawing.Size(797, 21);
             this.SearchN.TabIndex = 3;
             // 
             // Media_Grid
@@ -100,9 +100,9 @@
             this.Media_Grid.Location = new System.Drawing.Point(12, 169);
             this.Media_Grid.Name = "Media_Grid";
             this.Media_Grid.ReadOnly = true;
+            this.Media_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Media_Grid.Size = new System.Drawing.Size(896, 500);
             this.Media_Grid.TabIndex = 0;
-            this.Media_Grid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Media_Grid_CellClick);
             this.Media_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Images_Grid_CellDoubleClick);
             // 
             // MediaN
@@ -216,9 +216,9 @@
             // 
             this.SearchP.BackColor = System.Drawing.Color.White;
             this.SearchP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchP.Location = new System.Drawing.Point(82, 48);
+            this.SearchP.Location = new System.Drawing.Point(111, 48);
             this.SearchP.Name = "SearchP";
-            this.SearchP.Size = new System.Drawing.Size(826, 21);
+            this.SearchP.Size = new System.Drawing.Size(797, 21);
             this.SearchP.TabIndex = 10;
             // 
             // label3
@@ -259,9 +259,10 @@
             this.Controls.Add(this.Search);
             this.Controls.Add(this.Media_Grid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Media_Form";
-            this.Text = "Images_Form";
+            this.Text = "Media";
             ((System.ComponentModel.ISupportInitialize)(this.Media_Grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

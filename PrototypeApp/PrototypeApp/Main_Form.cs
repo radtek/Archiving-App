@@ -21,7 +21,7 @@ namespace PrototypeApp
         public Main_Form()
         {
             InitializeComponent();
-            connectionString = "Data Source=" + "192.168.1.21" + ",49170;Initial Catalog = Prototype; Integrated Security = True";
+            connectionString = "Data Source=" + "192.168.1.5" + ",49170;Initial Catalog = Prototype; Integrated Security = True";
             //MessageBox.Show(connectionString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Media.FlatAppearance.BorderColor = Color.White;
             Correspondence.FlatAppearance.BorderColor = Color.White;
@@ -50,6 +50,12 @@ namespace PrototypeApp
         private void Media_Click(object sender, EventArgs e)
         {
             Media_Form form = new Media_Form();
+            form.ShowDialog();
+        }
+
+        private void Correspondence_Click(object sender, EventArgs e)
+        {
+            Correspondence_Form form = new Correspondence_Form();
             form.ShowDialog();
         }
     }

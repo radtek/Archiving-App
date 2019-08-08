@@ -37,5 +37,21 @@ namespace PrototypeApp
             }
             return false;
         }
+        public bool CheckExistance(string x , string table , string connectionString)
+        {
+            if(table.ToLower() == "media")
+            {
+                string[] pk = x.Split('-');
+                string check = "select count(name) from media where name='" + pk[0] + "' and path='" + pk[1] + "' and extension='" + pk[2] + "'";
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand comm = new SqlCommand(check, conn);
+                string count = comm.ExecuteScalar().ToString();
+                if (count == "0")
+                    return false;
+                return true;
+            }
+            return false;
+        }
     }
 }

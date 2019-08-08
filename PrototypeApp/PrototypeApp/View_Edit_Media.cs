@@ -15,7 +15,9 @@ namespace PrototypeApp
     public partial class View_Edit_Media : Form
     {
         static Form MainForm = Application.OpenForms["Main_Form"];
+        static Form Media_Form = Application.OpenForms["Media_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
+        GlobalFunc GF = new GlobalFunc();
         bool mode = false;
         string old_desc;
         public View_Edit_Media(string name , string path , string ext , bool edit)
@@ -39,9 +41,11 @@ namespace PrototypeApp
             }
         }
 
-        public bool NoChange()
+        public bool NoChange(bool nodesc)
         {
-            if (New_Name.Text == File_Name.Text && New_Path.Text == File_Path.Text && New_Extension.Text == File_Extension.Text && old_desc == File_Desc.Text)
+            if (New_Name.Text == File_Name.Text && New_Path.Text == File_Path.Text && New_Extension.Text == File_Extension.Text && old_desc == File_Desc.Text && nodesc == false)
+                return true;
+            if (New_Name.Text == File_Name.Text && New_Path.Text == File_Path.Text && New_Extension.Text == File_Extension.Text && nodesc == true)
                 return true;
             return false;
         }
@@ -70,11 +74,12 @@ namespace PrototypeApp
             New_Path.Visible = false;
             New_Extension.Visible = false;
             File_Desc.ReadOnly = true;
+            File_Desc.Text = old_desc;
         }
 
         private void Close_Click_1(object sender, EventArgs e)
         {
-            if ((NoChange() && mode == true) || (mode == false))
+            if ((NoChange(false) && mode == true) || (mode == false))
             {
                 this.Close();
                 return;
@@ -92,7 +97,7 @@ namespace PrototypeApp
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-            if (NoChange())
+            if (NoChange(false))
             {
                 ViewMode();
                 return;
@@ -105,7 +110,7 @@ namespace PrototypeApp
 
         private void Done_Click(object sender, EventArgs e)
         {
-            if (NoChange())
+            if (NoChange(false))
             {
                 ViewMode();
                 return;
@@ -113,6 +118,11 @@ namespace PrototypeApp
             DialogResult res = MessageBox.Show("Save changes?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.No)
                 return;
+            if(GF.CheckExistance(New_Name.Text.Replace("'", "''") + "-" + New_Path.Text.Replace("'", "''") + "-" + New_Extension.Text.Replace("'", "''"), "media" , connectionString) && !NoChange(true))
+            {
+                MessageBox.Show("File already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string edit_record_set = "update media set name = N'" + New_Name.Text.Replace("'" , "''") + "',path=N'" + New_Path.Text.Replace("'", "''") + "',extension='" + New_Extension.Text.Replace("'", "''") + "',description=N'" + File_Desc.Text.Replace("'", "''") + "' ";
             string edit_record_condition = "where name = '" + File_Name.Text.Replace("'", "''") + "' and path='" + File_Path.Text.Replace("'", "''") + "' and extension='" + File_Extension.Text.Replace("'", "''") + "'";
             SqlConnection conn = new SqlConnection(connectionString);
@@ -120,6 +130,7 @@ namespace PrototypeApp
             SqlCommand comm = new SqlCommand (edit_record_set+edit_record_condition , conn);
             comm.ExecuteNonQuery();
             MessageBox.Show("Successfully edited file info!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ((Media_Form)Media_Form).Refresh();
             this.Close();
         }
     }

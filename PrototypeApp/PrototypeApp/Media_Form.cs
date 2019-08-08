@@ -29,39 +29,30 @@ namespace PrototypeApp
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string get_images = "select name as MediaN , path as Path , extension as Extension from media ";
+            string get_media = "select name as MediaN , path as Path , extension as Extension from media ";
             if (SearchN.Text.Length != 0 || SearchP.Text.Length != 0 || SearchE.Text.Length != 0)
-                get_images += "where ";
+                get_media += "where ";
             if (SearchN.Text.Length != 0)
             {
-                get_images += "name like '%" + SearchN.Text.Replace("'", "''") + "%' ";
+                get_media += "name like '%" + SearchN.Text.Replace("'", "''") + "%' ";
             }
             if(SearchP.Text.Length!=0)
             {
-                if (SearchN.Text.Length != 0) get_images += "and ";
-                get_images += "path like '%" + SearchP.Text.Replace("'", "''") + "%' ";
+                if (SearchN.Text.Length != 0) get_media += "and ";
+                get_media += "path like '%" + SearchP.Text.Replace("'", "''") + "%' ";
             }
             if(SearchE.Text.Length!=0)
             {
-                if (SearchN.Text.Length != 0 || SearchP.Text.Length != 0) get_images += "and ";
-                get_images += "extension like '%" + SearchE.Text.Replace("'" , "''") + "%' "; 
+                if (SearchN.Text.Length != 0 || SearchP.Text.Length != 0) get_media += "and ";
+                get_media += "extension like '%" + SearchE.Text.Replace("'" , "''") + "%' "; 
             }
-            SqlDataAdapter sqlAdapt = new SqlDataAdapter(get_images, conn);
+            SqlDataAdapter sqlAdapt = new SqlDataAdapter(get_media, conn);
             DataTable Images_Data = new DataTable();
             sqlAdapt.Fill(Images_Data);
             Media_Grid.DataSource = Images_Data;
             conn.Close();
         }
-        private void Add_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
-        private void Delete_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-
-        }
-
+        
         private void Search_Click(object sender, EventArgs e)
         {
             Refresh();

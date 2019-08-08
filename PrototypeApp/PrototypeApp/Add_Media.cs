@@ -22,6 +22,9 @@ namespace PrototypeApp
         public Add_Media()
         {
             InitializeComponent();
+            Browse.FlatAppearance.BorderColor = Color.White;
+            Add.FlatAppearance.BorderColor = Color.White;
+            Cancel.FlatAppearance.BorderColor = Color.White;
         }
 
         private void Browse_Click(object sender, EventArgs e)
@@ -45,6 +48,11 @@ namespace PrototypeApp
         private void Add_Click(object sender, EventArgs e)
         {
             string name = File_Name.Text.Replace("'", "''"), path = File_Path.Text.Replace("'", "''"), ext = File_Extension.Text.Replace("'", "''"), desc = File_Desc.Text.Replace("'", "''");
+            if(File_Name.Text.Length==0 || File_Path.Text.Length == 0 || File_Extension.Text.Length == 0)
+            {
+                MessageBox.Show("Please, enter the file info.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!gf.CheckExtension(File_Extension.Text, imagesf+videof))
             {
                 MessageBox.Show("Chosen file isn't an Image nor a Video, or file format isn't supported.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -52,9 +60,14 @@ namespace PrototypeApp
             }
             if (!File.Exists(File_Path.Text + "\\" + File_Name.Text + File_Extension.Text))
             {
-                DialogResult res = MessageBox.Show("File doesn't exist. Continue anyway?", "Warning", MessageBoxButtons.YesNo , MessageBoxIcon.Information);
+                DialogResult res = MessageBox.Show("Couldn't find the file in the chosen path. Continue anyway?", "Warning", MessageBoxButtons.YesNo , MessageBoxIcon.Information);
                 if (res == DialogResult.No)
                     return;
+            }
+            if(gf.CheckExistance(File_Name.Text + "-" + File_Path.Text + "-" + File_Extension.Text, "media", connectionString))
+            {
+                MessageBox.Show("File already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             string insert_media = "insert into media(name , path , extension , description) values (N'" + name + "',N'" + path + "',N'" + ext + "',N'" + desc + "')";
             SqlConnection conn = new SqlConnection(connectionString);

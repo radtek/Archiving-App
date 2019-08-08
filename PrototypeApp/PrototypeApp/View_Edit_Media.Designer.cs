@@ -102,7 +102,7 @@
             // 
             this.File_Name.AutoSize = true;
             this.File_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.File_Name.Location = new System.Drawing.Point(91, 34);
+            this.File_Name.Location = new System.Drawing.Point(111, 34);
             this.File_Name.Name = "File_Name";
             this.File_Name.Size = new System.Drawing.Size(0, 15);
             this.File_Name.TabIndex = 5;
@@ -111,7 +111,7 @@
             // 
             this.File_Path.AutoSize = true;
             this.File_Path.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.File_Path.Location = new System.Drawing.Point(82, 73);
+            this.File_Path.Location = new System.Drawing.Point(111, 73);
             this.File_Path.Name = "File_Path";
             this.File_Path.Size = new System.Drawing.Size(0, 15);
             this.File_Path.TabIndex = 6;
@@ -128,18 +128,18 @@
             // New_Name
             // 
             this.New_Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.New_Name.Location = new System.Drawing.Point(91, 31);
+            this.New_Name.Location = new System.Drawing.Point(111, 31);
             this.New_Name.Name = "New_Name";
-            this.New_Name.Size = new System.Drawing.Size(697, 21);
+            this.New_Name.Size = new System.Drawing.Size(677, 21);
             this.New_Name.TabIndex = 9;
             this.New_Name.Visible = false;
             // 
             // New_Path
             // 
             this.New_Path.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.New_Path.Location = new System.Drawing.Point(82, 70);
+            this.New_Path.Location = new System.Drawing.Point(111, 70);
             this.New_Path.Name = "New_Path";
-            this.New_Path.Size = new System.Drawing.Size(706, 21);
+            this.New_Path.Size = new System.Drawing.Size(677, 21);
             this.New_Path.TabIndex = 10;
             this.New_Path.Visible = false;
             // 
@@ -251,9 +251,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "View_Edit_Media";
-            this.Text = "View_Media";
+            this.Text = "File Info";
             this.ResumeLayout(false);
             this.PerformLayout();
 
