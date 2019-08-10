@@ -122,7 +122,12 @@ namespace PrototypeApp
             DialogResult res = MessageBox.Show("Save changes?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.No)
                 return;
-            if(GF.CheckExistance(New_Name.Text.Replace("'", "''") + "-" + New_Path.Text.Replace("'", "''") + "-" + New_Extension.Text.Replace("'", "''"), "media" , connectionString) && !NoChange(true))
+            if (!File.Exists(New_Path.Text + "\\" + New_Name.Text + New_Extension.Text))
+            {
+                MessageBox.Show("Error 404.\nCouldn't find the file in the new path.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (GF.CheckExistance(New_Name.Text.Replace("'", "''") + "-" + New_Path.Text.Replace("'", "''") + "-" + New_Extension.Text.Replace("'", "''"), "media" , connectionString) && !NoChange(true))
             {
                 MessageBox.Show("File already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;

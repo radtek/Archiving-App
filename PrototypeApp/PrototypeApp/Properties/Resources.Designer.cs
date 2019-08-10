@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PrototypeApp.Properties {
+namespace Apex.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace PrototypeApp.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PrototypeApp.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Apex.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -73,6 +73,17 @@ namespace PrototypeApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap blue_abstract_moving_flowing_waves_on_white_background_blurred_smooth_design_video_animation_ultra_hd_4k_3840x2160_rffdhgnp_thumbnail_full05 {
+            get {
+                object obj = ResourceManager.GetObject("blue-abstract-moving-flowing-waves-on-white-background-blurred-smooth-design-vide" +
+                        "o-animation-ultra-hd-4k-3840x2160_rffdhgnp_thumbnail-full05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_circled_play_100 {
             get {
                 object obj = ResourceManager.GetObject("icons8-circled-play-100", resourceCulture);
@@ -86,6 +97,26 @@ namespace PrototypeApp.Properties {
         internal static System.Drawing.Bitmap logo2 {
             get {
                 object obj = ResourceManager.GetObject("logo2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap silver_light_blue_wave_abstract_backgrounds_powerpoint {
+            get {
+                object obj = ResourceManager.GetObject("silver-light-blue-wave-abstract-backgrounds-powerpoint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap silver_light_blue_wave_abstract_backgrounds_powerpoint1 {
+            get {
+                object obj = ResourceManager.GetObject("silver-light-blue-wave-abstract-backgrounds-powerpoint1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

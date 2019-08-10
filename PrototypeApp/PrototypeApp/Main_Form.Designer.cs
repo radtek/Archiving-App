@@ -32,12 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Settings = new System.Windows.Forms.Button();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Correspondence = new System.Windows.Forms.Button();
             this.Media = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.State = new System.Windows.Forms.Label();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Server = new System.Windows.Forms.Label();
@@ -76,9 +76,17 @@
             this.Settings.UseVisualStyleBackColor = false;
             this.Settings.Click += new System.EventHandler(this.Settings_Click);
             // 
+            // imageList2
+            // 
+            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList2.Images.SetKeyName(0, "settings.png");
+            this.imageList2.Images.SetKeyName(1, "settings2.png");
+            // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::PrototypeApp.Properties.Resources.logo2;
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Apex.Properties.Resources.logo2;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(302, 151);
@@ -120,7 +128,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(9, 346);
             this.label1.Name = "label1";
@@ -131,24 +139,17 @@
             // State
             // 
             this.State.AutoSize = true;
-            this.State.BackColor = System.Drawing.Color.White;
+            this.State.BackColor = System.Drawing.Color.Transparent;
             this.State.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.State.Location = new System.Drawing.Point(71, 346);
             this.State.Name = "State";
             this.State.Size = new System.Drawing.Size(0, 15);
             this.State.TabIndex = 5;
             // 
-            // imageList2
-            // 
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "settings.png");
-            this.imageList2.Images.SetKeyName(1, "settings2.png");
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(9, 361);
             this.label2.Name = "label2";
@@ -159,7 +160,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.White;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(9, 376);
             this.label3.Name = "label3";
@@ -170,7 +171,7 @@
             // Server
             // 
             this.Server.AutoSize = true;
-            this.Server.BackColor = System.Drawing.Color.White;
+            this.Server.BackColor = System.Drawing.Color.Transparent;
             this.Server.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Server.Location = new System.Drawing.Point(71, 361);
             this.Server.Name = "Server";
@@ -180,7 +181,7 @@
             // Database
             // 
             this.Database.AutoSize = true;
-            this.Database.BackColor = System.Drawing.Color.White;
+            this.Database.BackColor = System.Drawing.Color.Transparent;
             this.Database.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Database.Location = new System.Drawing.Point(71, 376);
             this.Database.Name = "Database";
@@ -192,6 +193,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(326, 397);
             this.Controls.Add(this.Database);
             this.Controls.Add(this.Server);
