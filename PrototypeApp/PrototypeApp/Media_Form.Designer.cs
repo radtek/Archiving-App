@@ -36,6 +36,7 @@
             this.Media_Grid = new System.Windows.Forms.DataGridView();
             this.MediaN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Add = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
@@ -45,7 +46,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.SearchP = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.SearchE = new System.Windows.Forms.TextBox();
+            this.DisableDate = new System.Windows.Forms.CheckBox();
+            this.SearchD = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.Media_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +61,7 @@
             this.Search.Location = new System.Drawing.Point(642, 119);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(130, 44);
-            this.Search.TabIndex = 1;
+            this.Search.TabIndex = 7;
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
             this.Search.Click += new System.EventHandler(this.Search_Click);
@@ -85,24 +87,27 @@
             this.SearchN.Location = new System.Drawing.Point(111, 15);
             this.SearchN.Name = "SearchN";
             this.SearchN.Size = new System.Drawing.Size(797, 21);
-            this.SearchN.TabIndex = 3;
+            this.SearchN.TabIndex = 0;
             // 
             // Media_Grid
             // 
             this.Media_Grid.AllowUserToAddRows = false;
             this.Media_Grid.AllowUserToDeleteRows = false;
+            this.Media_Grid.AllowUserToResizeColumns = false;
+            this.Media_Grid.AllowUserToResizeRows = false;
             this.Media_Grid.BackgroundColor = System.Drawing.Color.White;
             this.Media_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Media_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MediaN,
             this.Path,
+            this.Date,
             this.Extension});
             this.Media_Grid.Location = new System.Drawing.Point(12, 169);
             this.Media_Grid.Name = "Media_Grid";
             this.Media_Grid.ReadOnly = true;
             this.Media_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Media_Grid.Size = new System.Drawing.Size(896, 500);
-            this.Media_Grid.TabIndex = 0;
+            this.Media_Grid.TabIndex = 9;
             this.Media_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Images_Grid_CellDoubleClick);
             // 
             // MediaN
@@ -123,14 +128,22 @@
             this.Path.ReadOnly = true;
             this.Path.Width = 444;
             // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.FillWeight = 127.9188F;
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 164;
+            // 
             // Extension
             // 
             this.Extension.DataPropertyName = "Extension";
-            this.Extension.FillWeight = 127.9188F;
             this.Extension.HeaderText = "Extension";
             this.Extension.Name = "Extension";
             this.Extension.ReadOnly = true;
-            this.Extension.Width = 164;
+            this.Extension.Visible = false;
             // 
             // Add
             // 
@@ -157,7 +170,7 @@
             this.Delete.Location = new System.Drawing.Point(284, 119);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(130, 44);
-            this.Delete.TabIndex = 5;
+            this.Delete.TabIndex = 6;
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = true;
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
@@ -172,7 +185,7 @@
             this.View_Info.Location = new System.Drawing.Point(778, 119);
             this.View_Info.Name = "View_Info";
             this.View_Info.Size = new System.Drawing.Size(130, 44);
-            this.View_Info.TabIndex = 6;
+            this.View_Info.TabIndex = 8;
             this.View_Info.Text = "View";
             this.View_Info.UseVisualStyleBackColor = true;
             this.View_Info.Click += new System.EventHandler(this.View_Info_Click);
@@ -187,7 +200,7 @@
             this.Edit.Location = new System.Drawing.Point(148, 119);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(130, 44);
-            this.Edit.TabIndex = 7;
+            this.Edit.TabIndex = 5;
             this.Edit.Text = "Edit";
             this.Edit.UseVisualStyleBackColor = true;
             this.Edit.Click += new System.EventHandler(this.Edit_Click);
@@ -219,7 +232,7 @@
             this.SearchP.Location = new System.Drawing.Point(111, 48);
             this.SearchP.Name = "SearchP";
             this.SearchP.Size = new System.Drawing.Size(797, 21);
-            this.SearchP.TabIndex = 10;
+            this.SearchP.TabIndex = 1;
             // 
             // label3
             // 
@@ -227,18 +240,33 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 84);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 15);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "File Extension : ";
+            this.label3.Size = new System.Drawing.Size(42, 15);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Date : ";
             // 
-            // SearchE
+            // DisableDate
             // 
-            this.SearchE.BackColor = System.Drawing.Color.White;
-            this.SearchE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchE.Location = new System.Drawing.Point(111, 81);
-            this.SearchE.Name = "SearchE";
-            this.SearchE.Size = new System.Drawing.Size(797, 21);
-            this.SearchE.TabIndex = 12;
+            this.DisableDate.AutoSize = true;
+            this.DisableDate.Checked = true;
+            this.DisableDate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.DisableDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DisableDate.Location = new System.Drawing.Point(219, 83);
+            this.DisableDate.Name = "DisableDate";
+            this.DisableDate.Size = new System.Drawing.Size(97, 19);
+            this.DisableDate.TabIndex = 3;
+            this.DisableDate.Text = "Disable Date";
+            this.DisableDate.UseVisualStyleBackColor = true;
+            // 
+            // SearchD
+            // 
+            this.SearchD.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchD.CalendarMonthBackground = System.Drawing.Color.White;
+            this.SearchD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.SearchD.Location = new System.Drawing.Point(111, 81);
+            this.SearchD.Name = "SearchD";
+            this.SearchD.Size = new System.Drawing.Size(102, 21);
+            this.SearchD.TabIndex = 2;
             // 
             // Media_Form
             // 
@@ -246,7 +274,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(920, 681);
-            this.Controls.Add(this.SearchE);
+            this.Controls.Add(this.DisableDate);
+            this.Controls.Add(this.SearchD);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SearchP);
             this.Controls.Add(this.label2);
@@ -281,10 +310,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox SearchP;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox SearchE;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.CheckBox DisableDate;
+        private System.Windows.Forms.DateTimePicker SearchD;
         private System.Windows.Forms.DataGridViewTextBoxColumn MediaN;
         private System.Windows.Forms.DataGridViewTextBoxColumn Path;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Extension;
     }
 }

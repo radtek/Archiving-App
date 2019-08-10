@@ -52,6 +52,7 @@ namespace PrototypeApp
 
                 if (percentComplete >= 1)
                 {
+                    button.Width = endWidth;
                     expandTimer.Stop();
                 }
                 else
@@ -68,6 +69,7 @@ namespace PrototypeApp
 
                 if (percentComplete >= 1)
                 {
+                    button.Width = initialWidth;
                     contractTimer.Stop();
                 }
                 else

@@ -43,6 +43,8 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Add = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
+            this.Date = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // File_Name
@@ -64,11 +66,11 @@
             // File_Desc
             // 
             this.File_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.File_Desc.Location = new System.Drawing.Point(15, 204);
+            this.File_Desc.Location = new System.Drawing.Point(15, 270);
             this.File_Desc.Multiline = true;
             this.File_Desc.Name = "File_Desc";
-            this.File_Desc.Size = new System.Drawing.Size(608, 199);
-            this.File_Desc.TabIndex = 2;
+            this.File_Desc.Size = new System.Drawing.Size(608, 133);
+            this.File_Desc.TabIndex = 5;
             // 
             // label1
             // 
@@ -94,7 +96,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 186);
+            this.label3.Location = new System.Drawing.Point(12, 252);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 15);
             this.label3.TabIndex = 5;
@@ -114,10 +116,10 @@
             // 
             this.File_Extension.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.File_Extension.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.File_Extension.Location = new System.Drawing.Point(111, 122);
+            this.File_Extension.Location = new System.Drawing.Point(111, 121);
             this.File_Extension.Name = "File_Extension";
             this.File_Extension.Size = new System.Drawing.Size(512, 21);
-            this.File_Extension.TabIndex = 7;
+            this.File_Extension.TabIndex = 2;
             // 
             // Browse_File_Wind
             // 
@@ -130,10 +132,10 @@
             this.Browse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Browse.ImageIndex = 7;
             this.Browse.ImageList = this.imageList1;
-            this.Browse.Location = new System.Drawing.Point(493, 154);
+            this.Browse.Location = new System.Drawing.Point(493, 159);
             this.Browse.Name = "Browse";
             this.Browse.Size = new System.Drawing.Size(130, 44);
-            this.Browse.TabIndex = 8;
+            this.Browse.TabIndex = 4;
             this.Browse.Text = "Browse";
             this.Browse.UseVisualStyleBackColor = true;
             this.Browse.Click += new System.EventHandler(this.Browse_Click);
@@ -163,7 +165,7 @@
             this.Add.Location = new System.Drawing.Point(15, 423);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(130, 44);
-            this.Add.TabIndex = 9;
+            this.Add.TabIndex = 6;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
@@ -179,10 +181,31 @@
             this.Cancel.Location = new System.Drawing.Point(151, 423);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(130, 44);
-            this.Cancel.TabIndex = 10;
+            this.Cancel.TabIndex = 7;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            // 
+            // Date
+            // 
+            this.Date.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Date.CalendarMonthBackground = System.Drawing.Color.White;
+            this.Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.Date.Location = new System.Drawing.Point(111, 168);
+            this.Date.Name = "Date";
+            this.Date.Size = new System.Drawing.Size(102, 21);
+            this.Date.TabIndex = 3;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 171);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 15);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Date : ";
             // 
             // Add_Media
             // 
@@ -190,6 +213,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(635, 479);
+            this.Controls.Add(this.Date);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Add);
             this.Controls.Add(this.Browse);
@@ -224,5 +249,7 @@
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.DateTimePicker Date;
+        private System.Windows.Forms.Label label5;
     }
 }

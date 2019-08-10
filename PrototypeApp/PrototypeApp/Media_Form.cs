@@ -16,6 +16,7 @@ namespace PrototypeApp
     {
         static Form MainForm = Application.OpenForms["Main_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
+        GlobalFunc GF = new GlobalFunc();
         public Media_Form()
         {
             InitializeComponent();
@@ -29,22 +30,23 @@ namespace PrototypeApp
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string get_media = "select name as MediaN , path as Path , extension as Extension from media ";
-            if (SearchN.Text.Length != 0 || SearchP.Text.Length != 0 || SearchE.Text.Length != 0)
+            string get_media = "select name as MediaN , path as Path , [date] as Date , extension as Extension from media ";
+            if (SearchN.Text.Length != 0 || SearchP.Text.Length != 0 || !DisableDate.Checked)
                 get_media += "where ";
+            string original_query = get_media;
             if (SearchN.Text.Length != 0)
             {
-                get_media += "name like '%" + SearchN.Text.Replace("'", "''") + "%' ";
+                get_media += "name like N'%" + SearchN.Text.Replace("'", "''") + "%' ";
             }
             if(SearchP.Text.Length!=0)
             {
-                if (SearchN.Text.Length != 0) get_media += "and ";
-                get_media += "path like '%" + SearchP.Text.Replace("'", "''") + "%' ";
+                if (get_media != original_query) get_media += "and ";
+                get_media += "path like N'%" + SearchP.Text.Replace("'", "''") + "%' ";
             }
-            if(SearchE.Text.Length!=0)
+            if(!DisableDate.Checked)
             {
-                if (SearchN.Text.Length != 0 || SearchP.Text.Length != 0) get_media += "and ";
-                get_media += "extension like '%" + SearchE.Text.Replace("'" , "''") + "%' "; 
+                if (get_media != original_query) get_media += "and ";
+                get_media += "Date = '" + SearchD.Text.Replace("/" , "-").Replace(" " , "") + "' ";
             }
             SqlDataAdapter sqlAdapt = new SqlDataAdapter(get_media, conn);
             DataTable Images_Data = new DataTable();
@@ -84,8 +86,8 @@ namespace PrototypeApp
         {
             if (Media_Grid.SelectedCells.Count == 0)
                 return;
-            string name = Media_Grid.CurrentRow.Cells["MediaN"].Value.ToString(), path = Media_Grid.CurrentRow.Cells["Path"].Value.ToString(), ext = Media_Grid.CurrentRow.Cells["Extension"].Value.ToString();
-            View_Edit_Media form = new View_Edit_Media(name , path , ext , false);
+            string name = Media_Grid.CurrentRow.Cells["MediaN"].Value.ToString(), path = Media_Grid.CurrentRow.Cells["Path"].Value.ToString(), ext = Media_Grid.CurrentRow.Cells["Extension"].Value.ToString() , date = GF.RemoveTime(Media_Grid.CurrentRow.Cells["Date"].Value.ToString());
+            View_Edit_Media form = new View_Edit_Media(name , path , ext , date , false);
             form.ShowDialog();
         }
 
@@ -101,7 +103,7 @@ namespace PrototypeApp
             foreach (DataGridViewRow r in Media_Grid.SelectedRows)
             {
                 string name = r.Cells["MediaN"].Value.ToString(), path = r.Cells["Path"].Value.ToString(), ext = r.Cells["Extension"].Value.ToString();
-                string delete_record = "delete from media where name = '" + name + "' and path ='" + path + "' and extension ='" + ext + "'";
+                string delete_record = "delete from media where name = N'" + name + "' and path =N'" + path + "' and extension ='" + ext + "'";
                 SqlCommand comm = new SqlCommand(delete_record, conn);
                 comm.ExecuteNonQuery();
                 Media_Grid.Rows.Remove(r);
@@ -114,8 +116,8 @@ namespace PrototypeApp
         {
             if (Media_Grid.SelectedCells.Count == 0)
                 return;
-            string name = Media_Grid.CurrentRow.Cells["MediaN"].Value.ToString(), path = Media_Grid.CurrentRow.Cells["Path"].Value.ToString(), ext = Media_Grid.CurrentRow.Cells["Extension"].Value.ToString();
-            View_Edit_Media form = new View_Edit_Media(name, path, ext, true);
+            string name = Media_Grid.CurrentRow.Cells["MediaN"].Value.ToString(), path = Media_Grid.CurrentRow.Cells["Path"].Value.ToString(), ext = Media_Grid.CurrentRow.Cells["Extension"].Value.ToString(), date = GF.RemoveTime(Media_Grid.CurrentRow.Cells["Date"].Value.ToString());
+            View_Edit_Media form = new View_Edit_Media(name, path, ext , date , true);
             form.ShowDialog();
         }
     }

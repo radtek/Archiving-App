@@ -48,7 +48,7 @@ namespace PrototypeApp
         private void Add_Click(object sender, EventArgs e)
         {
             string name = File_Name.Text.Replace("'", "''"), path = File_Path.Text.Replace("'", "''"), ext = File_Extension.Text.Replace("'", "''"), desc = File_Desc.Text.Replace("'", "''");
-            if(File_Name.Text.Length==0 || File_Path.Text.Length == 0 || File_Extension.Text.Length == 0)
+            if(name.Length==0 || path.Length == 0 || ext.Length == 0)
             {
                 MessageBox.Show("Please, enter the file info.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -60,16 +60,15 @@ namespace PrototypeApp
             }
             if (!File.Exists(File_Path.Text + "\\" + File_Name.Text + File_Extension.Text))
             {
-                DialogResult res = MessageBox.Show("Couldn't find the file in the chosen path. Continue anyway?", "Warning", MessageBoxButtons.YesNo , MessageBoxIcon.Information);
-                if (res == DialogResult.No)
-                    return;
+                MessageBox.Show("Error 404.\nCouldn't find the file in the chosen path.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             if(gf.CheckExistance(File_Name.Text + "-" + File_Path.Text + "-" + File_Extension.Text, "media", connectionString))
             {
                 MessageBox.Show("File already exists.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string insert_media = "insert into media(name , path , extension , description) values (N'" + name + "',N'" + path + "',N'" + ext + "',N'" + desc + "')";
+            string insert_media = "insert into media(name , path , extension , description , [date]) values (N'" + name + "',N'" + path + "','" + ext + "',N'" + desc + "','"+Date.Text.Replace("/" , "-") + "')";
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand comm = new SqlCommand (insert_media, conn);

@@ -11,6 +11,8 @@ using System.Data.SqlClient;
 using FluentFTP;
 using System.Net;
 using System.Net.Sockets;
+using System.IO;
+
 
 namespace PrototypeApp
 {
@@ -18,45 +20,65 @@ namespace PrototypeApp
     {
         public string connectionString;
         AnimationFunc Anim = new AnimationFunc();
+        GlobalFunc GF = new GlobalFunc();
         public Main_Form()
         {
             InitializeComponent();
-            connectionString = "Data Source=" + "192.168.1.5" + ",49170;Initial Catalog = Prototype; Integrated Security = True";
-            //MessageBox.Show(connectionString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             Media.FlatAppearance.BorderColor = Color.White;
             Correspondence.FlatAppearance.BorderColor = Color.White;
-            Anim.AddAnimation(Media , "Media" , 75 , 403);
-            Anim.AddAnimation(Correspondence , "Correspondence", 75, 403);
+            Settings.FlatAppearance.BorderColor = Color.White;
+            Anim.AddAnimation(Media , "Media" , 86 , 302);
+            Anim.AddAnimation(Correspondence , "Correspondence", 86, 302);
+            connectionString = GF.GetConnection();
+            CheckState();
         }
-
-        public static string GetLocalIPAddress()
+        
+        public void CheckState()
         {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
+            Server.Text = GF.GetConnection(1);
+            Database.Text = GF.GetConnection(2);
+            if (!GF.IsServerConnected(connectionString))
             {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
+                MessageBox.Show("Could not connect to server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                State.ForeColor = Color.Red;
+                State.Text = "Not Connected.";
+                return;
             }
-            throw new Exception("No network adapters with an IPv4 address in the system!");
-        }
-
-        private void Media_MouseHover(object sender, EventArgs e)
-        {
-            
+            State.ForeColor = Color.Green;
+            State.Text = "Connected.";
         }
 
         private void Media_Click(object sender, EventArgs e)
         {
+            if (State.ForeColor == Color.Red)
+            {
+                MessageBox.Show("Not connected to database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Media_Form form = new Media_Form();
             form.ShowDialog();
         }
 
         private void Correspondence_Click(object sender, EventArgs e)
         {
+            if (State.ForeColor == Color.Red)
+            {
+                MessageBox.Show("Not connected to database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Correspondence_Form form = new Correspondence_Form();
             form.ShowDialog();
+        }
+
+        private void Settings_Click(object sender, EventArgs e)
+        {
+            Settings_Form form = new Settings_Form();
+            form.ShowDialog();
+            if(connectionString != GF.GetConnection())
+            {
+                connectionString = GF.GetConnection();
+                CheckState();
+            }
         }
     }
 }

@@ -46,6 +46,9 @@
             this.Edit = new System.Windows.Forms.Button();
             this.Done = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.File_Date = new System.Windows.Forms.Label();
+            this.New_Date = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -82,7 +85,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(12, 151);
+            this.label4.Location = new System.Drawing.Point(12, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 15);
             this.label4.TabIndex = 3;
@@ -91,11 +94,11 @@
             // File_Desc
             // 
             this.File_Desc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.File_Desc.Location = new System.Drawing.Point(15, 169);
+            this.File_Desc.Location = new System.Drawing.Point(15, 214);
             this.File_Desc.Multiline = true;
             this.File_Desc.Name = "File_Desc";
             this.File_Desc.ReadOnly = true;
-            this.File_Desc.Size = new System.Drawing.Size(773, 283);
+            this.File_Desc.Size = new System.Drawing.Size(773, 238);
             this.File_Desc.TabIndex = 4;
             // 
             // File_Name
@@ -229,12 +232,46 @@
             this.Cancel.Visible = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(12, 151);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(42, 15);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Date : ";
+            // 
+            // File_Date
+            // 
+            this.File_Date.AutoSize = true;
+            this.File_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.File_Date.Location = new System.Drawing.Point(111, 151);
+            this.File_Date.Name = "File_Date";
+            this.File_Date.Size = new System.Drawing.Size(0, 15);
+            this.File_Date.TabIndex = 17;
+            // 
+            // New_Date
+            // 
+            this.New_Date.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.New_Date.CalendarMonthBackground = System.Drawing.Color.White;
+            this.New_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.New_Date.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.New_Date.Location = new System.Drawing.Point(111, 148);
+            this.New_Date.Name = "New_Date";
+            this.New_Date.Size = new System.Drawing.Size(102, 21);
+            this.New_Date.TabIndex = 18;
+            this.New_Date.Visible = false;
+            // 
             // View_Edit_Media
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 509);
+            this.Controls.Add(this.New_Date);
+            this.Controls.Add(this.File_Date);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.Done);
             this.Controls.Add(this.Edit);
@@ -278,5 +315,8 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Button Done;
         private System.Windows.Forms.Button Cancel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label File_Date;
+        private System.Windows.Forms.DateTimePicker New_Date;
     }
 }
