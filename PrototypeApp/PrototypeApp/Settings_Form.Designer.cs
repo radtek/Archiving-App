@@ -1,4 +1,4 @@
-﻿namespace PrototypeApp
+﻿namespace Apex
 {
     partial class Settings_Form
     {

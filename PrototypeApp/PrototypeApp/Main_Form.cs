@@ -14,7 +14,7 @@ using System.Net.Sockets;
 using System.IO;
 using Apex;
 
-namespace PrototypeApp
+namespace Apex
 {
     public partial class Main_Form : Form
     {

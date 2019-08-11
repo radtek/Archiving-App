@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 
-namespace PrototypeApp
+namespace Apex
 {
     public partial class View_Edit_Correspondence : Form
     {

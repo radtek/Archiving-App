@@ -12,8 +12,6 @@ using FluentFTP;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
-using Apex;
-using PrototypeApp;
 
 namespace Apex
 {

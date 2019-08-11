@@ -1,4 +1,4 @@
-﻿namespace PrototypeApp
+﻿namespace Apex
 {
     partial class Main_Form
     {
@@ -141,7 +141,7 @@
             this.State.AutoSize = true;
             this.State.BackColor = System.Drawing.Color.Transparent;
             this.State.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.State.Location = new System.Drawing.Point(71, 346);
+            this.State.Location = new System.Drawing.Point(81, 346);
             this.State.Name = "State";
             this.State.Size = new System.Drawing.Size(0, 15);
             this.State.TabIndex = 5;
@@ -173,7 +173,7 @@
             this.Server.AutoSize = true;
             this.Server.BackColor = System.Drawing.Color.Transparent;
             this.Server.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Server.Location = new System.Drawing.Point(71, 361);
+            this.Server.Location = new System.Drawing.Point(81, 361);
             this.Server.Name = "Server";
             this.Server.Size = new System.Drawing.Size(0, 15);
             this.Server.TabIndex = 8;
@@ -183,7 +183,7 @@
             this.Database.AutoSize = true;
             this.Database.BackColor = System.Drawing.Color.Transparent;
             this.Database.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Database.Location = new System.Drawing.Point(71, 376);
+            this.Database.Location = new System.Drawing.Point(81, 376);
             this.Database.Name = "Database";
             this.Database.Size = new System.Drawing.Size(0, 15);
             this.Database.TabIndex = 9;
