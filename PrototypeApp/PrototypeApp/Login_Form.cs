@@ -8,28 +8,45 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using FluentFTP;
+using System.Net;
+using System.Net.Sockets;
 using System.IO;
+using Apex;
+using PrototypeApp;
 
-namespace PrototypeApp
+namespace Apex
 {
-    public partial class Settings_Form : Form
+    public partial class Login_Form : Form
     {
         GlobalFunc GF = new GlobalFunc();
-        public Settings_Form()
+        int mode;
+        public Login_Form()
         {
             InitializeComponent();
-            Done.FlatAppearance.BorderColor = Color.White;
-            Cancel.FlatAppearance.BorderColor = Color.White;
+            Login.FlatAppearance.BorderColor = Color.White;
+            Close.FlatAppearance.BorderColor = Color.White;
             ServerN.Text = GF.GetConnection(1);
             DatabaseN.Text = GF.GetConnection(2);
         }
 
-        private void Done_Click(object sender, EventArgs e)
+        private void Close_Click(object sender, EventArgs e)
         {
+            System.Environment.Exit(1);
+        }
+
+        private void Login_Click(object sender, EventArgs e)
+        {
+            Process.Text = "Connecting to database server...";
+            Bar.Style = ProgressBarStyle.Marquee;
+            Bar.MarqueeAnimationSpeed = 30;
             string connectionString = "Data Source=" + ServerN.Text + ";Initial Catalog =" + DatabaseN.Text + "; Integrated Security = True";
             if (!GF.IsServerConnected(connectionString))
             {
                 MessageBox.Show("Could not connect to server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Process.Text = "";
+                Bar.Style = ProgressBarStyle.Continuous;
+                Bar.MarqueeAnimationSpeed = 0;
                 return;
             }
             string loc = Directory.GetCurrentDirectory();
@@ -37,11 +54,6 @@ namespace PrototypeApp
             {
                 outputFile.WriteLine("Server=" + ServerN.Text + Environment.NewLine + "Database=" + DatabaseN.Text);
             }
-            this.Close();
-        }
-
-        private void Cancel_Click(object sender, EventArgs e)
-        {
             this.Close();
         }
     }

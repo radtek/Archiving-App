@@ -23,9 +23,7 @@ namespace PrototypeApp
             string server = "", database = "";
             using (StreamReader file = new StreamReader(Path.Combine(loc, "DatabaseInfo.txt")))
             {
-                int counter = 0;
                 string ln;
-
                 while ((ln = file.ReadLine()) != null)
                 {
                     string[] line = ln.Split('=');

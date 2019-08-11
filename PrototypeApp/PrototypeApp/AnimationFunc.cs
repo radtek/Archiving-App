@@ -35,6 +35,8 @@ namespace PrototypeApp
                 contractTimer.Stop();
                 expandTimer.Start();
                 animationStarted = DateTime.Now;
+                if (button.BackColor == Color.FromArgb(229, 229, 229))
+                    button.BackColor = Color.Transparent;
             };
 
             button.MouseLeave += (_, args) =>
@@ -43,6 +45,7 @@ namespace PrototypeApp
                 expandTimer.Stop();
                 contractTimer.Start();
                 animationStarted = DateTime.Now;
+                button.BackColor = Color.FromArgb(229, 229, 229);
             };
 
             expandTimer.Tick += (_, args) =>
@@ -70,6 +73,7 @@ namespace PrototypeApp
                 if (percentComplete >= 1)
                 {
                     button.Width = initialWidth;
+                    button.BackColor = Color.Transparent;
                     contractTimer.Stop();
                 }
                 else

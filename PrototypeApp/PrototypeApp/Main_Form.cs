@@ -12,7 +12,7 @@ using FluentFTP;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
-
+using Apex;
 
 namespace PrototypeApp
 {
@@ -29,6 +29,8 @@ namespace PrototypeApp
             Settings.FlatAppearance.BorderColor = Color.White;
             Anim.AddAnimation(Media , "Media" , 86 , 302);
             Anim.AddAnimation(Correspondence , "Correspondence", 86, 302);
+            Login_Form form = new Login_Form();
+            form.ShowDialog();
             connectionString = GF.GetConnection();
             CheckState();
         }
@@ -74,7 +76,7 @@ namespace PrototypeApp
         {
             Settings_Form form = new Settings_Form();
             form.ShowDialog();
-            if(connectionString != GF.GetConnection())
+            if (connectionString != GF.GetConnection())
             {
                 connectionString = GF.GetConnection();
                 CheckState();
