@@ -25,6 +25,7 @@ namespace Apex
             Edit.FlatAppearance.BorderColor = Color.White;
             Search.FlatAppearance.BorderColor = Color.White;
             View_Info.FlatAppearance.BorderColor = Color.White;
+            Clear.FlatAppearance.BorderColor = Color.White;
         }
         public void Refresh()
         {
@@ -119,6 +120,27 @@ namespace Apex
             string name = Media_Grid.CurrentRow.Cells["MediaN"].Value.ToString(), path = Media_Grid.CurrentRow.Cells["Path"].Value.ToString(), ext = Media_Grid.CurrentRow.Cells["Extension"].Value.ToString(), date = GF.RemoveTime(Media_Grid.CurrentRow.Cells["Date"].Value.ToString());
             View_Edit_Media form = new View_Edit_Media(name, path, ext , date , true);
             form.ShowDialog();
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in Media_Grid.Rows)
+            {
+                Media_Grid.Rows.Remove(row);
+            }
+            DataGridViewRow r = Media_Grid.Rows[0];
+            Media_Grid.Rows.Remove(r);
+        }
+
+        private void Media_Form_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Clear_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip ToolTip1 = new ToolTip();
+            ToolTip1.SetToolTip(this.Clear, "Clear search list");
         }
     }
 }

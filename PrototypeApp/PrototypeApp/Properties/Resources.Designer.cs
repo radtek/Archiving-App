@@ -104,6 +104,16 @@ namespace Apex.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap poli_low {
+            get {
+                object obj = ResourceManager.GetObject("poli low", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap silver_light_blue_wave_abstract_backgrounds_powerpoint {
             get {
                 object obj = ResourceManager.GetObject("silver-light-blue-wave-abstract-backgrounds-powerpoint", resourceCulture);
@@ -137,6 +147,16 @@ namespace Apex.Properties {
         internal static System.Drawing.Bitmap v_02_512 {
             get {
                 object obj = ResourceManager.GetObject("v-02-512", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Webp_net_resizeimage__1_ {
+            get {
+                object obj = ResourceManager.GetObject("Webp.net-resizeimage (1)", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

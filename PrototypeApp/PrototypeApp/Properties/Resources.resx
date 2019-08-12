@@ -127,6 +127,12 @@
   <data name="icons8-circled-play-100" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icons8-circled-play-100.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="poli low" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\poli low.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silver-light-blue-wave-abstract-backgrounds-powerpoint1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silver-light-blue-wave-abstract-backgrounds-powerpoint1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="v-02-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\v-02-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,7 +145,7 @@
   <data name="logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="silver-light-blue-wave-abstract-backgrounds-powerpoint1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\silver-light-blue-wave-abstract-backgrounds-powerpoint1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Webp.net-resizeimage (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Webp.net-resizeimage (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

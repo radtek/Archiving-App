@@ -25,6 +25,7 @@ namespace Apex
             Edit.FlatAppearance.BorderColor = Color.White;
             Search.FlatAppearance.BorderColor = Color.White;
             View_Info.FlatAppearance.BorderColor = Color.White;
+            Clear.FlatAppearance.BorderColor = Color.White;
         }
 
         public void Refresh()
@@ -146,6 +147,22 @@ namespace Apex
             string subj = Correspondence_Grid.CurrentRow.Cells["Subj"].Value.ToString(), srname = Correspondence_Grid.CurrentRow.Cells["SRName"].Value.ToString(), sr = Correspondence_Grid.CurrentRow.Cells["SR"].Value.ToString();
             View_Edit_Correspondence form = new View_Edit_Correspondence(name, path, ext , subj , srname , sr, date, false);
             form.ShowDialog();
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in Correspondence_Grid.Rows)
+            {
+                Correspondence_Grid.Rows.Remove(row);
+            }
+            DataGridViewRow r = Correspondence_Grid.Rows[0];
+            Correspondence_Grid.Rows.Remove(r);
+        }
+
+        private void Clear_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip ToolTip1 = new ToolTip();
+            ToolTip1.SetToolTip(this.Clear, "Clear search list");
         }
     }
 }

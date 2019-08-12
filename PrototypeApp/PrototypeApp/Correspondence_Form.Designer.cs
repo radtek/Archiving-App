@@ -57,6 +57,7 @@
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.Search = new System.Windows.Forms.Button();
+            this.Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Correspondence_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -121,6 +122,7 @@
             this.imageList1.Images.SetKeyName(6, "error.png");
             this.imageList1.Images.SetKeyName(7, "folder.png");
             this.imageList1.Images.SetKeyName(8, "success.png");
+            this.imageList1.Images.SetKeyName(9, "brush.png");
             // 
             // SearchN
             // 
@@ -314,7 +316,7 @@
             this.View_Info.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.View_Info.ImageIndex = 4;
             this.View_Info.ImageList = this.imageList1;
-            this.View_Info.Location = new System.Drawing.Point(1010, 179);
+            this.View_Info.Location = new System.Drawing.Point(874, 179);
             this.View_Info.Name = "View_Info";
             this.View_Info.Size = new System.Drawing.Size(130, 44);
             this.View_Info.TabIndex = 12;
@@ -359,7 +361,7 @@
             this.Search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Search.ImageIndex = 3;
             this.Search.ImageList = this.imageList1;
-            this.Search.Location = new System.Drawing.Point(874, 179);
+            this.Search.Location = new System.Drawing.Point(738, 179);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(130, 44);
             this.Search.TabIndex = 11;
@@ -367,12 +369,29 @@
             this.Search.UseVisualStyleBackColor = true;
             this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
+            // Clear
+            // 
+            this.Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Clear.ImageIndex = 9;
+            this.Clear.ImageList = this.imageList1;
+            this.Clear.Location = new System.Drawing.Point(1010, 179);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(130, 44);
+            this.Clear.TabIndex = 32;
+            this.Clear.Text = "Clear";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            this.Clear.MouseHover += new System.EventHandler(this.Clear_MouseHover);
+            // 
             // Correspondence_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1152, 694);
+            this.Controls.Add(this.Clear);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.SFileN);
             this.Controls.Add(this.OnlyR);
@@ -432,5 +451,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Path;
         private System.Windows.Forms.DataGridViewTextBoxColumn Extension;
+        private System.Windows.Forms.Button Clear;
     }
 }

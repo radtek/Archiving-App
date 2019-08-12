@@ -18,14 +18,15 @@ namespace Apex
     public partial class Login_Form : Form
     {
         GlobalFunc GF = new GlobalFunc();
-        int mode;
+        public string connectionString;
+        public string user;
         public Login_Form()
         {
             InitializeComponent();
             Login.FlatAppearance.BorderColor = Color.White;
             Close.FlatAppearance.BorderColor = Color.White;
-            ServerN.Text = GF.GetConnection(1);
-            DatabaseN.Text = GF.GetConnection(2);
+            ServerN.Text = GF.GetConnection("" , "" , 1);
+            DatabaseN.Text = GF.GetConnection("" , "" , 2);
         }
 
         private void Close_Click(object sender, EventArgs e)
@@ -38,7 +39,7 @@ namespace Apex
             Process.Text = "Connecting to database server...";
             Bar.Style = ProgressBarStyle.Marquee;
             Bar.MarqueeAnimationSpeed = 30;
-            string connectionString = "Data Source=" + ServerN.Text + ";Initial Catalog =" + DatabaseN.Text + "; Integrated Security = True";
+            connectionString = "Data Source=" + ServerN.Text + ";Initial Catalog =" + DatabaseN.Text + ";User id=" + UserName.Text + ";Password=" + Password.Text + ";";
             if (!GF.IsServerConnected(connectionString))
             {
                 MessageBox.Show("Could not connect to server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -52,7 +53,19 @@ namespace Apex
             {
                 outputFile.WriteLine("Server=" + ServerN.Text + Environment.NewLine + "Database=" + DatabaseN.Text);
             }
+            connectionString = GF.GetConnection(UserName.Text, Password.Text);
+            user = UserName.Text;
             this.Close();
+        }
+
+        private void Login_Form_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+        }
+
+        private void Login_Form_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

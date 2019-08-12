@@ -48,6 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.DisableDate = new System.Windows.Forms.CheckBox();
             this.SearchD = new System.Windows.Forms.DateTimePicker();
+            this.Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Media_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             this.Search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Search.ImageIndex = 3;
             this.Search.ImageList = this.imageList1;
-            this.Search.Location = new System.Drawing.Point(642, 119);
+            this.Search.Location = new System.Drawing.Point(506, 119);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(130, 44);
             this.Search.TabIndex = 7;
@@ -79,6 +80,7 @@
             this.imageList1.Images.SetKeyName(6, "error.png");
             this.imageList1.Images.SetKeyName(7, "folder.png");
             this.imageList1.Images.SetKeyName(8, "success.png");
+            this.imageList1.Images.SetKeyName(9, "brush.png");
             // 
             // SearchN
             // 
@@ -182,7 +184,7 @@
             this.View_Info.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.View_Info.ImageIndex = 4;
             this.View_Info.ImageList = this.imageList1;
-            this.View_Info.Location = new System.Drawing.Point(778, 119);
+            this.View_Info.Location = new System.Drawing.Point(642, 119);
             this.View_Info.Name = "View_Info";
             this.View_Info.Size = new System.Drawing.Size(130, 44);
             this.View_Info.TabIndex = 8;
@@ -268,12 +270,29 @@
             this.SearchD.Size = new System.Drawing.Size(102, 21);
             this.SearchD.TabIndex = 2;
             // 
+            // Clear
+            // 
+            this.Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Clear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Clear.ImageIndex = 9;
+            this.Clear.ImageList = this.imageList1;
+            this.Clear.Location = new System.Drawing.Point(778, 119);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(130, 44);
+            this.Clear.TabIndex = 11;
+            this.Clear.Text = "Clear";
+            this.Clear.UseVisualStyleBackColor = true;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
+            this.Clear.MouseHover += new System.EventHandler(this.Clear_MouseHover);
+            // 
             // Media_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(920, 681);
+            this.Controls.Add(this.Clear);
             this.Controls.Add(this.DisableDate);
             this.Controls.Add(this.SearchD);
             this.Controls.Add(this.label3);
@@ -292,6 +311,7 @@
             this.MaximizeBox = false;
             this.Name = "Media_Form";
             this.Text = "Media";
+            this.Load += new System.EventHandler(this.Media_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Media_Grid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -317,5 +337,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Path;
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Extension;
+        private System.Windows.Forms.Button Clear;
     }
 }

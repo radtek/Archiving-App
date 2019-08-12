@@ -17,10 +17,17 @@ namespace Apex
 {
     class GlobalFunc
     {
-        public string GetConnection(int x = 0)
+        public string GetConnection(string user="" , string pass="" , int x=0)
         {
-            string loc = Directory.GetCurrentDirectory();
+            string loc = Directory.GetCurrentDirectory()+"/Logs";
             string server = "", database = "";
+            if(!File.Exists(loc+"/DatabaseInfo.txt"))
+            {
+                using (StreamWriter outputFile = new StreamWriter(Path.Combine(loc, "DatabaseInfo.txt")))
+                {
+                    outputFile.WriteLine("Server=" + Environment.NewLine + "Database=");
+                }
+            }
             using (StreamReader file = new StreamReader(Path.Combine(loc, "DatabaseInfo.txt")))
             {
                 string ln;
@@ -32,7 +39,7 @@ namespace Apex
                 }
                 file.Close();
             }
-            string connectionString = "Data Source=" + server + ";Initial Catalog =" + database + "; Integrated Security = True";
+            string connectionString = "Data Source=" + server + ";Initial Catalog =" + database + "; User id=" + user +";Password=" + pass + ";";
             if (x == 1)
                 return server;
             if (x == 2)
