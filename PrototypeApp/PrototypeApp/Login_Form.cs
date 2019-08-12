@@ -48,7 +48,7 @@ namespace Apex
                 Bar.MarqueeAnimationSpeed = 0;
                 return;
             }
-            string loc = Directory.GetCurrentDirectory();
+            string loc = Directory.GetCurrentDirectory()+"/Logs";
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(loc, "DatabaseInfo.txt")))
             {
                 outputFile.WriteLine("Server=" + ServerN.Text + Environment.NewLine + "Database=" + DatabaseN.Text);
