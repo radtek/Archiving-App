@@ -12,22 +12,21 @@ using FluentFTP;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
-using Apex;
 
 namespace Apex
 {
     public partial class Main_Form : Form
     {
         public string connectionString="";
-        string user;
+        public string user;
         AnimationFunc Anim = new AnimationFunc();
         GlobalFunc GF = new GlobalFunc();
-        string[] res = { "", "", "" };
         public Main_Form()
         {
             InitializeComponent();
             Media.FlatAppearance.BorderColor = Color.White;
             Correspondence.FlatAppearance.BorderColor = Color.White;
+            AddUser.FlatAppearance.BorderColor = Color.White;
             Logout.FlatAppearance.BorderColor = Color.White;
             Anim.AddAnimation(Media , "Media" , 86 , 347);
             Anim.AddAnimation(Correspondence , "Correspondence", 86, 347);
@@ -41,25 +40,6 @@ namespace Apex
             form.ShowDialog();
             connectionString = form.connectionString;
             user = form.user;
-            string get_permissions = "";
-            string loc = Directory.GetCurrentDirectory()+"/Logs";
-            using (StreamReader file = new StreamReader(Path.Combine(loc, "PermissionsQ.txt")))
-            {
-                get_permissions = file.ReadLine();
-                get_permissions += user;
-                get_permissions += file.ReadLine();
-                file.Close();
-            }
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand comm = new SqlCommand(get_permissions , conn);
-            SqlDataReader reader = comm.ExecuteReader();
-            if (reader.Read())
-            {
-                res[0] = reader[0].ToString();
-                res[1] = reader[1].ToString();
-                res[2] = reader[2].ToString();
-            }
             this.Visible = true;
             CheckState();
         }
@@ -76,21 +56,53 @@ namespace Apex
                 State.Text = "Not Connected.";
                 Media.Enabled = false;
                 Correspondence.Enabled = false;
+                AddUser.Visible = false;
+                AdminLabel.Visible = false;
                 return;
             }
             Media.Enabled = true;
             Correspondence.Enabled = true;
-            if (res[0] == "Media" && res[1] == "SELECT" && res[2] == "DENY")
+            AddUser.Visible = true;
+            AdminLabel.Visible = true;
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand comm = new SqlCommand("SELECT count(name) FROM master.sys.server_principals  WHERE    IS_SRVROLEMEMBER ('sysadmin',name) = 1 and name ='" + user + "'", conn);
+            try
+            {
+                string check = comm.ExecuteScalar().ToString();
+                if (check != "0")
+                {
+                    AddUser.Visible = true;
+                    AdminLabel.Visible = true;
+                }
+                else
+                {
+                    AddUser.Visible = false;
+                    AdminLabel.Visible = false;
+                }
+            }
+            catch(SqlException)
+            {
+                AddUser.Visible = false;
+            }
+            comm = new SqlCommand("select * from media", conn);
+            try
+            {
+                comm.ExecuteScalar();
+            }
+            catch(SqlException)
             {
                 Media.Enabled = false;
             }
-            if (res[0] == "Correspondence" && res[1] == "SELECT" && res[2] == "DENY")
+            comm = new SqlCommand("select * from correspondence", conn);
+            try
+            {
+                comm.ExecuteScalar();
+            }
+            catch (SqlException)
             {
                 Correspondence.Enabled = false;
             }
-            res[0] = "";
-            res[1] = "";
-            res[2] = "";
             State.ForeColor = Color.Green;
             State.Text = "Connected.";
         }
@@ -129,8 +141,26 @@ namespace Apex
 
         private void Settings_MouseHover(object sender, EventArgs e)
         {
-            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.Logout, "Logout");
+        }
+
+        private void AddUser_Click(object sender, EventArgs e)
+        {
+            Add_User_Form form = new Add_User_Form();
+            form.Show();
+        }
+
+        private void AddUser_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip ToolTip1 = new ToolTip();
+            ToolTip1.SetToolTip(this.AddUser, "Add User");
+        }
+
+        private void AdminLabel_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip ToolTip1 = new ToolTip();
+            ToolTip1.SetToolTip(this.AdminLabel, "Logged in as Admin");
         }
     }
 }

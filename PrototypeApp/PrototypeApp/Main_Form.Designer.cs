@@ -45,6 +45,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Correspondence = new System.Windows.Forms.Button();
             this.Media = new System.Windows.Forms.Button();
+            this.AddUser = new System.Windows.Forms.Button();
+            this.AdminLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,6 +72,7 @@
             this.imageList2.Images.SetKeyName(0, "settings.png");
             this.imageList2.Images.SetKeyName(1, "settings2.png");
             this.imageList2.Images.SetKeyName(2, "exit (1).png");
+            this.imageList2.Images.SetKeyName(3, "new-user.png");
             // 
             // label1
             // 
@@ -87,7 +90,7 @@
             this.State.AutoSize = true;
             this.State.BackColor = System.Drawing.Color.Transparent;
             this.State.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.State.Location = new System.Drawing.Point(81, 346);
+            this.State.Location = new System.Drawing.Point(86, 346);
             this.State.Name = "State";
             this.State.Size = new System.Drawing.Size(0, 15);
             this.State.TabIndex = 5;
@@ -119,7 +122,7 @@
             this.Server.AutoSize = true;
             this.Server.BackColor = System.Drawing.Color.Transparent;
             this.Server.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Server.Location = new System.Drawing.Point(81, 376);
+            this.Server.Location = new System.Drawing.Point(86, 376);
             this.Server.Name = "Server";
             this.Server.Size = new System.Drawing.Size(0, 15);
             this.Server.TabIndex = 8;
@@ -129,7 +132,7 @@
             this.Database.AutoSize = true;
             this.Database.BackColor = System.Drawing.Color.Transparent;
             this.Database.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Database.Location = new System.Drawing.Point(81, 391);
+            this.Database.Location = new System.Drawing.Point(86, 391);
             this.Database.Name = "Database";
             this.Database.Size = new System.Drawing.Size(0, 15);
             this.Database.TabIndex = 9;
@@ -139,7 +142,7 @@
             this.UserName.AutoSize = true;
             this.UserName.BackColor = System.Drawing.Color.Transparent;
             this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserName.Location = new System.Drawing.Point(81, 361);
+            this.UserName.Location = new System.Drawing.Point(86, 361);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(0, 15);
             this.UserName.TabIndex = 12;
@@ -151,9 +154,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(9, 361);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 15);
+            this.label5.Size = new System.Drawing.Size(71, 15);
             this.label5.TabIndex = 11;
-            this.label5.Text = "User :";
+            this.label5.Text = "Username :";
             // 
             // label4
             // 
@@ -225,6 +228,35 @@
             this.Media.UseVisualStyleBackColor = false;
             this.Media.Click += new System.EventHandler(this.Media_Click);
             // 
+            // AddUser
+            // 
+            this.AddUser.BackColor = System.Drawing.Color.Transparent;
+            this.AddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddUser.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddUser.ImageIndex = 3;
+            this.AddUser.ImageList = this.imageList2;
+            this.AddUser.Location = new System.Drawing.Point(287, 12);
+            this.AddUser.Name = "AddUser";
+            this.AddUser.Size = new System.Drawing.Size(36, 40);
+            this.AddUser.TabIndex = 14;
+            this.AddUser.UseVisualStyleBackColor = false;
+            this.AddUser.Click += new System.EventHandler(this.AddUser_Click);
+            this.AddUser.MouseHover += new System.EventHandler(this.AddUser_MouseHover);
+            // 
+            // AdminLabel
+            // 
+            this.AdminLabel.AutoSize = true;
+            this.AdminLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminLabel.ForeColor = System.Drawing.Color.Black;
+            this.AdminLabel.Location = new System.Drawing.Point(12, 12);
+            this.AdminLabel.Name = "AdminLabel";
+            this.AdminLabel.Size = new System.Drawing.Size(47, 15);
+            this.AdminLabel.TabIndex = 15;
+            this.AdminLabel.Text = "Admin";
+            this.AdminLabel.MouseHover += new System.EventHandler(this.AdminLabel_MouseHover);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,6 +264,8 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(371, 443);
+            this.Controls.Add(this.AdminLabel);
+            this.Controls.Add(this.AddUser);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.UserName);
             this.Controls.Add(this.label5);
@@ -274,6 +308,8 @@
         private System.Windows.Forms.Label UserName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button AddUser;
+        private System.Windows.Forms.Label AdminLabel;
     }
 }
 

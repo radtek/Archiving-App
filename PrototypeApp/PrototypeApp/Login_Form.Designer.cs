@@ -54,7 +54,7 @@
             this.Bar.Location = new System.Drawing.Point(18, 319);
             this.Bar.MarqueeAnimationSpeed = 0;
             this.Bar.Name = "Bar";
-            this.Bar.Size = new System.Drawing.Size(527, 23);
+            this.Bar.Size = new System.Drawing.Size(511, 23);
             this.Bar.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.Bar.TabIndex = 0;
             // 
@@ -93,7 +93,7 @@
             this.DatabaseN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DatabaseN.Location = new System.Drawing.Point(127, 173);
             this.DatabaseN.Name = "DatabaseN";
-            this.DatabaseN.Size = new System.Drawing.Size(415, 21);
+            this.DatabaseN.Size = new System.Drawing.Size(402, 21);
             this.DatabaseN.TabIndex = 1;
             // 
             // ServerN
@@ -101,7 +101,7 @@
             this.ServerN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ServerN.Location = new System.Drawing.Point(127, 126);
             this.ServerN.Name = "ServerN";
-            this.ServerN.Size = new System.Drawing.Size(415, 21);
+            this.ServerN.Size = new System.Drawing.Size(402, 21);
             this.ServerN.TabIndex = 0;
             // 
             // imageList1
@@ -126,16 +126,16 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(15, 223);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 15);
+            this.label3.Size = new System.Drawing.Size(74, 15);
             this.label3.TabIndex = 16;
-            this.label3.Text = "User Name : ";
+            this.label3.Text = "Username : ";
             // 
             // UserName
             // 
             this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserName.Location = new System.Drawing.Point(127, 220);
             this.UserName.Name = "UserName";
-            this.UserName.Size = new System.Drawing.Size(415, 21);
+            this.UserName.Size = new System.Drawing.Size(402, 21);
             this.UserName.TabIndex = 2;
             // 
             // label4
@@ -153,7 +153,7 @@
             this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Password.Location = new System.Drawing.Point(127, 267);
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(415, 21);
+            this.Password.Size = new System.Drawing.Size(402, 21);
             this.Password.TabIndex = 3;
             this.Password.UseSystemPasswordChar = true;
             // 

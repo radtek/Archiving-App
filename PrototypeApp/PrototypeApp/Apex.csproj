@@ -68,6 +68,12 @@
     <Compile Include="Add_Media.Designer.cs">
       <DependentUpon>Add_Media.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add_User_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_User_Form.Designer.cs">
+      <DependentUpon>Add_User_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="AnimationFunc.cs" />
     <Compile Include="Correspondence_Form.cs">
       <SubType>Form</SubType>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Media.resx">
       <DependentUpon>Add_Media.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_User_Form.resx">
+      <DependentUpon>Add_User_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Correspondence_Form.resx">
       <DependentUpon>Correspondence_Form.cs</DependentUpon>

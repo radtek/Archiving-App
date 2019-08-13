@@ -26,6 +26,8 @@ namespace Apex
             Search.FlatAppearance.BorderColor = Color.White;
             View_Info.FlatAppearance.BorderColor = Color.White;
             Clear.FlatAppearance.BorderColor = Color.White;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(100, 0);
         }
 
         public void Refresh()

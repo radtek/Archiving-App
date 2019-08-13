@@ -49,6 +49,7 @@
             this.DisableDate = new System.Windows.Forms.CheckBox();
             this.SearchD = new System.Windows.Forms.DateTimePicker();
             this.Clear = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Media_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,7 +109,7 @@
             this.Media_Grid.Name = "Media_Grid";
             this.Media_Grid.ReadOnly = true;
             this.Media_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Media_Grid.Size = new System.Drawing.Size(896, 500);
+            this.Media_Grid.Size = new System.Drawing.Size(896, 482);
             this.Media_Grid.TabIndex = 9;
             this.Media_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Images_Grid_CellDoubleClick);
             // 
@@ -286,12 +287,24 @@
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             this.Clear.MouseHover += new System.EventHandler(this.Clear_MouseHover);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(9, 656);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(227, 15);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Powered by : Polygon Network Company";
+            // 
             // Media_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(920, 681);
+            this.ClientSize = new System.Drawing.Size(920, 680);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.DisableDate);
             this.Controls.Add(this.SearchD);
@@ -338,5 +351,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Extension;
         private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.Label label4;
     }
 }

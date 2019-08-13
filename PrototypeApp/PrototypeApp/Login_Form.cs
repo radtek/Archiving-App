@@ -20,6 +20,8 @@ namespace Apex
         GlobalFunc GF = new GlobalFunc();
         public string connectionString;
         public string user;
+        private const int EM_SHOWBALLOONTIP = 0x1503;
+
         public Login_Form()
         {
             InitializeComponent();

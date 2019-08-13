@@ -58,6 +58,7 @@
             this.Add = new System.Windows.Forms.Button();
             this.Search = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Correspondence_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,7 +154,7 @@
             this.Correspondence_Grid.Name = "Correspondence_Grid";
             this.Correspondence_Grid.ReadOnly = true;
             this.Correspondence_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Correspondence_Grid.Size = new System.Drawing.Size(1128, 453);
+            this.Correspondence_Grid.Size = new System.Drawing.Size(1128, 426);
             this.Correspondence_Grid.TabIndex = 13;
             this.Correspondence_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Correspondence_Grid_CellDoubleClick);
             // 
@@ -385,12 +386,24 @@
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             this.Clear.MouseHover += new System.EventHandler(this.Clear_MouseHover);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(9, 662);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(227, 15);
+            this.label6.TabIndex = 33;
+            this.label6.Text = "Powered by : Polygon Network Company";
+            // 
             // Correspondence_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1152, 694);
+            this.ClientSize = new System.Drawing.Size(1152, 686);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.SFileN);
@@ -413,6 +426,7 @@
             this.Controls.Add(this.Correspondence_Grid);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Location = new System.Drawing.Point(3, 0);
             this.MaximizeBox = false;
             this.Name = "Correspondence_Form";
             this.Text = "Correspondence";
@@ -452,5 +466,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Path;
         private System.Windows.Forms.DataGridViewTextBoxColumn Extension;
         private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.Label label6;
     }
 }
