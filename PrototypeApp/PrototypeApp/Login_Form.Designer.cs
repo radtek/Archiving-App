@@ -174,7 +174,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Apex.Properties.Resources.Webp_net_resizeimage__1_;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.Location = new System.Drawing.Point(18, 30);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(249, 57);

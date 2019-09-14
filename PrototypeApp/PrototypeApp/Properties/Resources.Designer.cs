@@ -63,37 +63,6 @@ namespace Apex.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap asd {
-            get {
-                object obj = ResourceManager.GetObject("asd", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap blue_abstract_moving_flowing_waves_on_white_background_blurred_smooth_design_video_animation_ultra_hd_4k_3840x2160_rffdhgnp_thumbnail_full05 {
-            get {
-                object obj = ResourceManager.GetObject("blue-abstract-moving-flowing-waves-on-white-background-blurred-smooth-design-vide" +
-                        "o-animation-ultra-hd-4k-3840x2160_rffdhgnp_thumbnail-full05", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap icons8_circled_play_100 {
-            get {
-                object obj = ResourceManager.GetObject("icons8-circled-play-100", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap logo2 {
             get {
                 object obj = ResourceManager.GetObject("logo2", resourceCulture);
@@ -104,49 +73,29 @@ namespace Apex.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap logo21 {
+            get {
+                object obj = ResourceManager.GetObject("logo21", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logo22 {
+            get {
+                object obj = ResourceManager.GetObject("logo22", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap poli_low {
             get {
                 object obj = ResourceManager.GetObject("poli low", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap silver_light_blue_wave_abstract_backgrounds_powerpoint {
-            get {
-                object obj = ResourceManager.GetObject("silver-light-blue-wave-abstract-backgrounds-powerpoint", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap silver_light_blue_wave_abstract_backgrounds_powerpoint1 {
-            get {
-                object obj = ResourceManager.GetObject("silver-light-blue-wave-abstract-backgrounds-powerpoint1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap unknown {
-            get {
-                object obj = ResourceManager.GetObject("unknown", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap v_02_512 {
-            get {
-                object obj = ResourceManager.GetObject("v-02-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
