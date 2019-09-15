@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Media_Form));
-            this.Search = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SearchN = new System.Windows.Forms.TextBox();
             this.Media_Grid = new System.Windows.Forms.DataGridView();
@@ -38,35 +37,21 @@
             this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Add = new System.Windows.Forms.Button();
-            this.Delete = new System.Windows.Forms.Button();
-            this.View_Info = new System.Windows.Forms.Button();
-            this.Edit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.SearchP = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.DisableDate = new System.Windows.Forms.CheckBox();
             this.SearchD = new System.Windows.Forms.DateTimePicker();
-            this.Clear = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.Clear = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.Button();
+            this.View_Info = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
+            this.Search = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Media_Grid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Search
-            // 
-            this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Search.ImageIndex = 3;
-            this.Search.ImageList = this.imageList1;
-            this.Search.Location = new System.Drawing.Point(506, 119);
-            this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(130, 44);
-            this.Search.TabIndex = 7;
-            this.Search.Text = "Search";
-            this.Search.UseVisualStyleBackColor = true;
-            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // imageList1
             // 
@@ -109,7 +94,7 @@
             this.Media_Grid.Name = "Media_Grid";
             this.Media_Grid.ReadOnly = true;
             this.Media_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Media_Grid.Size = new System.Drawing.Size(896, 482);
+            this.Media_Grid.Size = new System.Drawing.Size(896, 484);
             this.Media_Grid.TabIndex = 9;
             this.Media_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Images_Grid_CellDoubleClick);
             // 
@@ -147,66 +132,6 @@
             this.Extension.Name = "Extension";
             this.Extension.ReadOnly = true;
             this.Extension.Visible = false;
-            // 
-            // Add
-            // 
-            this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Add.ImageIndex = 5;
-            this.Add.ImageList = this.imageList1;
-            this.Add.Location = new System.Drawing.Point(12, 119);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(130, 44);
-            this.Add.TabIndex = 4;
-            this.Add.Text = "Add";
-            this.Add.UseVisualStyleBackColor = true;
-            this.Add.Click += new System.EventHandler(this.Add_Click);
-            // 
-            // Delete
-            // 
-            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Delete.ImageIndex = 0;
-            this.Delete.ImageList = this.imageList1;
-            this.Delete.Location = new System.Drawing.Point(284, 119);
-            this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(130, 44);
-            this.Delete.TabIndex = 6;
-            this.Delete.Text = "Delete";
-            this.Delete.UseVisualStyleBackColor = true;
-            this.Delete.Click += new System.EventHandler(this.Delete_Click);
-            // 
-            // View_Info
-            // 
-            this.View_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.View_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.View_Info.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.View_Info.ImageIndex = 4;
-            this.View_Info.ImageList = this.imageList1;
-            this.View_Info.Location = new System.Drawing.Point(642, 119);
-            this.View_Info.Name = "View_Info";
-            this.View_Info.Size = new System.Drawing.Size(130, 44);
-            this.View_Info.TabIndex = 8;
-            this.View_Info.Text = "View";
-            this.View_Info.UseVisualStyleBackColor = true;
-            this.View_Info.Click += new System.EventHandler(this.View_Info_Click);
-            // 
-            // Edit
-            // 
-            this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Edit.ImageIndex = 2;
-            this.Edit.ImageList = this.imageList1;
-            this.Edit.Location = new System.Drawing.Point(148, 119);
-            this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(130, 44);
-            this.Edit.TabIndex = 5;
-            this.Edit.Text = "Edit";
-            this.Edit.UseVisualStyleBackColor = true;
-            this.Edit.Click += new System.EventHandler(this.Edit_Click);
             // 
             // label1
             // 
@@ -271,6 +196,17 @@
             this.SearchD.Size = new System.Drawing.Size(102, 21);
             this.SearchD.TabIndex = 2;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(9, 656);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(227, 15);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Powered by : Polygon Network Company";
+            // 
             // Clear
             // 
             this.Clear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -287,16 +223,80 @@
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             this.Clear.MouseHover += new System.EventHandler(this.Clear_MouseHover);
             // 
-            // label4
+            // Edit
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(9, 656);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(227, 15);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Powered by : Polygon Network Company";
+            this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Edit.ImageIndex = 2;
+            this.Edit.ImageList = this.imageList1;
+            this.Edit.Location = new System.Drawing.Point(148, 119);
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(130, 44);
+            this.Edit.TabIndex = 5;
+            this.Edit.Text = "Edit";
+            this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
+            // 
+            // View_Info
+            // 
+            this.View_Info.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.View_Info.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.View_Info.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.View_Info.ImageIndex = 4;
+            this.View_Info.ImageList = this.imageList1;
+            this.View_Info.Location = new System.Drawing.Point(642, 119);
+            this.View_Info.Name = "View_Info";
+            this.View_Info.Size = new System.Drawing.Size(130, 44);
+            this.View_Info.TabIndex = 8;
+            this.View_Info.Text = "View";
+            this.View_Info.UseVisualStyleBackColor = true;
+            this.View_Info.Click += new System.EventHandler(this.View_Info_Click);
+            // 
+            // Delete
+            // 
+            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Delete.ImageIndex = 0;
+            this.Delete.ImageList = this.imageList1;
+            this.Delete.Location = new System.Drawing.Point(284, 119);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(130, 44);
+            this.Delete.TabIndex = 6;
+            this.Delete.Text = "Delete";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            // 
+            // Add
+            // 
+            this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Add.ImageIndex = 5;
+            this.Add.ImageList = this.imageList1;
+            this.Add.Location = new System.Drawing.Point(12, 119);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(130, 44);
+            this.Add.TabIndex = 4;
+            this.Add.Text = "Add";
+            this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
+            // 
+            // Search
+            // 
+            this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Search.ImageIndex = 3;
+            this.Search.ImageList = this.imageList1;
+            this.Search.Location = new System.Drawing.Point(506, 119);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(130, 44);
+            this.Search.TabIndex = 7;
+            this.Search.Text = "Search";
+            this.Search.UseVisualStyleBackColor = true;
+            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // Media_Form
             // 

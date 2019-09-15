@@ -26,10 +26,12 @@ namespace Apex
             InitializeComponent();
             Media.FlatAppearance.BorderColor = Color.White;
             Correspondence.FlatAppearance.BorderColor = Color.White;
+            Testemonial.FlatAppearance.BorderColor = Color.White;
             AddUser.FlatAppearance.BorderColor = Color.White;
             Logout.FlatAppearance.BorderColor = Color.White;
             Anim.AddAnimation(Media , "Media" , 86 , 347);
             Anim.AddAnimation(Correspondence , "Correspondence", 86, 347);
+            Anim.AddAnimation(Testemonial, "Testemonial", 86, 347);
             Login_Logout();
         }
         
@@ -161,6 +163,12 @@ namespace Apex
         {
             ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.AdminLabel, "Logged in as Admin");
+        }
+
+        private void Testemonial_Click(object sender, EventArgs e)
+        {
+            Testemonial_Form form = new Testemonial_Form();
+            form.ShowDialog();
         }
     }
 }

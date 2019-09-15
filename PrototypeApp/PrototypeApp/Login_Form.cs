@@ -29,6 +29,10 @@ namespace Apex
             Close.FlatAppearance.BorderColor = Color.White;
             ServerN.Text = GF.GetConnection("" , "" , 1);
             DatabaseN.Text = GF.GetConnection("" , "" , 2);
+            //
+            UserName.Text = "maged";
+            Password.Text = "123";
+            //
         }
 
         private void Close_Click(object sender, EventArgs e)

@@ -139,7 +139,7 @@ namespace Apex
             SqlCommand comm = new SqlCommand (edit_record_set+edit_record_condition , conn);
             comm.ExecuteNonQuery();
             MessageBox.Show("Successfully edited file info!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ((Media_Form)Media_Form).Refresh();
+            ((Media_Form)Media_Form).RefreshList();
             this.Close();
         }
     }

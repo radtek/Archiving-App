@@ -29,7 +29,7 @@ namespace Apex
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(100, 0);
         }
-        public void Refresh()
+        public void RefreshList()
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -60,7 +60,7 @@ namespace Apex
         
         private void Search_Click(object sender, EventArgs e)
         {
-            Refresh();
+            RefreshList();
         }
 
         private void Images_Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
