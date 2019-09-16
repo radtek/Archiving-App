@@ -119,5 +119,65 @@ namespace Apex
             string res = parts[0] + "/" + parts[1] + "/" + parts[2][0] + parts[2][1] + parts[2][2] + parts[2][3];
             return res;
         }
+        public void GetLocations(ComboBox Locs , bool Search)
+        {
+            StreamReader file = new StreamReader("Data/Locations.txt");
+            string ln;
+            while ((ln = file.ReadLine()) != null)
+            {
+                Locs.Items.Add(ln);
+            }
+            file.Close();
+            if (Search)
+            {
+                Locs.Items.Add("-Disable-");
+                Locs.Text = "-Disable-";
+            }
+            else
+                Locs.SelectedIndex = 0;
+        }
+        public void GetProfessions(ComboBox Pros , bool Search)
+        {
+            StreamReader file = new StreamReader("Data/Professions.txt");
+            string ln;
+            while ((ln = file.ReadLine()) != null)
+            {
+                Pros.Items.Add(ln);
+            }
+            file.Close();
+            if (Search)
+            {
+                Pros.Items.Add("-Disable-");
+                Pros.Text = "-Disable-";
+            }
+            else
+                Pros.SelectedIndex = 0;
+        }
+        public string GetCode(string table , Dictionary<string, bool> map , string connectionString)
+        {
+            if(table=="Testemonial")
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                string code = "TES2019";
+                string check = "select count(*) from Testemonial where code = '";
+                int counter = -1;
+                string res;
+                string finalCode;
+                do
+                {
+                    counter++;
+                    if (counter % 10 == counter)
+                        finalCode = code + "0" + counter.ToString();
+                    else finalCode = code + counter.ToString();
+                    string temp_check = check + finalCode + "'";
+                    SqlCommand comm = new SqlCommand(temp_check, conn);
+                    res = comm.ExecuteScalar().ToString();
+                }
+                while (res == "1" || (map.ContainsKey(finalCode) && map[finalCode]==true));
+                return finalCode;
+            }
+            return "Invalid";
+        }
     }
 }

@@ -65,6 +65,7 @@
             this.imageList1.Images.SetKeyName(7, "envelope.png");
             this.imageList1.Images.SetKeyName(8, "play-button.png");
             this.imageList1.Images.SetKeyName(9, "paper-plane.png");
+            this.imageList1.Images.SetKeyName(10, "singing (1).png");
             // 
             // imageList2
             // 
@@ -188,7 +189,7 @@
             this.Testemonial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Testemonial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Testemonial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Testemonial.ImageIndex = 9;
+            this.Testemonial.ImageIndex = 10;
             this.Testemonial.ImageList = this.imageList1;
             this.Testemonial.Location = new System.Drawing.Point(12, 349);
             this.Testemonial.Name = "Testemonial";

@@ -68,6 +68,12 @@
     <Compile Include="Add_Media.Designer.cs">
       <DependentUpon>Add_Media.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add_Testemonial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_Testemonial.Designer.cs">
+      <DependentUpon>Add_Testemonial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Add_User_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Media.resx">
       <DependentUpon>Add_Media.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_Testemonial.resx">
+      <DependentUpon>Add_Testemonial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add_User_Form.resx">
       <DependentUpon>Add_User_Form.cs</DependentUpon>

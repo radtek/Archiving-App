@@ -130,8 +130,10 @@ namespace Apex
             {
                 Media_Grid.Rows.Remove(row);
             }
-            DataGridViewRow r = Media_Grid.Rows[0];
-            Media_Grid.Rows.Remove(r);
+            foreach (DataGridViewRow row in Media_Grid.Rows)
+            {
+                Media_Grid.Rows.Remove(row);
+            }
         }
 
         private void Media_Form_Load(object sender, EventArgs e)
