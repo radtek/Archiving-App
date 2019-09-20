@@ -67,6 +67,7 @@
             this.Edit = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Testemonial_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -395,9 +396,9 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(0, 627);
+            this.label7.Location = new System.Drawing.Point(0, 629);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(1248, 19);
+            this.label7.Size = new System.Drawing.Size(1248, 17);
             this.label7.TabIndex = 39;
             this.label7.Text = " Powered by : Polygon Network Company";
             // 
@@ -441,7 +442,7 @@
             this.View_Info.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.View_Info.ImageIndex = 4;
             this.View_Info.ImageList = this.imageList1;
-            this.View_Info.Location = new System.Drawing.Point(547, 209);
+            this.View_Info.Location = new System.Drawing.Point(472, 169);
             this.View_Info.Name = "View_Info";
             this.View_Info.Size = new System.Drawing.Size(130, 44);
             this.View_Info.TabIndex = 13;
@@ -456,7 +457,7 @@
             this.Edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Edit.ImageIndex = 2;
             this.Edit.ImageList = this.imageList1;
-            this.Edit.Location = new System.Drawing.Point(547, 209);
+            this.Edit.Location = new System.Drawing.Point(472, 169);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(130, 44);
             this.Edit.TabIndex = 10;
@@ -494,6 +495,18 @@
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(553, 220);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(145, 42);
+            this.label11.TabIndex = 40;
+            this.label11.Text = "DELETED";
+            this.label11.Visible = false;
+            // 
             // Testemonial_Form
             // 
             this.AcceptButton = this.Search;
@@ -501,6 +514,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1248, 646);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.SearchCode);
@@ -575,5 +589,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox SearchCode;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
     }
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define Apex_TargetDir=$(var.Apex.TargetDir)?>
+	<Product Id="a0bab292-622e-4c61-a55f-c49fa9820a48" Name="Apex Archiving Software" Language="1033" Version="1.0.0.0" Manufacturer="Polygon Network Company" UpgradeCode="e786b7f8-9ad8-4991-af85-216c7d05291c">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    
+    <Icon Id="ApexLogo.ico" SourceFile="$(var.ProjectDir)ApexLogo.ico" />
+    <Property Id="ARPPRODUCTICON" Value="ApexLogo.ico" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+
+    <WixVariable Id="WixUIBannerBmp" Value="Images\poli low.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="Images\logo2 - Copy.bmp" />
+     
+    <UI>
+    <UIRef Id="WixUI_InstallDir" />
+    <Publish Dialog="WelcomeDlg"
+        Control="Next"
+        Event="NewDialog"
+        Value="InstallDirDlg"
+        Order="2">1</Publish>
+    <Publish Dialog="InstallDirDlg"
+        Control="Back"
+        Event="NewDialog"
+        Value="WelcomeDlg"
+        Order="2">1</Publish>
+    </UI>
+    
+		<MajorUpgrade DowngradeErrorMessage="A newer version of Apex Archiving Software is already installed." />
+		<MediaTemplate EmbedCab="yes"/>
+
+		<Feature Id="ProductFeature" Title="Apex Archiving Software" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="Apex Archiving Software" />
+			</Directory>
+        <Directory Id="ProgramMenuFolder">
+          <Directory Id="ApplicationProgramsFolder" Name="Apex Archiving Software"/>
+        </Directory>
+          <Directory Id="DesktopFolder" Name="Desktop"/>
+		    </Directory>
+	</Fragment>
+  <Fragment>
+  <DirectoryRef Id="ApplicationProgramsFolder">
+    <Component Id="ApplicationShortcut" Guid="9bd13330-6540-406f-a3a8-d7f7c69ae7f9">
+      <Shortcut Id="ApplicationStartMenuShortcut" Name="Apex Archiving Software" Description="Apex Archiving Software" Target="[INSTALLFOLDER]Apex.exe" WorkingDirectory="INSTALLFOLDER" />
+      <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
+      <RegistryValue Root="HKCU" Key="Software\Apex Archiving Software" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+  </DirectoryRef>
+  <DirectoryRef Id="DesktopFolder">
+   <Component Id="ApplicationShortcutDesktop" Guid="cde1e030-eb64-49a5-b7b8-400b379c2d1a">
+     <Shortcut Id="ApplicationDesktopShortcut" Name="Apex Archiving Software" Description="Apex Archiving Software" Target="[INSTALLFOLDER]Apex.exe" WorkingDirectory="INSTALLFOLDER" />
+      <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
+      <RegistryValue Root="HKCU" Key="Software\Apex Archiving Software" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+    </Component>
+  </DirectoryRef>
+</Fragment>
+
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+			<Component Id="Apex.exe.config" Guid="17809675-6b4b-497d-ad0b-91c245da6a97">
+			  <File Id="Apex.exe.config" Name="Apex.exe.config" Source="$(var.Apex_TargetDir)Apex.exe.config" />
+			</Component>
+			<Component Id="Apex.exe" Guid="75dc97fc-8b0c-4bec-8b3e-d376df56b199">
+			  <File Id="Apex.exe" Name="Apex.exe" Source="$(var.Apex_TargetDir)Apex.exe" />
+			</Component>
+			<Component Id="ApexLogo.ico" Guid="0deca176-99ea-44ba-859c-a0214f247d02">
+			  <File Id="ApexLogo.ico" Name="ApexLogo.ico" Source="$(var.Apex_TargetDir)ApexLogo.ico" />
+			</Component>
+			<Component Id="Apex.pdb" Guid="790fffb2-8606-4444-a160-233fc315b58e">
+			  <File Id="Apex.pdb" Name="Apex.pdb" Source="$(var.Apex_TargetDir)Apex.pdb" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>

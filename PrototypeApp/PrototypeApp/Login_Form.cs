@@ -31,8 +31,8 @@ namespace Apex
             ServerN.Text = GF.GetConnection("" , "" , 1);
             DatabaseN.Text = GF.GetConnection("" , "" , 2);
             //
-            UserName.Text = "maged";
-            Password.Text = "123";
+            //UserName.Text = "maged";
+            //Password.Text = "123";
             //
         }
 

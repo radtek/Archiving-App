@@ -189,7 +189,7 @@ namespace Apex
         private void Settings_MouseHover(object sender, EventArgs e)
         {
             ToolTip ToolTip1 = new ToolTip();
-            ToolTip1.SetToolTip(this.Logout, "Logout");
+            ToolTip1.SetToolTip(this.Settings, "Settings");
         }
 
         private void AddUser_Click(object sender, EventArgs e)
@@ -228,15 +228,20 @@ namespace Apex
             ToolTip1.SetToolTip(this.Reconnect, "Reconnect");
         }
 
-        private void Settings_MouseHover_1(object sender, EventArgs e)
-        {
-            ToolTip ToolTip1 = new ToolTip();
-            ToolTip1.SetToolTip(this.Settings, "Settings");
-        }
-
         private void Expenses_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Login_Logout();
+        }
+
+        private void Logout_MouseHover(object sender, EventArgs e)
+        {
+            ToolTip ToolTip1 = new ToolTip();
+            ToolTip1.SetToolTip(this.Logout, "Logout");
         }
     }
 }

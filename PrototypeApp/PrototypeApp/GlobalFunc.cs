@@ -20,16 +20,17 @@ namespace Apex
     {
         public string GetConnection(string user="" , string pass="" , int x=0)
         {
-            string loc = Directory.GetCurrentDirectory()+"/Logs";
+            string loc = "Logs/DatabaseInfo.txt";
             string server = "", database = "";
-            if(!File.Exists(loc+"/DatabaseInfo.txt"))
+            if(!File.Exists("Logs/DatabaseInfo.txt"))
             {
-                using (StreamWriter outputFile = new StreamWriter(Path.Combine(loc, "DatabaseInfo.txt")))
+                Directory.CreateDirectory("Logs");
+                using (StreamWriter outputFile = new StreamWriter(loc))
                 {
                     outputFile.WriteLine("Server=" + Environment.NewLine + "Database=");
                 }
             }
-            using (StreamReader file = new StreamReader(Path.Combine(loc, "DatabaseInfo.txt")))
+            using (StreamReader file = new StreamReader(loc))
             {
                 string ln;
                 while ((ln = file.ReadLine()) != null)
@@ -149,7 +150,13 @@ namespace Apex
         }
         public void GetLocations(ComboBox Locs , bool Search)
         {
-            using (StreamReader file = new StreamReader("Data/Locations.txt"))
+            string loc = "Data/Locations.txt";
+            if (!File.Exists(loc))
+            {
+                Directory.CreateDirectory("Data");
+                File.CreateText(loc);
+            }
+            using (StreamReader file = new StreamReader(loc))
             {
                 string ln;
                 while ((ln = file.ReadLine()) != null)
@@ -168,7 +175,13 @@ namespace Apex
         }
         public void GetProfessions(ComboBox Pros, bool Search)
         {
-            using (StreamReader file = new StreamReader("Data/Professions.txt"))
+            string loc = "Data/Professions.txt";
+            if (!File.Exists(loc))
+            {
+                Directory.CreateDirectory("Data");
+                File.CreateText(loc);
+            }
+            using (StreamReader file = new StreamReader(loc))
             {
                 string ln;
                 while ((ln = file.ReadLine()) != null)

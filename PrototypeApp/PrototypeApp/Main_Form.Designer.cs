@@ -179,9 +179,9 @@
             this.PB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PB.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PB.Location = new System.Drawing.Point(0, 432);
+            this.PB.Location = new System.Drawing.Point(0, 434);
             this.PB.Name = "PB";
-            this.PB.Size = new System.Drawing.Size(371, 19);
+            this.PB.Size = new System.Drawing.Size(371, 17);
             this.PB.TabIndex = 13;
             this.PB.Text = " Powered by : Polygon Network Company";
             // 
@@ -223,7 +223,7 @@
             this.Settings.TabIndex = 2;
             this.Settings.UseVisualStyleBackColor = false;
             this.Settings.Click += new System.EventHandler(this.Settings_Click);
-            this.Settings.MouseHover += new System.EventHandler(this.Settings_MouseHover_1);
+            this.Settings.MouseHover += new System.EventHandler(this.Settings_MouseHover);
             // 
             // Reconnect
             // 
@@ -303,8 +303,8 @@
             this.Logout.Size = new System.Drawing.Size(36, 40);
             this.Logout.TabIndex = 3;
             this.Logout.UseVisualStyleBackColor = false;
-            this.Logout.Click += new System.EventHandler(this.Settings_Click);
-            this.Logout.MouseHover += new System.EventHandler(this.Settings_MouseHover);
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
+            this.Logout.MouseHover += new System.EventHandler(this.Logout_MouseHover);
             // 
             // pictureBox1
             // 
