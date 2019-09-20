@@ -33,20 +33,11 @@
             this.AddDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.Browse = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.AddLocN = new System.Windows.Forms.TextBox();
             this.AddIN = new System.Windows.Forms.TextBox();
             this.Browse_File_Wind = new System.Windows.Forms.OpenFileDialog();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SelectedFiles = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.AddLoc = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.AddPro = new System.Windows.Forms.ComboBox();
-            this.Cancel = new System.Windows.Forms.Button();
-            this.Add = new System.Windows.Forms.Button();
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.InterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,7 +47,19 @@
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FilePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.AddLoc = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.AddPro = new System.Windows.Forms.ComboBox();
+            this.Cancel = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
+            this.RowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuDelete = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedFiles)).BeginInit();
+            this.RowMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // AddDate
@@ -68,7 +71,7 @@
             this.AddDate.Location = new System.Drawing.Point(127, 224);
             this.AddDate.Name = "AddDate";
             this.AddDate.Size = new System.Drawing.Size(102, 21);
-            this.AddDate.TabIndex = 31;
+            this.AddDate.TabIndex = 4;
             // 
             // label5
             // 
@@ -90,31 +93,10 @@
             this.Browse.Location = new System.Drawing.Point(496, 251);
             this.Browse.Name = "Browse";
             this.Browse.Size = new System.Drawing.Size(130, 44);
-            this.Browse.TabIndex = 33;
+            this.Browse.TabIndex = 5;
             this.Browse.Text = "Browse";
             this.Browse.UseVisualStyleBackColor = true;
             this.Browse.Click += new System.EventHandler(this.Browse_Click);
-            // 
-            // AddLocN
-            // 
-            this.AddLocN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddLocN.Location = new System.Drawing.Point(127, 130);
-            this.AddLocN.Name = "AddLocN";
-            this.AddLocN.Size = new System.Drawing.Size(499, 21);
-            this.AddLocN.TabIndex = 29;
-            // 
-            // AddIN
-            // 
-            this.AddIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddIN.Location = new System.Drawing.Point(127, 36);
-            this.AddIN.Name = "AddIN";
-            this.AddIN.Size = new System.Drawing.Size(499, 21);
-            this.AddIN.TabIndex = 28;
-            // 
-            // Browse_File_Wind
-            // 
-            this.Browse_File_Wind.FileName = "Browse_File_Wind";
-            this.Browse_File_Wind.Multiselect = true;
             // 
             // imageList1
             // 
@@ -131,6 +113,27 @@
             this.imageList1.Images.SetKeyName(8, "success.png");
             this.imageList1.Images.SetKeyName(9, "close.png");
             // 
+            // AddLocN
+            // 
+            this.AddLocN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddLocN.Location = new System.Drawing.Point(127, 130);
+            this.AddLocN.Name = "AddLocN";
+            this.AddLocN.Size = new System.Drawing.Size(499, 21);
+            this.AddLocN.TabIndex = 2;
+            // 
+            // AddIN
+            // 
+            this.AddIN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddIN.Location = new System.Drawing.Point(127, 36);
+            this.AddIN.Name = "AddIN";
+            this.AddIN.Size = new System.Drawing.Size(499, 21);
+            this.AddIN.TabIndex = 0;
+            // 
+            // Browse_File_Wind
+            // 
+            this.Browse_File_Wind.FileName = "Browse_File_Wind";
+            this.Browse_File_Wind.Multiselect = true;
+            // 
             // SelectedFiles
             // 
             this.SelectedFiles.AllowUserToAddRows = false;
@@ -138,7 +141,6 @@
             this.SelectedFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SelectedFiles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.SelectedFiles.BackgroundColor = System.Drawing.Color.White;
             this.SelectedFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SelectedFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -156,7 +158,80 @@
             this.SelectedFiles.ReadOnly = true;
             this.SelectedFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SelectedFiles.Size = new System.Drawing.Size(709, 402);
-            this.SelectedFiles.TabIndex = 37;
+            this.SelectedFiles.TabIndex = 8;
+            this.SelectedFiles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectedFiles_MouseClick);
+            // 
+            // Code
+            // 
+            this.Code.DataPropertyName = "Code";
+            this.Code.HeaderText = "Code";
+            this.Code.Name = "Code";
+            this.Code.ReadOnly = true;
+            this.Code.Width = 95;
+            // 
+            // FileN
+            // 
+            this.FileN.DataPropertyName = "FileN";
+            this.FileN.HeaderText = "File Name";
+            this.FileN.Name = "FileN";
+            this.FileN.ReadOnly = true;
+            this.FileN.Width = 95;
+            // 
+            // InterName
+            // 
+            this.InterName.DataPropertyName = "InterName";
+            this.InterName.HeaderText = "Interpreter Name";
+            this.InterName.Name = "InterName";
+            this.InterName.ReadOnly = true;
+            this.InterName.Width = 95;
+            // 
+            // Loc
+            // 
+            this.Loc.DataPropertyName = "Loc";
+            this.Loc.HeaderText = "Location";
+            this.Loc.Name = "Loc";
+            this.Loc.ReadOnly = true;
+            this.Loc.Width = 96;
+            // 
+            // LocN
+            // 
+            this.LocN.DataPropertyName = "LocN";
+            this.LocN.HeaderText = "Location Name";
+            this.LocN.Name = "LocN";
+            this.LocN.ReadOnly = true;
+            this.LocN.Width = 95;
+            // 
+            // Pro
+            // 
+            this.Pro.DataPropertyName = "Pro";
+            this.Pro.HeaderText = "Profession";
+            this.Pro.Name = "Pro";
+            this.Pro.ReadOnly = true;
+            this.Pro.Width = 95;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 95;
+            // 
+            // Extension
+            // 
+            this.Extension.DataPropertyName = "Extension";
+            this.Extension.HeaderText = "FIleExtension";
+            this.Extension.Name = "Extension";
+            this.Extension.ReadOnly = true;
+            this.Extension.Visible = false;
+            // 
+            // FilePath
+            // 
+            this.FilePath.DataPropertyName = "FilePath";
+            this.FilePath.HeaderText = "Path";
+            this.FilePath.Name = "FilePath";
+            this.FilePath.ReadOnly = true;
+            this.FilePath.Visible = false;
             // 
             // label6
             // 
@@ -206,7 +281,7 @@
             this.AddLoc.Location = new System.Drawing.Point(127, 83);
             this.AddLoc.Name = "AddLoc";
             this.AddLoc.Size = new System.Drawing.Size(499, 21);
-            this.AddLoc.TabIndex = 44;
+            this.AddLoc.TabIndex = 1;
             // 
             // label1
             // 
@@ -225,7 +300,7 @@
             this.AddPro.Location = new System.Drawing.Point(127, 177);
             this.AddPro.Name = "AddPro";
             this.AddPro.Size = new System.Drawing.Size(499, 21);
-            this.AddPro.TabIndex = 47;
+            this.AddPro.TabIndex = 3;
             // 
             // Cancel
             // 
@@ -234,13 +309,13 @@
             this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Cancel.ImageIndex = 6;
+            this.Cancel.ImageIndex = 9;
             this.Cancel.ImageList = this.imageList1;
             this.Cancel.Location = new System.Drawing.Point(148, 394);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(130, 44);
-            this.Cancel.TabIndex = 49;
-            this.Cancel.Text = "Cancel";
+            this.Cancel.TabIndex = 7;
+            this.Cancel.Text = "Close";
             this.Cancel.UseVisualStyleBackColor = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
             // 
@@ -250,80 +325,29 @@
             this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Add.ImageIndex = 8;
+            this.Add.ImageIndex = 5;
             this.Add.ImageList = this.imageList1;
             this.Add.Location = new System.Drawing.Point(12, 394);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(130, 44);
-            this.Add.TabIndex = 48;
+            this.Add.TabIndex = 6;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
-            // Code
+            // RowMenu
             // 
-            this.Code.DataPropertyName = "Code";
-            this.Code.HeaderText = "Code";
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
+            this.RowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuDelete});
+            this.RowMenu.Name = "RowMenu";
+            this.RowMenu.Size = new System.Drawing.Size(108, 26);
+            this.RowMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.RowMenu_ItemClicked);
             // 
-            // FileN
+            // MenuDelete
             // 
-            this.FileN.DataPropertyName = "FileN";
-            this.FileN.HeaderText = "File Name";
-            this.FileN.Name = "FileN";
-            this.FileN.ReadOnly = true;
-            // 
-            // InterName
-            // 
-            this.InterName.DataPropertyName = "InterName";
-            this.InterName.HeaderText = "Interpreter Name";
-            this.InterName.Name = "InterName";
-            this.InterName.ReadOnly = true;
-            // 
-            // Loc
-            // 
-            this.Loc.DataPropertyName = "Loc";
-            this.Loc.HeaderText = "Location";
-            this.Loc.Name = "Loc";
-            this.Loc.ReadOnly = true;
-            // 
-            // LocN
-            // 
-            this.LocN.DataPropertyName = "LocN";
-            this.LocN.HeaderText = "Location Name";
-            this.LocN.Name = "LocN";
-            this.LocN.ReadOnly = true;
-            // 
-            // Pro
-            // 
-            this.Pro.DataPropertyName = "Pro";
-            this.Pro.HeaderText = "Profession";
-            this.Pro.Name = "Pro";
-            this.Pro.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Extension
-            // 
-            this.Extension.DataPropertyName = "Extension";
-            this.Extension.HeaderText = "FIleExtension";
-            this.Extension.Name = "Extension";
-            this.Extension.ReadOnly = true;
-            this.Extension.Visible = false;
-            // 
-            // FilePath
-            // 
-            this.FilePath.DataPropertyName = "FilePath";
-            this.FilePath.HeaderText = "Path";
-            this.FilePath.Name = "FilePath";
-            this.FilePath.ReadOnly = true;
-            this.FilePath.Visible = false;
+            this.MenuDelete.Name = "MenuDelete";
+            this.MenuDelete.Size = new System.Drawing.Size(107, 22);
+            this.MenuDelete.Text = "Delete";
             // 
             // Add_Testemonial
             // 
@@ -346,9 +370,11 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.AddLocN);
             this.Controls.Add(this.AddIN);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Add_Testemonial";
-            this.Text = "Add_Testemonial";
+            this.Text = "Add Testemonial";
             ((System.ComponentModel.ISupportInitialize)(this.SelectedFiles)).EndInit();
+            this.RowMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -382,5 +408,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.DataGridViewTextBoxColumn Extension;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilePath;
+        private System.Windows.Forms.ContextMenuStrip RowMenu;
+        private System.Windows.Forms.ToolStripMenuItem MenuDelete;
     }
 }

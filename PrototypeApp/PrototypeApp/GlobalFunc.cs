@@ -12,6 +12,7 @@ using FluentFTP;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
+using System.Threading;
 
 namespace Apex
 {
@@ -49,17 +50,16 @@ namespace Apex
 
         public bool IsServerConnected(string connectionString)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                try
-                {
-                    conn.Open();
-                    return true;
-                }
-                catch (SqlException)
-                {
-                    return false;
-                }
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                conn.Close();
+                return true;
+            }
+            catch (SqlException)
+            {
+                return false;
             }
         }
 
@@ -109,9 +109,37 @@ namespace Apex
             conn.Open();
             SqlCommand comm = new SqlCommand(check, conn);
             string count = comm.ExecuteScalar().ToString();
+            conn.Close();
             if (count == "0")
                 return false;
             return true;
+        }
+        public void DeleteRecords(DataGridView Grid , string table , string cell1 , string cell2 , string cell3 , string connectionString)
+        {
+            if (Grid.SelectedRows.Count == 0)
+                return;
+            DialogResult res = MessageBox.Show("Are you sure you want to permanently delete the selected records?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (res == DialogResult.No)
+                return;
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            foreach (DataGridViewRow r in Grid.SelectedRows)
+            {
+                string name = r.Cells[cell1].Value.ToString(), path = r.Cells[cell2].Value.ToString(), ext = r.Cells[cell3].Value.ToString();
+                string delete_records = "delete from " + table + " where name = N'" + name + "' and path =N'" + path + "' and extension ='" + ext + "'";
+                SqlCommand comm = new SqlCommand(delete_records, conn);
+                comm.ExecuteNonQuery();
+                Grid.Rows.Remove(r);
+            }
+            MessageBox.Show("Successfully deleted selected records!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            conn.Close();
+        }
+        public void ClearRecords(DataGridView Grid)
+        {
+            while (Grid.Rows.Count > 0)
+            {
+                Grid.Rows.Remove(Grid.Rows[0]);
+            }
         }
         public string RemoveTime(string x)
         {
@@ -121,37 +149,41 @@ namespace Apex
         }
         public void GetLocations(ComboBox Locs , bool Search)
         {
-            StreamReader file = new StreamReader("Data/Locations.txt");
-            string ln;
-            while ((ln = file.ReadLine()) != null)
+            using (StreamReader file = new StreamReader("Data/Locations.txt"))
             {
-                Locs.Items.Add(ln);
+                string ln;
+                while ((ln = file.ReadLine()) != null)
+                {
+                    Locs.Items.Add(ln);
+                }
+                file.Close();
+                if (Search)
+                {
+                    Locs.Items.Add("-Disable-");
+                    Locs.Text = "-Disable-";
+                }
+                else
+                    Locs.SelectedIndex = 0;
             }
-            file.Close();
-            if (Search)
-            {
-                Locs.Items.Add("-Disable-");
-                Locs.Text = "-Disable-";
-            }
-            else
-                Locs.SelectedIndex = 0;
         }
-        public void GetProfessions(ComboBox Pros , bool Search)
+        public void GetProfessions(ComboBox Pros, bool Search)
         {
-            StreamReader file = new StreamReader("Data/Professions.txt");
-            string ln;
-            while ((ln = file.ReadLine()) != null)
+            using (StreamReader file = new StreamReader("Data/Professions.txt"))
             {
-                Pros.Items.Add(ln);
+                string ln;
+                while ((ln = file.ReadLine()) != null)
+                {
+                    Pros.Items.Add(ln);
+                }
+                file.Close();
+                if (Search)
+                {
+                    Pros.Items.Add("-Disable-");
+                    Pros.Text = "-Disable-";
+                }
+                else
+                    Pros.SelectedIndex = 0;
             }
-            file.Close();
-            if (Search)
-            {
-                Pros.Items.Add("-Disable-");
-                Pros.Text = "-Disable-";
-            }
-            else
-                Pros.SelectedIndex = 0;
         }
         public string GetCode(string table , Dictionary<string, bool> map , string connectionString)
         {
@@ -159,7 +191,7 @@ namespace Apex
             {
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
-                string code = "TES2019";
+                string code = "TES" + DateTime.Now.Year.ToString();
                 string check = "select count(*) from Testemonial where code = '";
                 int counter = -1;
                 string res;
@@ -175,6 +207,7 @@ namespace Apex
                     res = comm.ExecuteScalar().ToString();
                 }
                 while (res == "1" || (map.ContainsKey(finalCode) && map[finalCode]==true));
+                conn.Close();
                 return finalCode;
             }
             return "Invalid";

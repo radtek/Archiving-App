@@ -25,8 +25,6 @@ namespace Apex
             contractTimer.Interval = 1;
 
             DateTime animationStarted = DateTime.Now;
-
-            //TODO update as appropriate or make it a parameter
             TimeSpan animationDuration = TimeSpan.FromMilliseconds(250);
 
             button.MouseHover += (_, args) =>

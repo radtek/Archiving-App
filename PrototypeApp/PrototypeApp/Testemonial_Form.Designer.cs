@@ -46,7 +46,6 @@
             this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.label7 = new System.Windows.Forms.Label();
             this.SearchLocN = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -61,9 +60,10 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.SearchCode = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Search = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
             this.View_Info = new System.Windows.Forms.Button();
-            this.Search = new System.Windows.Forms.Button();
             this.Edit = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
@@ -79,7 +79,7 @@
             this.SearchP.Location = new System.Drawing.Point(124, 48);
             this.SearchP.Name = "SearchP";
             this.SearchP.Size = new System.Drawing.Size(829, 21);
-            this.SearchP.TabIndex = 12;
+            this.SearchP.TabIndex = 1;
             // 
             // SearchN
             // 
@@ -90,7 +90,7 @@
             this.SearchN.Location = new System.Drawing.Point(124, 15);
             this.SearchN.Name = "SearchN";
             this.SearchN.Size = new System.Drawing.Size(1112, 21);
-            this.SearchN.TabIndex = 11;
+            this.SearchN.TabIndex = 0;
             // 
             // SearchLoc
             // 
@@ -100,7 +100,7 @@
             this.SearchLoc.Location = new System.Drawing.Point(124, 114);
             this.SearchLoc.Name = "SearchLoc";
             this.SearchLoc.Size = new System.Drawing.Size(274, 21);
-            this.SearchLoc.TabIndex = 22;
+            this.SearchLoc.TabIndex = 4;
             this.SearchLoc.SelectedIndexChanged += new System.EventHandler(this.SearchLoc_SelectedIndexChanged);
             // 
             // SearchPro
@@ -110,7 +110,7 @@
             this.SearchPro.Location = new System.Drawing.Point(124, 147);
             this.SearchPro.Name = "SearchPro";
             this.SearchPro.Size = new System.Drawing.Size(274, 21);
-            this.SearchPro.TabIndex = 23;
+            this.SearchPro.TabIndex = 6;
             // 
             // SearchIN
             // 
@@ -121,7 +121,7 @@
             this.SearchIN.Location = new System.Drawing.Point(124, 81);
             this.SearchIN.Name = "SearchIN";
             this.SearchIN.Size = new System.Drawing.Size(1112, 21);
-            this.SearchIN.TabIndex = 24;
+            this.SearchIN.TabIndex = 3;
             // 
             // Testemonial_Grid
             // 
@@ -131,7 +131,6 @@
             this.Testemonial_Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.Testemonial_Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Testemonial_Grid.BackgroundColor = System.Drawing.Color.White;
             this.Testemonial_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Testemonial_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -150,7 +149,7 @@
             this.Testemonial_Grid.ReadOnly = true;
             this.Testemonial_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Testemonial_Grid.Size = new System.Drawing.Size(1224, 347);
-            this.Testemonial_Grid.TabIndex = 25;
+            this.Testemonial_Grid.TabIndex = 15;
             this.Testemonial_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Testemonial_Grid_CellDoubleClick);
             // 
             // Code
@@ -159,6 +158,7 @@
             this.Code.HeaderText = "Code";
             this.Code.Name = "Code";
             this.Code.ReadOnly = true;
+            this.Code.Width = 131;
             // 
             // InterName
             // 
@@ -166,6 +166,7 @@
             this.InterName.HeaderText = "Interpreter Name";
             this.InterName.Name = "InterName";
             this.InterName.ReadOnly = true;
+            this.InterName.Width = 131;
             // 
             // Loc
             // 
@@ -173,6 +174,7 @@
             this.Loc.HeaderText = "Location";
             this.Loc.Name = "Loc";
             this.Loc.ReadOnly = true;
+            this.Loc.Width = 132;
             // 
             // LocN
             // 
@@ -180,6 +182,7 @@
             this.LocN.HeaderText = "Location Name";
             this.LocN.Name = "LocN";
             this.LocN.ReadOnly = true;
+            this.LocN.Width = 131;
             // 
             // Profession
             // 
@@ -187,6 +190,7 @@
             this.Profession.HeaderText = "Profession";
             this.Profession.Name = "Profession";
             this.Profession.ReadOnly = true;
+            this.Profession.Width = 131;
             // 
             // TestN
             // 
@@ -195,6 +199,7 @@
             this.TestN.HeaderText = "File Name";
             this.TestN.Name = "TestN";
             this.TestN.ReadOnly = true;
+            this.TestN.Width = 113;
             // 
             // Path
             // 
@@ -203,6 +208,7 @@
             this.Path.HeaderText = "Path";
             this.Path.Name = "Path";
             this.Path.ReadOnly = true;
+            this.Path.Width = 113;
             // 
             // Extension
             // 
@@ -210,6 +216,7 @@
             this.Extension.HeaderText = "Extension";
             this.Extension.Name = "Extension";
             this.Extension.ReadOnly = true;
+            this.Extension.Width = 131;
             // 
             // Date
             // 
@@ -218,6 +225,7 @@
             this.Date.HeaderText = "Date";
             this.Date.Name = "Date";
             this.Date.ReadOnly = true;
+            this.Date.Width = 168;
             // 
             // imageList1
             // 
@@ -234,18 +242,6 @@
             this.imageList1.Images.SetKeyName(8, "success.png");
             this.imageList1.Images.SetKeyName(9, "brush.png");
             // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(9, 622);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(227, 15);
-            this.label7.TabIndex = 32;
-            this.label7.Text = "Powered by : Polygon Network Company";
-            // 
             // SearchLocN
             // 
             this.SearchLocN.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -255,7 +251,7 @@
             this.SearchLocN.Location = new System.Drawing.Point(510, 114);
             this.SearchLocN.Name = "SearchLocN";
             this.SearchLocN.Size = new System.Drawing.Size(726, 21);
-            this.SearchLocN.TabIndex = 33;
+            this.SearchLocN.TabIndex = 5;
             // 
             // label8
             // 
@@ -286,7 +282,7 @@
             this.SearchEx.Location = new System.Drawing.Point(1058, 48);
             this.SearchEx.Name = "SearchEx";
             this.SearchEx.Size = new System.Drawing.Size(178, 21);
-            this.SearchEx.TabIndex = 36;
+            this.SearchEx.TabIndex = 2;
             // 
             // DisableDate
             // 
@@ -297,10 +293,9 @@
             this.DisableDate.Location = new System.Drawing.Point(235, 182);
             this.DisableDate.Name = "DisableDate";
             this.DisableDate.Size = new System.Drawing.Size(97, 19);
-            this.DisableDate.TabIndex = 14;
+            this.DisableDate.TabIndex = 16;
             this.DisableDate.Text = "Disable Date";
             this.DisableDate.UseVisualStyleBackColor = true;
-            this.DisableDate.CheckedChanged += new System.EventHandler(this.DisableDate_CheckedChanged);
             // 
             // SearchD
             // 
@@ -311,8 +306,7 @@
             this.SearchD.Location = new System.Drawing.Point(124, 180);
             this.SearchD.Name = "SearchD";
             this.SearchD.Size = new System.Drawing.Size(105, 21);
-            this.SearchD.TabIndex = 13;
-            this.SearchD.ValueChanged += new System.EventHandler(this.SearchD_ValueChanged);
+            this.SearchD.TabIndex = 8;
             // 
             // label5
             // 
@@ -323,7 +317,6 @@
             this.label5.Size = new System.Drawing.Size(63, 15);
             this.label5.TabIndex = 19;
             this.label5.Text = "Location : ";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -334,7 +327,6 @@
             this.label4.Size = new System.Drawing.Size(109, 15);
             this.label4.TabIndex = 18;
             this.label4.Text = "Interpreter Name : ";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -345,7 +337,6 @@
             this.label3.Size = new System.Drawing.Size(42, 15);
             this.label3.TabIndex = 17;
             this.label3.Text = "Date : ";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
@@ -356,7 +347,6 @@
             this.label2.Size = new System.Drawing.Size(64, 15);
             this.label2.TabIndex = 16;
             this.label2.Text = "File Path : ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -367,7 +357,6 @@
             this.label1.Size = new System.Drawing.Size(73, 15);
             this.label1.TabIndex = 15;
             this.label1.Text = "File Name : ";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label6
             // 
@@ -378,7 +367,6 @@
             this.label6.Size = new System.Drawing.Size(74, 15);
             this.label6.TabIndex = 20;
             this.label6.Text = "Profession : ";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label10
             // 
@@ -399,7 +387,35 @@
             this.SearchCode.Location = new System.Drawing.Point(510, 147);
             this.SearchCode.Name = "SearchCode";
             this.SearchCode.Size = new System.Drawing.Size(726, 21);
-            this.SearchCode.TabIndex = 37;
+            this.SearchCode.TabIndex = 7;
+            // 
+            // label7
+            // 
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.label7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(0, 627);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(1248, 19);
+            this.label7.TabIndex = 39;
+            this.label7.Text = " Powered by : Polygon Network Company";
+            // 
+            // Search
+            // 
+            this.Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Search.ImageIndex = 3;
+            this.Search.ImageList = this.imageList1;
+            this.Search.Location = new System.Drawing.Point(970, 222);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(130, 44);
+            this.Search.TabIndex = 12;
+            this.Search.Text = "Search";
+            this.Search.UseVisualStyleBackColor = true;
+            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // Clear
             // 
@@ -412,7 +428,7 @@
             this.Clear.Location = new System.Drawing.Point(1106, 222);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(130, 44);
-            this.Clear.TabIndex = 31;
+            this.Clear.TabIndex = 14;
             this.Clear.Text = "Clear";
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
@@ -425,28 +441,13 @@
             this.View_Info.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.View_Info.ImageIndex = 4;
             this.View_Info.ImageList = this.imageList1;
-            this.View_Info.Location = new System.Drawing.Point(970, 222);
+            this.View_Info.Location = new System.Drawing.Point(547, 209);
             this.View_Info.Name = "View_Info";
             this.View_Info.Size = new System.Drawing.Size(130, 44);
-            this.View_Info.TabIndex = 30;
+            this.View_Info.TabIndex = 13;
             this.View_Info.Text = "View";
             this.View_Info.UseVisualStyleBackColor = true;
-            // 
-            // Search
-            // 
-            this.Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Search.ImageIndex = 3;
-            this.Search.ImageList = this.imageList1;
-            this.Search.Location = new System.Drawing.Point(834, 222);
-            this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(130, 44);
-            this.Search.TabIndex = 29;
-            this.Search.Text = "Search";
-            this.Search.UseVisualStyleBackColor = true;
-            this.Search.Click += new System.EventHandler(this.Search_Click);
+            this.View_Info.Visible = false;
             // 
             // Edit
             // 
@@ -455,12 +456,13 @@
             this.Edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Edit.ImageIndex = 2;
             this.Edit.ImageList = this.imageList1;
-            this.Edit.Location = new System.Drawing.Point(148, 222);
+            this.Edit.Location = new System.Drawing.Point(547, 209);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(130, 44);
-            this.Edit.TabIndex = 27;
+            this.Edit.TabIndex = 10;
             this.Edit.Text = "Edit";
             this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Visible = false;
             // 
             // Delete
             // 
@@ -469,12 +471,13 @@
             this.Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Delete.ImageIndex = 0;
             this.Delete.ImageList = this.imageList1;
-            this.Delete.Location = new System.Drawing.Point(284, 222);
+            this.Delete.Location = new System.Drawing.Point(148, 222);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(130, 44);
-            this.Delete.TabIndex = 28;
+            this.Delete.TabIndex = 11;
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // Add
             // 
@@ -486,17 +489,19 @@
             this.Add.Location = new System.Drawing.Point(12, 222);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(130, 44);
-            this.Add.TabIndex = 26;
+            this.Add.TabIndex = 9;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
             // Testemonial_Form
             // 
+            this.AcceptButton = this.Search;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1248, 646);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.SearchCode);
             this.Controls.Add(this.label6);
@@ -514,7 +519,6 @@
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.Add);
             this.Controls.Add(this.Testemonial_Grid);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.SearchEx);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -547,7 +551,6 @@
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Add;
         private System.Windows.Forms.Button Search;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox SearchLocN;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -571,5 +574,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox SearchCode;
+        private System.Windows.Forms.Label label7;
     }
 }

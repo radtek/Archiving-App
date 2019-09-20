@@ -61,6 +61,16 @@ namespace Apex.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] AlegreyaSans_Light {
+            get {
+                object obj = ResourceManager.GetObject("AlegreyaSans_Light", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo2 {
@@ -97,6 +107,16 @@ namespace Apex.Properties {
             get {
                 object obj = ResourceManager.GetObject("poli low", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Uni_Sans_Heavy {
+            get {
+                object obj = ResourceManager.GetObject("Uni_Sans_Heavy", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

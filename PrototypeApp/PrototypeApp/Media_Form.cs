@@ -96,23 +96,7 @@ namespace Apex
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            if (Media_Grid.SelectedCells.Count == 0)
-                return;
-            DialogResult res = MessageBox.Show("Are you sure you want to delete selected records?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if (res == DialogResult.No)
-                return;
-            foreach (DataGridViewRow r in Media_Grid.SelectedRows)
-            {
-                string name = r.Cells["MediaN"].Value.ToString(), path = r.Cells["Path"].Value.ToString(), ext = r.Cells["Extension"].Value.ToString();
-                string delete_record = "delete from media where name = N'" + name + "' and path =N'" + path + "' and extension ='" + ext + "'";
-                SqlCommand comm = new SqlCommand(delete_record, conn);
-                comm.ExecuteNonQuery();
-                Media_Grid.Rows.Remove(r);
-            }
-            MessageBox.Show("Successfully deleted selected records!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            conn.Close();
+            GF.DeleteRecords(Media_Grid, "media", "MediaN", "Path", "Extension", connectionString);
         }
 
         private void Edit_Click(object sender, EventArgs e)
@@ -126,14 +110,7 @@ namespace Apex
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in Media_Grid.Rows)
-            {
-                Media_Grid.Rows.Remove(row);
-            }
-            foreach (DataGridViewRow row in Media_Grid.Rows)
-            {
-                Media_Grid.Rows.Remove(row);
-            }
+            GF.ClearRecords(Media_Grid);
         }
 
         private void Media_Form_Load(object sender, EventArgs e)

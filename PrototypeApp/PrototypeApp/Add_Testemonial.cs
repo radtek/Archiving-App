@@ -24,7 +24,7 @@ namespace Apex
             Browse.FlatAppearance.BorderColor = Color.White;
             Add.FlatAppearance.BorderColor = Color.White;
             Cancel.FlatAppearance.BorderColor = Color.White;
-            GF.GetLocations(AddLoc , false);
+            GF.GetLocations(AddLoc, false);
             GF.GetProfessions(AddPro, false);
         }
 
@@ -35,8 +35,6 @@ namespace Apex
                 MessageBox.Show("Please, fill the whole form.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            OpenFileDialog Browse_File_Wind = new OpenFileDialog();
-            Browse_File_Wind.Multiselect = true;
             if (Browse_File_Wind.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string[] loc = Browse_File_Wind.FileNames;
@@ -54,7 +52,7 @@ namespace Apex
                     string path = Path.GetDirectoryName(i);
                     if(GF.CheckExistance(name+"-"+path+"-"+extension , "testemonial" , connectionString))
                     {
-                        MessageBox.Show("name+extension already exists in Testemonial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(name+extension +" already exists in Testemonial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         continue;
                     }
                     SelectedFiles.Rows.Add(code , name , intername , location , locationN , profession , date , extension , path);
@@ -69,6 +67,20 @@ namespace Apex
 
         private void Add_Click(object sender, EventArgs e)
         {
+            if (!GF.IsServerConnected(connectionString))
+            {
+                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Form TestForm = Application.OpenForms["Testemonial_Form"];
+                ((Main_Form)MainForm).Disconnected();
+                TestForm.Close();
+                this.Close();
+                return;
+            }
+            if (SelectedFiles.Rows.Count==0)
+            {
+                MessageBox.Show("There are no selected files.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             string add_files = "insert into testemonial(code ,name , intername , location , locationn , profession , date , extension , path) values";
@@ -89,13 +101,33 @@ namespace Apex
             SqlCommand comm = new SqlCommand(add_files, conn);
             comm.ExecuteNonQuery();
             MessageBox.Show("Successfully added file info!", "Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            foreach (DataGridViewRow row in SelectedFiles.Rows)
+            GF.ClearRecords(SelectedFiles);
+        }
+
+        private void SelectedFiles_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
             {
-                SelectedFiles.Rows.Remove(row);
+                int pos = SelectedFiles.HitTest(e.X, e.Y).RowIndex;
+                if (pos < 0)
+                    return;
+                if (!SelectedFiles.Rows[pos].Selected)
+                {
+                    SelectedFiles.ClearSelection();
+                    SelectedFiles.Rows[pos].Selected = true;
+                }
+                RowMenu.Show(SelectedFiles, new Point(e.X, e.Y));
             }
-            foreach (DataGridViewRow row in SelectedFiles.Rows)
+        }
+
+        private void RowMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if(e.ClickedItem.Text == "Delete")
             {
-                SelectedFiles.Rows.Remove(row);
+                foreach(DataGridViewRow row in SelectedFiles.SelectedRows)
+                {
+                    SelectedFiles.Rows.RemoveAt(row.Index);
+                }
             }
         }
     }

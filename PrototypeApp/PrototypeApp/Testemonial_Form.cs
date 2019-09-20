@@ -37,6 +37,13 @@ namespace Apex
 
         public void RefreshList()
         {
+            if (!GF.IsServerConnected(connectionString))
+            {
+                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ((Main_Form)MainForm).Disconnected();
+                this.Close();
+                return;
+            }
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             string get_test = "select Code , InterName , Location as Loc , LocationN as LocN , Profession , Name as TestN , Path , Extension , Date from Testemonial where ";
@@ -100,7 +107,7 @@ namespace Apex
 
         private void Search_Click(object sender, EventArgs e)
         {
-            if (SearchLoc.Text == "-Disable-" && SearchPro.Text == "-Disable-" && SearchIN.Text.Length == 0 && SearchN.Text.Length == 0 && SearchP.Text.Length == 0 && SearchEx.Text.Length == 0 && DisableDate.Checked == true)
+            if (SearchLoc.Text == "-Disable-" && SearchPro.Text == "-Disable-" && SearchIN.Text.Length == 0 && SearchN.Text.Length == 0 && SearchP.Text.Length == 0 && SearchEx.Text.Length == 0 && SearchCode.Text.Length == 0 && DisableDate.Checked == true)
             {
                 MessageBox.Show("Please, fill the search bars", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -115,46 +122,6 @@ namespace Apex
             else SearchLocN.Enabled = false;
         }
 
-        private void DisableDate_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SearchD_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Testemonial_Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
@@ -167,12 +134,19 @@ namespace Apex
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow row in Testemonial_Grid.Rows)
+            GF.ClearRecords(Testemonial_Grid);
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            if (!GF.IsServerConnected(connectionString))
             {
-                Testemonial_Grid.Rows.Remove(row);
+                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ((Main_Form)MainForm).Disconnected();
+                this.Close();
+                return;
             }
-            DataGridViewRow r = Testemonial_Grid.Rows[0];
-            Testemonial_Grid.Rows.Remove(r);
+            GF.DeleteRecords(Testemonial_Grid, "testemonial", "TestN", "Path", "Extension", connectionString);
         }
     }
 }

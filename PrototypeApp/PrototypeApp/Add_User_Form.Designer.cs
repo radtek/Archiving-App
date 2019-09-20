@@ -34,18 +34,17 @@
             this.Password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.UserName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.DatabaseN = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.AccessToCorrespondence = new System.Windows.Forms.CheckBox();
-            this.AccessToMedia = new System.Windows.Forms.CheckBox();
+            this.TablePanel = new System.Windows.Forms.Panel();
+            this.Expenses = new System.Windows.Forms.CheckBox();
+            this.Testemonial = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Create = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Close = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.PasswordCon = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
+            this.Admin = new System.Windows.Forms.CheckBox();
+            this.TablePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label4
@@ -85,55 +84,37 @@
             this.UserName.Size = new System.Drawing.Size(409, 21);
             this.UserName.TabIndex = 0;
             // 
-            // label2
+            // TablePanel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 165);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 15);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Database Name : ";
+            this.TablePanel.Controls.Add(this.Expenses);
+            this.TablePanel.Controls.Add(this.Testemonial);
+            this.TablePanel.Controls.Add(this.label1);
+            this.TablePanel.Location = new System.Drawing.Point(12, 170);
+            this.TablePanel.Name = "TablePanel";
+            this.TablePanel.Size = new System.Drawing.Size(200, 100);
+            this.TablePanel.TabIndex = 3;
             // 
-            // DatabaseN
+            // Expenses
             // 
-            this.DatabaseN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DatabaseN.Location = new System.Drawing.Point(131, 162);
-            this.DatabaseN.Name = "DatabaseN";
-            this.DatabaseN.Size = new System.Drawing.Size(409, 21);
-            this.DatabaseN.TabIndex = 2;
+            this.Expenses.AutoSize = true;
+            this.Expenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Expenses.Location = new System.Drawing.Point(3, 52);
+            this.Expenses.Name = "Expenses";
+            this.Expenses.Size = new System.Drawing.Size(80, 19);
+            this.Expenses.TabIndex = 1;
+            this.Expenses.Text = "Expenses";
+            this.Expenses.UseVisualStyleBackColor = true;
             // 
-            // panel1
+            // Testemonial
             // 
-            this.panel1.Controls.Add(this.AccessToCorrespondence);
-            this.panel1.Controls.Add(this.AccessToMedia);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(12, 212);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(200, 100);
-            this.panel1.TabIndex = 3;
-            // 
-            // AccessToCorrespondence
-            // 
-            this.AccessToCorrespondence.AutoSize = true;
-            this.AccessToCorrespondence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccessToCorrespondence.Location = new System.Drawing.Point(3, 56);
-            this.AccessToCorrespondence.Name = "AccessToCorrespondence";
-            this.AccessToCorrespondence.Size = new System.Drawing.Size(117, 19);
-            this.AccessToCorrespondence.TabIndex = 1;
-            this.AccessToCorrespondence.Text = "Correspondence";
-            this.AccessToCorrespondence.UseVisualStyleBackColor = true;
-            // 
-            // AccessToMedia
-            // 
-            this.AccessToMedia.AutoSize = true;
-            this.AccessToMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccessToMedia.Location = new System.Drawing.Point(3, 31);
-            this.AccessToMedia.Name = "AccessToMedia";
-            this.AccessToMedia.Size = new System.Drawing.Size(61, 19);
-            this.AccessToMedia.TabIndex = 0;
-            this.AccessToMedia.Text = "Media";
-            this.AccessToMedia.UseVisualStyleBackColor = true;
+            this.Testemonial.AutoSize = true;
+            this.Testemonial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Testemonial.Location = new System.Drawing.Point(3, 27);
+            this.Testemonial.Name = "Testemonial";
+            this.Testemonial.Size = new System.Drawing.Size(94, 19);
+            this.Testemonial.TabIndex = 0;
+            this.Testemonial.Text = "Testemonial";
+            this.Testemonial.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -207,8 +188,20 @@
             this.PasswordCon.Location = new System.Drawing.Point(131, 115);
             this.PasswordCon.Name = "PasswordCon";
             this.PasswordCon.Size = new System.Drawing.Size(409, 21);
-            this.PasswordCon.TabIndex = 25;
+            this.PasswordCon.TabIndex = 2;
             this.PasswordCon.UseSystemPasswordChar = true;
+            // 
+            // Admin
+            // 
+            this.Admin.AutoSize = true;
+            this.Admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Admin.Location = new System.Drawing.Point(382, 142);
+            this.Admin.Name = "Admin";
+            this.Admin.Size = new System.Drawing.Size(158, 19);
+            this.Admin.TabIndex = 3;
+            this.Admin.Text = "Give admin permissions";
+            this.Admin.UseVisualStyleBackColor = true;
+            this.Admin.CheckedChanged += new System.EventHandler(this.Admin_CheckedChanged);
             // 
             // Add_User_Form
             // 
@@ -216,25 +209,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(552, 353);
+            this.Controls.Add(this.Admin);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.PasswordCon);
             this.Controls.Add(this.Create);
             this.Controls.Add(this.Close);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.TablePanel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Password);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.UserName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.DatabaseN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Add_User_Form";
             this.Text = "Add User";
             this.Load += new System.EventHandler(this.Add_User_Form_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.TablePanel.ResumeLayout(false);
+            this.TablePanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,16 +238,15 @@
         private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox UserName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox DatabaseN;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.CheckBox AccessToCorrespondence;
-        private System.Windows.Forms.CheckBox AccessToMedia;
+        private System.Windows.Forms.Panel TablePanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Create;
         private System.Windows.Forms.Button Close;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox PasswordCon;
+        private System.Windows.Forms.CheckBox Testemonial;
+        private System.Windows.Forms.CheckBox Admin;
+        private System.Windows.Forms.CheckBox Expenses;
     }
 }

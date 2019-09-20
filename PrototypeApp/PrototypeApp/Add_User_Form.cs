@@ -31,7 +31,14 @@ namespace Apex
 
         private void Create_Click(object sender, EventArgs e)
         {
-            if(UserName.Text.Length==0 || DatabaseN.Text.Length == 0 || Password.Text.Length == 0 || PasswordCon.Text.Length == 0)
+            if (!GF.IsServerConnected(connectionString))
+            {
+                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ((Main_Form)MainForm).Disconnected();
+                this.Close();
+                return;
+            }
+            if (UserName.Text.Length==0 || Password.Text.Length == 0 || PasswordCon.Text.Length == 0)
             {
                 MessageBox.Show("Please fill the whole form.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -43,7 +50,7 @@ namespace Apex
                 return;
             }
 
-            string get_users = "select count(name) from master.sys.server_principals where default_database_name = '" + GF.GetConnection("", "", 2).Replace("'" , "''")+"' and name='"+UserName.Text.Replace("'","''")+"'";
+            string get_users = "select count(name) from master.sys.server_principals where name='"+UserName.Text.Replace("'","''")+"'";
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand comm = new SqlCommand(get_users, conn);
@@ -54,28 +61,26 @@ namespace Apex
                 return;
             }
 
-            string createQ="";
-            string loc = Directory.GetCurrentDirectory() + "/Logs";
-            using (StreamReader file = new StreamReader(Path.Combine(loc, "CreateUser.txt")))
+            string createQ = "USE [master]\nCREATE LOGIN [--username--] WITH PASSWORD=N'--password--', DEFAULT_DATABASE=[--database--], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF\nUSE [--database--]\nCREATE USER [--username--] FOR LOGIN [--username--]\n";
+            if (Admin.Checked)
             {
-                createQ = file.ReadToEnd();
-                file.Close();
+                createQ += "USE [--database--]\nALTER ROLE [db_owner] ADD MEMBER [--username--]\nexec master..sp_addsrvrolemember @loginame=N'--username--' , @rolename = N'sysadmin'";
+            }
+            else
+            {
+                createQ += "USE [--database--]\nALTER ROLE [db_datareader] ADD MEMBER [--username--]\nUSE [--database--]\nALTER ROLE [db_datawriter] ADD MEMBER [--username--]\n";
             }
             createQ = createQ.Replace("--username--", UserName.Text);
             createQ = createQ.Replace("--password--", Password.Text);
-            createQ = createQ.Replace("--database--", DatabaseN.Text);
-            if(AccessToMedia.Checked && !AccessToCorrespondence.Checked)
+            createQ = createQ.Replace("--database--", GF.GetConnection("", "", 2));
+            if (TablePanel.Enabled)
             {
-                createQ += "deny all on correspondence to [" + UserName.Text + "]";
-            }
-            if (!AccessToMedia.Checked && AccessToCorrespondence.Checked)
-            {
-                createQ += "deny all on media to [" + UserName.Text + "]";
-            }
-            if (!AccessToMedia.Checked && !AccessToCorrespondence.Checked)
-            {
-                createQ += "deny all on correspondence to [" + UserName.Text + "]";
-                createQ += "\ndeny all on media to [" + UserName.Text + "]";
+                createQ += "grant all on Testemonial to [" + UserName.Text + "]\n";
+                createQ += "grant all on Expenses to [" + UserName.Text + "]\n";
+                if (!Testemonial.Checked)
+                    createQ += "deny all on Testemonial to [" + UserName.Text + "]\n";
+                if (!Expenses.Checked)
+                    createQ += "deny all on Expenses to [" + UserName.Text + "]\n";
             }
             comm = new SqlCommand(createQ, conn);
             comm.ExecuteNonQuery();
@@ -87,6 +92,17 @@ namespace Apex
         private void Add_User_Form_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Admin_CheckedChanged(object sender, EventArgs e)
+        {
+            if(!Admin.Checked)
+            {
+                TablePanel.Enabled = true;
+                return;
+            }
+            TablePanel.Enabled = false;
+            MessageBox.Show("Users with admin permissions can modify and delete the database and other users accounts.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

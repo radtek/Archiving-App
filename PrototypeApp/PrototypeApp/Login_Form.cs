@@ -12,13 +12,14 @@ using FluentFTP;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
+using System.Threading;
 
 namespace Apex
 {
     public partial class Login_Form : Form
     {
         GlobalFunc GF = new GlobalFunc();
-        public string connectionString;
+        public string connectionString="";
         public string user;
         private const int EM_SHOWBALLOONTIP = 0x1503;
 
