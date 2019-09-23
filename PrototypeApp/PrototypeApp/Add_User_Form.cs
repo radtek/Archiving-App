@@ -12,12 +12,12 @@ using System.IO;
 
 namespace Apex
 {
-    public partial class Add_User_Form : Form
+    public partial class Admin_Settings_Form : Form
     {
         static Form MainForm = Application.OpenForms["Main_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
         GlobalFunc GF = new GlobalFunc();
-        public Add_User_Form()
+        public Admin_Settings_Form()
         {
             InitializeComponent();
             Close.FlatAppearance.BorderColor = Color.White;
@@ -25,7 +25,7 @@ namespace Apex
             ManageUserB.FlatAppearance.BorderColor = Color.White;
             Create.FlatAppearance.BorderColor = Color.White;
             Add.FlatAppearance.BorderColor = Color.White;
-            ShowManage();
+            ShowCreate();
         }
 
         private void ShowCreate()

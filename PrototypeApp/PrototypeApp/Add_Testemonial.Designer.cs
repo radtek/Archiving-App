@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Testemonial));
-            this.AddDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.Browse = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
@@ -58,20 +57,10 @@
             this.Add = new System.Windows.Forms.Button();
             this.RowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.AddDate = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedFiles)).BeginInit();
             this.RowMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // AddDate
-            // 
-            this.AddDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddDate.CalendarMonthBackground = System.Drawing.Color.White;
-            this.AddDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.AddDate.Location = new System.Drawing.Point(127, 224);
-            this.AddDate.Name = "AddDate";
-            this.AddDate.Size = new System.Drawing.Size(102, 21);
-            this.AddDate.TabIndex = 4;
             // 
             // label5
             // 
@@ -349,12 +338,24 @@
             this.MenuDelete.Size = new System.Drawing.Size(107, 22);
             this.MenuDelete.Text = "Delete";
             // 
+            // AddDate
+            // 
+            this.AddDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddDate.CalendarMonthBackground = System.Drawing.Color.White;
+            this.AddDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.AddDate.Location = new System.Drawing.Point(127, 224);
+            this.AddDate.Name = "AddDate";
+            this.AddDate.Size = new System.Drawing.Size(105, 21);
+            this.AddDate.TabIndex = 47;
+            // 
             // Add_Testemonial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1353, 450);
+            this.Controls.Add(this.AddDate);
             this.Controls.Add(this.Browse);
             this.Controls.Add(this.SelectedFiles);
             this.Controls.Add(this.Cancel);
@@ -366,7 +367,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.AddDate);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.AddLocN);
             this.Controls.Add(this.AddIN);
@@ -381,8 +381,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DateTimePicker AddDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button Browse;
         private System.Windows.Forms.TextBox AddLocN;
@@ -410,5 +408,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FilePath;
         private System.Windows.Forms.ContextMenuStrip RowMenu;
         private System.Windows.Forms.ToolStripMenuItem MenuDelete;
+        private System.Windows.Forms.DateTimePicker AddDate;
     }
 }

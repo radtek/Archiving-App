@@ -303,7 +303,7 @@
             this.SearchD.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchD.CalendarMonthBackground = System.Drawing.Color.White;
             this.SearchD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.SearchD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.SearchD.Location = new System.Drawing.Point(124, 180);
             this.SearchD.Name = "SearchD";
             this.SearchD.Size = new System.Drawing.Size(105, 21);

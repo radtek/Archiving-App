@@ -197,7 +197,7 @@ namespace Apex
 
         private void AddUser_Click(object sender, EventArgs e)
         {
-            Add_User_Form form = new Add_User_Form();
+            Admin_Settings_Form form = new Admin_Settings_Form();
             form.Show();
         }
 

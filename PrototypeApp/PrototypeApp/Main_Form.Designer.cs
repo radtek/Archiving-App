@@ -282,7 +282,7 @@
             this.AdminSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.AdminSettings.ImageIndex = 4;
             this.AdminSettings.ImageList = this.imageList2;
-            this.AdminSettings.Location = new System.Drawing.Point(15, 30);
+            this.AdminSettings.Location = new System.Drawing.Point(16, 30);
             this.AdminSettings.Name = "AdminSettings";
             this.AdminSettings.Size = new System.Drawing.Size(36, 40);
             this.AdminSettings.TabIndex = 4;

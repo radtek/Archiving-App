@@ -126,7 +126,7 @@ namespace Apex
             conn.Open();
             foreach (DataGridViewRow r in Grid.SelectedRows)
             {
-                string name = r.Cells[cell1].Value.ToString(), path = r.Cells[cell2].Value.ToString(), ext = r.Cells[cell3].Value.ToString();
+                string name = r.Cells[cell1].Value.ToString().Replace("'" , "''"), path = r.Cells[cell2].Value.ToString().Replace("'", "''"), ext = r.Cells[cell3].Value.ToString();
                 string delete_records = "delete from " + table + " where name = N'" + name + "' and path =N'" + path + "' and extension ='" + ext + "'";
                 SqlCommand comm = new SqlCommand(delete_records, conn);
                 comm.ExecuteNonQuery();

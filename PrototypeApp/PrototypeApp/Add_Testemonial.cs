@@ -24,6 +24,7 @@ namespace Apex
             Browse.FlatAppearance.BorderColor = Color.White;
             Add.FlatAppearance.BorderColor = Color.White;
             Cancel.FlatAppearance.BorderColor = Color.White;
+            AddDate.CustomFormat = "dd/MM/yyyy";
             GF.GetLocations(AddLoc, false);
             GF.GetProfessions(AddPro, false);
         }
@@ -92,7 +93,8 @@ namespace Apex
                 string location = row.Cells[3].Value.ToString().Replace("'", "''");
                 string locationN = row.Cells[4].Value.ToString().Replace("'", "''");
                 string profession = row.Cells[5].Value.ToString().Replace("'", "''");
-                string date = row.Cells[6].Value.ToString().Replace("-", "/");
+                string[] parts = row.Cells[6].Value.ToString().Split('/');
+                string date = parts[1] + "-" + parts[0] + "-" + parts[2];
                 string extension = row.Cells[7].Value.ToString().Replace("'", "''");
                 string path = row.Cells[8].Value.ToString().Replace("'", "''");
                 add_files += "('" + code + "',N'" + name + "',N'" + intername + "',N'" + location + "',N'" + locationN + "',N'" + profession + "','" + date + "','" + extension + "',N'" + path + "'),";

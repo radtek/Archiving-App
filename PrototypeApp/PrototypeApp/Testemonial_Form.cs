@@ -27,7 +27,8 @@ namespace Apex
             View_Info.FlatAppearance.BorderColor = Color.White;
             Clear.FlatAppearance.BorderColor = Color.White;
             SearchLoc.Text = "-Disable-";
-            SearchPro.Text = "-Disable-";
+            SearchPro.Text = "-Disable-"; 
+            SearchD.CustomFormat = "dd/MM/yyyy";
             SearchLocN.Enabled = false;
             GF.GetLocations(SearchLoc, true);
             GF.GetProfessions(SearchPro, true);
@@ -46,7 +47,7 @@ namespace Apex
             }
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string get_test = "select Code , InterName , Location as Loc , LocationN as LocN , Profession , Name as TestN , Path , Extension , Date from Testemonial where ";
+            string get_test = "select Code , InterName , Location as Loc , LocationN as LocN , Profession , Name as TestN , Path , Extension , convert(varchar , date , 3) as Date from Testemonial where ";
             string originalQ = get_test;
             if(SearchN.Text.Length!=0)
             {
@@ -85,7 +86,9 @@ namespace Apex
             if(DisableDate.Checked==false)
             {
                 if (originalQ != get_test) get_test += " and ";
-                get_test += "Date = '" + SearchD.Text.Replace("/" , "-") + "'";
+                string[] parts = SearchD.Text.Split('/');
+                string newdate = parts[1] + "-" + parts[0] + "-" + parts[2];
+                get_test += "Date = '" + newdate + "'";
             }
             if(SearchCode.Text.Length != 0)
             {

@@ -1,6 +1,6 @@
 ﻿namespace Apex
 {
-    partial class Add_User_Form
+    partial class Admin_Settings_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_User_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Settings_Form));
             this.label4 = new System.Windows.Forms.Label();
             this.Password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,32 +41,32 @@
             this.PasswordCon = new System.Windows.Forms.TextBox();
             this.Admin = new System.Windows.Forms.CheckBox();
             this.CreateUserP = new System.Windows.Forms.Panel();
+            this.TablePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.Testemonial = new System.Windows.Forms.CheckBox();
             this.Expenses = new System.Windows.Forms.CheckBox();
             this.ManageUserP = new System.Windows.Forms.Panel();
-            this.Users_Grid = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.UserName2 = new System.Windows.Forms.TextBox();
-            this.Add = new System.Windows.Forms.Button();
-            this.TablePanel = new System.Windows.Forms.Panel();
-            this.CreateUserB = new System.Windows.Forms.Button();
-            this.ManageUserB = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.Admin2 = new System.Windows.Forms.CheckBox();
             this.TablePanel2 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.Testemonial2 = new System.Windows.Forms.CheckBox();
             this.Expenses2 = new System.Windows.Forms.CheckBox();
-            this.Admin2 = new System.Windows.Forms.CheckBox();
-            this.RowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.MenuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.Add = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.UserName2 = new System.Windows.Forms.TextBox();
+            this.Users_Grid = new System.Windows.Forms.DataGridView();
             this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
+            this.CreateUserB = new System.Windows.Forms.Button();
+            this.ManageUserB = new System.Windows.Forms.Button();
+            this.RowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.CreateUserP.SuspendLayout();
-            this.ManageUserP.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Users_Grid)).BeginInit();
             this.TablePanel.SuspendLayout();
+            this.ManageUserP.SuspendLayout();
             this.TablePanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Users_Grid)).BeginInit();
             this.RowMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -202,6 +202,16 @@
             this.CreateUserP.Size = new System.Drawing.Size(824, 336);
             this.CreateUserP.TabIndex = 27;
             // 
+            // TablePanel
+            // 
+            this.TablePanel.Controls.Add(this.label1);
+            this.TablePanel.Controls.Add(this.Testemonial);
+            this.TablePanel.Controls.Add(this.Expenses);
+            this.TablePanel.Location = new System.Drawing.Point(3, 158);
+            this.TablePanel.Name = "TablePanel";
+            this.TablePanel.Size = new System.Drawing.Size(132, 102);
+            this.TablePanel.TabIndex = 27;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -248,98 +258,27 @@
             this.ManageUserP.Size = new System.Drawing.Size(824, 336);
             this.ManageUserP.TabIndex = 27;
             // 
-            // Users_Grid
+            // label7
             // 
-            this.Users_Grid.AllowUserToAddRows = false;
-            this.Users_Grid.AllowUserToDeleteRows = false;
-            this.Users_Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Users_Grid.BackgroundColor = System.Drawing.Color.White;
-            this.Users_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Users_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.User,
-            this.Role});
-            this.Users_Grid.Location = new System.Drawing.Point(388, 32);
-            this.Users_Grid.Name = "Users_Grid";
-            this.Users_Grid.ReadOnly = true;
-            this.Users_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Users_Grid.Size = new System.Drawing.Size(436, 304);
-            this.Users_Grid.TabIndex = 5;
-            this.Users_Grid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Users_Grid_MouseClick);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(385, 14);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(102, 15);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "Database users : ";
             // 
-            // label2
+            // Admin2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-3, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 15);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Username : ";
-            // 
-            // UserName2
-            // 
-            this.UserName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserName2.Location = new System.Drawing.Point(77, 76);
-            this.UserName2.Name = "UserName2";
-            this.UserName2.Size = new System.Drawing.Size(305, 21);
-            this.UserName2.TabIndex = 24;
-            // 
-            // Add
-            // 
-            this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Add.ImageIndex = 5;
-            this.Add.ImageList = this.imageList1;
-            this.Add.Location = new System.Drawing.Point(252, 292);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(130, 44);
-            this.Add.TabIndex = 26;
-            this.Add.Text = "Add";
-            this.Add.UseVisualStyleBackColor = true;
-            this.Add.Click += new System.EventHandler(this.Add_Click);
-            // 
-            // TablePanel
-            // 
-            this.TablePanel.Controls.Add(this.label1);
-            this.TablePanel.Controls.Add(this.Testemonial);
-            this.TablePanel.Controls.Add(this.Expenses);
-            this.TablePanel.Location = new System.Drawing.Point(3, 158);
-            this.TablePanel.Name = "TablePanel";
-            this.TablePanel.Size = new System.Drawing.Size(132, 102);
-            this.TablePanel.TabIndex = 27;
-            // 
-            // CreateUserB
-            // 
-            this.CreateUserB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CreateUserB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateUserB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.CreateUserB.ImageIndex = 12;
-            this.CreateUserB.ImageList = this.imageList1;
-            this.CreateUserB.Location = new System.Drawing.Point(232, 12);
-            this.CreateUserB.Name = "CreateUserB";
-            this.CreateUserB.Size = new System.Drawing.Size(220, 44);
-            this.CreateUserB.TabIndex = 28;
-            this.CreateUserB.Text = "Create users";
-            this.CreateUserB.UseVisualStyleBackColor = true;
-            this.CreateUserB.Click += new System.EventHandler(this.CreateUserB_Click);
-            // 
-            // ManageUserB
-            // 
-            this.ManageUserB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ManageUserB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManageUserB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ManageUserB.ImageIndex = 11;
-            this.ManageUserB.ImageList = this.imageList1;
-            this.ManageUserB.Location = new System.Drawing.Point(12, 12);
-            this.ManageUserB.Name = "ManageUserB";
-            this.ManageUserB.Size = new System.Drawing.Size(220, 44);
-            this.ManageUserB.TabIndex = 29;
-            this.ManageUserB.Text = "Manage users";
-            this.ManageUserB.UseVisualStyleBackColor = true;
-            this.ManageUserB.Click += new System.EventHandler(this.ManageUserB_Click);
+            this.Admin2.AutoSize = true;
+            this.Admin2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Admin2.Location = new System.Drawing.Point(224, 103);
+            this.Admin2.Name = "Admin2";
+            this.Admin2.Size = new System.Drawing.Size(158, 19);
+            this.Admin2.TabIndex = 29;
+            this.Admin2.Text = "Give admin permissions";
+            this.Admin2.UseVisualStyleBackColor = true;
+            this.Admin2.CheckedChanged += new System.EventHandler(this.Admin2_CheckedChanged);
             // 
             // TablePanel2
             // 
@@ -383,31 +322,58 @@
             this.Expenses2.Text = "Expenses";
             this.Expenses2.UseVisualStyleBackColor = true;
             // 
-            // Admin2
+            // Add
             // 
-            this.Admin2.AutoSize = true;
-            this.Admin2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Admin2.Location = new System.Drawing.Point(224, 103);
-            this.Admin2.Name = "Admin2";
-            this.Admin2.Size = new System.Drawing.Size(158, 19);
-            this.Admin2.TabIndex = 29;
-            this.Admin2.Text = "Give admin permissions";
-            this.Admin2.UseVisualStyleBackColor = true;
-            this.Admin2.CheckedChanged += new System.EventHandler(this.Admin2_CheckedChanged);
+            this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Add.ImageIndex = 5;
+            this.Add.ImageList = this.imageList1;
+            this.Add.Location = new System.Drawing.Point(252, 292);
+            this.Add.Name = "Add";
+            this.Add.Size = new System.Drawing.Size(130, 44);
+            this.Add.TabIndex = 26;
+            this.Add.Text = "Add";
+            this.Add.UseVisualStyleBackColor = true;
+            this.Add.Click += new System.EventHandler(this.Add_Click);
             // 
-            // RowMenu
+            // label2
             // 
-            this.RowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuDelete});
-            this.RowMenu.Name = "RowMenu";
-            this.RowMenu.Size = new System.Drawing.Size(108, 26);
-            this.RowMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.RowMenu_ItemClicked);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(-3, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 15);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "Username : ";
             // 
-            // MenuDelete
+            // UserName2
             // 
-            this.MenuDelete.Name = "MenuDelete";
-            this.MenuDelete.Size = new System.Drawing.Size(107, 22);
-            this.MenuDelete.Text = "Delete";
+            this.UserName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserName2.Location = new System.Drawing.Point(77, 76);
+            this.UserName2.Name = "UserName2";
+            this.UserName2.Size = new System.Drawing.Size(305, 21);
+            this.UserName2.TabIndex = 24;
+            // 
+            // Users_Grid
+            // 
+            this.Users_Grid.AllowUserToAddRows = false;
+            this.Users_Grid.AllowUserToDeleteRows = false;
+            this.Users_Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Users_Grid.BackgroundColor = System.Drawing.Color.White;
+            this.Users_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Users_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.User,
+            this.Role});
+            this.Users_Grid.Location = new System.Drawing.Point(388, 32);
+            this.Users_Grid.Name = "Users_Grid";
+            this.Users_Grid.ReadOnly = true;
+            this.Users_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Users_Grid.Size = new System.Drawing.Size(436, 304);
+            this.Users_Grid.TabIndex = 5;
+            this.Users_Grid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Users_Grid_MouseClick);
             // 
             // User
             // 
@@ -425,17 +391,52 @@
             this.Role.ReadOnly = true;
             this.Role.Width = 196;
             // 
-            // label7
+            // CreateUserB
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(385, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 15);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Database users : ";
+            this.CreateUserB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateUserB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateUserB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CreateUserB.ImageIndex = 12;
+            this.CreateUserB.ImageList = this.imageList1;
+            this.CreateUserB.Location = new System.Drawing.Point(232, 12);
+            this.CreateUserB.Name = "CreateUserB";
+            this.CreateUserB.Size = new System.Drawing.Size(220, 44);
+            this.CreateUserB.TabIndex = 28;
+            this.CreateUserB.Text = "Create users";
+            this.CreateUserB.UseVisualStyleBackColor = true;
+            this.CreateUserB.Click += new System.EventHandler(this.CreateUserB_Click);
             // 
-            // Add_User_Form
+            // ManageUserB
+            // 
+            this.ManageUserB.Enabled = false;
+            this.ManageUserB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageUserB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageUserB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageUserB.ImageIndex = 11;
+            this.ManageUserB.ImageList = this.imageList1;
+            this.ManageUserB.Location = new System.Drawing.Point(12, 12);
+            this.ManageUserB.Name = "ManageUserB";
+            this.ManageUserB.Size = new System.Drawing.Size(220, 44);
+            this.ManageUserB.TabIndex = 29;
+            this.ManageUserB.Text = "Manage users";
+            this.ManageUserB.UseVisualStyleBackColor = true;
+            this.ManageUserB.Click += new System.EventHandler(this.ManageUserB_Click);
+            // 
+            // RowMenu
+            // 
+            this.RowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuDelete});
+            this.RowMenu.Name = "RowMenu";
+            this.RowMenu.Size = new System.Drawing.Size(108, 26);
+            this.RowMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.RowMenu_ItemClicked);
+            // 
+            // MenuDelete
+            // 
+            this.MenuDelete.Name = "MenuDelete";
+            this.MenuDelete.Size = new System.Drawing.Size(107, 22);
+            this.MenuDelete.Text = "Delete";
+            // 
+            // Admin_Settings_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -449,18 +450,18 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "Add_User_Form";
-            this.Text = "Add User";
+            this.Name = "Admin_Settings_Form";
+            this.Text = "Admin Settings";
             this.Load += new System.EventHandler(this.Add_User_Form_Load);
             this.CreateUserP.ResumeLayout(false);
             this.CreateUserP.PerformLayout();
-            this.ManageUserP.ResumeLayout(false);
-            this.ManageUserP.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Users_Grid)).EndInit();
             this.TablePanel.ResumeLayout(false);
             this.TablePanel.PerformLayout();
+            this.ManageUserP.ResumeLayout(false);
+            this.ManageUserP.PerformLayout();
             this.TablePanel2.ResumeLayout(false);
             this.TablePanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Users_Grid)).EndInit();
             this.RowMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
