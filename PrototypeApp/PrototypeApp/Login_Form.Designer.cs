@@ -45,6 +45,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Close = new System.Windows.Forms.Button();
+            this.CreateDB = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -207,6 +208,20 @@
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.Close_Click);
             // 
+            // CreateDB
+            // 
+            this.CreateDB.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.CreateDB.AutoSize = true;
+            this.CreateDB.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateDB.LinkColor = System.Drawing.Color.Black;
+            this.CreateDB.Location = new System.Drawing.Point(15, 372);
+            this.CreateDB.Name = "CreateDB";
+            this.CreateDB.Size = new System.Drawing.Size(97, 15);
+            this.CreateDB.TabIndex = 21;
+            this.CreateDB.TabStop = true;
+            this.CreateDB.Text = "Create Database";
+            this.CreateDB.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.CreateDB_LinkClicked);
+            // 
             // Login_Form
             // 
             this.AcceptButton = this.Login;
@@ -215,6 +230,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(551, 413);
             this.ControlBox = false;
+            this.Controls.Add(this.CreateDB);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
@@ -259,5 +275,6 @@
         private System.Windows.Forms.TextBox Password;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.LinkLabel CreateDB;
     }
 }

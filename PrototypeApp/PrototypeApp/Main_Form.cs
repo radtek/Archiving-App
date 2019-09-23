@@ -89,7 +89,7 @@ namespace Apex
             AdminLabel.Visible = false;
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            SqlCommand comm = new SqlCommand("select count(m.name) from sys.database_role_members rm join sys.database_principals p on rm.role_principal_id = p.principal_id join sys.database_principals m on rm.member_principal_id=m.principal_id where m.name='" + user + "' and p.name='db_owner'", conn);
+            SqlCommand comm = new SqlCommand("SELECT count(*) FROM dbo.dbRolesUsersMap (DEFAULT) where Login_Name='"+user.Replace("'" , "''")+"' and DB_Role='db_owner'", conn);
             try
             {
                 string check = comm.ExecuteScalar().ToString();

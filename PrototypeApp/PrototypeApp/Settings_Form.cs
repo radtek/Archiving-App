@@ -14,7 +14,9 @@ namespace Apex
 {
     public partial class Settings_Form : Form
     {
-        string locPath = "Data/Locations.txt", proPath = "Data/Professions.txt";
+        GlobalFunc GF = new GlobalFunc();
+        string locPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Locations.txt";
+        string proPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Professions.txt";
         public Settings_Form()
         {
             InitializeComponent();
@@ -29,6 +31,7 @@ namespace Apex
 
         public void FillGrids()
         {
+            GF.CheckData("Professions");
             using (StreamReader file = new StreamReader(proPath))
             {
                 string ln;
@@ -37,6 +40,7 @@ namespace Apex
                     Professions_Grid.Rows.Add(ln);
                 }
             }
+            GF.CheckData("Locations");
             using (StreamReader file = new StreamReader(locPath))
             {
                 string ln;
@@ -58,7 +62,7 @@ namespace Apex
         {
             if (Loc.Text.Length == 0)
                 return;
-            Professions_Grid.Rows.Add(Loc.Text);
+            Locations_Grid.Rows.Add(Loc.Text);
         }
 
         private void ProDelete_Click(object sender, EventArgs e)

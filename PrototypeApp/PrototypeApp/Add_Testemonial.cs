@@ -30,7 +30,7 @@ namespace Apex
 
         private void Browse_Click(object sender, EventArgs e)
         {
-            if(AddIN.Text.Length == 0 || AddLocN.Text.Length==0)
+            if(AddIN.Text.Length == 0 || AddLocN.Text.Length==0 || AddLoc.Text.Length==0 || AddPro.Text.Length==0)
             {
                 MessageBox.Show("Please, fill the whole form.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -50,7 +50,7 @@ namespace Apex
                     string date = AddDate.Text;
                     string extension = Path.GetExtension(i);
                     string path = Path.GetDirectoryName(i);
-                    if(GF.CheckExistance(name+"-"+path+"-"+extension , "testemonial" , connectionString))
+                    if(GF.CheckExistance(name.Replace("'" , "''")+"-"+path.Replace("'", "''") + "-"+extension , "testemonial" , connectionString))
                     {
                         MessageBox.Show(name+extension +" already exists in Testemonial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         continue;

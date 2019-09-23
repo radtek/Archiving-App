@@ -55,7 +55,7 @@ namespace Apex
                 Bar.MarqueeAnimationSpeed = 0;
                 return;
             }
-            string loc = Directory.GetCurrentDirectory()+"/Logs";
+            string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Logs";
             using (StreamWriter outputFile = new StreamWriter(Path.Combine(loc, "DatabaseInfo.txt")))
             {
                 outputFile.WriteLine("Server=" + ServerN.Text + Environment.NewLine + "Database=" + DatabaseN.Text);
@@ -73,6 +73,12 @@ namespace Apex
         private void Login_Form_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void CreateDB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            CreateDB_Form form = new CreateDB_Form();
+            form.ShowDialog();
         }
     }
 }

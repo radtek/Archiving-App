@@ -20,11 +20,11 @@ namespace Apex
     {
         public string GetConnection(string user="" , string pass="" , int x=0)
         {
-            string loc = "Logs/DatabaseInfo.txt";
+            string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"/Apex Archiving Software/Logs/DatabaseInfo.txt";
             string server = "", database = "";
-            if(!File.Exists("Logs/DatabaseInfo.txt"))
+            if(!File.Exists(loc))
             {
-                Directory.CreateDirectory("Logs");
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+ "/Apex Archiving Software/Logs");
                 using (StreamWriter outputFile = new StreamWriter(loc))
                 {
                     outputFile.WriteLine("Server=" + Environment.NewLine + "Database=");
@@ -150,12 +150,8 @@ namespace Apex
         }
         public void GetLocations(ComboBox Locs , bool Search)
         {
-            string loc = "Data/Locations.txt";
-            if (!File.Exists(loc))
-            {
-                Directory.CreateDirectory("Data");
-                File.CreateText(loc);
-            }
+            string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Locations.txt";
+            CheckData("Locations");
             using (StreamReader file = new StreamReader(loc))
             {
                 string ln;
@@ -169,18 +165,12 @@ namespace Apex
                     Locs.Items.Add("-Disable-");
                     Locs.Text = "-Disable-";
                 }
-                else
-                    Locs.SelectedIndex = 0;
             }
         }
         public void GetProfessions(ComboBox Pros, bool Search)
         {
-            string loc = "Data/Professions.txt";
-            if (!File.Exists(loc))
-            {
-                Directory.CreateDirectory("Data");
-                File.CreateText(loc);
-            }
+            string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Professions.txt";
+            CheckData("Professions");
             using (StreamReader file = new StreamReader(loc))
             {
                 string ln;
@@ -194,8 +184,29 @@ namespace Apex
                     Pros.Items.Add("-Disable-");
                     Pros.Text = "-Disable-";
                 }
-                else
-                    Pros.SelectedIndex = 0;
+            }
+        }
+        public void CheckData(string name)
+        {
+            if(name == "Locations")
+            {
+                string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Locations.txt";
+                if (!File.Exists(loc))
+                {
+                    Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data");
+                    var file = File.CreateText(loc);
+                    file.Close();
+                }
+            }
+            if(name == "Professions")
+            {
+                string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Professions.txt";
+                if (!File.Exists(loc))
+                {
+                    Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data");
+                    var file = File.CreateText(loc);
+                    file.Close();
+                }
             }
         }
         public string GetCode(string table , Dictionary<string, bool> map , string connectionString)
