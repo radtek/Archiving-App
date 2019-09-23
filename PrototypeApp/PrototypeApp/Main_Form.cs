@@ -45,7 +45,7 @@ namespace Apex
             Correspondence.FlatAppearance.BorderColor = Color.White;
             Testemonial.FlatAppearance.BorderColor = Color.White;
             Expenses.FlatAppearance.BorderColor = Color.White;
-            AddUser.FlatAppearance.BorderColor = Color.White;
+            AdminSettings.FlatAppearance.BorderColor = Color.White;
             Settings.FlatAppearance.BorderColor = Color.White;
             Logout.FlatAppearance.BorderColor = Color.White;
             Reconnect.FlatAppearance.BorderColor = Color.White;
@@ -82,10 +82,11 @@ namespace Apex
             }
             Media.Enabled = true;
             Correspondence.Enabled = true;
+            Settings.Enabled = true;
             Testemonial.Enabled = true;
             Expenses.Enabled = true;
-            AddUser.Visible = false;
-            AddUser.Enabled = false;
+            AdminSettings.Visible = false;
+            AdminSettings.Enabled = false;
             AdminLabel.Visible = false;
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -95,8 +96,8 @@ namespace Apex
                 string check = comm.ExecuteScalar().ToString();
                 if (check != "0")
                 {
-                    AddUser.Visible = true;
-                    AddUser.Enabled = true;
+                    AdminSettings.Visible = true;
+                    AdminSettings.Enabled = true;
                     AdminLabel.Visible = true;
                 }
             }
@@ -111,6 +112,7 @@ namespace Apex
             catch (SqlException)
             {
                 Testemonial.Enabled = false;
+                Settings.Enabled = false;
             }
             comm = new SqlCommand("select * from Expenses", conn);
             try
@@ -150,7 +152,8 @@ namespace Apex
             State.ForeColor = Color.Red;
             Testemonial.Enabled = false;
             Expenses.Enabled = false;
-            AddUser.Enabled = false;
+            AdminSettings.Enabled = false;
+            Settings.Enabled = false;
         }
 
         private void Media_Click(object sender, EventArgs e)
@@ -213,7 +216,7 @@ namespace Apex
         private void AddUser_MouseHover(object sender, EventArgs e)
         {
             ToolTip ToolTip1 = new ToolTip();
-            ToolTip1.SetToolTip(this.AddUser, "Add User");
+            ToolTip1.SetToolTip(this.AdminSettings, "Admin Settings");
         }
 
         private void AdminLabel_MouseHover(object sender, EventArgs e)

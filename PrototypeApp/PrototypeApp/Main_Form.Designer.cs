@@ -47,7 +47,7 @@
             this.Reconnect = new System.Windows.Forms.Button();
             this.Expenses = new System.Windows.Forms.Button();
             this.Testemonial = new System.Windows.Forms.Button();
-            this.AddUser = new System.Windows.Forms.Button();
+            this.AdminSettings = new System.Windows.Forms.Button();
             this.Logout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Correspondence = new System.Windows.Forms.Button();
@@ -80,6 +80,7 @@
             this.imageList2.Images.SetKeyName(1, "settings2.png");
             this.imageList2.Images.SetKeyName(2, "exit (1).png");
             this.imageList2.Images.SetKeyName(3, "new-user.png");
+            this.imageList2.Images.SetKeyName(4, "shield.png");
             // 
             // label1
             // 
@@ -272,22 +273,22 @@
             this.Testemonial.UseVisualStyleBackColor = false;
             this.Testemonial.Click += new System.EventHandler(this.Testemonial_Click);
             // 
-            // AddUser
+            // AdminSettings
             // 
-            this.AddUser.BackColor = System.Drawing.Color.Transparent;
-            this.AddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.AddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddUser.ImageIndex = 3;
-            this.AddUser.ImageList = this.imageList2;
-            this.AddUser.Location = new System.Drawing.Point(17, 30);
-            this.AddUser.Name = "AddUser";
-            this.AddUser.Size = new System.Drawing.Size(36, 40);
-            this.AddUser.TabIndex = 4;
-            this.AddUser.UseVisualStyleBackColor = false;
-            this.AddUser.Click += new System.EventHandler(this.AddUser_Click);
-            this.AddUser.MouseHover += new System.EventHandler(this.AddUser_MouseHover);
+            this.AdminSettings.BackColor = System.Drawing.Color.Transparent;
+            this.AdminSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AdminSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminSettings.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.AdminSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AdminSettings.ImageIndex = 4;
+            this.AdminSettings.ImageList = this.imageList2;
+            this.AdminSettings.Location = new System.Drawing.Point(15, 30);
+            this.AdminSettings.Name = "AdminSettings";
+            this.AdminSettings.Size = new System.Drawing.Size(36, 40);
+            this.AdminSettings.TabIndex = 4;
+            this.AdminSettings.UseVisualStyleBackColor = false;
+            this.AdminSettings.Click += new System.EventHandler(this.AddUser_Click);
+            this.AdminSettings.MouseHover += new System.EventHandler(this.AddUser_MouseHover);
             // 
             // Logout
             // 
@@ -364,7 +365,7 @@
             this.Controls.Add(this.Expenses);
             this.Controls.Add(this.Testemonial);
             this.Controls.Add(this.AdminLabel);
-            this.Controls.Add(this.AddUser);
+            this.Controls.Add(this.AdminSettings);
             this.Controls.Add(this.PB);
             this.Controls.Add(this.UserName);
             this.Controls.Add(this.label5);
@@ -407,7 +408,7 @@
         private System.Windows.Forms.Label UserName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label PB;
-        private System.Windows.Forms.Button AddUser;
+        private System.Windows.Forms.Button AdminSettings;
         private System.Windows.Forms.Label AdminLabel;
         private System.Windows.Forms.Button Testemonial;
         private System.Windows.Forms.Button Expenses;
