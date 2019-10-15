@@ -27,28 +27,14 @@ namespace Apex
 
         public string connectionString="";
         public string user;
-        AnimationFunc Anim = new AnimationFunc();
-        GlobalFunc GF = new GlobalFunc();
+        public string server;
+        public string database;
+        private readonly AnimationFunc Anim = new AnimationFunc();
+        private readonly GlobalFunc GF = new GlobalFunc();
         public Main_Form()
         {
             InitializeComponent();
-            byte[] fontData = Properties.Resources.Uni_Sans_Heavy;
-            IntPtr fontPtr = System.Runtime.InteropServices.Marshal.AllocCoTaskMem(fontData.Length);
-            System.Runtime.InteropServices.Marshal.Copy(fontData, 0, fontPtr, fontData.Length);
-            uint dummy = 0;
-            fonts.AddMemoryFont(fontPtr, Properties.Resources.Uni_Sans_Heavy.Length);
-            AddFontMemResourceEx(fontPtr, (uint)Properties.Resources.Uni_Sans_Heavy.Length, IntPtr.Zero, ref dummy);
-            System.Runtime.InteropServices.Marshal.FreeCoTaskMem(fontPtr);
-            myFont = new Font(fonts.Families[0], 10.0F);
-
-            Media.FlatAppearance.BorderColor = Color.White;
-            Correspondence.FlatAppearance.BorderColor = Color.White;
-            Testemonial.FlatAppearance.BorderColor = Color.White;
-            Expenses.FlatAppearance.BorderColor = Color.White;
-            AdminSettings.FlatAppearance.BorderColor = Color.White;
-            Settings.FlatAppearance.BorderColor = Color.White;
-            Logout.FlatAppearance.BorderColor = Color.White;
-            Reconnect.FlatAppearance.BorderColor = Color.White;
+            GF.EditButtons(this);
             Anim.AddAnimation(Media , "Media" , 86 , 347);
             Anim.AddAnimation(Correspondence , "Correspondence", 86, 347);
             Anim.AddAnimation(Testemonial, "Testemonial", 86, 347);
@@ -65,14 +51,16 @@ namespace Apex
             if (connectionString == "")
                 System.Environment.Exit(1);
             user = form.user;
+            server = form.server;
+            database = form.database;
             this.Visible = true;
             CheckState();
         }
 
         public void CheckState()
         {
-            Server.Text = GF.GetConnection("","",1);
-            Database.Text = GF.GetConnection("","",2);
+            Server.Text = server;
+            Database.Text = database;
             UserName.Text = user;
             if (!GF.IsServerConnected(connectionString))
             {

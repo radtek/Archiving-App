@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Net;
 
 namespace Apex
 {
@@ -96,7 +97,11 @@ namespace Apex
                 string[] parts = row.Cells[6].Value.ToString().Split('/');
                 string date = parts[1] + "-" + parts[0] + "-" + parts[2];
                 string extension = row.Cells[7].Value.ToString().Replace("'", "''");
-                string path = row.Cells[8].Value.ToString().Replace("'", "''");
+                string path = GlobalFunc.FilesDirectory + @"\" + "Testemonial";
+                using (new NetworkConnection(GlobalFunc.FilesDirectory, new NetworkCredential("TestemonialFULL", "123")))
+                {
+                    File.Copy(row.Cells[8].Value.ToString() + @"\" + name + extension, GlobalFunc.FilesDirectory +  @"\Testemonial\" + name + extension);
+                }
                 add_files += "('" + code + "',N'" + name + "',N'" + intername + "',N'" + location + "',N'" + locationN + "',N'" + profession + "','" + date + "','" + extension + "',N'" + path + "'),";
             }
             add_files = add_files.Remove(add_files.Length - 1);

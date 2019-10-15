@@ -118,7 +118,7 @@ namespace Apex
             }
             createQ = createQ.Replace("--username--", UserName.Text);
             createQ = createQ.Replace("--password--", Password.Text);
-            createQ = createQ.Replace("--database--", GF.GetConnection("", "", 2));
+            createQ = createQ.Replace("--database--", ((Main_Form)MainForm).database);
             if (TablePanel.Enabled)
             {
                 createQ += "grant all on Testemonial to [" + UserName.Text + "]\n";

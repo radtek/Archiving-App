@@ -1,0 +1,43 @@
+
+   #############################################
+   ### Cjwdev.WindowsAPI.dll Version History ###
+   ###       http://www.cjwdev.co.uk         ###
+   #############################################
+
+Version 2.2.2 - 16/08/2011
+	FIX	The NativeFileSystem.RemoveNetworkDrive no longer causes a stack imbalance when run from an application running in 32 bit emulation mode on a 64 bit OS
+
+Version 2.2 - 12/06/2011
+	NEW	The following API definitions were added to the ApiDefinitions class: WTSGetActiveConsoleSessionId, WTSQueryUserToken, CreateProcessAsUser, DestroyEnvironmentBlock, CreateEnvironmentBlock, AllocConsole, FreeConsole, AddFontResource, RemoveFontResource
+	NEW	InstallFontForCurrentSession - Installs a font for the current session only (does not require admin permissions)
+	NEW	RemoveFontForCurrentSession - Removes a font from the system font table for the current session only (does not require admin permissions)
+	UPDATE	Overloaded versions of RenewIpAddresses and ReleaseIpAddresses that let you choose to ignore errors (so that if one NIC cannot be renewed/released for some reason then it will continue to attempt the operation on other NICs)
+
+Version 2.1 - 29/07/2010
+	# BREAKING CHANGES #
+	ShareExistingFolder method signatures amended to follow conventions used in the rest of the library
+	# NON-BREAKING CHANGES #
+	NEW  	ReleaseIpAddresses - Releases all IPv4 addresses acquired via DHCP
+	NEW  	RenewIpAddresses - Renews all IPv4 addresses acquired via DHCP
+	NEW  	UserProfilesDirectory - Gets the path where all user profiles are stored
+	NEW  	EmptyRecycleBin - Empties the recycle bin
+	NEW  	GetRecycleBinItemcount - Returns the number of items in the recycle bin
+	NEW  	GetRecycleBinSize - Gets the total size of the items in the recycle bin
+	NEW  	RenameComputer - Renames the local computer and corresponding domain account
+	NEW  	GetWindowFromTitle - Gets a NativeWindow instance for the window with the specified title
+	NEW  	GetWindowsFromPartialTitle - Same as GetWindowFromTitle but finds any windows with the specified string anywhere in their title
+	NEW  	GetWindowSize - Gets the size in pixels of any window
+	NEW  	GetActiveWindow - Gets the currently active window (aka foreground window)
+	NEW  	MakeWindowTopMost - Makes the specified window a topmost window (i.e it stays at the foreground even when not in focus, like task manager)	
+	NEW	MakeWindowNotTopMost - Stops a window from being a topmost window if it currently is one	
+	NEW	SetParentWindow - Makes the specified window a child of another window	
+	NEW  	DeleteUserProfile - Removes the specified user's windows profile and settings
+	UPDATE	Overloaded version of GetTopLevelWindows now has the option to include invisible windows
+	UPDATE	Added the "Change" share permission to the SharePermission Enum so you can now specify Change permission when sharing a folder
+	FIX 	XML/intellisense description for JoinToDomain method is now visible
+
+Version 2.0 - 04/07/2010
+	Initial Public Release
+
+Version 1.0 - 01/03/2010
+	Initial Private Release

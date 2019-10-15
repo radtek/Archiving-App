@@ -18,19 +18,50 @@ namespace Apex
 {
     class GlobalFunc
     {
-        public string GetConnection(string user="" , string pass="" , int x=0)
+        private readonly string LogsLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Logs/DatabaseInfo.txt";
+        private readonly string DataLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data";
+        
+        public const string MainFolderName = "CECF";
+        public const string FilesDirectory = @"\\192.168.1.5\" + MainFolderName;
+
+        public void CheckLogs()
         {
-            string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+"/Apex Archiving Software/Logs/DatabaseInfo.txt";
-            string server = "", database = "";
-            if(!File.Exists(loc))
+            if (!File.Exists(LogsLoc))
             {
-                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)+ "/Apex Archiving Software/Logs");
-                using (StreamWriter outputFile = new StreamWriter(loc))
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Logs");
+                using (StreamWriter outputFile = new StreamWriter(LogsLoc))
                 {
                     outputFile.WriteLine("Server=" + Environment.NewLine + "Database=");
                 }
             }
-            using (StreamReader file = new StreamReader(loc))
+        }
+
+        public string GetConnection(string user , string pass , string server=null , string database=null)
+        {
+            CheckLogs();
+            if (server == null && database == null)
+            {
+                using (StreamReader file = new StreamReader(LogsLoc))
+                {
+                    string ln;
+                    while ((ln = file.ReadLine()) != null)
+                    {
+                        string[] line = ln.Split('=');
+                        if (line[0] == "Server") server = line[1];
+                        if (line[0] == "Database") database = line[1];
+                    }
+                    file.Close();
+                }
+            }
+            string connectionString = "Data Source=" + server + ";Initial Catalog =" + database + "; User id=" + user +";Password=" + pass + ";";
+            return connectionString;
+        }
+
+        public string GetServer()
+        {
+            CheckLogs();
+            string server = null, database;
+            using (StreamReader file = new StreamReader(LogsLoc))
             {
                 string ln;
                 while ((ln = file.ReadLine()) != null)
@@ -41,14 +72,50 @@ namespace Apex
                 }
                 file.Close();
             }
-            string connectionString = "Data Source=" + server + ";Initial Catalog =" + database + "; User id=" + user +";Password=" + pass + ";";
-            if (x == 1)
-                return server;
-            if (x == 2)
-                return database;
-            else return connectionString;
+            return server;
         }
 
+        public string GetDatabase()
+        {
+            CheckLogs();
+            string server, database = null;
+            using (StreamReader file = new StreamReader(LogsLoc))
+            {
+                string ln;
+                while ((ln = file.ReadLine()) != null)
+                {
+                    string[] line = ln.Split('=');
+                    if (line[0] == "Server") server = line[1];
+                    if (line[0] == "Database") database = line[1];
+                }
+                file.Close();
+            }
+            return database;
+        }
+
+        public void UpdateLogs(string server , string database)
+        {
+            CheckLogs();
+            using (StreamWriter outputFile = new StreamWriter(LogsLoc))
+            {
+                outputFile.WriteLine("Server=" + server + Environment.NewLine + "Database=" + database);
+            }
+        }
+
+        /*
+        public void UpdateSettings(string setting , string value)
+        {
+            string ln;
+            using (StreamReader file = new StreamReader(DataLoc + "/Settings.txt"))
+            {
+                while ((ln = file.ReadLine()) != null)
+                {
+                    string[] line = ln.Split('=');
+                    if(line[0] == "Directory Path")
+                }
+            }
+        }
+        */
         public bool IsServerConnected(string connectionString)
         {
             try
@@ -111,6 +178,7 @@ namespace Apex
             SqlCommand comm = new SqlCommand(check, conn);
             string count = comm.ExecuteScalar().ToString();
             conn.Close();
+            comm.Dispose();
             if (count == "0")
                 return false;
             return true;
@@ -131,6 +199,7 @@ namespace Apex
                 SqlCommand comm = new SqlCommand(delete_records, conn);
                 comm.ExecuteNonQuery();
                 Grid.Rows.Remove(r);
+                comm.Dispose();
             }
             MessageBox.Show("Successfully deleted selected records!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
             conn.Close();
@@ -190,22 +259,34 @@ namespace Apex
         {
             if(name == "Locations")
             {
-                string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Locations.txt";
+                string loc = DataLoc + "/Locations.txt";
                 if (!File.Exists(loc))
                 {
-                    Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data");
+                    Directory.CreateDirectory(DataLoc);
                     var file = File.CreateText(loc);
                     file.Close();
                 }
             }
             if(name == "Professions")
             {
-                string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Professions.txt";
+                string loc = DataLoc + "/Professions.txt";
                 if (!File.Exists(loc))
                 {
-                    Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data");
+                    Directory.CreateDirectory(DataLoc);
                     var file = File.CreateText(loc);
                     file.Close();
+                }
+            }
+            if(name == "Settings")
+            {
+                string loc = DataLoc + "/Settings.txt";
+                if (!File.Exists(loc))
+                {
+                    Directory.CreateDirectory(DataLoc);
+                    using (StreamWriter outputFile = new StreamWriter(loc))
+                    {
+                        outputFile.WriteLine("Directory Path=" + Environment.NewLine);
+                    }
                 }
             }
         }
@@ -229,12 +310,40 @@ namespace Apex
                     string temp_check = check + finalCode + "'";
                     SqlCommand comm = new SqlCommand(temp_check, conn);
                     res = comm.ExecuteScalar().ToString();
+                    comm.Dispose();
                 }
                 while (res == "1" || (map.ContainsKey(finalCode) && map[finalCode]==true));
                 conn.Close();
                 return finalCode;
             }
             return "Invalid";
+        }
+        public void EditButtons(Control parent)
+        {
+            foreach (Button c in parent.Controls.OfType<Button>())
+            {
+                c.FlatAppearance.BorderColor = Color.White;
+            }
+        }
+
+        public bool CheckTextBoxes(Control parent)
+        {
+            foreach (TextBox c in parent.Controls.OfType<TextBox>())
+            {
+                if (c.Text == "")
+                    return false;
+            }
+            return true;
+        }
+
+        public bool CheckPasswordValidity(string pass)
+        {
+            foreach(char c in pass)
+            {
+                if ((c < 'A' || c > 'Z') && (c < 'a' || c > 'z') && c != '_' && (c < '0' || c > '9'))
+                    return false;
+            }
+            return true;
         }
     }
 }
