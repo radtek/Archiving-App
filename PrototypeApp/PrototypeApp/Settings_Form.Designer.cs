@@ -265,6 +265,7 @@
             this.Controls.Add(this.Professions_Grid);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Settings_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Settings";
             ((System.ComponentModel.ISupportInitialize)(this.Professions_Grid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Locations_Grid)).EndInit();

@@ -20,11 +20,9 @@ namespace Apex
         public Admin_Settings_Form()
         {
             InitializeComponent();
-            Close.FlatAppearance.BorderColor = Color.White;
-            CreateUserB.FlatAppearance.BorderColor = Color.White;
-            ManageUserB.FlatAppearance.BorderColor = Color.White;
-            Create.FlatAppearance.BorderColor = Color.White;
-            Add.FlatAppearance.BorderColor = Color.White;
+            GF.EditButtons(this);
+            GF.EditButtons(CreateUserP);
+            GF.EditButtons(ManageUserP);
             ShowCreate();
         }
 
@@ -36,9 +34,10 @@ namespace Apex
 
         private void ShowManage()
         {
-            string get_users = "SELECT Login_Name as [User] , DB_Role as [Role] FROM dbo.dbRolesUsersMap (DEFAULT) where Login_Name != '" + ((Main_Form)MainForm).user+"'";
+            string get_users = "SELECT Login_Name as [User] FROM dbo.dbRolesUsersMap (DEFAULT)"+
+                               "where db_role = 'db_owner' or db_role = 'db_datareader'";
             SqlConnection conn = new SqlConnection(connectionString);
-            if(!GF.IsServerConnected(connectionString))
+            if (!GF.IsServerConnected(connectionString))
             {
                 MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 ((Main_Form)MainForm).Disconnected();
@@ -107,26 +106,38 @@ namespace Apex
                 return;
             }
 
-            string createQ = "USE [master]\nCREATE LOGIN [--username--] WITH PASSWORD=N'--password--', DEFAULT_DATABASE=[--database--], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF\nUSE [--database--]\nCREATE USER [--username--] FOR LOGIN [--username--]\n";
+            string createQ = "USE [master] " +
+                             "CREATE LOGIN [--username--] WITH PASSWORD=N'--password--', DEFAULT_DATABASE=[--database--], CHECK_EXPIRATION=OFF, CHECK_POLICY=OFF " +
+                             "USE [--database--] " +
+                             "CREATE USER [--username--] FOR LOGIN [--username--]\n";
             if (Admin.Checked)
             {
-                createQ += "USE [--database--]\nALTER ROLE [db_owner] ADD MEMBER [--username--]\nexec master..sp_addsrvrolemember @loginame=N'--username--' , @rolename = N'sysadmin'";
+                createQ += "USE [--database--] " +
+                           "ALTER ROLE [db_owner] ADD MEMBER [--username--] " +
+                           "exec master..sp_addsrvrolemember @loginame=N'--username--' , @rolename = N'sysadmin'\n";
             }
             else
             {
-                createQ += "USE [--database--]\nALTER ROLE [db_datareader] ADD MEMBER [--username--]\nUSE [--database--]\nALTER ROLE [db_datawriter] ADD MEMBER [--username--]\n";
+                createQ += "USE [--database--] " +
+                           "ALTER ROLE [db_datareader] ADD MEMBER [--username--] " +
+                           "USE [--database--] " +
+                           "ALTER ROLE [db_datawriter] ADD MEMBER [--username--]\n";
             }
             createQ = createQ.Replace("--username--", UserName.Text);
             createQ = createQ.Replace("--password--", Password.Text);
             createQ = createQ.Replace("--database--", ((Main_Form)MainForm).database);
             if (TablePanel.Enabled)
             {
-                createQ += "grant all on Testemonial to [" + UserName.Text + "]\n";
-                createQ += "grant all on Expenses to [" + UserName.Text + "]\n";
-                if (!Testemonial.Checked)
-                    createQ += "deny all on Testemonial to [" + UserName.Text + "]\n";
-                if (!Expenses.Checked)
-                    createQ += "deny all on Expenses to [" + UserName.Text + "]\n";
+                createQ += "deny all on Testemonial to [" + UserName.Text + "]\n";
+                createQ += "deny all on Expenses to [" + UserName.Text + "]\n";
+                if (Testemonial_RO.Checked)
+                    createQ += "grant select on Testemonial to [" + UserName.Text + "]\n";
+                if (Testemonial_FC.Checked)
+                    createQ += "grant all on Testemonial to [" + UserName.Text + "]\n";
+                if (Expenses_RO.Checked)
+                    createQ += "grant select on Expenses to [" + UserName.Text + "]\n";
+                if (Expenses_FC.Checked)
+                    createQ += "grant all on Expenses to [" + UserName.Text + "]\n";
             }
             comm = new SqlCommand(createQ, conn);
             try
@@ -173,95 +184,6 @@ namespace Apex
             ShowManage();
         }
 
-        private void Add_Click(object sender, EventArgs e)
-        {
-            if (!GF.IsServerConnected(connectionString))
-            {
-                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ((Main_Form)MainForm).Disconnected();
-                this.Close();
-                return;
-            }
-            if (UserName2.Text.Length == 0)
-            {
-                MessageBox.Show("Please fill the whole form.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if(UserName2.Text.Replace("'" , "''") != UserName2.Text)
-            {
-                MessageBox.Show("Character ' is forbidden.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            string check = "SELECT count(*) FROM dbo.dbRolesUsersMap (DEFAULT) where Login_Name='"+UserName2.Text.Replace("'" , "''")+"'";
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand comm = new SqlCommand(check, conn);
-            string res = comm.ExecuteScalar().ToString();
-            if(res!="0")
-            {
-                string addQ = "";
-                if (Admin2.Checked)
-                {
-                    addQ += "ALTER ROLE [db_owner] ADD MEMBER [--username--]\nexec master..sp_addsrvrolemember @loginame=N'--username--' , @rolename = N'sysadmin'\n";
-                }
-                else
-                {
-                    addQ += "ALTER ROLE [db_datareader] ADD MEMBER [--username--]\nALTER ROLE [db_datawriter] ADD MEMBER [--username--]\n";
-                }
-                addQ = addQ.Replace("--username--", UserName2.Text);
-                if (TablePanel2.Enabled)
-                {
-                    addQ += "grant all on Testemonial to [" + UserName2.Text + "]\n";
-                    addQ += "grant all on Expenses to [" + UserName2.Text + "]\n";
-                    if (!Testemonial2.Checked)
-                        addQ += "deny all on Testemonial to [" + UserName2.Text + "]\n";
-                    if (!Expenses2.Checked)
-                        addQ += "deny all on Expenses to [" + UserName2.Text + "]\n";
-                }
-                comm = new SqlCommand(addQ, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-                ShowManage();
-            }
-            else
-            {
-                string addQ = "CREATE USER [--username--] FOR LOGIN [--username--]\n";
-                if (Admin2.Checked)
-                {
-                    addQ += "ALTER ROLE [db_owner] ADD MEMBER [--username--]\nexec master..sp_addsrvrolemember @loginame=N'--username--' , @rolename = N'sysadmin'\n";
-                }
-                else
-                {
-                    addQ += "ALTER ROLE [db_datareader] ADD MEMBER [--username--]\nALTER ROLE [db_datawriter] ADD MEMBER [--username--]\n";
-                }
-                addQ = addQ.Replace("--username--", UserName2.Text);
-                if (TablePanel2.Enabled)
-                {
-                    addQ += "grant all on Testemonial to [" + UserName2.Text + "]\n";
-                    addQ += "grant all on Expenses to [" + UserName2.Text + "]\n";
-                    if (!Testemonial2.Checked)
-                        addQ += "deny all on Testemonial to [" + UserName2.Text + "]\n";
-                    if (!Expenses2.Checked)
-                        addQ += "deny all on Expenses to [" + UserName2.Text + "]\n";
-                }
-                comm = new SqlCommand(addQ, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-                ShowManage();
-            }
-        }
-
-        private void Admin2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!Admin2.Checked)
-            {
-                TablePanel2.Enabled = true;
-                return;
-            }
-            TablePanel2.Enabled = false;
-            MessageBox.Show("Users with admin permissions can modify and delete the database and other users accounts.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void Users_Grid_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -299,7 +221,7 @@ namespace Apex
                     {
                         comm.ExecuteNonQuery();
                     }
-                    catch
+                    catch(SqlException)
                     {
                         MessageBox.Show("Error encountered while deleting.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         ShowManage();
@@ -309,6 +231,31 @@ namespace Apex
             }
             conn.Close();
             ShowManage();
+        }
+
+        private void ViewUser()
+        {
+            View_Edit_User form = new View_Edit_User(Users_Grid.CurrentRow.Cells["User"].Value.ToString());
+            form.ShowDialog();
+            form.Dispose();
+            if(!GF.IsServerConnected(connectionString))
+            {
+                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ((Main_Form)MainForm).Disconnected();
+                this.Close();
+                return;
+            }
+        }
+        private void Users_Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            ViewUser();
+        }
+
+        private void View_Click(object sender, EventArgs e)
+        {
+            ViewUser();
         }
     }
 }

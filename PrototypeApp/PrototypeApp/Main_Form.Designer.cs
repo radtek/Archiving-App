@@ -179,12 +179,13 @@
             this.PB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.PB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PB.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PB.Location = new System.Drawing.Point(0, 434);
+            this.PB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PB.Location = new System.Drawing.Point(0, 428);
             this.PB.Name = "PB";
-            this.PB.Size = new System.Drawing.Size(371, 17);
+            this.PB.Size = new System.Drawing.Size(371, 23);
             this.PB.TabIndex = 13;
             this.PB.Text = " Powered by : Polygon Network Company";
+            this.PB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // AdminLabel
             // 
@@ -383,6 +384,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Polygon Apex Archiving Software";
             this.Load += new System.EventHandler(this.Main_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

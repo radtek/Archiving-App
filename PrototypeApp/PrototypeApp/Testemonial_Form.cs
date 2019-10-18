@@ -14,24 +14,54 @@ namespace Apex
 {
     public partial class Testemonial_Form : Form
     {
-        static Form MainForm = Application.OpenForms["Main_Form"];
+        static readonly Form MainForm = Application.OpenForms["Main_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
-        GlobalFunc GF = new GlobalFunc();
+        readonly GlobalFunc GF = new GlobalFunc();
         public Testemonial_Form()
         {
             InitializeComponent();
-            Add.FlatAppearance.BorderColor = Color.White;
-            Delete.FlatAppearance.BorderColor = Color.White;
-            Edit.FlatAppearance.BorderColor = Color.White;
-            Search.FlatAppearance.BorderColor = Color.White;
-            View_Info.FlatAppearance.BorderColor = Color.White;
-            Clear.FlatAppearance.BorderColor = Color.White;
+            GF.EditButtons(this);
             SearchLoc.Text = "-Disable-";
-            SearchPro.Text = "-Disable-"; 
+            SearchPro.Text = "-Disable-";
             SearchD.CustomFormat = "dd/MM/yyyy";
             SearchLocN.Enabled = false;
             GF.GetLocations(SearchLoc, true);
             GF.GetProfessions(SearchPro, true);
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string tryAdd = "insert into testemonial(code , name , intername , location , locationn , profession , date , extension , path)" +
+                                    "values('dummy' , 'dummy' , 'dummy' , 'dummy' , 'dummy' , 'dummy' , '1-1-1' , 'dummy' , 'dummy')";
+                    string tryRemove = "delete from testemonial where name='dummy' and path='dummy' and extension='dummy'";
+                    try
+                    {
+                        conn.Open();
+                        using (SqlCommand comm = new SqlCommand(tryAdd, conn))
+                        {
+                            comm.ExecuteNonQuery();
+                        }
+                        using (SqlCommand comm = new SqlCommand(tryRemove, conn))
+                        {
+                            comm.ExecuteNonQuery();
+                        }
+                    }
+                    catch (SqlException)
+                    {
+                        Add.Enabled = false;
+                        Delete.Enabled = false;
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ((Main_Form)MainForm).Disconnected();
+                this.Close();
+                return;
+            }
+
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(100, 0);
         }
@@ -45,8 +75,6 @@ namespace Apex
                 this.Close();
                 return;
             }
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
             string get_test = "select Code , InterName , Location as Loc , LocationN as LocN , Profession , Name as TestN , Path , Extension , convert(varchar , date , 3) as Date from Testemonial where ";
             string originalQ = get_test;
             if(SearchN.Text.Length!=0)
@@ -95,17 +123,32 @@ namespace Apex
                 if (originalQ != get_test) get_test += " and ";
                 get_test += "Code like '%" + SearchCode.Text.Replace("'", "''") + "%'";
             }
-            SqlDataAdapter sqlAdapt = new SqlDataAdapter(get_test, conn);
-            DataTable Data = new DataTable();
-            sqlAdapt.Fill(Data);
-            Testemonial_Grid.DataSource = Data;
-            conn.Close();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (SqlDataAdapter sqlAdapt = new SqlDataAdapter(get_test, conn))
+                    {
+                        DataTable Data = new DataTable();
+                        sqlAdapt.Fill(Data);
+                        Testemonial_Grid.DataSource = Data;
+                    }
+                }
+            }
+            catch(SqlException)
+            {
+                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ((Main_Form)MainForm).Disconnected();
+                this.Close();
+                return;
+            }
         }
 
         private void Add_Click(object sender, EventArgs e)
         {
-            Add_Testemonial form = new Add_Testemonial();
-            form.ShowDialog();
+            using (Add_Testemonial form = new Add_Testemonial())
+                form.ShowDialog();
         }
 
         private void Search_Click(object sender, EventArgs e)
@@ -142,6 +185,7 @@ namespace Apex
 
         private void Delete_Click(object sender, EventArgs e)
         {
+            GF.DeleteRecords(Testemonial_Grid, "testemonial", "TestN", "Path", "Extension", connectionString);
             if (!GF.IsServerConnected(connectionString))
             {
                 MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -149,7 +193,6 @@ namespace Apex
                 this.Close();
                 return;
             }
-            GF.DeleteRecords(Testemonial_Grid, "testemonial", "TestN", "Path", "Extension", connectionString);
         }
     }
 }

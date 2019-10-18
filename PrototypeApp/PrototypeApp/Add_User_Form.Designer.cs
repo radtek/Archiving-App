@@ -34,38 +34,35 @@
             this.Password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.UserName = new System.Windows.Forms.TextBox();
-            this.Create = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.Close = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.PasswordCon = new System.Windows.Forms.TextBox();
             this.Admin = new System.Windows.Forms.CheckBox();
             this.CreateUserP = new System.Windows.Forms.Panel();
             this.TablePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.Testemonial = new System.Windows.Forms.CheckBox();
-            this.Expenses = new System.Windows.Forms.CheckBox();
+            this.Testemonial_Panel = new System.Windows.Forms.Panel();
+            this.Testemonial_RO = new System.Windows.Forms.RadioButton();
+            this.Testemonial_FC = new System.Windows.Forms.RadioButton();
+            this.Expenses_Panel = new System.Windows.Forms.Panel();
+            this.Expenses_RO = new System.Windows.Forms.RadioButton();
+            this.Expenses_FC = new System.Windows.Forms.RadioButton();
+            this.Create = new System.Windows.Forms.Button();
             this.ManageUserP = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.Admin2 = new System.Windows.Forms.CheckBox();
-            this.TablePanel2 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Testemonial2 = new System.Windows.Forms.CheckBox();
-            this.Expenses2 = new System.Windows.Forms.CheckBox();
-            this.Add = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.UserName2 = new System.Windows.Forms.TextBox();
+            this.Delete = new System.Windows.Forms.Button();
+            this.View = new System.Windows.Forms.Button();
             this.Users_Grid = new System.Windows.Forms.DataGridView();
             this.User = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CreateUserB = new System.Windows.Forms.Button();
-            this.ManageUserB = new System.Windows.Forms.Button();
             this.RowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.ManageUserB = new System.Windows.Forms.Button();
+            this.CreateUserB = new System.Windows.Forms.Button();
+            this.Close = new System.Windows.Forms.Button();
             this.CreateUserP.SuspendLayout();
             this.TablePanel.SuspendLayout();
+            this.Testemonial_Panel.SuspendLayout();
+            this.Expenses_Panel.SuspendLayout();
             this.ManageUserP.SuspendLayout();
-            this.TablePanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Users_Grid)).BeginInit();
             this.RowMenu.SuspendLayout();
             this.SuspendLayout();
@@ -82,6 +79,8 @@
             // 
             // Password
             // 
+            this.Password.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Password.Location = new System.Drawing.Point(119, 56);
             this.Password.Name = "Password";
@@ -101,26 +100,13 @@
             // 
             // UserName
             // 
+            this.UserName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UserName.Location = new System.Drawing.Point(119, 9);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(705, 21);
             this.UserName.TabIndex = 0;
-            // 
-            // Create
-            // 
-            this.Create.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Create.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Create.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Create.ImageIndex = 5;
-            this.Create.ImageList = this.imageList1;
-            this.Create.Location = new System.Drawing.Point(694, 292);
-            this.Create.Name = "Create";
-            this.Create.Size = new System.Drawing.Size(130, 44);
-            this.Create.TabIndex = 4;
-            this.Create.Text = "Create";
-            this.Create.UseVisualStyleBackColor = true;
-            this.Create.Click += new System.EventHandler(this.Create_Click);
             // 
             // imageList1
             // 
@@ -140,21 +126,6 @@
             this.imageList1.Images.SetKeyName(11, "network.png");
             this.imageList1.Images.SetKeyName(12, "add-user.png");
             // 
-            // Close
-            // 
-            this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Close.ImageIndex = 10;
-            this.Close.ImageList = this.imageList1;
-            this.Close.Location = new System.Drawing.Point(706, 12);
-            this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(130, 44);
-            this.Close.TabIndex = 5;
-            this.Close.Text = "Close";
-            this.Close.UseVisualStyleBackColor = true;
-            this.Close.Click += new System.EventHandler(this.Close_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -167,6 +138,8 @@
             // 
             // PasswordCon
             // 
+            this.PasswordCon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordCon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordCon.Location = new System.Drawing.Point(119, 103);
             this.PasswordCon.Name = "PasswordCon";
@@ -176,6 +149,7 @@
             // 
             // Admin
             // 
+            this.Admin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Admin.AutoSize = true;
             this.Admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Admin.Location = new System.Drawing.Point(666, 130);
@@ -188,6 +162,9 @@
             // 
             // CreateUserP
             // 
+            this.CreateUserP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CreateUserP.Controls.Add(this.TablePanel);
             this.CreateUserP.Controls.Add(this.Admin);
             this.CreateUserP.Controls.Add(this.label5);
@@ -204,12 +181,13 @@
             // 
             // TablePanel
             // 
+            this.TablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TablePanel.Controls.Add(this.label1);
-            this.TablePanel.Controls.Add(this.Testemonial);
-            this.TablePanel.Controls.Add(this.Expenses);
+            this.TablePanel.Controls.Add(this.Testemonial_Panel);
+            this.TablePanel.Controls.Add(this.Expenses_Panel);
             this.TablePanel.Location = new System.Drawing.Point(3, 158);
             this.TablePanel.Name = "TablePanel";
-            this.TablePanel.Size = new System.Drawing.Size(132, 102);
+            this.TablePanel.Size = new System.Drawing.Size(818, 128);
             this.TablePanel.TabIndex = 27;
             // 
             // label1
@@ -222,138 +200,130 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "User gets access to : ";
             // 
-            // Testemonial
+            // Testemonial_Panel
             // 
-            this.Testemonial.AutoSize = true;
-            this.Testemonial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Testemonial.Location = new System.Drawing.Point(9, 27);
-            this.Testemonial.Name = "Testemonial";
-            this.Testemonial.Size = new System.Drawing.Size(94, 19);
-            this.Testemonial.TabIndex = 0;
-            this.Testemonial.Text = "Testemonial";
-            this.Testemonial.UseVisualStyleBackColor = true;
+            this.Testemonial_Panel.Controls.Add(this.Testemonial_RO);
+            this.Testemonial_Panel.Controls.Add(this.Testemonial_FC);
+            this.Testemonial_Panel.Location = new System.Drawing.Point(6, 26);
+            this.Testemonial_Panel.Name = "Testemonial_Panel";
+            this.Testemonial_Panel.Size = new System.Drawing.Size(158, 99);
+            this.Testemonial_Panel.TabIndex = 29;
             // 
-            // Expenses
+            // Testemonial_RO
             // 
-            this.Expenses.AutoSize = true;
-            this.Expenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Expenses.Location = new System.Drawing.Point(9, 52);
-            this.Expenses.Name = "Expenses";
-            this.Expenses.Size = new System.Drawing.Size(80, 19);
-            this.Expenses.TabIndex = 1;
-            this.Expenses.Text = "Expenses";
-            this.Expenses.UseVisualStyleBackColor = true;
+            this.Testemonial_RO.AutoSize = true;
+            this.Testemonial_RO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Testemonial_RO.Location = new System.Drawing.Point(0, 0);
+            this.Testemonial_RO.Name = "Testemonial_RO";
+            this.Testemonial_RO.Size = new System.Drawing.Size(153, 19);
+            this.Testemonial_RO.TabIndex = 29;
+            this.Testemonial_RO.TabStop = true;
+            this.Testemonial_RO.Text = "Testemonial Read Only";
+            this.Testemonial_RO.UseVisualStyleBackColor = true;
+            // 
+            // Testemonial_FC
+            // 
+            this.Testemonial_FC.AutoSize = true;
+            this.Testemonial_FC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Testemonial_FC.Location = new System.Drawing.Point(0, 34);
+            this.Testemonial_FC.Name = "Testemonial_FC";
+            this.Testemonial_FC.Size = new System.Drawing.Size(158, 19);
+            this.Testemonial_FC.TabIndex = 30;
+            this.Testemonial_FC.TabStop = true;
+            this.Testemonial_FC.Text = "Testemonial Full Control";
+            this.Testemonial_FC.UseVisualStyleBackColor = true;
+            // 
+            // Expenses_Panel
+            // 
+            this.Expenses_Panel.Controls.Add(this.Expenses_RO);
+            this.Expenses_Panel.Controls.Add(this.Expenses_FC);
+            this.Expenses_Panel.Location = new System.Drawing.Point(217, 26);
+            this.Expenses_Panel.Name = "Expenses_Panel";
+            this.Expenses_Panel.Size = new System.Drawing.Size(158, 99);
+            this.Expenses_Panel.TabIndex = 29;
+            // 
+            // Expenses_RO
+            // 
+            this.Expenses_RO.AutoSize = true;
+            this.Expenses_RO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Expenses_RO.Location = new System.Drawing.Point(0, 0);
+            this.Expenses_RO.Name = "Expenses_RO";
+            this.Expenses_RO.Size = new System.Drawing.Size(139, 19);
+            this.Expenses_RO.TabIndex = 31;
+            this.Expenses_RO.TabStop = true;
+            this.Expenses_RO.Text = "Expenses Read Only";
+            this.Expenses_RO.UseVisualStyleBackColor = true;
+            // 
+            // Expenses_FC
+            // 
+            this.Expenses_FC.AutoSize = true;
+            this.Expenses_FC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Expenses_FC.Location = new System.Drawing.Point(0, 34);
+            this.Expenses_FC.Name = "Expenses_FC";
+            this.Expenses_FC.Size = new System.Drawing.Size(144, 19);
+            this.Expenses_FC.TabIndex = 32;
+            this.Expenses_FC.TabStop = true;
+            this.Expenses_FC.Text = "Expenses Full Control";
+            this.Expenses_FC.UseVisualStyleBackColor = true;
+            // 
+            // Create
+            // 
+            this.Create.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Create.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Create.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Create.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Create.ImageIndex = 5;
+            this.Create.ImageList = this.imageList1;
+            this.Create.Location = new System.Drawing.Point(694, 292);
+            this.Create.Name = "Create";
+            this.Create.Size = new System.Drawing.Size(130, 44);
+            this.Create.TabIndex = 4;
+            this.Create.Text = "Create";
+            this.Create.UseVisualStyleBackColor = true;
+            this.Create.Click += new System.EventHandler(this.Create_Click);
             // 
             // ManageUserP
             // 
-            this.ManageUserP.Controls.Add(this.label7);
-            this.ManageUserP.Controls.Add(this.Admin2);
-            this.ManageUserP.Controls.Add(this.TablePanel2);
-            this.ManageUserP.Controls.Add(this.Add);
-            this.ManageUserP.Controls.Add(this.label2);
-            this.ManageUserP.Controls.Add(this.UserName2);
+            this.ManageUserP.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ManageUserP.Controls.Add(this.Delete);
+            this.ManageUserP.Controls.Add(this.View);
             this.ManageUserP.Controls.Add(this.Users_Grid);
             this.ManageUserP.Location = new System.Drawing.Point(12, 62);
             this.ManageUserP.Name = "ManageUserP";
-            this.ManageUserP.Size = new System.Drawing.Size(824, 336);
+            this.ManageUserP.Size = new System.Drawing.Size(826, 336);
             this.ManageUserP.TabIndex = 27;
             // 
-            // label7
+            // Delete
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(385, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 15);
-            this.label7.TabIndex = 30;
-            this.label7.Text = "Database users : ";
+            this.Delete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Delete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Delete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Delete.ImageIndex = 0;
+            this.Delete.ImageList = this.imageList1;
+            this.Delete.Location = new System.Drawing.Point(696, 33);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(130, 44);
+            this.Delete.TabIndex = 31;
+            this.Delete.Text = "Delete";
+            this.Delete.UseVisualStyleBackColor = true;
             // 
-            // Admin2
+            // View
             // 
-            this.Admin2.AutoSize = true;
-            this.Admin2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Admin2.Location = new System.Drawing.Point(224, 103);
-            this.Admin2.Name = "Admin2";
-            this.Admin2.Size = new System.Drawing.Size(158, 19);
-            this.Admin2.TabIndex = 29;
-            this.Admin2.Text = "Give admin permissions";
-            this.Admin2.UseVisualStyleBackColor = true;
-            this.Admin2.CheckedChanged += new System.EventHandler(this.Admin2_CheckedChanged);
-            // 
-            // TablePanel2
-            // 
-            this.TablePanel2.Controls.Add(this.label6);
-            this.TablePanel2.Controls.Add(this.Testemonial2);
-            this.TablePanel2.Controls.Add(this.Expenses2);
-            this.TablePanel2.Location = new System.Drawing.Point(3, 144);
-            this.TablePanel2.Name = "TablePanel2";
-            this.TablePanel2.Size = new System.Drawing.Size(132, 102);
-            this.TablePanel2.TabIndex = 28;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(122, 15);
-            this.label6.TabIndex = 26;
-            this.label6.Text = "User gets access to : ";
-            // 
-            // Testemonial2
-            // 
-            this.Testemonial2.AutoSize = true;
-            this.Testemonial2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Testemonial2.Location = new System.Drawing.Point(9, 27);
-            this.Testemonial2.Name = "Testemonial2";
-            this.Testemonial2.Size = new System.Drawing.Size(94, 19);
-            this.Testemonial2.TabIndex = 0;
-            this.Testemonial2.Text = "Testemonial";
-            this.Testemonial2.UseVisualStyleBackColor = true;
-            // 
-            // Expenses2
-            // 
-            this.Expenses2.AutoSize = true;
-            this.Expenses2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Expenses2.Location = new System.Drawing.Point(9, 52);
-            this.Expenses2.Name = "Expenses2";
-            this.Expenses2.Size = new System.Drawing.Size(80, 19);
-            this.Expenses2.TabIndex = 1;
-            this.Expenses2.Text = "Expenses";
-            this.Expenses2.UseVisualStyleBackColor = true;
-            // 
-            // Add
-            // 
-            this.Add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Add.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Add.ImageIndex = 5;
-            this.Add.ImageList = this.imageList1;
-            this.Add.Location = new System.Drawing.Point(252, 292);
-            this.Add.Name = "Add";
-            this.Add.Size = new System.Drawing.Size(130, 44);
-            this.Add.TabIndex = 26;
-            this.Add.Text = "Add";
-            this.Add.UseVisualStyleBackColor = true;
-            this.Add.Click += new System.EventHandler(this.Add_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(-3, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 15);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Username : ";
-            // 
-            // UserName2
-            // 
-            this.UserName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserName2.Location = new System.Drawing.Point(77, 76);
-            this.UserName2.Name = "UserName2";
-            this.UserName2.Size = new System.Drawing.Size(305, 21);
-            this.UserName2.TabIndex = 24;
+            this.View.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.View.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.View.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.View.ImageIndex = 4;
+            this.View.ImageList = this.imageList1;
+            this.View.Location = new System.Drawing.Point(0, 33);
+            this.View.Name = "View";
+            this.View.Size = new System.Drawing.Size(130, 44);
+            this.View.TabIndex = 30;
+            this.View.Text = "View";
+            this.View.UseVisualStyleBackColor = true;
+            this.View.Click += new System.EventHandler(this.View_Click);
             // 
             // Users_Grid
             // 
@@ -365,14 +335,14 @@
             this.Users_Grid.BackgroundColor = System.Drawing.Color.White;
             this.Users_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Users_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.User,
-            this.Role});
-            this.Users_Grid.Location = new System.Drawing.Point(388, 32);
+            this.User});
+            this.Users_Grid.Location = new System.Drawing.Point(0, 83);
             this.Users_Grid.Name = "Users_Grid";
             this.Users_Grid.ReadOnly = true;
             this.Users_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Users_Grid.Size = new System.Drawing.Size(436, 304);
+            this.Users_Grid.Size = new System.Drawing.Size(826, 253);
             this.Users_Grid.TabIndex = 5;
+            this.Users_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Users_Grid_CellDoubleClick);
             this.Users_Grid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Users_Grid_MouseClick);
             // 
             // User
@@ -381,15 +351,36 @@
             this.User.HeaderText = "Username";
             this.User.Name = "User";
             this.User.ReadOnly = true;
-            this.User.Width = 197;
+            this.User.Width = 783;
             // 
-            // Role
+            // RowMenu
             // 
-            this.Role.DataPropertyName = "Role";
-            this.Role.HeaderText = "Role";
-            this.Role.Name = "Role";
-            this.Role.ReadOnly = true;
-            this.Role.Width = 196;
+            this.RowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuDelete});
+            this.RowMenu.Name = "RowMenu";
+            this.RowMenu.Size = new System.Drawing.Size(108, 26);
+            this.RowMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.RowMenu_ItemClicked);
+            // 
+            // MenuDelete
+            // 
+            this.MenuDelete.Name = "MenuDelete";
+            this.MenuDelete.Size = new System.Drawing.Size(107, 22);
+            this.MenuDelete.Text = "Delete";
+            // 
+            // ManageUserB
+            // 
+            this.ManageUserB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ManageUserB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ManageUserB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ManageUserB.ImageIndex = 11;
+            this.ManageUserB.ImageList = this.imageList1;
+            this.ManageUserB.Location = new System.Drawing.Point(12, 12);
+            this.ManageUserB.Name = "ManageUserB";
+            this.ManageUserB.Size = new System.Drawing.Size(220, 44);
+            this.ManageUserB.TabIndex = 29;
+            this.ManageUserB.Text = "Manage users";
+            this.ManageUserB.UseVisualStyleBackColor = true;
+            this.ManageUserB.Click += new System.EventHandler(this.ManageUserB_Click);
             // 
             // CreateUserB
             // 
@@ -406,61 +397,47 @@
             this.CreateUserB.UseVisualStyleBackColor = true;
             this.CreateUserB.Click += new System.EventHandler(this.CreateUserB_Click);
             // 
-            // ManageUserB
+            // Close
             // 
-            this.ManageUserB.Enabled = false;
-            this.ManageUserB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ManageUserB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ManageUserB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ManageUserB.ImageIndex = 11;
-            this.ManageUserB.ImageList = this.imageList1;
-            this.ManageUserB.Location = new System.Drawing.Point(12, 12);
-            this.ManageUserB.Name = "ManageUserB";
-            this.ManageUserB.Size = new System.Drawing.Size(220, 44);
-            this.ManageUserB.TabIndex = 29;
-            this.ManageUserB.Text = "Manage users";
-            this.ManageUserB.UseVisualStyleBackColor = true;
-            this.ManageUserB.Click += new System.EventHandler(this.ManageUserB_Click);
-            // 
-            // RowMenu
-            // 
-            this.RowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuDelete});
-            this.RowMenu.Name = "RowMenu";
-            this.RowMenu.Size = new System.Drawing.Size(108, 26);
-            this.RowMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.RowMenu_ItemClicked);
-            // 
-            // MenuDelete
-            // 
-            this.MenuDelete.Name = "MenuDelete";
-            this.MenuDelete.Size = new System.Drawing.Size(107, 22);
-            this.MenuDelete.Text = "Delete";
+            this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Close.ImageIndex = 10;
+            this.Close.ImageList = this.imageList1;
+            this.Close.Location = new System.Drawing.Point(708, 12);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(130, 44);
+            this.Close.TabIndex = 5;
+            this.Close.Text = "Close";
+            this.Close.UseVisualStyleBackColor = true;
+            this.Close.Click += new System.EventHandler(this.Close_Click);
             // 
             // Admin_Settings_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(981, 410);
+            this.ClientSize = new System.Drawing.Size(850, 410);
             this.Controls.Add(this.ManageUserB);
             this.Controls.Add(this.CreateUserB);
             this.Controls.Add(this.Close);
             this.Controls.Add(this.ManageUserP);
             this.Controls.Add(this.CreateUserP);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
             this.Name = "Admin_Settings_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Settings";
             this.Load += new System.EventHandler(this.Add_User_Form_Load);
             this.CreateUserP.ResumeLayout(false);
             this.CreateUserP.PerformLayout();
             this.TablePanel.ResumeLayout(false);
             this.TablePanel.PerformLayout();
+            this.Testemonial_Panel.ResumeLayout(false);
+            this.Testemonial_Panel.PerformLayout();
+            this.Expenses_Panel.ResumeLayout(false);
+            this.Expenses_Panel.PerformLayout();
             this.ManageUserP.ResumeLayout(false);
-            this.ManageUserP.PerformLayout();
-            this.TablePanel2.ResumeLayout(false);
-            this.TablePanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Users_Grid)).EndInit();
             this.RowMenu.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -481,25 +458,21 @@
         private System.Windows.Forms.CheckBox Admin;
         private System.Windows.Forms.Panel CreateUserP;
         private System.Windows.Forms.Panel ManageUserP;
-        private System.Windows.Forms.CheckBox Testemonial;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox Expenses;
         private System.Windows.Forms.DataGridView Users_Grid;
-        private System.Windows.Forms.Button Add;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox UserName2;
         private System.Windows.Forms.Panel TablePanel;
         private System.Windows.Forms.Button CreateUserB;
         private System.Windows.Forms.Button ManageUserB;
-        private System.Windows.Forms.Panel TablePanel2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox Testemonial2;
-        private System.Windows.Forms.CheckBox Expenses2;
-        private System.Windows.Forms.CheckBox Admin2;
         private System.Windows.Forms.ContextMenuStrip RowMenu;
         private System.Windows.Forms.ToolStripMenuItem MenuDelete;
+        private System.Windows.Forms.Panel Testemonial_Panel;
+        private System.Windows.Forms.RadioButton Testemonial_RO;
+        private System.Windows.Forms.RadioButton Testemonial_FC;
+        private System.Windows.Forms.Panel Expenses_Panel;
+        private System.Windows.Forms.RadioButton Expenses_RO;
+        private System.Windows.Forms.RadioButton Expenses_FC;
         private System.Windows.Forms.DataGridViewTextBoxColumn User;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button Delete;
+        private System.Windows.Forms.Button View;
     }
 }

@@ -23,6 +23,7 @@ namespace Apex
         
         public const string MainFolderName = "CECF";
         public const string FilesDirectory = @"\\192.168.1.5\" + MainFolderName;
+        public static string[] Modules = { "Testemonial", "Expenses" };
 
         public void CheckLogs()
         {
@@ -31,12 +32,12 @@ namespace Apex
                 Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Logs");
                 using (StreamWriter outputFile = new StreamWriter(LogsLoc))
                 {
-                    outputFile.WriteLine("Server=" + Environment.NewLine + "Database=");
+                    outputFile.WriteLine("Server=" + Environment.NewLine + "Database=" + Environment.NewLine + "Authentication=");
                 }
             }
         }
 
-        public string GetConnection(string user , string pass , string server=null , string database=null)
+        public string GetConnection(string user , string pass , string authentication , string server=null , string database=null)
         {
             CheckLogs();
             if (server == null && database == null)
@@ -53,22 +54,29 @@ namespace Apex
                     file.Close();
                 }
             }
-            string connectionString = "Data Source=" + server + ";Initial Catalog =" + database + "; User id=" + user +";Password=" + pass + ";";
+            string connectionString = null;
+            if(authentication == "SQL Server Authentication")
+                connectionString = "Data Source=" + server + ";Initial Catalog =" + database + "; User id=" + user +";Password=" + pass + ";";
+            else if(authentication == "Windows Authentication")
+                connectionString = "Data Source=" + server + ";Initial Catalog =" + database + "; Integrated Security=True;";
             return connectionString;
         }
 
         public string GetServer()
         {
             CheckLogs();
-            string server = null, database;
+            string server = null;
             using (StreamReader file = new StreamReader(LogsLoc))
             {
                 string ln;
                 while ((ln = file.ReadLine()) != null)
                 {
                     string[] line = ln.Split('=');
-                    if (line[0] == "Server") server = line[1];
-                    if (line[0] == "Database") database = line[1];
+                    if (line[0] == "Server")
+                    {
+                        server = line[1];
+                        break;
+                    }
                 }
                 file.Close();
             }
@@ -78,27 +86,50 @@ namespace Apex
         public string GetDatabase()
         {
             CheckLogs();
-            string server, database = null;
+            string database = null;
             using (StreamReader file = new StreamReader(LogsLoc))
             {
                 string ln;
                 while ((ln = file.ReadLine()) != null)
                 {
                     string[] line = ln.Split('=');
-                    if (line[0] == "Server") server = line[1];
-                    if (line[0] == "Database") database = line[1];
+                    if (line[0] == "Database")
+                    {
+                        database = line[1];
+                        break;
+                    }
                 }
                 file.Close();
             }
             return database;
         }
 
-        public void UpdateLogs(string server , string database)
+        public string GetAuthentication()
+        {
+            CheckLogs();
+            string authentication = null;
+            using (StreamReader file = new StreamReader(LogsLoc))
+            {
+                string ln;
+                while ((ln = file.ReadLine()) != null)
+                {
+                    string[] line = ln.Split('=');
+                    if (line[0] == "Authentication")
+                    {
+                        authentication = line[1];
+                        break;
+                    }
+                }
+                file.Close();
+            }
+            return authentication;
+        }
+        public void UpdateLogs(string server , string database , string authentication)
         {
             CheckLogs();
             using (StreamWriter outputFile = new StreamWriter(LogsLoc))
             {
-                outputFile.WriteLine("Server=" + server + Environment.NewLine + "Database=" + database);
+                outputFile.WriteLine("Server=" + server + Environment.NewLine + "Database=" + database + Environment.NewLine + "Authentication=" + authentication);
             }
         }
 
@@ -190,19 +221,35 @@ namespace Apex
             DialogResult res = MessageBox.Show("Are you sure you want to permanently delete the selected records?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.No)
                 return;
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            foreach (DataGridViewRow r in Grid.SelectedRows)
+            try
             {
-                string name = r.Cells[cell1].Value.ToString().Replace("'" , "''"), path = r.Cells[cell2].Value.ToString().Replace("'", "''"), ext = r.Cells[cell3].Value.ToString();
-                string delete_records = "delete from " + table + " where name = N'" + name + "' and path =N'" + path + "' and extension ='" + ext + "'";
-                SqlCommand comm = new SqlCommand(delete_records, conn);
-                comm.ExecuteNonQuery();
-                Grid.Rows.Remove(r);
-                comm.Dispose();
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    foreach (DataGridViewRow r in Grid.SelectedRows)
+                    {
+                        string name = r.Cells[cell1].Value.ToString().Replace("'", "''"), path = r.Cells[cell2].Value.ToString().Replace("'", "''"), ext = r.Cells[cell3].Value.ToString();
+                        try
+                        {
+                            using (new NetworkConnection(FilesDirectory, new NetworkCredential(table + "FULL", "123")))
+                            {
+                                File.Delete(path + @"\" + name + ext);
+                            }
+                        }
+                        catch (Exception) { }
+                        string delete_records = "delete from " + table + " where name = N'" + name + "' and path =N'" + path + "' and extension ='" + ext + "'";
+                        using (SqlCommand comm = new SqlCommand(delete_records, conn))
+                            comm.ExecuteNonQuery();
+                        Grid.Rows.Remove(r);
+                    }
+                }
+            }
+            catch(SqlException)
+            {
+                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             MessageBox.Show("Successfully deleted selected records!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            conn.Close();
         }
         public void ClearRecords(DataGridView Grid)
         {
@@ -330,7 +377,16 @@ namespace Apex
         {
             foreach (TextBox c in parent.Controls.OfType<TextBox>())
             {
-                if (c.Text == "")
+                if (c.Text == "" && c.Enabled)
+                    return false;
+                bool allSpaces = true;
+                foreach(char ch in c.Text)
+                    if(ch != ' ')
+                    {
+                        allSpaces = false;
+                        break;
+                    }
+                if (allSpaces)
                     return false;
             }
             return true;

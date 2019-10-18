@@ -47,13 +47,16 @@
             this.Close = new System.Windows.Forms.Button();
             this.CreateDB = new System.Windows.Forms.LinkLabel();
             this.button1 = new System.Windows.Forms.Button();
+            this.Authentication = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Bar
             // 
-            this.Bar.Location = new System.Drawing.Point(18, 319);
+            this.Bar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Bar.Location = new System.Drawing.Point(18, 364);
             this.Bar.MarqueeAnimationSpeed = 0;
             this.Bar.Name = "Bar";
             this.Bar.Size = new System.Drawing.Size(511, 23);
@@ -62,10 +65,11 @@
             // 
             // Process
             // 
+            this.Process.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Process.AutoSize = true;
             this.Process.BackColor = System.Drawing.Color.Transparent;
             this.Process.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Process.Location = new System.Drawing.Point(15, 301);
+            this.Process.Location = new System.Drawing.Point(15, 346);
             this.Process.Name = "Process";
             this.Process.Size = new System.Drawing.Size(0, 15);
             this.Process.TabIndex = 8;
@@ -128,14 +132,14 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(15, 223);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 15);
+            this.label3.Size = new System.Drawing.Size(93, 15);
             this.label3.TabIndex = 16;
-            this.label3.Text = "Username : ";
+            this.label3.Text = "Authentication : ";
             // 
             // UserName
             // 
             this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserName.Location = new System.Drawing.Point(127, 220);
+            this.UserName.Location = new System.Drawing.Point(127, 267);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(402, 21);
             this.UserName.TabIndex = 2;
@@ -144,7 +148,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 270);
+            this.label4.Location = new System.Drawing.Point(15, 317);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 15);
             this.label4.TabIndex = 18;
@@ -153,7 +157,7 @@
             // Password
             // 
             this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password.Location = new System.Drawing.Point(127, 267);
+            this.Password.Location = new System.Drawing.Point(127, 314);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(402, 21);
             this.Password.TabIndex = 3;
@@ -161,12 +165,13 @@
             // 
             // Login
             // 
+            this.Login.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Login.ImageIndex = 10;
             this.Login.ImageList = this.imageList1;
-            this.Login.Location = new System.Drawing.Point(279, 357);
+            this.Login.Location = new System.Drawing.Point(279, 402);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(130, 44);
             this.Login.TabIndex = 4;
@@ -196,12 +201,13 @@
             // 
             // Close
             // 
+            this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Close.ImageIndex = 9;
             this.Close.ImageList = this.imageList1;
-            this.Close.Location = new System.Drawing.Point(415, 357);
+            this.Close.Location = new System.Drawing.Point(415, 402);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(130, 44);
             this.Close.TabIndex = 5;
@@ -212,10 +218,11 @@
             // CreateDB
             // 
             this.CreateDB.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.CreateDB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CreateDB.AutoSize = true;
             this.CreateDB.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateDB.LinkColor = System.Drawing.Color.Black;
-            this.CreateDB.Location = new System.Drawing.Point(15, 372);
+            this.CreateDB.Location = new System.Drawing.Point(15, 417);
             this.CreateDB.Name = "CreateDB";
             this.CreateDB.Size = new System.Drawing.Size(78, 15);
             this.CreateDB.TabIndex = 21;
@@ -233,14 +240,40 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Authentication
+            // 
+            this.Authentication.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Authentication.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Authentication.FormattingEnabled = true;
+            this.Authentication.Items.AddRange(new object[] {
+            "Windows Authentication",
+            "SQL Server Authentication"});
+            this.Authentication.Location = new System.Drawing.Point(127, 220);
+            this.Authentication.Name = "Authentication";
+            this.Authentication.Size = new System.Drawing.Size(402, 23);
+            this.Authentication.TabIndex = 23;
+            this.Authentication.SelectedIndexChanged += new System.EventHandler(this.Authentication_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(15, 270);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 15);
+            this.label5.TabIndex = 24;
+            this.label5.Text = "Username : ";
+            // 
             // Login_Form
             // 
             this.AcceptButton = this.Login;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(551, 413);
+            this.ClientSize = new System.Drawing.Size(551, 458);
             this.ControlBox = false;
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.Authentication);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.CreateDB);
             this.Controls.Add(this.pictureBox2);
@@ -261,6 +294,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Login_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -289,5 +323,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.LinkLabel CreateDB;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox Authentication;
+        private System.Windows.Forms.Label label5;
     }
 }

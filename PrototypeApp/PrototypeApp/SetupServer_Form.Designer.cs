@@ -62,20 +62,20 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(118, 180);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(284, 15);
+            this.label7.Size = new System.Drawing.Size(281, 15);
             this.label7.TabIndex = 38;
             this.label7.Text = "-Login with an account that has admin permissions.";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(118, 257);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(224, 15);
+            this.label6.Size = new System.Drawing.Size(213, 15);
             this.label6.TabIndex = 37;
             this.label6.Text = "-Choose where your files will be stored.";
             // 
@@ -330,10 +330,10 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(250, 464);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(367, 15);
+            this.label12.Size = new System.Drawing.Size(349, 15);
             this.label12.TabIndex = 47;
             this.label12.Text = "-Write passwords for different user permissions for every module";
             // 

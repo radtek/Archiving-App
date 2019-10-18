@@ -30,6 +30,7 @@ namespace Apex
             GF.EditButtons(this);
             ServerN.Text = GF.GetServer();
             DatabaseN.Text = GF.GetDatabase();
+            Authentication.Text = GF.GetAuthentication();
             //
             UserName.Text = "maged";
             Password.Text = "123";
@@ -43,7 +44,16 @@ namespace Apex
 
         private void checkConn()
         {
-            connectionString = GF.GetConnection(UserName.Text, Password.Text, ServerN.Text, DatabaseN.Text);
+            string username=null, pass = null, authentication = null, serverN = null, databaseN = null;
+            this.Invoke((MethodInvoker)delegate
+            {
+                username = UserName.Text;
+                pass = Password.Text;
+                authentication = Authentication.Text;
+                serverN = ServerN.Text;
+                databaseN = DatabaseN.Text;
+            });
+            connectionString = GF.GetConnection(username, pass , authentication , serverN, databaseN);
             if (!GF.IsServerConnected(connectionString))
             {
                 MessageBox.Show("Could not connect to server.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -55,11 +65,11 @@ namespace Apex
                 });
                 return;
             }
-            GF.UpdateLogs(ServerN.Text, DatabaseN.Text);
-            connectionString = GF.GetConnection(UserName.Text, Password.Text);
-            user = UserName.Text;
-            server = ServerN.Text;
-            database = DatabaseN.Text;
+            GF.UpdateLogs(serverN, databaseN , authentication);
+            connectionString = GF.GetConnection(username, pass , authentication);
+            user = username;
+            server = serverN;
+            database = databaseN;
             this.Invoke((MethodInvoker)delegate
             {
                 this.Close();
@@ -68,6 +78,11 @@ namespace Apex
 
         private void Login_Click(object sender, EventArgs e)
         {
+            if(!GF.CheckTextBoxes(this))
+            {
+                MessageBox.Show("Please fill the whole form." , "Error" , MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             Process.Text = "Connecting to database server...";
             Bar.Style = ProgressBarStyle.Marquee;
             Bar.MarqueeAnimationSpeed = 30;
@@ -93,18 +108,33 @@ namespace Apex
 
         private void button1_Click(object sender, EventArgs e)
         {
+            string x = "";
             //try
             //{
 
-                using (new NetworkConnection(@"\\192.168.1.5\CECF", new NetworkCredential("TestemonialFULL", "123")))
-                {
-                    //File.Delete(@"\\192.168.1.5\CECF\21192544_157393734843533_8844334447167507216_n.jpg");
-                }
+                //using (new NetworkConnection(@"\\192.168.1.5\CECF", new NetworkCredential("TestemonialREAD", "123")))
+                //{
+                  //  File.Delete(@"\\192.168.1.5\cecf\Testemonial\codes.txt");
+                //}
             //}
             //catch(Exception)
             //{
               //  MessageBox.Show("Could not open file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
+        }
+
+        private void Authentication_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Authentication.Text == "Windows Authentication")
+            {
+                UserName.Enabled = false;
+                Password.Enabled = false;
+            }
+            else if(Authentication.Text == "SQL Server Authentication")
+            {
+                UserName.Enabled = true;
+                Password.Enabled = true;
+            }
         }
     }
 }

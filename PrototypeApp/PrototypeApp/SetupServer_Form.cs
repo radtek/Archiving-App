@@ -1,27 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using FluentFTP;
-using System.Net;
-using System.Net.Sockets;
 using System.IO;
-using System.Threading;
-using System.Drawing.Text;
 using System.DirectoryServices;
-using System.Security.Permissions;
-using System.Collections;
 using System.Management;
 using System.Security.Principal;
 using System.Security.AccessControl;
 //using Cjwdev.WindowsApi;
 using static Cjwdev.WindowsApi.NativeFileSystem;
+using static Cjwdev.WindowsApi.ApiDefinitions;
 
 namespace Apex
 {
@@ -29,10 +17,23 @@ namespace Apex
     {
         public string connectionString = "";
         readonly GlobalFunc GF = new GlobalFunc();
-        private readonly string[] Modules = {"Testemonial", "Expenses"};
+        private readonly string[] Modules = GlobalFunc.Modules;
         private readonly Dictionary<string, string> ModulePass = new Dictionary<string, string>();
-        private readonly string createTes = "CREATE TABLE Testemonial\n(\nInterName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\nLocation VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\nProfession VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\nName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\nPath VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\nExtension VARCHAR(10) NOT NULL,\nDate DATE NOT NULL,\nLocationN VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\nCode VARCHAR(20) NOT NULL,\nPRIMARY KEY(Name, Path, Extension),\nUNIQUE(Code)\n);\n";
-        private readonly string createExp = "CREATE TABLE Expenses\n(\nName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\nPath VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\nExtension VARCHAR(10) NOT NULL,\nPRIMARY KEY(Name, Path, Extension)\n);\n";
+        private readonly string createTes = "CREATE TABLE Testemonial\n" +
+                                            "(\nInterName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                            "\nLocation VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                            "\nProfession VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                            "\nName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                            "\nPath VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                            "\nExtension VARCHAR(10) NOT NULL,\nDate DATE NOT NULL," +
+                                            "\nLocationN VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                            "\nCode VARCHAR(20) NOT NULL,\nPRIMARY KEY(Name, Path, Extension)," +
+                                            "\nUNIQUE(Code)\n);\n";
+        private readonly string createExp = "CREATE TABLE Expenses\n" +
+                                            "(\nName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                            "\nPath VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                            "\nExtension VARCHAR(10) NOT NULL," +
+                                            "\nPRIMARY KEY(Name, Path, Extension)\n);\n";
         public SetupServer_Form()
         {
             InitializeComponent();
@@ -150,54 +151,25 @@ namespace Apex
         }
         private void CreateDirectories(string directory)
         {
-            //try
-           // {
+            try
+            {
                 foreach (string mod in Modules)
                 {
                     Directory.CreateDirectory(directory + @"\" + mod);
                 }
-                ManagementClass managementClass = new ManagementClass("Win32_Share");
-                ManagementBaseObject inParams = managementClass.GetMethodParameters("Create");
-                ManagementBaseObject outParams;
-                inParams["Description"] = "";
-                inParams["Name"] = "CECF";
-                inParams["Path"] = directory;
-                inParams["Type"] = 0x0;
-                inParams["Access"] = null;
-                outParams = managementClass.InvokeMethod("Create", inParams, null);
-                if ((uint)(outParams.Properties["ReturnValue"].Value) != 0)
-                {
-                    throw new Exception("Unable to share directory.");
-                }
+                List<SharePermissionEntry> PermissionsList = new List<SharePermissionEntry>();
+                var PermEveryone = new SharePermissionEntry(string.Empty, "Everyone", SharePermission.FullControl, true);
+                var PermUser = new SharePermissionEntry(string.Empty, "Administrators", SharePermission.FullControl, true);
 
-          
-                var PermissionsList = new List<SharePermissionEntry>();
-                SharedFolder x;
-                // Create a new permission entry for the Everyone group and specify that we want to allow them Read access
-                var PermEveryone = new SharePermissionEntry(string.Empty, "Everyone", SharedFolder.SharePermissions.Read, true);
-                // Create a new permission entry for the currently logged on user and specify that we want to allow them Full Control
-                var PermUser = new SharePermissionEntry(Environment.UserDomainName, Environment.UserName, SharedFolder.SharePermissions.FullControl, true);
-
-                // Add the two entries declared above to our list
-                PermissionsList.Add(PermUser);
                 PermissionsList.Add(PermEveryone);
+                PermissionsList.Add(PermUser);
 
-                // Share the folder as "Test Share" and pass in the desired permissions list
-                SharedFolder.NET_API_STATUS Result = SharedFolder.ShareExistingFolder("Test Share", "This is a test share", @"C:\SomeFolder", PermissionsList);
-
-                // Show the result
-                if (Result == SharedFolder.NET_API_STATUS.NERR_Success)
-                    MessageBox.Show("Share created successfully!");
-                else
-                    MessageBox.Show("Share was not created as the following error was returned: " + Result.ToString);
-            
-
-
-            //}
-            //catch(Exception)
-            //{
-            //MessageBox.Show("Could not create directories.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+                ShareExistingFolder(directory, GlobalFunc.MainFolderName, "test", PermissionsList);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Could not create directories.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void GivePermissions(string directory)

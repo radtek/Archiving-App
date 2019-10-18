@@ -372,6 +372,7 @@
             this.Controls.Add(this.AddIN);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Add_Testemonial";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Testemonial";
             ((System.ComponentModel.ISupportInitialize)(this.SelectedFiles)).EndInit();
             this.RowMenu.ResumeLayout(false);

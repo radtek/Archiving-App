@@ -60,7 +60,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.SearchCode = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.Search = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
             this.View_Info = new System.Windows.Forms.Button();
@@ -68,6 +67,7 @@
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.PB = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Testemonial_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -390,18 +390,6 @@
             this.SearchCode.Size = new System.Drawing.Size(726, 21);
             this.SearchCode.TabIndex = 7;
             // 
-            // label7
-            // 
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label7.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(0, 629);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(1248, 17);
-            this.label7.TabIndex = 39;
-            this.label7.Text = " Powered by : Polygon Network Company";
-            // 
             // Search
             // 
             this.Search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -507,6 +495,19 @@
             this.label11.Text = "DELETED";
             this.label11.Visible = false;
             // 
+            // PB
+            // 
+            this.PB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PB.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PB.Location = new System.Drawing.Point(0, 623);
+            this.PB.Name = "PB";
+            this.PB.Size = new System.Drawing.Size(1248, 23);
+            this.PB.TabIndex = 41;
+            this.PB.Text = " Powered by : Polygon Network Company";
+            this.PB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Testemonial_Form
             // 
             this.AcceptButton = this.Search;
@@ -514,8 +515,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1248, 646);
+            this.Controls.Add(this.PB);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.SearchCode);
             this.Controls.Add(this.label6);
@@ -544,6 +545,7 @@
             this.Controls.Add(this.SearchN);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Testemonial_Form";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Testemonial";
             ((System.ComponentModel.ISupportInitialize)(this.Testemonial_Grid)).EndInit();
             this.ResumeLayout(false);
@@ -588,7 +590,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Date;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox SearchCode;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label PB;
     }
 }
