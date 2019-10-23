@@ -51,7 +51,7 @@
             this.Logout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Correspondence = new System.Windows.Forms.Button();
-            this.Media = new System.Windows.Forms.Button();
+            this.Projects = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +71,7 @@
             this.imageList1.Images.SetKeyName(9, "paper-plane.png");
             this.imageList1.Images.SetKeyName(10, "singing (1).png");
             this.imageList1.Images.SetKeyName(11, "notes.png");
+            this.imageList1.Images.SetKeyName(12, "project-management.png");
             // 
             // imageList2
             // 
@@ -88,7 +89,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 355);
+            this.label1.Location = new System.Drawing.Point(9, 490);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(41, 15);
             this.label1.TabIndex = 4;
@@ -100,7 +101,7 @@
             this.State.AutoSize = true;
             this.State.BackColor = System.Drawing.Color.Transparent;
             this.State.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.State.Location = new System.Drawing.Point(86, 355);
+            this.State.Location = new System.Drawing.Point(86, 490);
             this.State.Name = "State";
             this.State.Size = new System.Drawing.Size(0, 15);
             this.State.TabIndex = 5;
@@ -111,7 +112,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(9, 385);
+            this.label2.Location = new System.Drawing.Point(9, 520);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 15);
             this.label2.TabIndex = 6;
@@ -123,7 +124,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 400);
+            this.label3.Location = new System.Drawing.Point(9, 535);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 15);
             this.label3.TabIndex = 7;
@@ -135,7 +136,7 @@
             this.Server.AutoSize = true;
             this.Server.BackColor = System.Drawing.Color.Transparent;
             this.Server.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Server.Location = new System.Drawing.Point(86, 385);
+            this.Server.Location = new System.Drawing.Point(86, 520);
             this.Server.Name = "Server";
             this.Server.Size = new System.Drawing.Size(0, 15);
             this.Server.TabIndex = 8;
@@ -146,7 +147,7 @@
             this.Database.AutoSize = true;
             this.Database.BackColor = System.Drawing.Color.Transparent;
             this.Database.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Database.Location = new System.Drawing.Point(86, 400);
+            this.Database.Location = new System.Drawing.Point(86, 535);
             this.Database.Name = "Database";
             this.Database.Size = new System.Drawing.Size(0, 15);
             this.Database.TabIndex = 9;
@@ -157,7 +158,7 @@
             this.UserName.AutoSize = true;
             this.UserName.BackColor = System.Drawing.Color.Transparent;
             this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserName.Location = new System.Drawing.Point(86, 370);
+            this.UserName.Location = new System.Drawing.Point(86, 505);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(0, 15);
             this.UserName.TabIndex = 12;
@@ -168,7 +169,7 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(9, 370);
+            this.label5.Location = new System.Drawing.Point(9, 505);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(71, 15);
             this.label5.TabIndex = 11;
@@ -176,13 +177,14 @@
             // 
             // PB
             // 
-            this.PB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(0)))), ((int)(((byte)(126)))));
             this.PB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PB.Location = new System.Drawing.Point(0, 428);
+            this.PB.ForeColor = System.Drawing.Color.White;
+            this.PB.Location = new System.Drawing.Point(0, 563);
             this.PB.Name = "PB";
-            this.PB.Size = new System.Drawing.Size(371, 23);
+            this.PB.Size = new System.Drawing.Size(729, 23);
             this.PB.TabIndex = 13;
             this.PB.Text = " Powered by : Polygon Network Company";
             this.PB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -212,6 +214,7 @@
             // 
             // Settings
             // 
+            this.Settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Settings.BackColor = System.Drawing.Color.Transparent;
             this.Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Settings.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -219,7 +222,7 @@
             this.Settings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Settings.ImageIndex = 1;
             this.Settings.ImageList = this.imageList2;
-            this.Settings.Location = new System.Drawing.Point(287, 12);
+            this.Settings.Location = new System.Drawing.Point(645, 12);
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(36, 40);
             this.Settings.TabIndex = 2;
@@ -229,16 +232,16 @@
             // 
             // Reconnect
             // 
+            this.Reconnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Reconnect.BackColor = System.Drawing.Color.Transparent;
             this.Reconnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Reconnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Reconnect.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Reconnect.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Reconnect.ImageIndex = 5;
             this.Reconnect.ImageList = this.imageList3;
-            this.Reconnect.Location = new System.Drawing.Point(177, 349);
+            this.Reconnect.Location = new System.Drawing.Point(177, 484);
             this.Reconnect.Name = "Reconnect";
-            this.Reconnect.Size = new System.Drawing.Size(28, 28);
+            this.Reconnect.Size = new System.Drawing.Size(21, 21);
             this.Reconnect.TabIndex = 5;
             this.Reconnect.UseVisualStyleBackColor = false;
             this.Reconnect.Click += new System.EventHandler(this.Reconnect_Click);
@@ -246,13 +249,14 @@
             // 
             // Expenses
             // 
+            this.Expenses.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Expenses.BackColor = System.Drawing.Color.Transparent;
             this.Expenses.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Expenses.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Expenses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Expenses.ImageIndex = 11;
             this.Expenses.ImageList = this.imageList1;
-            this.Expenses.Location = new System.Drawing.Point(12, 259);
+            this.Expenses.Location = new System.Drawing.Point(12, 394);
             this.Expenses.Name = "Expenses";
             this.Expenses.Size = new System.Drawing.Size(86, 84);
             this.Expenses.TabIndex = 1;
@@ -261,13 +265,14 @@
             // 
             // Testemonial
             // 
+            this.Testemonial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Testemonial.BackColor = System.Drawing.Color.Transparent;
             this.Testemonial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Testemonial.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Testemonial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Testemonial.ImageIndex = 10;
             this.Testemonial.ImageList = this.imageList1;
-            this.Testemonial.Location = new System.Drawing.Point(12, 169);
+            this.Testemonial.Location = new System.Drawing.Point(12, 304);
             this.Testemonial.Name = "Testemonial";
             this.Testemonial.Size = new System.Drawing.Size(86, 84);
             this.Testemonial.TabIndex = 0;
@@ -293,6 +298,7 @@
             // 
             // Logout
             // 
+            this.Logout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Logout.BackColor = System.Drawing.Color.Transparent;
             this.Logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -300,7 +306,7 @@
             this.Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Logout.ImageIndex = 2;
             this.Logout.ImageList = this.imageList2;
-            this.Logout.Location = new System.Drawing.Point(323, 12);
+            this.Logout.Location = new System.Drawing.Point(681, 12);
             this.Logout.Name = "Logout";
             this.Logout.Size = new System.Drawing.Size(36, 40);
             this.Logout.TabIndex = 3;
@@ -314,7 +320,7 @@
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(347, 151);
+            this.pictureBox1.Size = new System.Drawing.Size(705, 283);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
@@ -328,7 +334,7 @@
             this.Correspondence.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Correspondence.ImageIndex = 9;
             this.Correspondence.ImageList = this.imageList1;
-            this.Correspondence.Location = new System.Drawing.Point(287, 366);
+            this.Correspondence.Location = new System.Drawing.Point(643, 501);
             this.Correspondence.Name = "Correspondence";
             this.Correspondence.Size = new System.Drawing.Size(86, 84);
             this.Correspondence.TabIndex = 1;
@@ -336,23 +342,21 @@
             this.Correspondence.Visible = false;
             this.Correspondence.Click += new System.EventHandler(this.Correspondence_Click);
             // 
-            // Media
+            // Projects
             // 
-            this.Media.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Media.BackColor = System.Drawing.Color.Transparent;
-            this.Media.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Media.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Media.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Media.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Media.ImageIndex = 8;
-            this.Media.ImageList = this.imageList1;
-            this.Media.Location = new System.Drawing.Point(287, 370);
-            this.Media.Name = "Media";
-            this.Media.Size = new System.Drawing.Size(86, 84);
-            this.Media.TabIndex = 0;
-            this.Media.UseVisualStyleBackColor = false;
-            this.Media.Visible = false;
-            this.Media.Click += new System.EventHandler(this.Media_Click);
+            this.Projects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Projects.BackColor = System.Drawing.Color.Transparent;
+            this.Projects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Projects.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Projects.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Projects.ImageIndex = 12;
+            this.Projects.ImageList = this.imageList1;
+            this.Projects.Location = new System.Drawing.Point(370, 304);
+            this.Projects.Name = "Projects";
+            this.Projects.Size = new System.Drawing.Size(86, 84);
+            this.Projects.TabIndex = 16;
+            this.Projects.UseVisualStyleBackColor = false;
+            this.Projects.Click += new System.EventHandler(this.Projects_Click);
             // 
             // Main_Form
             // 
@@ -360,7 +364,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(371, 451);
+            this.ClientSize = new System.Drawing.Size(729, 586);
             this.Controls.Add(this.Settings);
             this.Controls.Add(this.Reconnect);
             this.Controls.Add(this.Expenses);
@@ -379,13 +383,13 @@
             this.Controls.Add(this.Logout);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Correspondence);
-            this.Controls.Add(this.Media);
+            this.Controls.Add(this.Projects);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Polygon Apex Archiving Software";
+            this.Text = "PolyDoc Archiving Software";
             this.Load += new System.EventHandler(this.Main_Form_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -394,8 +398,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button Media;
         private System.Windows.Forms.Button Correspondence;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -417,6 +419,7 @@
         private System.Windows.Forms.Button Reconnect;
         private System.Windows.Forms.ImageList imageList3;
         private System.Windows.Forms.Button Settings;
+        private System.Windows.Forms.Button Projects;
     }
 }
 

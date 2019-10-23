@@ -42,8 +42,7 @@ namespace Apex
                 string[] loc = Browse_File_Wind.FileNames;
                 foreach (string i in loc)
                 {
-                    string code = GF.GetCode("Testemonial" , map , connectionString);
-                    map.Add(code, true);
+                    string code = GF.GetCode("Testemonial" , map , connectionString , this , MainForm);
                     string name = Path.GetFileNameWithoutExtension(i);
                     string intername = AddIN.Text;
                     string location = AddLoc.Text;
@@ -52,11 +51,12 @@ namespace Apex
                     string date = AddDate.Text;
                     string extension = Path.GetExtension(i);
                     string path = Path.GetDirectoryName(i);
-                    if(GF.CheckExistance(name.Replace("'" , "''")+"-"+path.Replace("'", "''") + "-"+extension , "testemonial" , connectionString))
+                    if(GF.CheckExistance(name.Replace("'" , "''")+"-"+extension , "testemonial" , connectionString))
                     {
                         MessageBox.Show(name+extension +" already exists in Testemonial.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         continue;
                     }
+                    map.Add(code, true);
                     SelectedFiles.Rows.Add(code , name , intername , location , locationN , profession , date , extension , path);
                 }
             }

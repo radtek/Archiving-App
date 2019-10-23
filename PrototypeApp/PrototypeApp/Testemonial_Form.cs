@@ -16,6 +16,8 @@ namespace Apex
     {
         static readonly Form MainForm = Application.OpenForms["Main_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
+        readonly string Database = ((Main_Form)MainForm).database;
+        readonly string User = ((Main_Form)MainForm).user;
         readonly GlobalFunc GF = new GlobalFunc();
         public Testemonial_Form()
         {
@@ -28,38 +30,10 @@ namespace Apex
             GF.GetLocations(SearchLoc, true);
             GF.GetProfessions(SearchPro, true);
 
-            try
+            if (!GF.CheckAdminPerm(User, connectionString, this, MainForm))
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    string tryAdd = "insert into testemonial(code , name , intername , location , locationn , profession , date , extension , path)" +
-                                    "values('dummy' , 'dummy' , 'dummy' , 'dummy' , 'dummy' , 'dummy' , '1-1-1' , 'dummy' , 'dummy')";
-                    string tryRemove = "delete from testemonial where name='dummy' and path='dummy' and extension='dummy'";
-                    try
-                    {
-                        conn.Open();
-                        using (SqlCommand comm = new SqlCommand(tryAdd, conn))
-                        {
-                            comm.ExecuteNonQuery();
-                        }
-                        using (SqlCommand comm = new SqlCommand(tryRemove, conn))
-                        {
-                            comm.ExecuteNonQuery();
-                        }
-                    }
-                    catch (SqlException)
-                    {
-                        Add.Enabled = false;
-                        Delete.Enabled = false;
-                    }
-                }
-            }
-            catch (SqlException)
-            {
-                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ((Main_Form)MainForm).Disconnected();
-                this.Close();
-                return;
+                GF.CheckPerm(User, "insert", Database, "testemonial", connectionString, this, MainForm, Add);
+                GF.CheckPerm(User, "delete", Database, "testemonial", connectionString, this, MainForm, Delete);
             }
 
             this.StartPosition = FormStartPosition.Manual;
@@ -70,9 +44,7 @@ namespace Apex
         {
             if (!GF.IsServerConnected(connectionString))
             {
-                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ((Main_Form)MainForm).Disconnected();
-                this.Close();
+                GF.ConnectionLost(this , MainForm);
                 return;
             }
             string get_test = "select Code , InterName , Location as Loc , LocationN as LocN , Profession , Name as TestN , Path , Extension , convert(varchar , date , 3) as Date from Testemonial where ";
@@ -138,9 +110,7 @@ namespace Apex
             }
             catch(SqlException)
             {
-                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ((Main_Form)MainForm).Disconnected();
-                this.Close();
+                GF.ConnectionLost(this, MainForm);
                 return;
             }
         }
@@ -170,12 +140,7 @@ namespace Apex
 
         private void Testemonial_Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
-                return;
-            string path = Testemonial_Grid.CurrentRow.Cells["Path"].Value.ToString() + "\\" + Testemonial_Grid.CurrentRow.Cells["TestN"].Value.ToString() + Testemonial_Grid.CurrentRow.Cells["Extension"].Value.ToString();
-            if (File.Exists(path))
-                System.Diagnostics.Process.Start(path);
-            else MessageBox.Show("Error 404.\nFile not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            GF.OpenRecord(Testemonial_Grid, e);
         }
 
         private void Clear_Click(object sender, EventArgs e)
@@ -185,14 +150,7 @@ namespace Apex
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            GF.DeleteRecords(Testemonial_Grid, "testemonial", "TestN", "Path", "Extension", connectionString);
-            if (!GF.IsServerConnected(connectionString))
-            {
-                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ((Main_Form)MainForm).Disconnected();
-                this.Close();
-                return;
-            }
+            GF.DeleteRecords(Testemonial_Grid, "testemonial", "TestN", "Path", "Extension", connectionString , this , MainForm);
         }
     }
 }

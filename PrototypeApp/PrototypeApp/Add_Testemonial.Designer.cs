@@ -30,8 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Testemonial));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label5 = new System.Windows.Forms.Label();
-            this.Browse = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.AddLocN = new System.Windows.Forms.TextBox();
             this.AddIN = new System.Windows.Forms.TextBox();
@@ -53,11 +57,12 @@
             this.AddLoc = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.AddPro = new System.Windows.Forms.ComboBox();
-            this.Cancel = new System.Windows.Forms.Button();
-            this.Add = new System.Windows.Forms.Button();
             this.RowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.AddDate = new System.Windows.Forms.DateTimePicker();
+            this.Browse = new System.Windows.Forms.Button();
+            this.Cancel = new System.Windows.Forms.Button();
+            this.Add = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedFiles)).BeginInit();
             this.RowMenu.SuspendLayout();
             this.SuspendLayout();
@@ -71,21 +76,6 @@
             this.label5.Size = new System.Drawing.Size(42, 15);
             this.label5.TabIndex = 36;
             this.label5.Text = "Date : ";
-            // 
-            // Browse
-            // 
-            this.Browse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Browse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Browse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Browse.ImageIndex = 7;
-            this.Browse.ImageList = this.imageList1;
-            this.Browse.Location = new System.Drawing.Point(496, 251);
-            this.Browse.Name = "Browse";
-            this.Browse.Size = new System.Drawing.Size(130, 44);
-            this.Browse.TabIndex = 5;
-            this.Browse.Text = "Browse";
-            this.Browse.UseVisualStyleBackColor = true;
-            this.Browse.Click += new System.EventHandler(this.Browse_Click);
             // 
             // imageList1
             // 
@@ -127,10 +117,20 @@
             // 
             this.SelectedFiles.AllowUserToAddRows = false;
             this.SelectedFiles.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedFiles.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.SelectedFiles.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SelectedFiles.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.SelectedFiles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.SelectedFiles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SelectedFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Code,
@@ -142,9 +142,27 @@
             this.Date,
             this.Extension,
             this.FilePath});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.SelectedFiles.DefaultCellStyle = dataGridViewCellStyle8;
             this.SelectedFiles.Location = new System.Drawing.Point(632, 36);
             this.SelectedFiles.Name = "SelectedFiles";
             this.SelectedFiles.ReadOnly = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.SelectedFiles.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SelectedFiles.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.SelectedFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SelectedFiles.Size = new System.Drawing.Size(709, 402);
             this.SelectedFiles.TabIndex = 8;
@@ -266,10 +284,11 @@
             // 
             this.AddLoc.BackColor = System.Drawing.Color.White;
             this.AddLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AddLoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddLoc.FormattingEnabled = true;
             this.AddLoc.Location = new System.Drawing.Point(127, 83);
             this.AddLoc.Name = "AddLoc";
-            this.AddLoc.Size = new System.Drawing.Size(499, 21);
+            this.AddLoc.Size = new System.Drawing.Size(499, 23);
             this.AddLoc.TabIndex = 1;
             // 
             // label1
@@ -285,11 +304,52 @@
             // AddPro
             // 
             this.AddPro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AddPro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddPro.FormattingEnabled = true;
             this.AddPro.Location = new System.Drawing.Point(127, 177);
             this.AddPro.Name = "AddPro";
-            this.AddPro.Size = new System.Drawing.Size(499, 21);
+            this.AddPro.Size = new System.Drawing.Size(499, 23);
             this.AddPro.TabIndex = 3;
+            // 
+            // RowMenu
+            // 
+            this.RowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuDelete});
+            this.RowMenu.Name = "RowMenu";
+            this.RowMenu.Size = new System.Drawing.Size(108, 26);
+            this.RowMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.RowMenu_ItemClicked);
+            // 
+            // MenuDelete
+            // 
+            this.MenuDelete.Name = "MenuDelete";
+            this.MenuDelete.Size = new System.Drawing.Size(107, 22);
+            this.MenuDelete.Text = "Delete";
+            // 
+            // AddDate
+            // 
+            this.AddDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddDate.CalendarMonthBackground = System.Drawing.Color.White;
+            this.AddDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.AddDate.Location = new System.Drawing.Point(127, 222);
+            this.AddDate.Name = "AddDate";
+            this.AddDate.Size = new System.Drawing.Size(105, 21);
+            this.AddDate.TabIndex = 47;
+            // 
+            // Browse
+            // 
+            this.Browse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Browse.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Browse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Browse.ImageIndex = 7;
+            this.Browse.ImageList = this.imageList1;
+            this.Browse.Location = new System.Drawing.Point(496, 251);
+            this.Browse.Name = "Browse";
+            this.Browse.Size = new System.Drawing.Size(130, 44);
+            this.Browse.TabIndex = 5;
+            this.Browse.Text = "Browse";
+            this.Browse.UseVisualStyleBackColor = true;
+            this.Browse.Click += new System.EventHandler(this.Browse_Click);
             // 
             // Cancel
             // 
@@ -323,31 +383,6 @@
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
-            // 
-            // RowMenu
-            // 
-            this.RowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuDelete});
-            this.RowMenu.Name = "RowMenu";
-            this.RowMenu.Size = new System.Drawing.Size(108, 26);
-            this.RowMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.RowMenu_ItemClicked);
-            // 
-            // MenuDelete
-            // 
-            this.MenuDelete.Name = "MenuDelete";
-            this.MenuDelete.Size = new System.Drawing.Size(107, 22);
-            this.MenuDelete.Text = "Delete";
-            // 
-            // AddDate
-            // 
-            this.AddDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddDate.CalendarMonthBackground = System.Drawing.Color.White;
-            this.AddDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.AddDate.Location = new System.Drawing.Point(127, 224);
-            this.AddDate.Name = "AddDate";
-            this.AddDate.Size = new System.Drawing.Size(105, 21);
-            this.AddDate.TabIndex = 47;
             // 
             // Add_Testemonial
             // 

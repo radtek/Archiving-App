@@ -47,9 +47,12 @@ namespace Apex
             string username=null, pass = null, authentication = null, serverN = null, databaseN = null;
             this.Invoke((MethodInvoker)delegate
             {
-                username = UserName.Text;
-                pass = Password.Text;
                 authentication = Authentication.Text;
+                if (authentication == "SQL Server Authentication")
+                {
+                    username = UserName.Text;
+                    pass = Password.Text;
+                }
                 serverN = ServerN.Text;
                 databaseN = DatabaseN.Text;
             });
@@ -98,29 +101,6 @@ namespace Apex
         private void Login_Form_Load(object sender, EventArgs e)
         {
 
-        }
-
-        private void CreateDB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            SetupServer_Form form = new SetupServer_Form();
-            form.ShowDialog();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string x = "";
-            //try
-            //{
-
-                //using (new NetworkConnection(@"\\192.168.1.5\CECF", new NetworkCredential("TestemonialREAD", "123")))
-                //{
-                  //  File.Delete(@"\\192.168.1.5\cecf\Testemonial\codes.txt");
-                //}
-            //}
-            //catch(Exception)
-            //{
-              //  MessageBox.Show("Could not open file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
 
         private void Authentication_SelectedIndexChanged(object sender, EventArgs e)

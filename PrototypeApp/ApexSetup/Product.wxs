@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define Apex_TargetDir=$(var.Apex.TargetDir)?>
-	<Product Id="a0bab292-622e-4c61-a55f-c49fa9820a48" Name="Apex Archiving Software" Language="1033" Version="1.0.0.0" Manufacturer="Polygon Network Company" UpgradeCode="e786b7f8-9ad8-4991-af85-216c7d05291c">
+	<Product Id="8cf29d7d-0c64-4778-a5d7-84873d4abd81" Name="Apex Archiving Software" Language="1033" Version="2.0.0.0" Manufacturer="Polygon Network Company" UpgradeCode="e786b7f8-9ad8-4991-af85-216c7d05291c">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     
     <Icon Id="ApexLogo.ico" SourceFile="$(var.ProjectDir)ApexLogo.ico" />
@@ -12,20 +12,12 @@
      
     <UI>
     <UIRef Id="WixUI_InstallDir" />
-    <Publish Dialog="WelcomeDlg"
-        Control="Next"
-        Event="NewDialog"
-        Value="InstallDirDlg"
-        Order="2">1</Publish>
-    <Publish Dialog="InstallDirDlg"
-        Control="Back"
-        Event="NewDialog"
-        Value="WelcomeDlg"
-        Order="2">1</Publish>
+    <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg" Order="2">1</Publish>
+    <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">1</Publish>
     </UI>
     
 		<MajorUpgrade DowngradeErrorMessage="A newer version of Apex Archiving Software is already installed." />
-		<MediaTemplate EmbedCab="yes"/>
+		<MediaTemplate EmbedCab="yes" />
 
 		<Feature Id="ProductFeature" Title="Apex Archiving Software" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
@@ -40,9 +32,9 @@
 				<Directory Id="INSTALLFOLDER" Name="Apex Archiving Software" />
 			</Directory>
         <Directory Id="ProgramMenuFolder">
-          <Directory Id="ApplicationProgramsFolder" Name="Apex Archiving Software"/>
+          <Directory Id="ApplicationProgramsFolder" Name="Apex Archiving Software" />
         </Directory>
-          <Directory Id="DesktopFolder" Name="Desktop"/>
+          <Directory Id="DesktopFolder" Name="Desktop" />
 		    </Directory>
 	</Fragment>
   <Fragment>
@@ -64,21 +56,23 @@
 
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
-			<!-- <Component Id="ProductComponent"> -->
-				<!-- TODO: Insert files, registry keys, and other resources here. -->
-			<!-- </Component> -->
 			<Component Id="Apex.exe.config" Guid="17809675-6b4b-497d-ad0b-91c245da6a97">
 			  <File Id="Apex.exe.config" Name="Apex.exe.config" Source="$(var.Apex_TargetDir)Apex.exe.config" />
 			</Component>
 			<Component Id="Apex.exe" Guid="75dc97fc-8b0c-4bec-8b3e-d376df56b199">
 			  <File Id="Apex.exe" Name="Apex.exe" Source="$(var.Apex_TargetDir)Apex.exe" />
 			</Component>
-			<Component Id="ApexLogo.ico" Guid="0deca176-99ea-44ba-859c-a0214f247d02">
-			  <File Id="ApexLogo.ico" Name="ApexLogo.ico" Source="$(var.Apex_TargetDir)ApexLogo.ico" />
-			</Component>
 			<Component Id="Apex.pdb" Guid="790fffb2-8606-4444-a160-233fc315b58e">
 			  <File Id="Apex.pdb" Name="Apex.pdb" Source="$(var.Apex_TargetDir)Apex.pdb" />
+			</Component>
+			<Component Id="ApexLogo.ico" Guid="7456d0a6-5940-47ff-95ce-6cf0b38a54eb">
+			  <File Id="ApexLogo.ico" Name="ApexLogo.ico" Source="$(var.Apex_TargetDir)ApexLogo.ico" />
+			</Component>
+			<Component Id="Cjwdev.WindowsApi.xml" Guid="f4e674f2-661a-4cde-bf8a-62739e4975c8">
+			  <File Id="Cjwdev.WindowsApi.xml" Name="Cjwdev.WindowsApi.xml" Source="$(var.Apex_TargetDir)Cjwdev.WindowsApi.xml" />
+			</Component>
+			<Component Id="Cjwdev.WindowsApi.dll" Guid="c5089031-b77e-4585-997d-c6f074eb8ac0">
+			  <File Id="Cjwdev.WindowsApi.dll" Name="Cjwdev.WindowsApi.dll" Source="$(var.Apex_TargetDir)Cjwdev.WindowsApi.dll" />
 			</Component>
 		</ComponentGroup>
 	</Fragment>

@@ -29,17 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View_Edit_User));
             this.label1 = new System.Windows.Forms.Label();
             this.Permissions_Grid = new System.Windows.Forms.DataGridView();
+            this.Perms = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Read = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.FullControl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.Close = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.AdminLabel = new System.Windows.Forms.Label();
-            this.Perms = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Read = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.FullControl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Permissions_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,24 +61,72 @@
             // 
             this.Permissions_Grid.AllowUserToAddRows = false;
             this.Permissions_Grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Permissions_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Permissions_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Permissions_Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Permissions_Grid.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Permissions_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Permissions_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Permissions_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Perms,
             this.Read,
             this.FullControl});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Permissions_Grid.DefaultCellStyle = dataGridViewCellStyle3;
             this.Permissions_Grid.Location = new System.Drawing.Point(12, 36);
             this.Permissions_Grid.Name = "Permissions_Grid";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Permissions_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Permissions_Grid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Permissions_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Permissions_Grid.Size = new System.Drawing.Size(776, 341);
             this.Permissions_Grid.TabIndex = 30;
             this.Permissions_Grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Permissions_Grid_CellContentClick);
             this.Permissions_Grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Permissions_Grid_CellValueChanged);
+            // 
+            // Perms
+            // 
+            this.Perms.HeaderText = "";
+            this.Perms.Name = "Perms";
+            this.Perms.ReadOnly = true;
+            this.Perms.Width = 244;
+            // 
+            // Read
+            // 
+            this.Read.HeaderText = "Read";
+            this.Read.Name = "Read";
+            this.Read.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Read.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Read.Width = 245;
+            // 
+            // FullControl
+            // 
+            this.FullControl.HeaderText = "Full Control";
+            this.FullControl.Name = "FullControl";
+            this.FullControl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.FullControl.Width = 244;
             // 
             // imageList1
             // 
@@ -139,28 +191,6 @@
             this.AdminLabel.Text = "Admin User";
             this.AdminLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.AdminLabel.Visible = false;
-            // 
-            // Perms
-            // 
-            this.Perms.HeaderText = "";
-            this.Perms.Name = "Perms";
-            this.Perms.ReadOnly = true;
-            this.Perms.Width = 244;
-            // 
-            // Read
-            // 
-            this.Read.HeaderText = "Read";
-            this.Read.Name = "Read";
-            this.Read.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Read.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Read.Width = 245;
-            // 
-            // FullControl
-            // 
-            this.FullControl.HeaderText = "Full Control";
-            this.FullControl.Name = "FullControl";
-            this.FullControl.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.FullControl.Width = 244;
             // 
             // View_Edit_User
             // 

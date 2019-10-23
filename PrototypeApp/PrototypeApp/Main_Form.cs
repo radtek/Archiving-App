@@ -19,12 +19,6 @@ namespace Apex
 {
     public partial class Main_Form : Form
     {
-        [System.Runtime.InteropServices.DllImport("gdi32.dll")]
-        private static extern IntPtr AddFontMemResourceEx(IntPtr pbFont, uint cbFont,
-            IntPtr pdv, [System.Runtime.InteropServices.In] ref uint pcFonts);
-        private PrivateFontCollection fonts = new PrivateFontCollection();
-        Font myFont;
-
         public string connectionString="";
         public string user;
         public string server;
@@ -35,10 +29,10 @@ namespace Apex
         {
             InitializeComponent();
             GF.EditButtons(this);
-            Anim.AddAnimation(Media , "Media" , 86 , 347);
             Anim.AddAnimation(Correspondence , "Correspondence", 86, 347);
             Anim.AddAnimation(Testemonial, "Testemonial", 86, 347);
             Anim.AddAnimation(Expenses, "Expenses", 86, 347);
+            Anim.AddAnimation(Projects, "Projects", 86, 347);
             Login_Logout();
         }
         
@@ -53,6 +47,10 @@ namespace Apex
             user = form.user;
             server = form.server;
             database = form.database;
+            if (user == null)
+            {
+                user = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            }
             this.Visible = true;
             CheckState();
         }
@@ -68,91 +66,93 @@ namespace Apex
                 Disconnected();
                 return;
             }
-            Media.Enabled = true;
-            Correspondence.Enabled = true;
-            Settings.Enabled = true;
-            Testemonial.Enabled = true;
-            Expenses.Enabled = true;
+            foreach(Button b in Controls.OfType<Button>())
+            {
+                b.Enabled = true;
+            }
             AdminSettings.Visible = false;
             AdminSettings.Enabled = false;
             AdminLabel.Visible = false;
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand comm = new SqlCommand("SELECT count(*) FROM dbo.dbRolesUsersMap (DEFAULT) where Login_Name='"+user.Replace("'" , "''")+"' and DB_Role='db_owner'", conn);
             try
             {
-                string check = comm.ExecuteScalar().ToString();
-                if (check != "0")
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    AdminSettings.Visible = true;
-                    AdminSettings.Enabled = true;
-                    AdminLabel.Visible = true;
+                    conn.Open();
+                    SqlCommand comm = new SqlCommand("SELECT count(*) FROM dbo.dbRolesUsersMap (DEFAULT) where Login_Name='" + user.Replace("'", "''") + "' and DB_Role='db_owner'", conn);
+                    try
+                    {
+                        string check = comm.ExecuteScalar().ToString();
+                        if (check != "0")
+                        {
+                            AdminSettings.Visible = true;
+                            AdminSettings.Enabled = true;
+                            AdminLabel.Visible = true;
+                        }
+                    }
+                    catch (SqlException)
+                    {
+                    }
+                    comm = new SqlCommand("select * from testemonial", conn);
+                    try
+                    {
+                        comm.ExecuteScalar();
+                        comm.Dispose();
+                    }
+                    catch (SqlException)
+                    {
+                        Testemonial.Enabled = false;
+                        Settings.Enabled = false;
+                    }
+                    comm = new SqlCommand("select * from Expenses", conn);
+                    try
+                    {
+                        comm.ExecuteScalar();
+                        comm.Dispose();
+                    }
+                    catch (SqlException)
+                    {
+                        Expenses.Enabled = false;
+                    }
+                    comm = new SqlCommand("select * from Projects", conn);
+                    try
+                    {
+                        comm.ExecuteScalar();
+                        comm.Dispose();
+                    }
+                    catch (SqlException)
+                    {
+                        Projects.Enabled = false;
+                    }
+                    comm = new SqlCommand("select * from correspondence", conn);
+                    try
+                    {
+                        comm.ExecuteScalar();
+                        comm.Dispose();
+                    }
+                    catch (SqlException)
+                    {
+                        Correspondence.Enabled = false;
+                    }
                 }
             }
             catch(SqlException)
             {
-            }
-            comm = new SqlCommand("select * from testemonial", conn);
-            try
-            {
-                comm.ExecuteScalar();
-            }
-            catch (SqlException)
-            {
-                Testemonial.Enabled = false;
-                Settings.Enabled = false;
-            }
-            comm = new SqlCommand("select * from Expenses", conn);
-            try
-            {
-                comm.ExecuteScalar();
-            }
-            catch (SqlException)
-            {
-                Expenses.Enabled = false;
-            }
-            comm = new SqlCommand("select * from media", conn);
-            try
-            {
-                comm.ExecuteScalar();
-            }
-            catch(SqlException)
-            {
-                Media.Enabled = false;
-            }
-            comm = new SqlCommand("select * from correspondence", conn);
-            try
-            {
-                comm.ExecuteScalar();
-            }
-            catch (SqlException)
-            {
-                Correspondence.Enabled = false;
+                MessageBox.Show("Server Connection Lost." , "Error" , MessageBoxButtons.OK , MessageBoxIcon.Error);
+                Disconnected();
+                return;
             }
             State.ForeColor = Color.Green;
             State.Text = "Connected.";
-            conn.Close();
         }
 
         public void Disconnected()
         {
             State.Text = "Disconnected.";
             State.ForeColor = Color.Red;
-            Testemonial.Enabled = false;
-            Expenses.Enabled = false;
-            AdminSettings.Enabled = false;
-            Settings.Enabled = false;
-        }
-
-        private void Media_Click(object sender, EventArgs e)
-        {
-            if (State.ForeColor == Color.Red)
+            foreach (Button b in Controls.OfType<Button>())
             {
-                MessageBox.Show("Not connected to database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                b.Enabled = false;
             }
-            Media_Form form = new Media_Form();
-            form.ShowDialog();
         }
 
         private void Correspondence_Click(object sender, EventArgs e)
@@ -164,12 +164,14 @@ namespace Apex
             }
             Correspondence_Form form = new Correspondence_Form();
             form.ShowDialog();
+            form.Dispose();
         }
 
         private void Settings_Click(object sender, EventArgs e)
         {
             Settings_Form form = new Settings_Form();
             form.ShowDialog();
+            form.Dispose();
         }
 
         private void Main_Form_Load(object sender, EventArgs e)
@@ -181,19 +183,21 @@ namespace Apex
         {
             ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.Settings, "Settings");
+            ToolTip1.Dispose();
         }
 
         private void AddUser_Click(object sender, EventArgs e)
         {
             Admin_Settings_Form form = new Admin_Settings_Form();
             form.Show();
+            form.Dispose();
         }
 
         private void Testemonial_Click(object sender, EventArgs e)
         {
             Testemonial_Form form = new Testemonial_Form();
             form.ShowDialog();
-            
+            form.Dispose();
         }
 
         private void Reconnect_Click(object sender, EventArgs e)
@@ -205,18 +209,21 @@ namespace Apex
         {
             ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.AdminSettings, "Admin Settings");
+            ToolTip1.Dispose();
         }
 
         private void AdminLabel_MouseHover(object sender, EventArgs e)
         {
             ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.AdminLabel, "Logged in as Admin");
+            ToolTip1.Dispose();
         }
 
         private void Reconnect_MouseHover(object sender, EventArgs e)
         {
             ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.Reconnect, "Reconnect");
+            ToolTip1.Dispose();
         }
 
         private void Expenses_Click(object sender, EventArgs e)
@@ -226,6 +233,7 @@ namespace Apex
 
         private void Logout_Click(object sender, EventArgs e)
         {
+            GF.EndServerConnection(connectionString);
             Login_Logout();
         }
 
@@ -233,6 +241,14 @@ namespace Apex
         {
             ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.Logout, "Logout");
+            ToolTip1.Dispose();
+        }
+
+        private void Projects_Click(object sender, EventArgs e)
+        {
+            Projects_Form form = new Projects_Form();
+            form.ShowDialog();
+            form.Dispose();
         }
     }
 }

@@ -22,8 +22,7 @@ namespace Apex
         private readonly string DataLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data";
         
         public const string MainFolderName = "CECF";
-        public const string FilesDirectory = @"\\192.168.1.5\" + MainFolderName;
-        public static string[] Modules = { "Testemonial", "Expenses" };
+        public const string FilesDirectory = @"\\192.168.1.4\" + MainFolderName;
 
         public void CheckLogs()
         {
@@ -151,14 +150,26 @@ namespace Apex
         {
             try
             {
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                conn.Close();
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                    conn.Open();
                 return true;
+            }
+            catch (SqlException e)
+            {
+                //MessageBox.Show(e.Message);
+                return false;
+            }
+        }
+
+        public void EndServerConnection(string connectionString)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                    SqlConnection.ClearPool(conn);
             }
             catch (SqlException)
             {
-                return false;
             }
         }
 
@@ -203,7 +214,7 @@ namespace Apex
         public bool CheckExistance(string x , string table , string connectionString)
         {
             string[] pk = x.Split('-');
-            string check = "select count(name) from " + table + " where name=N'" + pk[0] + "' and path=N'" + pk[1] + "' and extension='" + pk[2] + "'";
+            string check = "select count(name) from " + table + " where name=N'" + pk[0] + "' and path=N'" + FilesDirectory + @"\" + table + "' and extension='" + pk[1] + "'";
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand comm = new SqlCommand(check, conn);
@@ -214,7 +225,7 @@ namespace Apex
                 return false;
             return true;
         }
-        public void DeleteRecords(DataGridView Grid , string table , string cell1 , string cell2 , string cell3 , string connectionString)
+        public void DeleteRecords(DataGridView Grid , string table , string cell1 , string cell2 , string cell3 , string connectionString , Form parent , Form MainForm)
         {
             if (Grid.SelectedRows.Count == 0)
                 return;
@@ -231,7 +242,7 @@ namespace Apex
                         string name = r.Cells[cell1].Value.ToString().Replace("'", "''"), path = r.Cells[cell2].Value.ToString().Replace("'", "''"), ext = r.Cells[cell3].Value.ToString();
                         try
                         {
-                            using (new NetworkConnection(FilesDirectory, new NetworkCredential(table + "FULL", "123")))
+                            using (new NetworkConnection(FilesDirectory, new NetworkCredential("Apex-AdminUser", "123")))
                             {
                                 File.Delete(path + @"\" + name + ext);
                             }
@@ -246,10 +257,20 @@ namespace Apex
             }
             catch(SqlException)
             {
-                MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ConnectionLost(parent, MainForm);
                 return;
             }
             MessageBox.Show("Successfully deleted selected records!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public void OpenRecord(DataGridView grid , DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+            string path = grid.CurrentRow.Cells["Path"].Value.ToString() + "\\" + grid.CurrentRow.Cells["FileName"].Value.ToString() + grid.CurrentRow.Cells["Extension"].Value.ToString();
+            if (File.Exists(path))
+                System.Diagnostics.Process.Start(path);
+            else MessageBox.Show("Error 404.\nFile not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public void ClearRecords(DataGridView Grid)
         {
@@ -337,33 +358,38 @@ namespace Apex
                 }
             }
         }
-        public string GetCode(string table , Dictionary<string, bool> map , string connectionString)
+        public string GetCode(string table, Dictionary<string, bool> map, string connectionString , Form parent , Form MainForm)
         {
-            if(table=="Testemonial")
+            try
             {
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                string code = "TES" + DateTime.Now.Year.ToString();
-                string check = "select count(*) from Testemonial where code = '";
-                int counter = -1;
-                string res;
-                string finalCode;
-                do
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    counter++;
-                    if (counter % 10 == counter)
-                        finalCode = code + "0" + counter.ToString();
-                    else finalCode = code + counter.ToString();
-                    string temp_check = check + finalCode + "'";
-                    SqlCommand comm = new SqlCommand(temp_check, conn);
-                    res = comm.ExecuteScalar().ToString();
-                    comm.Dispose();
+                    conn.Open();
+                    string code = table.Substring(0 , 3).ToUpper() + DateTime.Now.Year.ToString();
+                    string check = "select count(*) from " + table + " where code = '";
+                    int counter = -1;
+                    string res;
+                    string finalCode;
+                    do
+                    {
+                        counter++;
+                        if (counter % 10 == counter)
+                            finalCode = code + "0" + counter.ToString();
+                        else finalCode = code + counter.ToString();
+                        string temp_check = check + finalCode + "'";
+                        SqlCommand comm = new SqlCommand(temp_check, conn);
+                        res = comm.ExecuteScalar().ToString();
+                        comm.Dispose();
+                    }
+                    while (res == "1" || (map.ContainsKey(finalCode) && map[finalCode] == true));
+                    return finalCode;
                 }
-                while (res == "1" || (map.ContainsKey(finalCode) && map[finalCode]==true));
-                conn.Close();
-                return finalCode;
             }
-            return "Invalid";
+            catch(SqlException)
+            {
+                ConnectionLost(parent, MainForm);
+                return "Invalid";
+            }
         }
         public void EditButtons(Control parent)
         {
@@ -377,6 +403,8 @@ namespace Apex
         {
             foreach (TextBox c in parent.Controls.OfType<TextBox>())
             {
+                if (!c.Enabled)
+                    continue;
                 if (c.Text == "" && c.Enabled)
                     return false;
                 bool allSpaces = true;
@@ -400,6 +428,104 @@ namespace Apex
                     return false;
             }
             return true;
+        }
+
+        public bool CheckPerm(string user , string perm , string database , string table , string connectionString , Form parent , Form MainForm , Control cont=null)
+        {
+            string checkPerm = "SELECT count(Login_Name) from (" +
+                                      "SELECT Login_Name\n" +
+                                      "FROM sys.database_permissions , (SELECT distinct Database_User_Name , Login_Name FROM dbo.dbRolesUsersMap (DEFAULT)) as x\n" +
+                                      "where DB_NAME()='" + database.Replace("'" , "''") + "' and USER_NAME(grantee_principal_id) != 'public' and Database_User_Name = USER_NAME(grantee_principal_id)\n" +
+                                      "and Login_Name='" + user.Replace("'", "''") + "' and permission_name = '" + perm + "' and OBJECT_NAME(major_id)='" + table + "' and state_desc='grant') as y";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    try
+                    {
+                        using (SqlCommand comm = new SqlCommand(checkPerm, conn))
+                        {
+                            string ans = comm.ExecuteScalar().ToString();
+                            if (ans == "1")
+                            {
+                                if (cont != null)
+                                    cont.Enabled = true;
+                                return true;
+                            }
+                            else
+                            {
+                                if (cont != null)
+                                    cont.Enabled = false;
+                                return false;
+                            }
+                        }
+                    }
+                    catch (SqlException e)
+                    {
+                        MessageBox.Show(e.Message);
+                        return false;
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                ConnectionLost(parent, MainForm);
+                return false;
+            }
+        }
+        public bool CheckAdminPerm(string user, string connectionString, Form parent, Form MainForm, Control cont=null)
+        {
+            string checkAdmin = "select count(Login_Name)\n" +
+                                        "from dbo.dbRolesUsersMap (DEFAULT)\n" +
+                                        "where Login_Name = '" + user + "' and db_role = 'db_owner'\n";
+            try
+            {
+                try
+                {
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        using (SqlCommand comm = new SqlCommand(checkAdmin, conn))
+                        {
+                            string ans = comm.ExecuteScalar().ToString();
+                            if (ans == "1")
+                            {
+                                if (cont != null)
+                                    cont.Enabled = true;
+                                return true;
+                            }
+                            else
+                            {
+                                if (cont != null)
+                                    cont.Enabled = false;
+                                return false;
+                            }
+                        }
+                    }
+                }
+                catch(SqlException)
+                {
+                    CommandFailed();
+                    return false;
+                }
+            }
+            catch(SqlException)
+            {
+                ConnectionLost(parent, MainForm);
+                return false;
+            }
+        }
+        public void ConnectionLost(Form parent , Form MainForm)
+        {
+            MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            ((Main_Form)MainForm).Disconnected();
+            parent.Close();
+        }
+
+        public void CommandFailed()
+        {
+            MessageBox.Show("Failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

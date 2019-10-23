@@ -18,13 +18,44 @@ namespace Apex
         readonly string Database = ((Main_Form) MainForm).database;
         readonly string User;
         readonly GlobalFunc GF = new GlobalFunc();
+        readonly List<string> Modules = new List<string>();
         public View_Edit_User(string UserName)
         {
             InitializeComponent();
             this.Text = UserName;
             User = UserName;
             GF.EditButtons(this);
-            foreach (string c in GlobalFunc.Modules)
+            string getTables = "SELECT table_name as [Table] FROM information_schema.tables";
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    try
+                    {
+                        using(SqlCommand comm = new SqlCommand(getTables , conn))
+                        {
+                            SqlDataReader reader = comm.ExecuteReader();
+                            while(reader.Read())
+                            {
+                                Modules.Add(reader["Table"].ToString());
+                            }
+                        }
+                    }
+                    catch(SqlException)
+                    {
+                        GF.CommandFailed();
+                        return;
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                GF.ConnectionLost(this , MainForm);
+                return;
+            }
+
+            foreach (string c in Modules)
                 Permissions_Grid.Rows.Add(c);
             ShowData();
         }
@@ -36,11 +67,9 @@ namespace Apex
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string checkAdmin = "SELECT count(Login_Name)\n" +
-                               "FROM sys.database_permissions , (SELECT Database_User_Name , Login_Name , DB_Role FROM dbo.dbRolesUsersMap (DEFAULT)\n" +
-                               "				                 where db_role = 'db_owner' or db_role = 'db_datareader') as x\n" +
-                               "where DB_NAME()='" + Database.Replace("'", "''") + "' and USER_NAME(grantee_principal_id) != 'public' and Database_User_Name = USER_NAME(grantee_principal_id)" +
-                               "and Login_Name = '" + User.Replace("'", "''") + "' and DB_Role = 'db_owner'";
+                    string checkAdmin = "select count(Login_Name)\n" +
+                                        "from dbo.dbRolesUsersMap (DEFAULT)\n" +
+                                        "where Login_Name = '"+User.Replace("'" , "''")+"' and db_role = 'db_owner'\n";
                     using (SqlCommand comm = new SqlCommand(checkAdmin, conn))
                     {
                         string ans = comm.ExecuteScalar().ToString();
@@ -55,7 +84,7 @@ namespace Apex
                         }
                     }
                     int count = -1;
-                    foreach (string c in GlobalFunc.Modules)
+                    foreach (string c in Modules)
                     {
                         count++;
                         string checkRead = "SELECT count(Login_Name)\n" +
@@ -125,7 +154,7 @@ namespace Apex
         private void Save_Click(object sender, EventArgs e)
         {
             string query = "";
-            foreach (string c in GlobalFunc.Modules)
+            foreach (string c in Modules)
                 query += "deny all on " + c + " to [" + User + "]\n";
             try
             {
