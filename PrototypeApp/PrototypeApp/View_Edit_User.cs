@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Apex
+namespace PolyDoc
 {
     public partial class View_Edit_User : Form
     {
@@ -25,34 +25,10 @@ namespace Apex
             this.Text = UserName;
             User = UserName;
             GF.EditButtons(this);
-            string getTables = "SELECT table_name as [Table] FROM information_schema.tables";
-            try
+
+            foreach (Module c in GF.Modules)
             {
-                using(SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    try
-                    {
-                        using(SqlCommand comm = new SqlCommand(getTables , conn))
-                        {
-                            SqlDataReader reader = comm.ExecuteReader();
-                            while(reader.Read())
-                            {
-                                Modules.Add(reader["Table"].ToString());
-                            }
-                        }
-                    }
-                    catch(SqlException)
-                    {
-                        GF.CommandFailed();
-                        return;
-                    }
-                }
-            }
-            catch (SqlException)
-            {
-                GF.ConnectionLost(this , MainForm);
-                return;
+                Modules.Add(c.modName);
             }
 
             foreach (string c in Modules)
@@ -153,36 +129,19 @@ namespace Apex
 
         private void Save_Click(object sender, EventArgs e)
         {
-            string query = "";
             foreach (string c in Modules)
-                query += "deny all on " + c + " to [" + User + "]\n";
+                GF.GrantOrDeny(c, "all", false, User, connectionString);
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    using (SqlCommand comm = new SqlCommand(query, conn))
-                    {
-                        comm.ExecuteNonQuery();
-                    }
-                }
-                query = "";
                 foreach (DataGridViewRow row in Permissions_Grid.Rows)
                 {
                     if (Convert.ToBoolean(row.Cells[1].Value) == true)
-                        query += "grant select on " + row.Cells[0].Value.ToString() + " to [" + User + "]\n";
-                    if (Convert.ToBoolean(row.Cells[2].Value) == true)
-                        query += "grant all on " + row.Cells[0].Value.ToString() + " to [" + User + "]\n";
-                }
-                if (query != "")
-                    using (SqlConnection conn = new SqlConnection(connectionString))
                     {
-                        conn.Open();
-                        using (SqlCommand comm = new SqlCommand(query, conn))
-                        {
-                            comm.ExecuteNonQuery();
-                        }
+                        GF.GrantOrDeny(row.Cells[0].Value.ToString(), "select", true, User, connectionString);
                     }
+                    if (Convert.ToBoolean(row.Cells[2].Value) == true)
+                        GF.GrantOrDeny(row.Cells[0].Value.ToString(), "all", true , User, connectionString);
+                }
                 MessageBox.Show("Successfully changed user permissions!", "Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 return;

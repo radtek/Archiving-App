@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Net;
 
-namespace Apex
+namespace PolyDoc
 {
     public partial class Add_Testemonial : Form
     {
@@ -26,8 +26,46 @@ namespace Apex
             Add.FlatAppearance.BorderColor = Color.White;
             Cancel.FlatAppearance.BorderColor = Color.White;
             AddDate.CustomFormat = "dd/MM/yyyy";
-            GF.GetLocations(AddLoc, false);
-            GF.GetProfessions(AddPro, false);
+            string getProfessions = "select * from professions";
+            string getLocations = "select * from locations";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    try
+                    {
+                        using (SqlCommand comm = new SqlCommand(getLocations, conn))
+                        {
+                            SqlDataReader reader = comm.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                AddLoc.Items.Add(reader["location"].ToString());
+                            }
+                            reader.Dispose();
+                        }
+                        using (SqlCommand comm = new SqlCommand(getProfessions, conn))
+                        {
+                            SqlDataReader reader = comm.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                AddPro.Items.Add(reader["profession"].ToString());
+                            }
+                            reader.Dispose();
+                        }
+                    }
+                    catch (SqlException)
+                    {
+                        GF.CommandFailed();
+                        return;
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                GF.ConnectionLost(this, MainForm);
+                return;
+            }
         }
 
         private void Browse_Click(object sender, EventArgs e)
@@ -98,7 +136,7 @@ namespace Apex
                 string date = parts[1] + "-" + parts[0] + "-" + parts[2];
                 string extension = row.Cells[7].Value.ToString().Replace("'", "''");
                 string path = GlobalFunc.FilesDirectory + @"\" + "Testemonial";
-                using (new NetworkConnection(GlobalFunc.FilesDirectory, new NetworkCredential("TestemonialFULL", "123")))
+                using (new NetworkConnection(GlobalFunc.FilesDirectory, new NetworkCredential(GlobalFunc.AppUser, GlobalFunc.AppPass)))
                 {
                     File.Copy(row.Cells[8].Value.ToString() + @"\" + name + extension, GlobalFunc.FilesDirectory +  @"\Testemonial\" + name + extension);
                 }

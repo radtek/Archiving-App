@@ -13,16 +13,16 @@ using System.Net.Sockets;
 using System.IO;
 using System.Threading;
 
-namespace ApexServer
+namespace PolyDocServer
 {
     class ServerGlobalFunc
     {
         private readonly string LogsLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Logs/DatabaseInfo.txt";
         private readonly string DataLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data";
 
-        public const string MainFolderName = "CECF";
+        public const string MainFolderName = "PolyDoc Storage";
         public const string FilesDirectory = @"\\192.168.1.5\" + MainFolderName;
-        public string[] ModuleNames = { "Testemonial", "Expenses" , "Projects"};
+        public string[] ModuleNames = { "Testemonial", "Expenses" , "Projects" , "HR"};
 
         public void CheckLogs()
         {

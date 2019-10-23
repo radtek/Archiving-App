@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApexServer
+namespace PolyDocServer
 {
     public class NetworkConnection : IDisposable
     {

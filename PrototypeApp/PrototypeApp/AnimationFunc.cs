@@ -12,7 +12,7 @@ using FluentFTP;
 using System.Net;
 using System.Net.Sockets;
 
-namespace Apex
+namespace PolyDoc
 {
     class AnimationFunc
     {

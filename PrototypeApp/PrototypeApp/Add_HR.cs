@@ -13,18 +13,47 @@ using System.Net;
 
 namespace PolyDoc
 {
-    public partial class Add_Project : Form
+    public partial class Add_HR : Form
     {
         static Form MainForm = Application.OpenForms["Main_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
         GlobalFunc GF = new GlobalFunc();
         Dictionary<string, bool> map = new Dictionary<string, bool>();
-        public Add_Project()
+        public Add_HR()
         {
             InitializeComponent();
             GF.EditButtons(this);
-            AddStartDate.CustomFormat = "dd/MM/yyyy";
-            AddEndDate.CustomFormat = "dd/MM/yyyy";
+            AddEmpBirthDate.CustomFormat = "dd/MM/yyyy";
+            AddEmpEmploymentDate.CustomFormat = "dd/MM/yyyy";
+            string getJobs = "select * from jobs";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    try
+                    {
+                        using (SqlCommand comm = new SqlCommand(getJobs, conn))
+                        {
+                            SqlDataReader reader = comm.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                AddEmpJob.Items.Add(reader["JobName"].ToString());
+                            }
+                        }
+                    }
+                    catch (SqlException)
+                    {
+                        GF.CommandFailed();
+                        return;
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                GF.ConnectionLost(this, MainForm);
+                return;
+            }
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -34,7 +63,7 @@ namespace PolyDoc
 
         private void Browse_Click(object sender, EventArgs e)
         {
-            if (AddProjectN.Text.Length == 0 || AddPartner.Text.Length == 0 || AddLoc.Text.Length == 0)
+            if (AddEmpName.Text.Length == 0 || AddEmpID.Text.Length == 0 || AddEmpJob.Text.Length == 0)
             {
                 MessageBox.Show("Please, fill the whole form.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -44,22 +73,22 @@ namespace PolyDoc
                 string[] loc = Browse_File_Wind.FileNames;
                 foreach (string i in loc)
                 {
-                    string code = GF.GetCode("Projects", map, connectionString , this , MainForm);
+                    string code = GF.GetCode("HR", map, connectionString, this, MainForm);
                     string name = Path.GetFileNameWithoutExtension(i);
-                    string projectName = AddProjectN.Text;
-                    string location = AddLoc.Text;
-                    string partner = AddPartner.Text;
-                    string startDate = AddStartDate.Text;
-                    string endDate = AddEndDate.Text;
+                    string empName = AddEmpName.Text;
+                    string empJob = AddEmpJob.Text;
+                    string empID = AddEmpID.Text;
+                    string empBirthDate = AddEmpBirthDate.Text;
+                    string empEmploymentDate = AddEmpEmploymentDate.Text;
                     string extension = Path.GetExtension(i);
                     string path = Path.GetDirectoryName(i);
-                    if (GF.CheckExistance(name.Replace("'", "''") + "-" + extension, "projects", connectionString))
+                    if (GF.CheckExistance(name.Replace("'", "''") + "-" + extension, "HR", connectionString))
                     {
-                        MessageBox.Show(name + extension + " already exists in Projects.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(name + extension + " already exists in HR.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         continue;
                     }
                     map.Add(code, true);
-                    SelectedFiles.Rows.Add(code, name, projectName, location, partner, startDate, endDate, extension, path);
+                    SelectedFiles.Rows.Add(code, name, empName, empJob, empID, empBirthDate, empEmploymentDate, extension, path);
                 }
             }
         }
@@ -82,25 +111,25 @@ namespace PolyDoc
             }
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-            string add_files = "insert into projects(code ,name , projectname , location , partner , startdate , enddate , extension , path) values";
+            string add_files = "insert into HR(code ,name , empname , empjob , empid , empbirthdate , empemploymentdate , extension , path) values";
             foreach (DataGridViewRow row in SelectedFiles.Rows)
             {
                 string code = row.Cells[0].Value.ToString().Replace("'", "''");
                 string name = row.Cells[1].Value.ToString().Replace("'", "''");
-                string projectName = row.Cells[2].Value.ToString().Replace("'", "''");
-                string location = row.Cells[3].Value.ToString().Replace("'", "''");
-                string partner = row.Cells[4].Value.ToString().Replace("'", "''");
+                string empName = row.Cells[2].Value.ToString().Replace("'", "''");
+                string empJob = row.Cells[3].Value.ToString().Replace("'", "''");
+                string empID = row.Cells[4].Value.ToString().Replace("'", "''");
                 string[] parts = row.Cells[5].Value.ToString().Split('/');
-                string startDate = parts[1] + "-" + parts[0] + "-" + parts[2];
+                string empBirthDate = parts[1] + "-" + parts[0] + "-" + parts[2];
                 parts = row.Cells[6].Value.ToString().Split('/');
-                string endDate = parts[1] + "-" + parts[0] + "-" + parts[2];
+                string empEmploymentDate = parts[1] + "-" + parts[0] + "-" + parts[2];
                 string extension = row.Cells[7].Value.ToString().Replace("'", "''");
-                string path = GlobalFunc.FilesDirectory + @"\" + "Projects";
+                string path = GlobalFunc.FilesDirectory + @"\" + "HR";
                 using (new NetworkConnection(GlobalFunc.FilesDirectory, new NetworkCredential(GlobalFunc.AppUser, GlobalFunc.AppPass)))
                 {
-                    File.Copy(row.Cells[8].Value.ToString() + @"\" + name + extension, GlobalFunc.FilesDirectory + @"\Projects\" + name + extension);
+                    File.Copy(row.Cells[8].Value.ToString() + @"\" + name + extension, GlobalFunc.FilesDirectory + @"\HR\" + name + extension);
                 }
-                add_files += "('" + code + "',N'" + name + "',N'" + projectName + "',N'" + location + "',N'" + partner + "','" + startDate + "','" + endDate + "','" + extension + "',N'" + path + "'),";
+                add_files += "('" + code + "',N'" + name + "',N'" + empName + "',N'" + empJob + "','" + empID + "','" + empBirthDate + "','" + empEmploymentDate + "','" + extension + "',N'" + path + "'),";
             }
             add_files = add_files.Remove(add_files.Length - 1);
             SqlCommand comm = new SqlCommand(add_files, conn);
@@ -109,30 +138,11 @@ namespace PolyDoc
             GF.ClearRecords(SelectedFiles);
         }
 
-        private void SelectedFiles_MouseClick(object sender, MouseEventArgs e)
+        private void AddEmpID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) || (e.KeyChar == '.'))
             {
-                int pos = SelectedFiles.HitTest(e.X, e.Y).RowIndex;
-                if (pos < 0)
-                    return;
-                if (!SelectedFiles.Rows[pos].Selected)
-                {
-                    SelectedFiles.ClearSelection();
-                    SelectedFiles.Rows[pos].Selected = true;
-                }
-                RowMenu.Show(SelectedFiles, new Point(e.X, e.Y));
-            }
-        }
-
-        private void RowMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            if (e.ClickedItem.Text == "Delete")
-            {
-                foreach (DataGridViewRow row in SelectedFiles.SelectedRows)
-                {
-                    SelectedFiles.Rows.RemoveAt(row.Index);
-                }
+                e.Handled = true;
             }
         }
     }

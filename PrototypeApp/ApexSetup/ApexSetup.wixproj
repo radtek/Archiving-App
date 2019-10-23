@@ -37,8 +37,8 @@
     <Folder Include="Images" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PrototypeApp\Apex.csproj">
-      <Name>Apex</Name>
+    <ProjectReference Include="..\PrototypeApp\PolyDoc.csproj">
+      <Name>PolyDoc</Name>
       <Project>{3689135b-679e-45cf-9672-c77a31d8e35d}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>

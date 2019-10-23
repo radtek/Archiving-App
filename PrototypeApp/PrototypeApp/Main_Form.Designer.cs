@@ -1,4 +1,4 @@
-﻿namespace Apex
+﻿namespace PolyDoc
 {
     partial class Main_Form
     {
@@ -50,8 +50,8 @@
             this.AdminSettings = new System.Windows.Forms.Button();
             this.Logout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Correspondence = new System.Windows.Forms.Button();
             this.Projects = new System.Windows.Forms.Button();
+            this.HR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +72,7 @@
             this.imageList1.Images.SetKeyName(10, "singing (1).png");
             this.imageList1.Images.SetKeyName(11, "notes.png");
             this.imageList1.Images.SetKeyName(12, "project-management.png");
+            this.imageList1.Images.SetKeyName(13, "review.png");
             // 
             // imageList2
             // 
@@ -256,11 +257,12 @@
             this.Expenses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Expenses.ImageIndex = 11;
             this.Expenses.ImageList = this.imageList1;
-            this.Expenses.Location = new System.Drawing.Point(12, 394);
+            this.Expenses.Location = new System.Drawing.Point(643, 502);
             this.Expenses.Name = "Expenses";
             this.Expenses.Size = new System.Drawing.Size(86, 84);
             this.Expenses.TabIndex = 1;
             this.Expenses.UseVisualStyleBackColor = false;
+            this.Expenses.Visible = false;
             this.Expenses.Click += new System.EventHandler(this.Expenses_Click);
             // 
             // Testemonial
@@ -325,23 +327,6 @@
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
-            // Correspondence
-            // 
-            this.Correspondence.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Correspondence.BackColor = System.Drawing.Color.Transparent;
-            this.Correspondence.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Correspondence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Correspondence.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Correspondence.ImageIndex = 9;
-            this.Correspondence.ImageList = this.imageList1;
-            this.Correspondence.Location = new System.Drawing.Point(643, 501);
-            this.Correspondence.Name = "Correspondence";
-            this.Correspondence.Size = new System.Drawing.Size(86, 84);
-            this.Correspondence.TabIndex = 1;
-            this.Correspondence.UseVisualStyleBackColor = false;
-            this.Correspondence.Visible = false;
-            this.Correspondence.Click += new System.EventHandler(this.Correspondence_Click);
-            // 
             // Projects
             // 
             this.Projects.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -358,6 +343,22 @@
             this.Projects.UseVisualStyleBackColor = false;
             this.Projects.Click += new System.EventHandler(this.Projects_Click);
             // 
+            // HR
+            // 
+            this.HR.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.HR.BackColor = System.Drawing.Color.Transparent;
+            this.HR.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.HR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HR.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.HR.ImageIndex = 13;
+            this.HR.ImageList = this.imageList1;
+            this.HR.Location = new System.Drawing.Point(12, 394);
+            this.HR.Name = "HR";
+            this.HR.Size = new System.Drawing.Size(86, 84);
+            this.HR.TabIndex = 17;
+            this.HR.UseVisualStyleBackColor = false;
+            this.HR.Click += new System.EventHandler(this.HR_Click);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,9 +366,9 @@
             this.BackColor = System.Drawing.SystemColors.Window;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(729, 586);
+            this.Controls.Add(this.HR);
             this.Controls.Add(this.Settings);
             this.Controls.Add(this.Reconnect);
-            this.Controls.Add(this.Expenses);
             this.Controls.Add(this.Testemonial);
             this.Controls.Add(this.AdminLabel);
             this.Controls.Add(this.AdminSettings);
@@ -382,8 +383,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Logout);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.Correspondence);
             this.Controls.Add(this.Projects);
+            this.Controls.Add(this.Expenses);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -398,7 +399,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button Correspondence;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button Logout;
@@ -420,6 +420,7 @@
         private System.Windows.Forms.ImageList imageList3;
         private System.Windows.Forms.Button Settings;
         private System.Windows.Forms.Button Projects;
+        private System.Windows.Forms.Button HR;
     }
 }
 

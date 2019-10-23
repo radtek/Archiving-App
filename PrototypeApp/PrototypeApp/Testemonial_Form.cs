@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 
-namespace Apex
+namespace PolyDoc
 {
     public partial class Testemonial_Form : Form
     {
@@ -23,18 +23,59 @@ namespace Apex
         {
             InitializeComponent();
             GF.EditButtons(this);
-            SearchLoc.Text = "-Disable-";
-            SearchPro.Text = "-Disable-";
             SearchD.CustomFormat = "dd/MM/yyyy";
             SearchLocN.Enabled = false;
-            GF.GetLocations(SearchLoc, true);
-            GF.GetProfessions(SearchPro, true);
 
             if (!GF.CheckAdminPerm(User, connectionString, this, MainForm))
             {
                 GF.CheckPerm(User, "insert", Database, "testemonial", connectionString, this, MainForm, Add);
                 GF.CheckPerm(User, "delete", Database, "testemonial", connectionString, this, MainForm, Delete);
             }
+
+            string getProfessions = "select * from professions";
+            string getLocations = "select * from locations";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    try
+                    {
+                        using (SqlCommand comm = new SqlCommand(getLocations, conn))
+                        {
+                            SqlDataReader reader = comm.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                SearchLoc.Items.Add(reader["location"].ToString());
+                            }
+                            reader.Dispose();
+                        }
+                        using (SqlCommand comm = new SqlCommand(getProfessions, conn))
+                        {
+                            SqlDataReader reader = comm.ExecuteReader();
+                            while (reader.Read())
+                            {
+                                SearchPro.Items.Add(reader["profession"].ToString());
+                            }
+                            reader.Dispose();
+                        }
+                    }
+                    catch (SqlException)
+                    {
+                        GF.CommandFailed();
+                        return;
+                    }
+                }
+            }
+            catch (SqlException)
+            {
+                GF.ConnectionLost(this, MainForm);
+                return;
+            }
+            SearchLoc.Items.Add("-Disable-");
+            SearchPro.Items.Add("-Disable-");
+            SearchLoc.Text = "-Disable-";
+            SearchPro.Text = "-Disable-";
 
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new Point(100, 0);
@@ -47,7 +88,7 @@ namespace Apex
                 GF.ConnectionLost(this , MainForm);
                 return;
             }
-            string get_test = "select Code , InterName , Location as Loc , LocationN as LocN , Profession , Name as TestN , Path , Extension , convert(varchar , date , 3) as Date from Testemonial where ";
+            string get_test = "select Code , InterName , Location as Loc , LocationN as LocN , Profession , Name as TestN , Path , Extension , convert(varchar , date , 103) as Date from Testemonial where ";
             string originalQ = get_test;
             if(SearchN.Text.Length!=0)
             {
@@ -150,12 +191,25 @@ namespace Apex
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            GF.DeleteRecords(Testemonial_Grid, "testemonial", "TestN", "Path", "Extension", connectionString , this , MainForm);
+            GF.DeleteRecords(Testemonial_Grid, "testemonial", "FileName", "Path", "Extension", connectionString , this , MainForm);
         }
 
         private void View_Info_Click(object sender, EventArgs e)
         {
-
+            if (Testemonial_Grid.SelectedCells.Count == 0)
+                return;
+            string code = Testemonial_Grid.CurrentRow.Cells["Code"].Value.ToString();
+            string interName = Testemonial_Grid.CurrentRow.Cells["InterName"].Value.ToString();
+            string location = Testemonial_Grid.CurrentRow.Cells["Loc"].Value.ToString();
+            string locationN = Testemonial_Grid.CurrentRow.Cells["LocN"].Value.ToString();
+            string profession = Testemonial_Grid.CurrentRow.Cells["Profession"].Value.ToString();
+            string date = Testemonial_Grid.CurrentRow.Cells["Date"].Value.ToString();
+            string fileName = Testemonial_Grid.CurrentRow.Cells["FileName"].Value.ToString();
+            string path = Testemonial_Grid.CurrentRow.Cells["Path"].Value.ToString();
+            string extension = Testemonial_Grid.CurrentRow.Cells["Extension"].Value.ToString();
+            View_Edit_Testemonial form = new View_Edit_Testemonial(code, locationN, interName, location, profession, date, fileName, path, extension);
+            form.ShowDialog();
+            form.Dispose();
         }
     }
 }

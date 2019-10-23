@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Apex
+namespace PolyDoc
 {
     public class MultiFormContext : ApplicationContext
     {

@@ -1,4 +1,4 @@
-﻿namespace Apex
+﻿namespace PolyDoc
 {
     partial class Login_Form
     {
@@ -54,7 +54,7 @@
             // Bar
             // 
             this.Bar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Bar.Location = new System.Drawing.Point(18, 364);
+            this.Bar.Location = new System.Drawing.Point(18, 349);
             this.Bar.MarqueeAnimationSpeed = 0;
             this.Bar.Name = "Bar";
             this.Bar.Size = new System.Drawing.Size(511, 23);
@@ -67,16 +67,17 @@
             this.Process.AutoSize = true;
             this.Process.BackColor = System.Drawing.Color.Transparent;
             this.Process.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Process.Location = new System.Drawing.Point(15, 346);
+            this.Process.Location = new System.Drawing.Point(15, 331);
             this.Process.Name = "Process";
             this.Process.Size = new System.Drawing.Size(0, 15);
             this.Process.TabIndex = 8;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(15, 176);
+            this.label2.Location = new System.Drawing.Point(15, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 15);
             this.label2.TabIndex = 12;
@@ -84,9 +85,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 129);
+            this.label1.Location = new System.Drawing.Point(15, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 15);
             this.label1.TabIndex = 11;
@@ -94,16 +96,18 @@
             // 
             // DatabaseN
             // 
+            this.DatabaseN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DatabaseN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DatabaseN.Location = new System.Drawing.Point(127, 173);
+            this.DatabaseN.Location = new System.Drawing.Point(127, 158);
             this.DatabaseN.Name = "DatabaseN";
             this.DatabaseN.Size = new System.Drawing.Size(402, 21);
             this.DatabaseN.TabIndex = 1;
             // 
             // ServerN
             // 
+            this.ServerN.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ServerN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ServerN.Location = new System.Drawing.Point(127, 126);
+            this.ServerN.Location = new System.Drawing.Point(127, 111);
             this.ServerN.Name = "ServerN";
             this.ServerN.Size = new System.Drawing.Size(402, 21);
             this.ServerN.TabIndex = 0;
@@ -126,9 +130,10 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(15, 223);
+            this.label3.Location = new System.Drawing.Point(15, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 15);
             this.label3.TabIndex = 16;
@@ -136,17 +141,19 @@
             // 
             // UserName
             // 
+            this.UserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserName.Location = new System.Drawing.Point(127, 267);
+            this.UserName.Location = new System.Drawing.Point(127, 252);
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(402, 21);
             this.UserName.TabIndex = 2;
             // 
             // label4
             // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 317);
+            this.label4.Location = new System.Drawing.Point(15, 302);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 15);
             this.label4.TabIndex = 18;
@@ -154,8 +161,9 @@
             // 
             // Password
             // 
+            this.Password.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Password.Location = new System.Drawing.Point(127, 314);
+            this.Password.Location = new System.Drawing.Point(127, 299);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(402, 21);
             this.Password.TabIndex = 3;
@@ -169,7 +177,7 @@
             this.Login.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Login.ImageIndex = 10;
             this.Login.ImageList = this.imageList1;
-            this.Login.Location = new System.Drawing.Point(18, 402);
+            this.Login.Location = new System.Drawing.Point(18, 387);
             this.Login.Name = "Login";
             this.Login.Size = new System.Drawing.Size(130, 44);
             this.Login.TabIndex = 4;
@@ -180,17 +188,18 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(18, 30);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 12);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(249, 57);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.Size = new System.Drawing.Size(527, 83);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 20;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(421, 402);
+            this.pictureBox1.Location = new System.Drawing.Point(421, 387);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(130, 57);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -205,7 +214,7 @@
             this.Close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Close.ImageIndex = 9;
             this.Close.ImageList = this.imageList1;
-            this.Close.Location = new System.Drawing.Point(154, 402);
+            this.Close.Location = new System.Drawing.Point(154, 387);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(130, 44);
             this.Close.TabIndex = 5;
@@ -215,13 +224,14 @@
             // 
             // Authentication
             // 
+            this.Authentication.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Authentication.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Authentication.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Authentication.FormattingEnabled = true;
             this.Authentication.Items.AddRange(new object[] {
             "Windows Authentication",
             "SQL Server Authentication"});
-            this.Authentication.Location = new System.Drawing.Point(127, 220);
+            this.Authentication.Location = new System.Drawing.Point(127, 205);
             this.Authentication.Name = "Authentication";
             this.Authentication.Size = new System.Drawing.Size(402, 23);
             this.Authentication.TabIndex = 23;
@@ -229,9 +239,10 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 270);
+            this.label5.Location = new System.Drawing.Point(15, 255);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 15);
             this.label5.TabIndex = 24;
@@ -243,7 +254,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(551, 458);
+            this.ClientSize = new System.Drawing.Size(551, 443);
             this.ControlBox = false;
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Authentication);

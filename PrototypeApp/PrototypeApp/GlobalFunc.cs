@@ -1,34 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
-using FluentFTP;
+using System.Drawing;
+using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
-using System.IO;
-using System.Threading;
+using System.Windows.Forms;
 
-namespace Apex
+namespace PolyDoc
 {
     class GlobalFunc
     {
-        private readonly string LogsLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Logs/DatabaseInfo.txt";
-        private readonly string DataLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data";
-        
-        public const string MainFolderName = "CECF";
+        private readonly string LogsLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PolyDoc Archiving Software/Logs/DatabaseInfo.txt";
+        private readonly string DataLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PolyDoc Archiving Software/Data";
+
+        public const string AppUser = "PolyDoc-AdminUser";
+        public const string AppPass = "123";
+
+        public const string MainFolderName = "PolyDoc Storage";
         public const string FilesDirectory = @"\\192.168.1.4\" + MainFolderName;
 
+        public Module[] Modules = { 
+                                        new Module("Testemonial",new List<string>{"professions" , "locations"}),
+                                        new Module("Projects",new List<string>()), 
+                                        new Module("HR",new List<string>{"jobs"}), 
+                                       };
+
+        public void GrantOrDeny(string mod , string perm , bool grant , string user , string connectionString)
+        {
+            foreach(Module c in Modules)
+            {
+                if(mod == c.modName)
+                {
+                    c.GrantOrDeny(perm , grant , user , connectionString);
+                    return;
+                }
+            }
+        }
         public void CheckLogs()
         {
             if (!File.Exists(LogsLoc))
             {
-                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Logs");
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PolyDoc Archiving Software/Logs");
                 using (StreamWriter outputFile = new StreamWriter(LogsLoc))
                 {
                     outputFile.WriteLine("Server=" + Environment.NewLine + "Database=" + Environment.NewLine + "Authentication=");
@@ -242,7 +256,7 @@ namespace Apex
                         string name = r.Cells[cell1].Value.ToString().Replace("'", "''"), path = r.Cells[cell2].Value.ToString().Replace("'", "''"), ext = r.Cells[cell3].Value.ToString();
                         try
                         {
-                            using (new NetworkConnection(FilesDirectory, new NetworkCredential("Apex-AdminUser", "123")))
+                            using (new NetworkConnection(FilesDirectory, new NetworkCredential("PolyDoc-AdminUser", "123")))
                             {
                                 File.Delete(path + @"\" + name + ext);
                             }
@@ -263,15 +277,22 @@ namespace Apex
             MessageBox.Show("Successfully deleted selected records!", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        public void OpenRecord(DataGridView grid , DataGridViewCellEventArgs e)
+        public void OpenRecord(DataGridView grid, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0)
                 return;
             string path = grid.CurrentRow.Cells["Path"].Value.ToString() + "\\" + grid.CurrentRow.Cells["FileName"].Value.ToString() + grid.CurrentRow.Cells["Extension"].Value.ToString();
-            if (File.Exists(path))
-                System.Diagnostics.Process.Start(path);
-            else MessageBox.Show("Error 404.\nFile not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+            try
+            {
+                if (File.Exists(path))
+                    System.Diagnostics.Process.Start(path);
+                else MessageBox.Show("Error 404.\nFile not found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("File could not be opened", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }   
         public void ClearRecords(DataGridView Grid)
         {
             while (Grid.Rows.Count > 0)
@@ -285,79 +306,6 @@ namespace Apex
             string res = parts[0] + "/" + parts[1] + "/" + parts[2][0] + parts[2][1] + parts[2][2] + parts[2][3];
             return res;
         }
-        public void GetLocations(ComboBox Locs , bool Search)
-        {
-            string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Locations.txt";
-            CheckData("Locations");
-            using (StreamReader file = new StreamReader(loc))
-            {
-                string ln;
-                while ((ln = file.ReadLine()) != null)
-                {
-                    Locs.Items.Add(ln);
-                }
-                file.Close();
-                if (Search)
-                {
-                    Locs.Items.Add("-Disable-");
-                    Locs.Text = "-Disable-";
-                }
-            }
-        }
-        public void GetProfessions(ComboBox Pros, bool Search)
-        {
-            string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Professions.txt";
-            CheckData("Professions");
-            using (StreamReader file = new StreamReader(loc))
-            {
-                string ln;
-                while ((ln = file.ReadLine()) != null)
-                {
-                    Pros.Items.Add(ln);
-                }
-                file.Close();
-                if (Search)
-                {
-                    Pros.Items.Add("-Disable-");
-                    Pros.Text = "-Disable-";
-                }
-            }
-        }
-        public void CheckData(string name)
-        {
-            if(name == "Locations")
-            {
-                string loc = DataLoc + "/Locations.txt";
-                if (!File.Exists(loc))
-                {
-                    Directory.CreateDirectory(DataLoc);
-                    var file = File.CreateText(loc);
-                    file.Close();
-                }
-            }
-            if(name == "Professions")
-            {
-                string loc = DataLoc + "/Professions.txt";
-                if (!File.Exists(loc))
-                {
-                    Directory.CreateDirectory(DataLoc);
-                    var file = File.CreateText(loc);
-                    file.Close();
-                }
-            }
-            if(name == "Settings")
-            {
-                string loc = DataLoc + "/Settings.txt";
-                if (!File.Exists(loc))
-                {
-                    Directory.CreateDirectory(DataLoc);
-                    using (StreamWriter outputFile = new StreamWriter(loc))
-                    {
-                        outputFile.WriteLine("Directory Path=" + Environment.NewLine);
-                    }
-                }
-            }
-        }
         public string GetCode(string table, Dictionary<string, bool> map, string connectionString , Form parent , Form MainForm)
         {
             try
@@ -365,7 +313,19 @@ namespace Apex
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string code = table.Substring(0 , 3).ToUpper() + DateTime.Now.Year.ToString();
+                    string code = table.Substring(0, 2).ToUpper() +
+                                  DateTime.Now.Year.ToString().Substring(DateTime.Now.Year.ToString().Length - 2);
+                    if(DateTime.Now.Month.ToString().Length == 1)
+                    {
+                        code += "0";
+                    }
+                    code += DateTime.Now.Month.ToString();
+                    if (DateTime.Now.Day.ToString().Length == 1)
+                    {
+                        code += "0";
+                    }
+                    code += DateTime.Now.Day.ToString();
+
                     string check = "select count(*) from " + table + " where code = '";
                     int counter = -1;
                     string res;
@@ -373,7 +333,9 @@ namespace Apex
                     do
                     {
                         counter++;
-                        if (counter % 10 == counter)
+                        if (counter % 10 == counter && counter % 100 == counter)
+                            finalCode = code + "00" + counter.ToString();
+                        else if (counter % 100 == counter)
                             finalCode = code + "0" + counter.ToString();
                         else finalCode = code + counter.ToString();
                         string temp_check = check + finalCode + "'";
@@ -476,6 +438,13 @@ namespace Apex
         }
         public bool CheckAdminPerm(string user, string connectionString, Form parent, Form MainForm, Control cont=null)
         {
+            string checkSysAdmin = "SELECT count(*)\n" +
+                                   "FROM sys.server_role_members\n" +
+                                   "JOIN sys.server_principals AS role\n" +
+                                   "    ON sys.server_role_members.role_principal_id = role.principal_id\n" +
+                                   "JOIN sys.server_principals AS member\n" +
+                                   "    ON sys.server_role_members.member_principal_id = member.principal_id\n" +
+                                   "where role.name = 'sysadmin' and member.name = '" + user.Replace("'", "''") + "'\n";
             string checkAdmin = "select count(Login_Name)\n" +
                                         "from dbo.dbRolesUsersMap (DEFAULT)\n" +
                                         "where Login_Name = '" + user + "' and db_role = 'db_owner'\n";
@@ -486,6 +455,16 @@ namespace Apex
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
+                        using (SqlCommand comm = new SqlCommand(checkSysAdmin , conn))
+                        {
+                            string ans = comm.ExecuteScalar().ToString();
+                            if (ans == "1")
+                            {
+                                if (cont != null)
+                                    cont.Enabled = true;
+                                return true;
+                            }
+                        }
                         using (SqlCommand comm = new SqlCommand(checkAdmin, conn))
                         {
                             string ans = comm.ExecuteScalar().ToString();
@@ -520,7 +499,8 @@ namespace Apex
         {
             MessageBox.Show("Server connection lost.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             ((Main_Form)MainForm).Disconnected();
-            parent.Close();
+            if (parent != MainForm)
+                parent.Close();
         }
 
         public void CommandFailed()

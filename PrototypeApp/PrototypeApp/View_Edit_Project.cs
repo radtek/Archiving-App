@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Apex
+namespace PolyDoc
 {
-    public partial class View_Project : Form
+    public partial class View_Edit_Project : Form
     {
         static readonly Form MainForm = Application.OpenForms["Main_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
@@ -20,7 +20,7 @@ namespace Apex
         readonly string Database = ((Main_Form)MainForm).database;
         readonly string User = ((Main_Form)MainForm).user;
         readonly GlobalFunc GF = new GlobalFunc();
-        public View_Project(string code,string partner,string projectN,string loc,string startDate,string endDate,string fileName,string path,string extension)
+        public View_Edit_Project(string code,string partner,string projectN,string loc,string startDate,string endDate,string fileName,string path,string extension)
         {
             InitializeComponent();
             GF.EditButtons(this);

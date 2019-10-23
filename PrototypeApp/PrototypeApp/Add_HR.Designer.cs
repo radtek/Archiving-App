@@ -1,6 +1,6 @@
 ﻿namespace PolyDoc
 {
-    partial class Add_Project
+    partial class Add_HR
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_Project));
-            this.Browse_File_Wind = new System.Windows.Forms.OpenFileDialog();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Add_HR));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.Browse_File_Wind = new System.Windows.Forms.OpenFileDialog();
             this.RowMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.MenuDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddStartDate = new System.Windows.Forms.DateTimePicker();
+            this.AddEmpJob = new System.Windows.Forms.ComboBox();
+            this.AddEmpEmploymentDate = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
+            this.AddEmpBirthDate = new System.Windows.Forms.DateTimePicker();
             this.Browse = new System.Windows.Forms.Button();
             this.SelectedFiles = new System.Windows.Forms.DataGridView();
             this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Location = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Partner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmpName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmpJob = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmpID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmpBirthDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EmpEmploymentDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FilePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cancel = new System.Windows.Forms.Button();
@@ -53,18 +56,11 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.AddPartner = new System.Windows.Forms.TextBox();
-            this.AddProjectN = new System.Windows.Forms.TextBox();
-            this.AddEndDate = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.AddLoc = new System.Windows.Forms.ComboBox();
+            this.AddEmpID = new System.Windows.Forms.TextBox();
+            this.AddEmpName = new System.Windows.Forms.TextBox();
             this.RowMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SelectedFiles)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Browse_File_Wind
-            // 
-            this.Browse_File_Wind.Multiselect = true;
             // 
             // imageList1
             // 
@@ -81,13 +77,16 @@
             this.imageList1.Images.SetKeyName(8, "success.png");
             this.imageList1.Images.SetKeyName(9, "close.png");
             // 
+            // Browse_File_Wind
+            // 
+            this.Browse_File_Wind.Multiselect = true;
+            // 
             // RowMenu
             // 
             this.RowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuDelete});
             this.RowMenu.Name = "RowMenu";
             this.RowMenu.Size = new System.Drawing.Size(108, 26);
-            this.RowMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.RowMenu_ItemClicked);
             // 
             // MenuDelete
             // 
@@ -95,16 +94,47 @@
             this.MenuDelete.Size = new System.Drawing.Size(107, 22);
             this.MenuDelete.Text = "Delete";
             // 
-            // AddStartDate
+            // AddEmpJob
             // 
-            this.AddStartDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddStartDate.CalendarMonthBackground = System.Drawing.Color.White;
-            this.AddStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.AddStartDate.Location = new System.Drawing.Point(127, 175);
-            this.AddStartDate.Name = "AddStartDate";
-            this.AddStartDate.Size = new System.Drawing.Size(105, 21);
-            this.AddStartDate.TabIndex = 62;
+            this.AddEmpJob.BackColor = System.Drawing.Color.White;
+            this.AddEmpJob.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AddEmpJob.FormattingEnabled = true;
+            this.AddEmpJob.Location = new System.Drawing.Point(132, 83);
+            this.AddEmpJob.Name = "AddEmpJob";
+            this.AddEmpJob.Size = new System.Drawing.Size(494, 23);
+            this.AddEmpJob.TabIndex = 80;
+            // 
+            // AddEmpEmploymentDate
+            // 
+            this.AddEmpEmploymentDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddEmpEmploymentDate.CalendarMonthBackground = System.Drawing.Color.White;
+            this.AddEmpEmploymentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddEmpEmploymentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.AddEmpEmploymentDate.Location = new System.Drawing.Point(132, 222);
+            this.AddEmpEmploymentDate.Name = "AddEmpEmploymentDate";
+            this.AddEmpEmploymentDate.Size = new System.Drawing.Size(105, 21);
+            this.AddEmpEmploymentDate.TabIndex = 79;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 227);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 15);
+            this.label2.TabIndex = 78;
+            this.label2.Text = "Employment Date : ";
+            // 
+            // AddEmpBirthDate
+            // 
+            this.AddEmpBirthDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddEmpBirthDate.CalendarMonthBackground = System.Drawing.Color.White;
+            this.AddEmpBirthDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddEmpBirthDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.AddEmpBirthDate.Location = new System.Drawing.Point(132, 175);
+            this.AddEmpBirthDate.Name = "AddEmpBirthDate";
+            this.AddEmpBirthDate.Size = new System.Drawing.Size(105, 21);
+            this.AddEmpBirthDate.TabIndex = 77;
             // 
             // Browse
             // 
@@ -116,7 +146,7 @@
             this.Browse.Location = new System.Drawing.Point(496, 251);
             this.Browse.Name = "Browse";
             this.Browse.Size = new System.Drawing.Size(130, 44);
-            this.Browse.TabIndex = 52;
+            this.Browse.TabIndex = 68;
             this.Browse.Text = "Browse";
             this.Browse.UseVisualStyleBackColor = true;
             this.Browse.Click += new System.EventHandler(this.Browse_Click);
@@ -133,11 +163,11 @@
             this.SelectedFiles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Code,
             this.FileN,
-            this.ProjectN,
-            this.Location,
-            this.Partner,
-            this.StartDate,
-            this.EndDate,
+            this.EmpName,
+            this.EmpJob,
+            this.EmpID,
+            this.EmpBirthDate,
+            this.EmpEmploymentDate,
             this.Extension,
             this.FilePath});
             this.SelectedFiles.Location = new System.Drawing.Point(632, 36);
@@ -145,8 +175,7 @@
             this.SelectedFiles.ReadOnly = true;
             this.SelectedFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SelectedFiles.Size = new System.Drawing.Size(709, 402);
-            this.SelectedFiles.TabIndex = 55;
-            this.SelectedFiles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectedFiles_MouseClick);
+            this.SelectedFiles.TabIndex = 71;
             // 
             // Code
             // 
@@ -164,44 +193,45 @@
             this.FileN.ReadOnly = true;
             this.FileN.Width = 95;
             // 
-            // ProjectN
+            // EmpName
             // 
-            this.ProjectN.DataPropertyName = "ProjectN";
-            this.ProjectN.HeaderText = "Project Name";
-            this.ProjectN.Name = "ProjectN";
-            this.ProjectN.ReadOnly = true;
-            this.ProjectN.Width = 95;
+            this.EmpName.DataPropertyName = "EmpName";
+            this.EmpName.HeaderText = "Employee Name";
+            this.EmpName.Name = "EmpName";
+            this.EmpName.ReadOnly = true;
+            this.EmpName.Width = 95;
             // 
-            // Location
+            // EmpJob
             // 
-            this.Location.DataPropertyName = "Location";
-            this.Location.HeaderText = "Location";
-            this.Location.Name = "Location";
-            this.Location.ReadOnly = true;
-            this.Location.Width = 96;
+            this.EmpJob.DataPropertyName = "EmpJob";
+            this.EmpJob.HeaderText = "Job";
+            this.EmpJob.Name = "EmpJob";
+            this.EmpJob.ReadOnly = true;
+            this.EmpJob.Width = 96;
             // 
-            // Partner
+            // EmpID
             // 
-            this.Partner.DataPropertyName = "Partner";
-            this.Partner.HeaderText = "Partner";
-            this.Partner.Name = "Partner";
-            this.Partner.ReadOnly = true;
-            this.Partner.Width = 95;
+            this.EmpID.DataPropertyName = "EmpID";
+            this.EmpID.HeaderText = "Employee ID";
+            this.EmpID.Name = "EmpID";
+            this.EmpID.ReadOnly = true;
+            this.EmpID.Width = 95;
             // 
-            // StartDate
+            // EmpBirthDate
             // 
-            this.StartDate.DataPropertyName = "StartDate";
-            this.StartDate.HeaderText = "Start Date";
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
-            this.StartDate.Width = 95;
+            this.EmpBirthDate.DataPropertyName = "EmpBirthDate";
+            this.EmpBirthDate.HeaderText = "Date Of Birth";
+            this.EmpBirthDate.Name = "EmpBirthDate";
+            this.EmpBirthDate.ReadOnly = true;
+            this.EmpBirthDate.Width = 95;
             // 
-            // EndDate
+            // EmpEmploymentDate
             // 
-            this.EndDate.HeaderText = "End Date";
-            this.EndDate.Name = "EndDate";
-            this.EndDate.ReadOnly = true;
-            this.EndDate.Width = 95;
+            this.EmpEmploymentDate.DataPropertyName = "EmpEmploymentDate";
+            this.EmpEmploymentDate.HeaderText = "Employment Date";
+            this.EmpEmploymentDate.Name = "EmpEmploymentDate";
+            this.EmpEmploymentDate.ReadOnly = true;
+            this.EmpEmploymentDate.Width = 95;
             // 
             // Extension
             // 
@@ -231,7 +261,7 @@
             this.Cancel.Location = new System.Drawing.Point(148, 394);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(130, 44);
-            this.Cancel.TabIndex = 54;
+            this.Cancel.TabIndex = 70;
             this.Cancel.Text = "Close";
             this.Cancel.UseVisualStyleBackColor = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
@@ -247,7 +277,7 @@
             this.Add.Location = new System.Drawing.Point(12, 394);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(130, 44);
-            this.Add.TabIndex = 53;
+            this.Add.TabIndex = 69;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
@@ -259,7 +289,7 @@
             this.label1.Location = new System.Drawing.Point(629, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 15);
-            this.label1.TabIndex = 61;
+            this.label1.TabIndex = 76;
             this.label1.Text = "Selected Files :";
             // 
             // label3
@@ -268,9 +298,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 39);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 15);
-            this.label3.TabIndex = 57;
-            this.label3.Text = "Project Name : ";
+            this.label3.Size = new System.Drawing.Size(108, 15);
+            this.label3.TabIndex = 73;
+            this.label3.Text = "Employee Name : ";
             // 
             // label7
             // 
@@ -278,9 +308,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(12, 86);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 15);
-            this.label7.TabIndex = 58;
-            this.label7.Text = "Location : ";
+            this.label7.Size = new System.Drawing.Size(36, 15);
+            this.label7.TabIndex = 74;
+            this.label7.Text = "Job : ";
             // 
             // label8
             // 
@@ -288,9 +318,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(12, 133);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 15);
-            this.label8.TabIndex = 60;
-            this.label8.Text = "Partner Name : ";
+            this.label8.Size = new System.Drawing.Size(86, 15);
+            this.label8.TabIndex = 75;
+            this.label8.Text = "Employee ID : ";
             // 
             // label5
             // 
@@ -298,97 +328,37 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 180);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(70, 15);
-            this.label5.TabIndex = 56;
-            this.label5.Text = "Start Date : ";
+            this.label5.Size = new System.Drawing.Size(85, 15);
+            this.label5.TabIndex = 72;
+            this.label5.Text = "Date Of Birth : ";
             // 
-            // AddPartner
+            // AddEmpID
             // 
-            this.AddPartner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddPartner.Location = new System.Drawing.Point(127, 130);
-            this.AddPartner.Name = "AddPartner";
-            this.AddPartner.Size = new System.Drawing.Size(499, 21);
-            this.AddPartner.TabIndex = 50;
+            this.AddEmpID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddEmpID.Location = new System.Drawing.Point(132, 130);
+            this.AddEmpID.Name = "AddEmpID";
+            this.AddEmpID.Size = new System.Drawing.Size(494, 21);
+            this.AddEmpID.TabIndex = 67;
+            this.AddEmpID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddEmpID_KeyPress);
             // 
-            // AddProjectN
+            // AddEmpName
             // 
-            this.AddProjectN.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddProjectN.Location = new System.Drawing.Point(127, 36);
-            this.AddProjectN.Name = "AddProjectN";
-            this.AddProjectN.Size = new System.Drawing.Size(499, 21);
-            this.AddProjectN.TabIndex = 48;
+            this.AddEmpName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddEmpName.Location = new System.Drawing.Point(132, 36);
+            this.AddEmpName.Name = "AddEmpName";
+            this.AddEmpName.Size = new System.Drawing.Size(494, 21);
+            this.AddEmpName.TabIndex = 66;
             // 
-            // AddEndDate
-            // 
-            this.AddEndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddEndDate.CalendarMonthBackground = System.Drawing.Color.White;
-            this.AddEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.AddEndDate.Location = new System.Drawing.Point(127, 222);
-            this.AddEndDate.Name = "AddEndDate";
-            this.AddEndDate.Size = new System.Drawing.Size(105, 21);
-            this.AddEndDate.TabIndex = 64;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 227);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 15);
-            this.label2.TabIndex = 63;
-            this.label2.Text = "End Date : ";
-            // 
-            // AddLoc
-            // 
-            this.AddLoc.BackColor = System.Drawing.Color.White;
-            this.AddLoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AddLoc.FormattingEnabled = true;
-            this.AddLoc.Items.AddRange(new object[] {
-            "6th Of October",
-            "Alexandria",
-            "Aswan",
-            "Asyut",
-            "Beheira",
-            "Beni Suef",
-            "Cairo",
-            "Dakahlia",
-            "Damietta",
-            "Faiyum",
-            "Gharbia",
-            "Helwan",
-            "Ismailia",
-            "Kafr El Sheikh",
-            "Luxor",
-            "Matruh",
-            "Minya",
-            "Monufia",
-            "New Valley",
-            "North Sinai",
-            "Port Said",
-            "Qalyubia",
-            "Qena",
-            "Red Sea",
-            "Sharqia",
-            "Sohag",
-            "South Sinai",
-            "Suez",
-            "-Disable-"});
-            this.AddLoc.Location = new System.Drawing.Point(127, 83);
-            this.AddLoc.Name = "AddLoc";
-            this.AddLoc.Size = new System.Drawing.Size(499, 23);
-            this.AddLoc.TabIndex = 65;
-            // 
-            // Add_Project
+            // Add_HR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1353, 450);
-            this.Controls.Add(this.AddLoc);
-            this.Controls.Add(this.AddEndDate);
+            this.Controls.Add(this.AddEmpJob);
+            this.Controls.Add(this.AddEmpEmploymentDate);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.AddStartDate);
+            this.Controls.Add(this.AddEmpBirthDate);
             this.Controls.Add(this.Browse);
             this.Controls.Add(this.SelectedFiles);
             this.Controls.Add(this.Cancel);
@@ -398,12 +368,11 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.AddPartner);
-            this.Controls.Add(this.AddProjectN);
+            this.Controls.Add(this.AddEmpID);
+            this.Controls.Add(this.AddEmpName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Add_Project";
-            this.Text = "Add Project";
+            this.Name = "Add_HR";
+            this.Text = "Add Employee";
             this.RowMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.SelectedFiles)).EndInit();
             this.ResumeLayout(false);
@@ -413,11 +382,14 @@
 
         #endregion
 
-        private System.Windows.Forms.OpenFileDialog Browse_File_Wind;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.OpenFileDialog Browse_File_Wind;
         private System.Windows.Forms.ContextMenuStrip RowMenu;
         private System.Windows.Forms.ToolStripMenuItem MenuDelete;
-        private System.Windows.Forms.DateTimePicker AddStartDate;
+        private System.Windows.Forms.ComboBox AddEmpJob;
+        private System.Windows.Forms.DateTimePicker AddEmpEmploymentDate;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker AddEmpBirthDate;
         private System.Windows.Forms.Button Browse;
         private System.Windows.Forms.DataGridView SelectedFiles;
         private System.Windows.Forms.Button Cancel;
@@ -427,18 +399,15 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox AddPartner;
-        private System.Windows.Forms.TextBox AddProjectN;
-        private System.Windows.Forms.DateTimePicker AddEndDate;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox AddLoc;
+        private System.Windows.Forms.TextBox AddEmpID;
+        private System.Windows.Forms.TextBox AddEmpName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Code;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProjectN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Location;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Partner;
-        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn EndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmpName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmpJob;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmpID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmpBirthDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EmpEmploymentDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn Extension;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilePath;
     }

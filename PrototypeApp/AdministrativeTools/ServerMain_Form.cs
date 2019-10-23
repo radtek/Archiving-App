@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Cjwdev.WindowsApi.NativeFileSystem;
 
-namespace ApexServer
+namespace PolyDocServer
 {
     public partial class ServerMain_Form : Form
     {
@@ -235,21 +235,35 @@ namespace ApexServer
 
         private void CreateModules()
         {
-            Modules.Add(new Module("Testemonial",   "CREATE TABLE Testemonial\n" +
-                                                    "(\nInterName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
-                                                    "\nLocation VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
-                                                    "\nProfession VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
-                                                    "\nName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
-                                                    "\nPath VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
-                                                    "\nExtension VARCHAR(10) NOT NULL,\nDate DATE NOT NULL," +
-                                                    "\nLocationN VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
-                                                    "\nCode VARCHAR(20) NOT NULL,\nPRIMARY KEY(Name, Path, Extension)," +
+            Modules.Add(new Module("Testemonial",   "CREATE TABLE Professions\n" +
+                                                    "(Profession VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\n" +
+                                                    "PRIMARY KEY (Profession));\n" +
+
+                                                    "CREATE TABLE Locations\n" +
+                                                    "(Location VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\n" +
+                                                    "PRIMARY KEY (Location));\n" +
+
+                                                    "CREATE TABLE Testemonial\n" +
+                                                    "(InterName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\n" +
+                                                    "Location VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\n" +
+                                                    "Profession VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\n" +
+                                                    "Name VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\n" +
+                                                    "Path VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\n" +
+                                                    "Extension VARCHAR(10) NOT NULL," +
+                                                    "Date DATE NOT NULL,\n" +
+                                                    "LocationN VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\n" +
+                                                    "Code VARCHAR(20) NOT NULL,\n" +
+                                                    "PRIMARY KEY(Name, Path, Extension),\n" +
+                                                    "FOREIGN KEY (Profession) REFERENCES Professions(Profession),\n" +
+                                                    "FOREIGN KEY (Location) REFERENCES Locations(Location),\n" +
                                                     "\nUNIQUE(Code)\n);\n"));
+
             Modules.Add(new Module("Expenses",  "CREATE TABLE Expenses\n" +
                                                 "(\nName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
                                                 "\nPath VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
                                                 "\nExtension VARCHAR(10) NOT NULL," +
                                                 "\nPRIMARY KEY(Name, Path, Extension)\n);\n"));
+
             Modules.Add(new Module("Projects", "CREATE TABLE Projects\n" +
                                                 "(Name VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\n" +
                                                 "Path VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL,\n" +
@@ -262,6 +276,24 @@ namespace ApexServer
                                                 "Code VARCHAR(20) NOT NULL,\n" +
                                                 "PRIMARY KEY (Name, Path, Extension),\n" +
                                                 "UNIQUE (Code));\n"));
+
+            Modules.Add(new Module("HR" , "CREATE TABLE Jobs\n" +
+                                          "(JobName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                          "PRIMARY KEY (JobName));" +
+
+                                          "CREATE TABLE HR" +
+                                          "(Name VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                          "Path VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                          "Extension VARCHAR(10) NOT NULL," +
+                                          "Code VARCHAR(20) NOT NULL," +
+                                          "EmpName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                          "EmpBirthDate DATE NOT NULL," +
+                                          "EmpEmploymentDate DATE NOT NULL," +
+                                          "EmpID INT NOT NULL," +
+                                          "EmpJob VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
+                                          "PRIMARY KEY (Name, Path, Extension)," +
+                                          "FOREIGN KEY (EmpJob) REFERENCES Jobs(JobName)," +
+                                          "UNIQUE (Code));"));
         }
         private void SetupDone_Click(object sender, EventArgs e)
         {
@@ -349,7 +381,7 @@ namespace ApexServer
         {
             string directory = DataDirectory.Text;
             CreateDirectories(directory);
-            CreateWindowsUser("Apex-AdminUser" , Apex_Password.Text , "Apex Admin User");
+            CreateWindowsUser("PolyDoc-AdminUser" , PolyDoc_Password.Text , "PolyDoc Admin User");
             GivePermissions(directory);
         }
         private void CreateDirectories(string directory)
@@ -410,7 +442,7 @@ namespace ApexServer
                     {
                         var directoryInfo = new DirectoryInfo(directory);
                         var directorySecurity = directoryInfo.GetAccessControl();
-                        NTAccount account = new NTAccount("Apex-AdminUser");
+                        NTAccount account = new NTAccount("PolyDoc-AdminUser");
                         SecurityIdentifier sId = (SecurityIdentifier)account.Translate(typeof(SecurityIdentifier));
                         var fileSystemRule = new FileSystemAccessRule(sId,
                                                                       FileSystemRights.ReadAndExecute,
@@ -425,7 +457,7 @@ namespace ApexServer
 
                         directoryInfo = new DirectoryInfo(directory + @"\" + mod.GetName());
                         directorySecurity = directoryInfo.GetAccessControl();
-                        account = new NTAccount("Apex-AdminUser");
+                        account = new NTAccount("PolyDoc-AdminUser");
                         sId = (SecurityIdentifier)account.Translate(typeof(SecurityIdentifier));
                         fileSystemRule = new FileSystemAccessRule(sId,
                                                                       FileSystemRights.FullControl,

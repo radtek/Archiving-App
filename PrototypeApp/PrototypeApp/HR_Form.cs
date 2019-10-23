@@ -12,30 +12,62 @@ using System.Windows.Forms;
 
 namespace PolyDoc
 {
-    public partial class Projects_Form : Form
+    public partial class HR_Form : Form
     {
         static readonly Form MainForm = Application.OpenForms["Main_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
         readonly string Database = ((Main_Form)MainForm).database;
         readonly string User = ((Main_Form)MainForm).user;
         readonly GlobalFunc GF = new GlobalFunc();
-        public Projects_Form()
+        public HR_Form()
         {
             InitializeComponent();
             GF.EditButtons(this);
-            SearchLoc.Text = "-Disable-";
-            SearchStartDate.CustomFormat = "dd/MM/yyyy";
-            SearchEndDate.CustomFormat = "dd/MM/yyyy";
+            SearchEmpJob.Text = "-Disable-";
+            SearchBirthDate.CustomFormat = "dd/MM/yyyy";
+            SearchEmploymentDate.CustomFormat = "dd/MM/yyyy";
             if (!GF.CheckAdminPerm(User, connectionString, this, MainForm))
             {
-                GF.CheckPerm(User, "insert", Database, "projects", connectionString, this, MainForm, Add);
-                GF.CheckPerm(User, "delete", Database, "projects", connectionString, this, MainForm, Delete);
+                GF.CheckPerm(User, "insert", Database, "HR", connectionString, this, MainForm, Add);
+                GF.CheckPerm(User, "delete", Database, "HR", connectionString, this, MainForm, Delete);
             }
+            string getJobs = "select * from jobs";
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    try
+                    {
+                        using(SqlCommand comm = new SqlCommand(getJobs , conn))
+                        {
+                            SqlDataReader reader = comm.ExecuteReader();
+                            while(reader.Read())
+                            {
+                                SearchEmpJob.Items.Add(reader["JobName"].ToString());
+                            }
+                        }
+                    }
+                    catch(SqlException)
+                    {
+                        GF.CommandFailed();
+                        return;
+                    }
+                }
+            }
+            catch(SqlException)
+            {
+                GF.ConnectionLost(this, MainForm);
+                return;
+            }
+            SearchEmpJob.Items.Add("-Disable-");
+            SearchEmpJob.Text = "-Disable-";
         }
+
         public void RefreshList()
         {
-            string get_data = "select code , partner , ProjectName , location , convert(varchar, startdate, 103)as startdate , convert(varchar, enddate, 103)as enddate , Name , Path , Extension\n" +
-                              "from projects where ";
+            string get_data = "select code , empname , empid , empjob , convert(varchar, empbirthdate, 103)as empbirthdate , convert(varchar, empemploymentdate, 103)as empemploymentdate , Name , Path , Extension\n" +
+                              "from HR where ";
             string originalQ = get_data;
             if (SearchN.Text.Length != 0)
             {
@@ -51,34 +83,34 @@ namespace PolyDoc
                 if (originalQ != get_data) get_data += " and ";
                 get_data += "Extension like N'%" + SearchEx.Text.Replace("'", "''") + "%' ";
             }
-            if (SearchProjectN.Text.Length != 0)
+            if (SearchEmpName.Text.Length != 0)
             {
                 if (originalQ != get_data) get_data += " and ";
-                get_data += "ProjectName like N'%" + SearchProjectN.Text.Replace("'", "''") + "%' ";
+                get_data += "EmpName like N'%" + SearchEmpName.Text.Replace("'", "''") + "%' ";
             }
-            if (SearchPartner.Text.Length != 0)
+            if (SearchEmpID.Text.Length != 0)
             {
                 if (originalQ != get_data) get_data += " and ";
-                get_data += "Partner like N'%" + SearchPartner.Text.Replace("'", "''") + "%' ";
+                get_data += "EmpID like '%" + SearchEmpID.Text.Replace("'", "''") + "%' ";
             }
-            if (SearchLoc.Text != "-Disable-")
+            if (SearchEmpJob.Text != "-Disable-")
             {
                 if (originalQ != get_data) get_data += " and ";
-                get_data += "Location like N'%" + SearchLoc.Text.Replace("'", "''") + "%' ";
+                get_data += "EmpJob like N'%" + SearchEmpJob.Text.Replace("'", "''") + "%' ";
             }
-            if (DisableStartDate.Checked == false)
+            if (DisableBirthDate.Checked == false)
             {
                 if (originalQ != get_data) get_data += " and ";
-                string[] parts = SearchStartDate.Text.Split('/');
+                string[] parts = SearchBirthDate.Text.Split('/');
                 string newdate = parts[1] + "-" + parts[0] + "-" + parts[2];
-                get_data += "StartDate = '" + newdate + "' ";
+                get_data += "EmpBirthDate = '" + newdate + "' ";
             }
-            if (DisableEndDate.Checked == false)
+            if (DisableEmploymentDate.Checked == false)
             {
                 if (originalQ != get_data) get_data += " and ";
-                string[] parts = SearchEndDate.Text.Split('/');
+                string[] parts = SearchEmploymentDate.Text.Split('/');
                 string newdate = parts[1] + "-" + parts[0] + "-" + parts[2];
-                get_data += "EndDate = '" + newdate + "'";
+                get_data += "EmpEmploymentDate = '" + newdate + "'";
             }
             if (SearchCode.Text.Length != 0)
             {
@@ -106,15 +138,15 @@ namespace PolyDoc
         }
         private void Search_Click(object sender, EventArgs e)
         {
-            if (SearchLoc.Text == "-Disable-"  
-                && SearchProjectN.Text.Length == 0
-                && SearchPartner.Text.Length == 0
-                && SearchN.Text.Length == 0 
-                && SearchP.Text.Length == 0 
-                && SearchEx.Text.Length == 0 
-                && SearchCode.Text.Length == 0 
-                && DisableStartDate.Checked == true
-                && DisableEndDate.Checked == true)
+            if (SearchEmpJob.Text == "-Disable-"
+                && SearchEmpName.Text.Length == 0
+                && SearchEmpID.Text.Length == 0
+                && SearchN.Text.Length == 0
+                && SearchP.Text.Length == 0
+                && SearchEx.Text.Length == 0
+                && SearchCode.Text.Length == 0
+                && DisableBirthDate.Checked == true
+                && DisableEmploymentDate.Checked == true)
             {
                 MessageBox.Show("Please, fill the search bars", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -122,9 +154,17 @@ namespace PolyDoc
             RefreshList();
         }
 
+        private void SearchEmpID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) || (e.KeyChar == '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void Delete_Click(object sender, EventArgs e)
         {
-            GF.DeleteRecords(Projects_Grid, "Projects", "FileName", "Path", "Extension", connectionString , this , MainForm);
+            GF.DeleteRecords(Projects_Grid, "HR", "FileName", "Path", "Extension", connectionString, this, MainForm);
         }
 
         private void Clear_Click(object sender, EventArgs e)
@@ -134,14 +174,9 @@ namespace PolyDoc
 
         private void Add_Click(object sender, EventArgs e)
         {
-            Add_Project form = new Add_Project();
+            Add_HR form = new Add_HR();
             form.ShowDialog();
             form.Dispose();
-        }
-
-        private void Projects_Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            GF.OpenRecord(Projects_Grid, e);
         }
 
         private void View_Info_Click(object sender, EventArgs e)
@@ -149,15 +184,15 @@ namespace PolyDoc
             if (Projects_Grid.SelectedCells.Count == 0)
                 return;
             string code = Projects_Grid.CurrentRow.Cells["Code"].Value.ToString();
-            string partner = Projects_Grid.CurrentRow.Cells["Partner"].Value.ToString();
-            string projectN = Projects_Grid.CurrentRow.Cells["ProjectN"].Value.ToString();
-            string loc = Projects_Grid.CurrentRow.Cells["Loc"].Value.ToString();
-            string startDate = Projects_Grid.CurrentRow.Cells["StartDate"].Value.ToString();
-            string endDate = Projects_Grid.CurrentRow.Cells["EndDate"].Value.ToString();
+            string empID = Projects_Grid.CurrentRow.Cells["EmpID"].Value.ToString();
+            string empName = Projects_Grid.CurrentRow.Cells["EmpName"].Value.ToString();
+            string empJob = Projects_Grid.CurrentRow.Cells["EmpJob"].Value.ToString();
+            string empBirthDate = Projects_Grid.CurrentRow.Cells["EmpBirthDate"].Value.ToString();
+            string empEmploymentDate = Projects_Grid.CurrentRow.Cells["EmpEmploymentDate"].Value.ToString();
             string fileName = Projects_Grid.CurrentRow.Cells["FileName"].Value.ToString();
             string path = Projects_Grid.CurrentRow.Cells["Path"].Value.ToString();
             string extension = Projects_Grid.CurrentRow.Cells["Extension"].Value.ToString();
-            View_Edit_Project form = new View_Edit_Project(code, partner, projectN, loc, startDate, endDate, fileName, path, extension);
+            View_Edit_HR form = new View_Edit_HR(code, empID, empName, empJob, empBirthDate, empEmploymentDate, fileName, path, extension);
             form.ShowDialog();
             form.Dispose();
         }

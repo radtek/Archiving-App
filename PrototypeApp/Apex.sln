@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apex", "PrototypeApp\Apex.csproj", "{3689135B-679E-45CF-9672-C77A31D8E35D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyDoc", "PrototypeApp\PolyDoc.csproj", "{3689135B-679E-45CF-9672-C77A31D8E35D}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "ApexSetup", "ApexSetup\ApexSetup.wixproj", "{6E35C22D-99AF-4FC2-9E76-2A71549F4BC2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApexServer", "AdministrativeTools\ApexServer.csproj", "{707D320C-A81A-4B6C-B858-25DB2691F5C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PolyDocServer", "AdministrativeTools\PolyDocServer.csproj", "{707D320C-A81A-4B6C-B858-25DB2691F5C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPserver", "HTTPserver\HTTPserver.csproj", "{5C68245D-C99B-4311-868D-554358E9430F}"
 EndProject

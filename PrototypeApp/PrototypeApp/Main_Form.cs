@@ -15,7 +15,7 @@ using System.IO;
 using System.Threading;
 using System.Drawing.Text;
 
-namespace Apex
+namespace PolyDoc
 {
     public partial class Main_Form : Form
     {
@@ -29,10 +29,10 @@ namespace Apex
         {
             InitializeComponent();
             GF.EditButtons(this);
-            Anim.AddAnimation(Correspondence , "Correspondence", 86, 347);
             Anim.AddAnimation(Testemonial, "Testemonial", 86, 347);
             Anim.AddAnimation(Expenses, "Expenses", 86, 347);
             Anim.AddAnimation(Projects, "Projects", 86, 347);
+            Anim.AddAnimation(HR, "HR", 86, 347);
             Login_Logout();
         }
         
@@ -78,21 +78,14 @@ namespace Apex
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    SqlCommand comm = new SqlCommand("SELECT count(*) FROM dbo.dbRolesUsersMap (DEFAULT) where Login_Name='" + user.Replace("'", "''") + "' and DB_Role='db_owner'", conn);
-                    try
+
+                    if (GF.CheckAdminPerm(user, connectionString, this, this))
                     {
-                        string check = comm.ExecuteScalar().ToString();
-                        if (check != "0")
-                        {
-                            AdminSettings.Visible = true;
-                            AdminSettings.Enabled = true;
-                            AdminLabel.Visible = true;
-                        }
+                        AdminSettings.Visible = true;
+                        AdminSettings.Enabled = true;
+                        AdminLabel.Visible = true;
                     }
-                    catch (SqlException)
-                    {
-                    }
-                    comm = new SqlCommand("select * from testemonial", conn);
+                    SqlCommand comm = new SqlCommand("select * from testemonial", conn);
                     try
                     {
                         comm.ExecuteScalar();
@@ -101,7 +94,6 @@ namespace Apex
                     catch (SqlException)
                     {
                         Testemonial.Enabled = false;
-                        Settings.Enabled = false;
                     }
                     comm = new SqlCommand("select * from Expenses", conn);
                     try
@@ -123,7 +115,7 @@ namespace Apex
                     {
                         Projects.Enabled = false;
                     }
-                    comm = new SqlCommand("select * from correspondence", conn);
+                    comm = new SqlCommand("select * from HR", conn);
                     try
                     {
                         comm.ExecuteScalar();
@@ -131,7 +123,7 @@ namespace Apex
                     }
                     catch (SqlException)
                     {
-                        Correspondence.Enabled = false;
+                        HR.Enabled = false;
                     }
                 }
             }
@@ -153,18 +145,7 @@ namespace Apex
             {
                 b.Enabled = false;
             }
-        }
-
-        private void Correspondence_Click(object sender, EventArgs e)
-        {
-            if (State.ForeColor == Color.Red)
-            {
-                MessageBox.Show("Not connected to database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            Correspondence_Form form = new Correspondence_Form();
-            form.ShowDialog();
-            form.Dispose();
+            Reconnect.Enabled = true;
         }
 
         private void Settings_Click(object sender, EventArgs e)
@@ -189,7 +170,7 @@ namespace Apex
         private void AddUser_Click(object sender, EventArgs e)
         {
             Admin_Settings_Form form = new Admin_Settings_Form();
-            form.Show();
+            form.ShowDialog();
             form.Dispose();
         }
 
@@ -209,21 +190,18 @@ namespace Apex
         {
             ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.AdminSettings, "Admin Settings");
-            ToolTip1.Dispose();
         }
 
         private void AdminLabel_MouseHover(object sender, EventArgs e)
         {
             ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.AdminLabel, "Logged in as Admin");
-            ToolTip1.Dispose();
         }
 
         private void Reconnect_MouseHover(object sender, EventArgs e)
         {
             ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.Reconnect, "Reconnect");
-            ToolTip1.Dispose();
         }
 
         private void Expenses_Click(object sender, EventArgs e)
@@ -241,12 +219,18 @@ namespace Apex
         {
             ToolTip ToolTip1 = new ToolTip();
             ToolTip1.SetToolTip(this.Logout, "Logout");
-            ToolTip1.Dispose();
         }
 
         private void Projects_Click(object sender, EventArgs e)
         {
             Projects_Form form = new Projects_Form();
+            form.ShowDialog();
+            form.Dispose();
+        }
+
+        private void HR_Click(object sender, EventArgs e)
+        {
+            HR_Form form = new HR_Form();
             form.ShowDialog();
             form.Dispose();
         }

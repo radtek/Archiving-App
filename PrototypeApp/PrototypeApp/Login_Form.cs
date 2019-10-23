@@ -14,7 +14,7 @@ using System.Net.Sockets;
 using System.IO;
 using System.Threading;
 
-namespace Apex
+namespace PolyDoc
 {
     public partial class Login_Form : Form
     {
@@ -31,6 +31,8 @@ namespace Apex
             ServerN.Text = GF.GetServer();
             DatabaseN.Text = GF.GetDatabase();
             Authentication.Text = GF.GetAuthentication();
+            if (Authentication.Text == "")
+                Authentication.Text = "Windows Authentication";
             //
             UserName.Text = "maged";
             Password.Text = "123";
@@ -65,6 +67,7 @@ namespace Apex
                     Process.Text = "";
                     Bar.Style = ProgressBarStyle.Continuous;
                     Bar.MarqueeAnimationSpeed = 0;
+                    Login.Enabled = true;
                 });
                 return;
             }
@@ -89,6 +92,7 @@ namespace Apex
             Process.Text = "Connecting to database server...";
             Bar.Style = ProgressBarStyle.Marquee;
             Bar.MarqueeAnimationSpeed = 30;
+            Login.Enabled = false;
             Thread checkConnection = new Thread(() => checkConn());
             checkConnection.Start();
         }

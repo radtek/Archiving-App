@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
 
-namespace Apex
+namespace PolyDoc
 {
     public partial class Admin_Settings_Form : Form
     {
@@ -143,9 +143,31 @@ namespace Apex
                                 createQ += "deny all on Testemonial to [" + UserName.Text + "]\n";
                                 createQ += "deny all on Expenses to [" + UserName.Text + "]\n";
                                 if (Testemonial_RO.Checked)
+                                {
                                     createQ += "grant select on Testemonial to [" + UserName.Text + "]\n";
+                                    createQ += "grant select on professions to [" + UserName.Text + "]\n";
+                                    createQ += "grant select on locations to [" + UserName.Text + "]\n";
+                                }
                                 if (Testemonial_FC.Checked)
+                                {
                                     createQ += "grant all on Testemonial to [" + UserName.Text + "]\n";
+                                    createQ += "grant all on professions to [" + UserName.Text + "]\n";
+                                    createQ += "grant all on locations to [" + UserName.Text + "]\n";
+                                }
+                                if (HR_RO.Checked)
+                                {
+                                    createQ += "grant select on HR to [" + UserName.Text + "]\n";
+                                    createQ += "grant select on Jobs to [" + UserName.Text + "]\n";
+                                }
+                                if (HR_FC.Checked)
+                                {
+                                    createQ += "grant all on HR to [" + UserName.Text + "]\n";
+                                    createQ += "grant all on Jobs to [" + UserName.Text + "]\n";
+                                }
+                                if (Projects_RO.Checked)
+                                    createQ += "grant select on Projects to [" + UserName.Text + "]\n";
+                                if (Projects_FC.Checked)
+                                    createQ += "grant all on Projects to [" + UserName.Text + "]\n";
                                 if (Expenses_RO.Checked)
                                     createQ += "grant select on Expenses to [" + UserName.Text + "]\n";
                                 if (Expenses_FC.Checked)

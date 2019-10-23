@@ -1,6 +1,6 @@
-﻿namespace Apex
+﻿namespace PolyDoc
 {
-    partial class View_Project
+    partial class View_Edit_Project
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View_Project));
-            this.Edit = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View_Edit_Project));
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.File_Extension = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
@@ -46,36 +45,20 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.Cancel = new System.Windows.Forms.Button();
             this.New_ProjectName = new System.Windows.Forms.TextBox();
             this.New_Partner = new System.Windows.Forms.TextBox();
             this.New_StartDate = new System.Windows.Forms.DateTimePicker();
-            this.Close = new System.Windows.Forms.Button();
-            this.Done = new System.Windows.Forms.Button();
             this.New_EndDate = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.Location = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.Code = new System.Windows.Forms.Label();
             this.New_Location = new System.Windows.Forms.ComboBox();
+            this.Cancel = new System.Windows.Forms.Button();
+            this.Close = new System.Windows.Forms.Button();
+            this.Done = new System.Windows.Forms.Button();
+            this.Edit = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // Edit
-            // 
-            this.Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Edit.ImageIndex = 2;
-            this.Edit.ImageList = this.imageList1;
-            this.Edit.Location = new System.Drawing.Point(12, 467);
-            this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(130, 44);
-            this.Edit.TabIndex = 78;
-            this.Edit.Text = "Edit";
-            this.Edit.UseVisualStyleBackColor = true;
-            this.Edit.Click += new System.EventHandler(this.Edit_Click);
             // 
             // imageList1
             // 
@@ -225,25 +208,10 @@
             this.label1.TabIndex = 62;
             this.label1.Text = "Partner : ";
             // 
-            // Cancel
-            // 
-            this.Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Cancel.ImageIndex = 6;
-            this.Cancel.ImageList = this.imageList1;
-            this.Cancel.Location = new System.Drawing.Point(148, 467);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(130, 44);
-            this.Cancel.TabIndex = 56;
-            this.Cancel.Text = "Cancel";
-            this.Cancel.UseVisualStyleBackColor = true;
-            this.Cancel.Visible = false;
-            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
-            // 
             // New_ProjectName
             // 
+            this.New_ProjectName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.New_ProjectName.BackColor = System.Drawing.Color.White;
             this.New_ProjectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.New_ProjectName.Location = new System.Drawing.Point(111, 211);
@@ -253,6 +221,8 @@
             // 
             // New_Partner
             // 
+            this.New_Partner.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.New_Partner.BackColor = System.Drawing.Color.White;
             this.New_Partner.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.New_Partner.Location = new System.Drawing.Point(111, 260);
@@ -271,39 +241,6 @@
             this.New_StartDate.Size = new System.Drawing.Size(102, 21);
             this.New_StartDate.TabIndex = 61;
             // 
-            // Close
-            // 
-            this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Close.ImageIndex = 9;
-            this.Close.ImageList = this.imageList1;
-            this.Close.Location = new System.Drawing.Point(548, 467);
-            this.Close.Name = "Close";
-            this.Close.Size = new System.Drawing.Size(133, 44);
-            this.Close.TabIndex = 54;
-            this.Close.Text = "Close";
-            this.Close.UseVisualStyleBackColor = true;
-            this.Close.Click += new System.EventHandler(this.Close_Click);
-            // 
-            // Done
-            // 
-            this.Done.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Done.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Done.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Done.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Done.ImageIndex = 8;
-            this.Done.ImageList = this.imageList1;
-            this.Done.Location = new System.Drawing.Point(12, 467);
-            this.Done.Name = "Done";
-            this.Done.Size = new System.Drawing.Size(130, 44);
-            this.Done.TabIndex = 55;
-            this.Done.Text = "Done";
-            this.Done.UseVisualStyleBackColor = true;
-            this.Done.Visible = false;
-            this.Done.Click += new System.EventHandler(this.Done_Click);
-            // 
             // New_EndDate
             // 
             this.New_EndDate.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -314,15 +251,6 @@
             this.New_EndDate.Name = "New_EndDate";
             this.New_EndDate.Size = new System.Drawing.Size(102, 21);
             this.New_EndDate.TabIndex = 79;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(502, 283);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(0, 15);
-            this.label7.TabIndex = 82;
             // 
             // label8
             // 
@@ -363,6 +291,8 @@
             // 
             // New_Location
             // 
+            this.New_Location.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.New_Location.BackColor = System.Drawing.Color.White;
             this.New_Location.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.New_Location.FormattingEnabled = true;
@@ -401,6 +331,72 @@
             this.New_Location.Size = new System.Drawing.Size(570, 23);
             this.New_Location.TabIndex = 86;
             // 
+            // Cancel
+            // 
+            this.Cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Cancel.ImageIndex = 6;
+            this.Cancel.ImageList = this.imageList1;
+            this.Cancel.Location = new System.Drawing.Point(148, 467);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(130, 44);
+            this.Cancel.TabIndex = 56;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.UseVisualStyleBackColor = true;
+            this.Cancel.Visible = false;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            // 
+            // Close
+            // 
+            this.Close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Close.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Close.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Close.ImageIndex = 9;
+            this.Close.ImageList = this.imageList1;
+            this.Close.Location = new System.Drawing.Point(548, 467);
+            this.Close.Name = "Close";
+            this.Close.Size = new System.Drawing.Size(133, 44);
+            this.Close.TabIndex = 54;
+            this.Close.Text = "Close";
+            this.Close.UseVisualStyleBackColor = true;
+            this.Close.Click += new System.EventHandler(this.Close_Click);
+            // 
+            // Done
+            // 
+            this.Done.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Done.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Done.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Done.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Done.ImageIndex = 8;
+            this.Done.ImageList = this.imageList1;
+            this.Done.Location = new System.Drawing.Point(12, 467);
+            this.Done.Name = "Done";
+            this.Done.Size = new System.Drawing.Size(130, 44);
+            this.Done.TabIndex = 55;
+            this.Done.Text = "Done";
+            this.Done.UseVisualStyleBackColor = true;
+            this.Done.Visible = false;
+            this.Done.Click += new System.EventHandler(this.Done_Click);
+            // 
+            // Edit
+            // 
+            this.Edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Edit.ImageIndex = 2;
+            this.Edit.ImageList = this.imageList1;
+            this.Edit.Location = new System.Drawing.Point(12, 467);
+            this.Edit.Name = "Edit";
+            this.Edit.Size = new System.Drawing.Size(130, 44);
+            this.Edit.TabIndex = 78;
+            this.Edit.Text = "Edit";
+            this.Edit.UseVisualStyleBackColor = true;
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
+            // 
             // View_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -422,7 +418,6 @@
             this.Controls.Add(this.label);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Location);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.File_Extension);
             this.Controls.Add(this.EndDate);
             this.Controls.Add(this.StartDate);
@@ -469,7 +464,6 @@
         private System.Windows.Forms.Button Close;
         private System.Windows.Forms.Button Done;
         private System.Windows.Forms.DateTimePicker New_EndDate;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label Location;
         private System.Windows.Forms.Label label9;
