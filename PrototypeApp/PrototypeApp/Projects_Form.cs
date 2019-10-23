@@ -32,7 +32,7 @@ namespace Apex
                 GF.CheckPerm(User, "delete", Database, "projects", connectionString, this, MainForm, Delete);
             }
         }
-        private void RefreshList()
+        public void RefreshList()
         {
             string get_data = "select code , partner , ProjectName , location , convert(varchar, startdate, 103)as startdate , convert(varchar, enddate, 103)as enddate , Name , Path , Extension\n" +
                               "from projects where ";
@@ -143,6 +143,24 @@ namespace Apex
         private void Projects_Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             GF.OpenRecord(Projects_Grid, e);
+        }
+
+        private void View_Info_Click(object sender, EventArgs e)
+        {
+            if (Projects_Grid.SelectedCells.Count == 0)
+                return;
+            string code = Projects_Grid.CurrentRow.Cells["Code"].Value.ToString();
+            string partner = Projects_Grid.CurrentRow.Cells["Partner"].Value.ToString();
+            string projectN = Projects_Grid.CurrentRow.Cells["ProjectN"].Value.ToString();
+            string loc = Projects_Grid.CurrentRow.Cells["Loc"].Value.ToString();
+            string startDate = Projects_Grid.CurrentRow.Cells["StartDate"].Value.ToString();
+            string endDate = Projects_Grid.CurrentRow.Cells["EndDate"].Value.ToString();
+            string fileName = Projects_Grid.CurrentRow.Cells["FileName"].Value.ToString();
+            string path = Projects_Grid.CurrentRow.Cells["Path"].Value.ToString();
+            string extension = Projects_Grid.CurrentRow.Cells["Extension"].Value.ToString();
+            View_Project form = new View_Project(code, partner, projectN, loc, startDate, endDate, fileName, path, extension);
+            form.ShowDialog();
+            form.Dispose();
         }
     }
 }

@@ -143,8 +143,6 @@ namespace Apex
 
         private void View_Info_Click(object sender, EventArgs e)
         {
-            if (Correspondence_Grid.SelectedCells.Count == 0)
-                return;
             string name = Correspondence_Grid.CurrentRow.Cells["FileN"].Value.ToString(), path = Correspondence_Grid.CurrentRow.Cells["Path"].Value.ToString(), ext = Correspondence_Grid.CurrentRow.Cells["Extension"].Value.ToString(), date = GF.RemoveTime(Correspondence_Grid.CurrentRow.Cells["Date"].Value.ToString());
             string subj = Correspondence_Grid.CurrentRow.Cells["Subj"].Value.ToString(), srname = Correspondence_Grid.CurrentRow.Cells["SRName"].Value.ToString(), sr = Correspondence_Grid.CurrentRow.Cells["SR"].Value.ToString();
             View_Edit_Correspondence form = new View_Edit_Correspondence(name, path, ext , subj , srname , sr, date, false);

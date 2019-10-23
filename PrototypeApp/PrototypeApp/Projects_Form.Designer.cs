@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Projects_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PB = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label11 = new System.Windows.Forms.Label();
@@ -45,6 +45,15 @@
             this.SearchStartDate = new System.Windows.Forms.DateTimePicker();
             this.DisableStartDate = new System.Windows.Forms.CheckBox();
             this.Projects_Grid = new System.Windows.Forms.DataGridView();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Partner = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProjectN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Loc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SearchEx = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.SearchProjectN = new System.Windows.Forms.TextBox();
@@ -56,19 +65,9 @@
             this.DisableEndDate = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.SearchPartner = new System.Windows.Forms.TextBox();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Partner = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProjectN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Loc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Clear = new System.Windows.Forms.Button();
             this.View_Info = new System.Windows.Forms.Button();
             this.Search = new System.Windows.Forms.Button();
-            this.Edit = new System.Windows.Forms.Button();
             this.Delete = new System.Windows.Forms.Button();
             this.Add = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Projects_Grid)).BeginInit();
@@ -76,10 +75,11 @@
             // 
             // PB
             // 
-            this.PB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(0)))), ((int)(((byte)(126)))));
             this.PB.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.PB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PB.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PB.ForeColor = System.Drawing.Color.White;
             this.PB.Location = new System.Drawing.Point(0, 623);
             this.PB.Name = "PB";
             this.PB.Size = new System.Drawing.Size(1248, 23);
@@ -107,7 +107,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(556, 220);
+            this.label11.Location = new System.Drawing.Point(573, 158);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(160, 47);
             this.label11.TabIndex = 68;
@@ -214,8 +214,8 @@
             this.Projects_Grid.AllowUserToAddRows = false;
             this.Projects_Grid.AllowUserToDeleteRows = false;
             this.Projects_Grid.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Projects_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Projects_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Projects_Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -235,12 +235,86 @@
             this.Projects_Grid.Location = new System.Drawing.Point(15, 272);
             this.Projects_Grid.Name = "Projects_Grid";
             this.Projects_Grid.ReadOnly = true;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Projects_Grid.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Projects_Grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.Projects_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Projects_Grid.Size = new System.Drawing.Size(1221, 347);
             this.Projects_Grid.TabIndex = 58;
             this.Projects_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Projects_Grid_CellDoubleClick);
+            // 
+            // Code
+            // 
+            this.Code.DataPropertyName = "Code";
+            this.Code.HeaderText = "Code";
+            this.Code.Name = "Code";
+            this.Code.ReadOnly = true;
+            this.Code.Width = 135;
+            // 
+            // Partner
+            // 
+            this.Partner.DataPropertyName = "Partner";
+            this.Partner.HeaderText = "Partner";
+            this.Partner.Name = "Partner";
+            this.Partner.ReadOnly = true;
+            this.Partner.Width = 136;
+            // 
+            // ProjectN
+            // 
+            this.ProjectN.DataPropertyName = "ProjectName";
+            this.ProjectN.HeaderText = "Project Name";
+            this.ProjectN.Name = "ProjectN";
+            this.ProjectN.ReadOnly = true;
+            this.ProjectN.Width = 135;
+            // 
+            // Loc
+            // 
+            this.Loc.DataPropertyName = "Location";
+            this.Loc.HeaderText = "Location";
+            this.Loc.Name = "Loc";
+            this.Loc.ReadOnly = true;
+            this.Loc.Width = 136;
+            // 
+            // StartDate
+            // 
+            this.StartDate.DataPropertyName = "StartDate";
+            this.StartDate.HeaderText = "Start Date";
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ReadOnly = true;
+            this.StartDate.Width = 135;
+            // 
+            // EndDate
+            // 
+            this.EndDate.DataPropertyName = "EndDate";
+            this.EndDate.HeaderText = "End Date";
+            this.EndDate.Name = "EndDate";
+            this.EndDate.ReadOnly = true;
+            this.EndDate.Width = 136;
+            // 
+            // FileName
+            // 
+            this.FileName.DataPropertyName = "Name";
+            this.FileName.FillWeight = 86.0406F;
+            this.FileName.HeaderText = "File Name";
+            this.FileName.Name = "FileName";
+            this.FileName.ReadOnly = true;
+            this.FileName.Width = 116;
+            // 
+            // Path
+            // 
+            this.Path.DataPropertyName = "Path";
+            this.Path.FillWeight = 86.0406F;
+            this.Path.HeaderText = "Path";
+            this.Path.Name = "Path";
+            this.Path.ReadOnly = true;
+            this.Path.Width = 117;
+            // 
+            // Extension
+            // 
+            this.Extension.DataPropertyName = "Extension";
+            this.Extension.HeaderText = "Extension";
+            this.Extension.Name = "Extension";
+            this.Extension.ReadOnly = true;
+            this.Extension.Width = 135;
             // 
             // SearchEx
             // 
@@ -389,80 +463,6 @@
             this.SearchPartner.Size = new System.Drawing.Size(497, 21);
             this.SearchPartner.TabIndex = 73;
             // 
-            // Code
-            // 
-            this.Code.DataPropertyName = "Code";
-            this.Code.HeaderText = "Code";
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
-            this.Code.Width = 135;
-            // 
-            // Partner
-            // 
-            this.Partner.DataPropertyName = "Partner";
-            this.Partner.HeaderText = "Partner";
-            this.Partner.Name = "Partner";
-            this.Partner.ReadOnly = true;
-            this.Partner.Width = 136;
-            // 
-            // ProjectN
-            // 
-            this.ProjectN.DataPropertyName = "ProjectName";
-            this.ProjectN.HeaderText = "Project Name";
-            this.ProjectN.Name = "ProjectN";
-            this.ProjectN.ReadOnly = true;
-            this.ProjectN.Width = 135;
-            // 
-            // Loc
-            // 
-            this.Loc.DataPropertyName = "Location";
-            this.Loc.HeaderText = "Location";
-            this.Loc.Name = "Loc";
-            this.Loc.ReadOnly = true;
-            this.Loc.Width = 136;
-            // 
-            // StartDate
-            // 
-            this.StartDate.DataPropertyName = "StartDate";
-            this.StartDate.HeaderText = "Start Date";
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
-            this.StartDate.Width = 135;
-            // 
-            // EndDate
-            // 
-            this.EndDate.DataPropertyName = "EndDate";
-            this.EndDate.HeaderText = "End Date";
-            this.EndDate.Name = "EndDate";
-            this.EndDate.ReadOnly = true;
-            this.EndDate.Width = 136;
-            // 
-            // FileName
-            // 
-            this.FileName.DataPropertyName = "Name";
-            this.FileName.FillWeight = 86.0406F;
-            this.FileName.HeaderText = "File Name";
-            this.FileName.Name = "FileName";
-            this.FileName.ReadOnly = true;
-            this.FileName.Width = 116;
-            // 
-            // Path
-            // 
-            this.Path.DataPropertyName = "Path";
-            this.Path.FillWeight = 86.0406F;
-            this.Path.HeaderText = "Path";
-            this.Path.Name = "Path";
-            this.Path.ReadOnly = true;
-            this.Path.Width = 117;
-            // 
-            // Extension
-            // 
-            this.Extension.DataPropertyName = "Extension";
-            this.Extension.HeaderText = "Extension";
-            this.Extension.Name = "Extension";
-            this.Extension.ReadOnly = true;
-            this.Extension.Width = 135;
-            // 
             // Clear
             // 
             this.Clear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -487,13 +487,13 @@
             this.View_Info.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.View_Info.ImageIndex = 4;
             this.View_Info.ImageList = this.imageList1;
-            this.View_Info.Location = new System.Drawing.Point(388, 203);
+            this.View_Info.Location = new System.Drawing.Point(287, 222);
             this.View_Info.Name = "View_Info";
             this.View_Info.Size = new System.Drawing.Size(130, 44);
             this.View_Info.TabIndex = 55;
             this.View_Info.Text = "View";
             this.View_Info.UseVisualStyleBackColor = true;
-            this.View_Info.Visible = false;
+            this.View_Info.Click += new System.EventHandler(this.View_Info_Click);
             // 
             // Search
             // 
@@ -510,21 +510,6 @@
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
             this.Search.Click += new System.EventHandler(this.Search_Click);
-            // 
-            // Edit
-            // 
-            this.Edit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Edit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Edit.ImageIndex = 2;
-            this.Edit.ImageList = this.imageList1;
-            this.Edit.Location = new System.Drawing.Point(388, 203);
-            this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(130, 44);
-            this.Edit.TabIndex = 52;
-            this.Edit.Text = "Edit";
-            this.Edit.UseVisualStyleBackColor = true;
-            this.Edit.Visible = false;
             // 
             // Delete
             // 
@@ -580,7 +565,6 @@
             this.Controls.Add(this.Search);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.SearchStartDate);
-            this.Controls.Add(this.Edit);
             this.Controls.Add(this.DisableStartDate);
             this.Controls.Add(this.Delete);
             this.Controls.Add(this.Add);
@@ -616,7 +600,6 @@
         private System.Windows.Forms.Button Search;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker SearchStartDate;
-        private System.Windows.Forms.Button Edit;
         private System.Windows.Forms.CheckBox DisableStartDate;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button Add;

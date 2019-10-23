@@ -152,5 +152,10 @@ namespace Apex
         {
             GF.DeleteRecords(Testemonial_Grid, "testemonial", "TestN", "Path", "Extension", connectionString , this , MainForm);
         }
+
+        private void View_Info_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

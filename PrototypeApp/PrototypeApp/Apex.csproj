@@ -172,6 +172,12 @@
     <Compile Include="View_Edit_User.Designer.cs">
       <DependentUpon>View_Edit_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="View_Project.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View_Project.Designer.cs">
+      <DependentUpon>View_Project.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Add_Correspondence.resx">
       <DependentUpon>Add_Correspondence.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View_Edit_User.resx">
       <DependentUpon>View_Edit_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View_Project.resx">
+      <DependentUpon>View_Project.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

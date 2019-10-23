@@ -41,6 +41,15 @@
             this.SearchPro = new System.Windows.Forms.ComboBox();
             this.SearchIN = new System.Windows.Forms.TextBox();
             this.Testemonial_Grid = new System.Windows.Forms.DataGridView();
+            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Loc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LocN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Profession = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.SearchLocN = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -64,15 +73,6 @@
             this.Add = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.PB = new System.Windows.Forms.Label();
-            this.Code = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InterName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Loc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LocN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Profession = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Path = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Extension = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Testemonial_Grid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,6 +185,81 @@
             this.Testemonial_Grid.Size = new System.Drawing.Size(1221, 347);
             this.Testemonial_Grid.TabIndex = 15;
             this.Testemonial_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Testemonial_Grid_CellDoubleClick);
+            // 
+            // Code
+            // 
+            this.Code.DataPropertyName = "Code";
+            this.Code.HeaderText = "Code";
+            this.Code.Name = "Code";
+            this.Code.ReadOnly = true;
+            this.Code.Width = 131;
+            // 
+            // InterName
+            // 
+            this.InterName.DataPropertyName = "InterName";
+            this.InterName.HeaderText = "Interpreter Name";
+            this.InterName.Name = "InterName";
+            this.InterName.ReadOnly = true;
+            this.InterName.Width = 131;
+            // 
+            // Loc
+            // 
+            this.Loc.DataPropertyName = "Loc";
+            this.Loc.HeaderText = "Location";
+            this.Loc.Name = "Loc";
+            this.Loc.ReadOnly = true;
+            this.Loc.Width = 132;
+            // 
+            // LocN
+            // 
+            this.LocN.DataPropertyName = "LocN";
+            this.LocN.HeaderText = "Location Name";
+            this.LocN.Name = "LocN";
+            this.LocN.ReadOnly = true;
+            this.LocN.Width = 131;
+            // 
+            // Profession
+            // 
+            this.Profession.DataPropertyName = "Profession";
+            this.Profession.HeaderText = "Profession";
+            this.Profession.Name = "Profession";
+            this.Profession.ReadOnly = true;
+            this.Profession.Width = 131;
+            // 
+            // FileName
+            // 
+            this.FileName.DataPropertyName = "TestN";
+            this.FileName.FillWeight = 86.0406F;
+            this.FileName.HeaderText = "File Name";
+            this.FileName.Name = "FileName";
+            this.FileName.ReadOnly = true;
+            this.FileName.Width = 113;
+            // 
+            // Path
+            // 
+            this.Path.DataPropertyName = "Path";
+            this.Path.FillWeight = 86.0406F;
+            this.Path.HeaderText = "Path";
+            this.Path.Name = "Path";
+            this.Path.ReadOnly = true;
+            this.Path.Width = 113;
+            // 
+            // Extension
+            // 
+            this.Extension.DataPropertyName = "Extension";
+            this.Extension.HeaderText = "Extension";
+            this.Extension.Name = "Extension";
+            this.Extension.ReadOnly = true;
+            this.Extension.Width = 131;
+            // 
+            // Date
+            // 
+            this.Date.DataPropertyName = "Date";
+            this.Date.FillWeight = 127.9188F;
+            this.Date.HeaderText = "Date";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            this.Date.Width = 168;
             // 
             // imageList1
             // 
@@ -395,6 +470,7 @@
             this.View_Info.Text = "View";
             this.View_Info.UseVisualStyleBackColor = true;
             this.View_Info.Visible = false;
+            this.View_Info.Click += new System.EventHandler(this.View_Info_Click);
             // 
             // Edit
             // 
@@ -465,81 +541,6 @@
             this.PB.TabIndex = 41;
             this.PB.Text = " Powered by : Polygon Network Company";
             this.PB.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // Code
-            // 
-            this.Code.DataPropertyName = "Code";
-            this.Code.HeaderText = "Code";
-            this.Code.Name = "Code";
-            this.Code.ReadOnly = true;
-            this.Code.Width = 131;
-            // 
-            // InterName
-            // 
-            this.InterName.DataPropertyName = "InterName";
-            this.InterName.HeaderText = "Interpreter Name";
-            this.InterName.Name = "InterName";
-            this.InterName.ReadOnly = true;
-            this.InterName.Width = 131;
-            // 
-            // Loc
-            // 
-            this.Loc.DataPropertyName = "Loc";
-            this.Loc.HeaderText = "Location";
-            this.Loc.Name = "Loc";
-            this.Loc.ReadOnly = true;
-            this.Loc.Width = 132;
-            // 
-            // LocN
-            // 
-            this.LocN.DataPropertyName = "LocN";
-            this.LocN.HeaderText = "Location Name";
-            this.LocN.Name = "LocN";
-            this.LocN.ReadOnly = true;
-            this.LocN.Width = 131;
-            // 
-            // Profession
-            // 
-            this.Profession.DataPropertyName = "Profession";
-            this.Profession.HeaderText = "Profession";
-            this.Profession.Name = "Profession";
-            this.Profession.ReadOnly = true;
-            this.Profession.Width = 131;
-            // 
-            // FileName
-            // 
-            this.FileName.DataPropertyName = "TestN";
-            this.FileName.FillWeight = 86.0406F;
-            this.FileName.HeaderText = "File Name";
-            this.FileName.Name = "FileName";
-            this.FileName.ReadOnly = true;
-            this.FileName.Width = 113;
-            // 
-            // Path
-            // 
-            this.Path.DataPropertyName = "Path";
-            this.Path.FillWeight = 86.0406F;
-            this.Path.HeaderText = "Path";
-            this.Path.Name = "Path";
-            this.Path.ReadOnly = true;
-            this.Path.Width = 113;
-            // 
-            // Extension
-            // 
-            this.Extension.DataPropertyName = "Extension";
-            this.Extension.HeaderText = "Extension";
-            this.Extension.Name = "Extension";
-            this.Extension.ReadOnly = true;
-            this.Extension.Width = 131;
-            // 
-            // Date
-            // 
-            this.Date.DataPropertyName = "Date";
-            this.Date.FillWeight = 127.9188F;
-            this.Date.HeaderText = "Date";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            this.Date.Width = 168;
             // 
             // Testemonial_Form
             // 
