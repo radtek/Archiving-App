@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServerMain_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.DatabaseInfo = new System.Windows.Forms.Button();
             this.Close = new System.Windows.Forms.Button();
@@ -62,9 +62,7 @@
             this.SetupDone = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.DatabaseNSetup = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.Browse = new System.Windows.Forms.Button();
-            this.PolyDoc_Password = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.DataDirectory = new System.Windows.Forms.TextBox();
@@ -279,8 +277,8 @@
             // 
             this.Users_Grid.AllowUserToAddRows = false;
             this.Users_Grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Users_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Users_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.Users_Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -291,8 +289,8 @@
             this.Users_Grid.Location = new System.Drawing.Point(10, 135);
             this.Users_Grid.Name = "Users_Grid";
             this.Users_Grid.ReadOnly = true;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Users_Grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Users_Grid.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.Users_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Users_Grid.Size = new System.Drawing.Size(375, 351);
             this.Users_Grid.TabIndex = 7;
@@ -309,8 +307,8 @@
             // 
             this.Tables_Grid.AllowUserToAddRows = false;
             this.Tables_Grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tables_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tables_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.Tables_Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -321,8 +319,8 @@
             this.Tables_Grid.Location = new System.Drawing.Point(399, 135);
             this.Tables_Grid.Name = "Tables_Grid";
             this.Tables_Grid.ReadOnly = true;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tables_Grid.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tables_Grid.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.Tables_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Tables_Grid.Size = new System.Drawing.Size(375, 351);
             this.Tables_Grid.TabIndex = 6;
@@ -385,9 +383,7 @@
             this.Setup_Panel.Controls.Add(this.SetupDone);
             this.Setup_Panel.Controls.Add(this.label16);
             this.Setup_Panel.Controls.Add(this.DatabaseNSetup);
-            this.Setup_Panel.Controls.Add(this.label11);
             this.Setup_Panel.Controls.Add(this.Browse);
-            this.Setup_Panel.Controls.Add(this.PolyDoc_Password);
             this.Setup_Panel.Controls.Add(this.label6);
             this.Setup_Panel.Controls.Add(this.label13);
             this.Setup_Panel.Controls.Add(this.DataDirectory);
@@ -416,7 +412,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(10, 29);
+            this.label16.Location = new System.Drawing.Point(10, 159);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(106, 15);
             this.label16.TabIndex = 61;
@@ -427,20 +423,10 @@
             this.DatabaseNSetup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DatabaseNSetup.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DatabaseNSetup.Location = new System.Drawing.Point(122, 26);
+            this.DatabaseNSetup.Location = new System.Drawing.Point(122, 156);
             this.DatabaseNSetup.Name = "DatabaseNSetup";
             this.DatabaseNSetup.Size = new System.Drawing.Size(652, 21);
             this.DatabaseNSetup.TabIndex = 60;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 269);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(197, 15);
-            this.label11.TabIndex = 76;
-            this.label11.Text = "PolyDoc Windows User Password :";
             // 
             // Browse
             // 
@@ -449,7 +435,7 @@
             this.Browse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Browse.ImageIndex = 7;
             this.Browse.ImageList = this.imageList1;
-            this.Browse.Location = new System.Drawing.Point(644, 97);
+            this.Browse.Location = new System.Drawing.Point(644, 227);
             this.Browse.Name = "Browse";
             this.Browse.Size = new System.Drawing.Size(130, 44);
             this.Browse.TabIndex = 66;
@@ -457,22 +443,11 @@
             this.Browse.UseVisualStyleBackColor = true;
             this.Browse.Click += new System.EventHandler(this.Browse_Click);
             // 
-            // PolyDoc_Password
-            // 
-            this.PolyDoc_Password.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PolyDoc_Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PolyDoc_Password.Location = new System.Drawing.Point(213, 266);
-            this.PolyDoc_Password.Name = "PolyDoc_Password";
-            this.PolyDoc_Password.Size = new System.Drawing.Size(561, 21);
-            this.PolyDoc_Password.TabIndex = 75;
-            this.PolyDoc_Password.UseSystemPasswordChar = true;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(119, 97);
+            this.label6.Location = new System.Drawing.Point(119, 227);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(213, 15);
             this.label6.TabIndex = 67;
@@ -482,18 +457,18 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(10, 73);
+            this.label13.Location = new System.Drawing.Point(10, 203);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(93, 15);
+            this.label13.Size = new System.Drawing.Size(88, 15);
             this.label13.TabIndex = 65;
-            this.label13.Text = "Data Directory : ";
+            this.label13.Text = "Data Storage : ";
             // 
             // DataDirectory
             // 
             this.DataDirectory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DataDirectory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DataDirectory.Location = new System.Drawing.Point(122, 70);
+            this.DataDirectory.Location = new System.Drawing.Point(122, 200);
             this.DataDirectory.Name = "DataDirectory";
             this.DataDirectory.Size = new System.Drawing.Size(652, 21);
             this.DataDirectory.TabIndex = 64;
@@ -553,8 +528,8 @@
             // 
             this.ConnectedClients_Grid.AllowUserToAddRows = false;
             this.ConnectedClients_Grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConnectedClients_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectedClients_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.ConnectedClients_Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -565,8 +540,8 @@
             this.ConnectedClients_Grid.Location = new System.Drawing.Point(10, 47);
             this.ConnectedClients_Grid.Name = "ConnectedClients_Grid";
             this.ConnectedClients_Grid.ReadOnly = true;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConnectedClients_Grid.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConnectedClients_Grid.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.ConnectedClients_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ConnectedClients_Grid.Size = new System.Drawing.Size(764, 389);
             this.ConnectedClients_Grid.TabIndex = 8;
@@ -679,9 +654,7 @@
         private System.Windows.Forms.Button SetupDone;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox DatabaseNSetup;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button Browse;
-        private System.Windows.Forms.TextBox PolyDoc_Password;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox DataDirectory;

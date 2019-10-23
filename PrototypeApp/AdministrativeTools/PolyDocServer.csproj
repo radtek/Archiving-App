@@ -7,7 +7,7 @@
     <ProjectGuid>{707D320C-A81A-4B6C-B858-25DB2691F5C8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>PolyDocServer</RootNamespace>
-    <AssemblyName>PolyDocServer</AssemblyName>
+    <AssemblyName>PolyDoc Server</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -31,6 +31,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Webp.net-resizeimage.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cjwdev.WindowsApi">
@@ -96,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Webp.net-resizeimage.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

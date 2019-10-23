@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ApexLogo.ico</ApplicationIcon>
+    <ApplicationIcon>Webp.net-resizeimage.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cjwdev.WindowsApi">
@@ -250,10 +250,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApexLogo.ico" />
+    <Content Include="PolyDocLogo.ico" />
     <Content Include="Cjwdev.WindowsApi.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Webp.net-resizeimage.ico" />
     <EmbeddedResource Include="Resources\Uni Sans Heavy.ttf" />
     <None Include="Resources\AlegreyaSans-Light.ttf" />
     <None Include="Resources\Webp.net-resizeimage %281%29.png" />

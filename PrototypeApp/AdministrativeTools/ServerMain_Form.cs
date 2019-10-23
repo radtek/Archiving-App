@@ -381,7 +381,7 @@ namespace PolyDocServer
         {
             string directory = DataDirectory.Text;
             CreateDirectories(directory);
-            CreateWindowsUser("PolyDoc-AdminUser" , PolyDoc_Password.Text , "PolyDoc Admin User");
+            CreateWindowsUser("PolyDoc-AdminUser" , "Nb6LjWTdO5XyLWy0k3sN", "PolyDoc Admin User");
             GivePermissions(directory);
         }
         private void CreateDirectories(string directory)

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define Apex_TargetDir=$(var.Apex.TargetDir)?>
-	<Product Id="8cf29d7d-0c64-4778-a5d7-84873d4abd81" Name="Apex Archiving Software" Language="1033" Version="2.0.0.0" Manufacturer="Polygon Network Company" UpgradeCode="e786b7f8-9ad8-4991-af85-216c7d05291c">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define PolyDoc_TargetDir=$(var.PolyDoc.TargetDir)?>
+	<Product Id="8cf29d7d-0c64-4778-a5d7-84873d4abd81" Name="PolyDoc Archiving Software" Language="1033" Version="2.0.0.0" Manufacturer="Polygon Network Company" UpgradeCode="e786b7f8-9ad8-4991-af85-216c7d05291c">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
     
-    <Icon Id="ApexLogo.ico" SourceFile="$(var.ProjectDir)ApexLogo.ico" />
-    <Property Id="ARPPRODUCTICON" Value="ApexLogo.ico" />
+    <Icon Id="PolyDocLogo.ico" SourceFile="$(var.ProjectDir)PolyDocLogo.ico" />
+    <Property Id="ARPPRODUCTICON" Value="PolyDocLogo.ico" />
     <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
 
     <WixVariable Id="WixUIBannerBmp" Value="Images\poli low.bmp" />
@@ -16,10 +16,10 @@
     <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">1</Publish>
     </UI>
     
-		<MajorUpgrade DowngradeErrorMessage="A newer version of Apex Archiving Software is already installed." />
+		<MajorUpgrade DowngradeErrorMessage="A newer version of PolyDoc Archiving Software is already installed." />
 		<MediaTemplate EmbedCab="yes" />
 
-		<Feature Id="ProductFeature" Title="Apex Archiving Software" Level="1">
+		<Feature Id="ProductFeature" Title="PolyDoc Archiving Software" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
       <ComponentRef Id="ApplicationShortcut" />
       <ComponentRef Id="ApplicationShortcutDesktop" />
@@ -29,10 +29,10 @@
 	<Fragment>
 		<Directory Id="TARGETDIR" Name="SourceDir">
 			<Directory Id="ProgramFilesFolder">
-				<Directory Id="INSTALLFOLDER" Name="Apex Archiving Software" />
+				<Directory Id="INSTALLFOLDER" Name="PolyDoc Archiving Software" />
 			</Directory>
         <Directory Id="ProgramMenuFolder">
-          <Directory Id="ApplicationProgramsFolder" Name="Apex Archiving Software" />
+          <Directory Id="ApplicationProgramsFolder" Name="PolyDoc Archiving Software" />
         </Directory>
           <Directory Id="DesktopFolder" Name="Desktop" />
 		    </Directory>
@@ -40,40 +40,38 @@
   <Fragment>
   <DirectoryRef Id="ApplicationProgramsFolder">
     <Component Id="ApplicationShortcut" Guid="9bd13330-6540-406f-a3a8-d7f7c69ae7f9">
-      <Shortcut Id="ApplicationStartMenuShortcut" Name="Apex Archiving Software" Description="Apex Archiving Software" Target="[INSTALLFOLDER]Apex.exe" WorkingDirectory="INSTALLFOLDER" />
+      <Shortcut Id="ApplicationStartMenuShortcut" Name="PolyDoc Archiving Software" Description="PolyDoc Archiving Software" Target="[INSTALLFOLDER]PolyDoc.exe" WorkingDirectory="INSTALLFOLDER" />
       <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
-      <RegistryValue Root="HKCU" Key="Software\Apex Archiving Software" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      <RegistryValue Root="HKCU" Key="Software\PolyDoc Archiving Software" Name="installed" Type="integer" Value="1" KeyPath="yes" />
     </Component>
   </DirectoryRef>
   <DirectoryRef Id="DesktopFolder">
    <Component Id="ApplicationShortcutDesktop" Guid="cde1e030-eb64-49a5-b7b8-400b379c2d1a">
-     <Shortcut Id="ApplicationDesktopShortcut" Name="Apex Archiving Software" Description="Apex Archiving Software" Target="[INSTALLFOLDER]Apex.exe" WorkingDirectory="INSTALLFOLDER" />
+     <Shortcut Id="ApplicationDesktopShortcut" Name="PolyDoc Archiving Software" Description="PolyDoc Archiving Software" Target="[INSTALLFOLDER]PolyDoc.exe" WorkingDirectory="INSTALLFOLDER" />
       <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
-      <RegistryValue Root="HKCU" Key="Software\Apex Archiving Software" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      <RegistryValue Root="HKCU" Key="Software\PolyDoc Archiving Software" Name="installed" Type="integer" Value="1" KeyPath="yes" />
     </Component>
   </DirectoryRef>
 </Fragment>
 
 	<Fragment>
 		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-			<Component Id="Apex.exe.config" Guid="17809675-6b4b-497d-ad0b-91c245da6a97">
-			  <File Id="Apex.exe.config" Name="Apex.exe.config" Source="$(var.Apex_TargetDir)Apex.exe.config" />
-			</Component>
-			<Component Id="Apex.exe" Guid="75dc97fc-8b0c-4bec-8b3e-d376df56b199">
-			  <File Id="Apex.exe" Name="Apex.exe" Source="$(var.Apex_TargetDir)Apex.exe" />
-			</Component>
-			<Component Id="Apex.pdb" Guid="790fffb2-8606-4444-a160-233fc315b58e">
-			  <File Id="Apex.pdb" Name="Apex.pdb" Source="$(var.Apex_TargetDir)Apex.pdb" />
-			</Component>
-			<Component Id="ApexLogo.ico" Guid="7456d0a6-5940-47ff-95ce-6cf0b38a54eb">
-			  <File Id="ApexLogo.ico" Name="ApexLogo.ico" Source="$(var.Apex_TargetDir)ApexLogo.ico" />
-			</Component>
-			<Component Id="Cjwdev.WindowsApi.xml" Guid="f4e674f2-661a-4cde-bf8a-62739e4975c8">
-			  <File Id="Cjwdev.WindowsApi.xml" Name="Cjwdev.WindowsApi.xml" Source="$(var.Apex_TargetDir)Cjwdev.WindowsApi.xml" />
-			</Component>
-			<Component Id="Cjwdev.WindowsApi.dll" Guid="c5089031-b77e-4585-997d-c6f074eb8ac0">
-			  <File Id="Cjwdev.WindowsApi.dll" Name="Cjwdev.WindowsApi.dll" Source="$(var.Apex_TargetDir)Cjwdev.WindowsApi.dll" />
-			</Component>
+		<Component Id="PolyDocLogo.ico" Guid="3d27a1f8-d642-4511-8156-b9dfeedcea91">
+		  <File Id="PolyDocLogo.ico" Name="PolyDocLogo.ico" Source="$(var.PolyDoc_TargetDir)PolyDocLogo.ico" />
+		</Component>
+		<Component Id="Cjwdev.WindowsApi.xml" Guid="7ff14312-e833-4ee1-9476-aeeb0beee673">
+		  <File Id="Cjwdev.WindowsApi.xml" Name="Cjwdev.WindowsApi.xml" Source="$(var.PolyDoc_TargetDir)Cjwdev.WindowsApi.xml" />
+		</Component>
+		<Component Id="PolyDoc.exe" Guid="11cff5be-3dd5-4aa2-9df6-514b01f3a886">
+		  <File Id="PolyDoc.exe" Name="PolyDoc.exe" Source="$(var.PolyDoc_TargetDir)PolyDoc.exe" />
+		</Component>
+		<Component Id="PolyDoc.exe.config" Guid="7bfdf5bb-073d-48db-a7f7-bc0dd09adacc">
+		  <File Id="PolyDoc.exe.config" Name="PolyDoc.exe.config" Source="$(var.PolyDoc_TargetDir)PolyDoc.exe.config" />
+		</Component>
+		<Component Id="PolyDoc.pdb" Guid="b6b7ff17-b9f4-42b0-8d40-5732e2a58b6c">
+		  <File Id="PolyDoc.pdb" Name="PolyDoc.pdb" Source="$(var.PolyDoc_TargetDir)PolyDoc.pdb" />
+		</Component>
+			
 		</ComponentGroup>
 	</Fragment>
 </Wix>

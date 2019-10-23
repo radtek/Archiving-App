@@ -6,8 +6,9 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>6e35c22d-99af-4fc2-9e76-2a71549f4bc2</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>Apex Setup</OutputName>
+    <OutputName>PolyDoc Setup</OutputName>
     <OutputType>Package</OutputType>
+    <Name>PolyDocSetup</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
@@ -22,8 +23,8 @@
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ApexLogo.ico" />
-    <Content Include="ApexSetup.wax" />
+    <Content Include="PolyDocLogo.ico" />
+    <Content Include="PolyDocSetup.wax" />
     <Content Include="Images\logo2 - Copy.bmp" />
     <Content Include="Images\poli low.bmp" />
   </ItemGroup>

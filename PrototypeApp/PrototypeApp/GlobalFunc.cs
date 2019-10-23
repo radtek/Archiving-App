@@ -16,7 +16,7 @@ namespace PolyDoc
         private readonly string DataLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PolyDoc Archiving Software/Data";
 
         public const string AppUser = "PolyDoc-AdminUser";
-        public const string AppPass = "123";
+        public const string AppPass = "Nb6LjWTdO5XyLWy0k3sN";
 
         public const string MainFolderName = "PolyDoc Storage";
         public const string FilesDirectory = @"\\192.168.1.4\" + MainFolderName;
