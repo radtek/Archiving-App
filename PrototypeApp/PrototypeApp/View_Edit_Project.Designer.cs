@@ -217,7 +217,7 @@
             this.New_ProjectName.Location = new System.Drawing.Point(111, 211);
             this.New_ProjectName.Name = "New_ProjectName";
             this.New_ProjectName.Size = new System.Drawing.Size(570, 21);
-            this.New_ProjectName.TabIndex = 59;
+            this.New_ProjectName.TabIndex = 0;
             // 
             // New_Partner
             // 
@@ -228,7 +228,7 @@
             this.New_Partner.Location = new System.Drawing.Point(111, 260);
             this.New_Partner.Name = "New_Partner";
             this.New_Partner.Size = new System.Drawing.Size(570, 21);
-            this.New_Partner.TabIndex = 60;
+            this.New_Partner.TabIndex = 1;
             // 
             // New_StartDate
             // 
@@ -239,7 +239,7 @@
             this.New_StartDate.Location = new System.Drawing.Point(111, 358);
             this.New_StartDate.Name = "New_StartDate";
             this.New_StartDate.Size = new System.Drawing.Size(102, 21);
-            this.New_StartDate.TabIndex = 61;
+            this.New_StartDate.TabIndex = 3;
             // 
             // New_EndDate
             // 
@@ -250,7 +250,7 @@
             this.New_EndDate.Location = new System.Drawing.Point(111, 407);
             this.New_EndDate.Name = "New_EndDate";
             this.New_EndDate.Size = new System.Drawing.Size(102, 21);
-            this.New_EndDate.TabIndex = 79;
+            this.New_EndDate.TabIndex = 4;
             // 
             // label8
             // 
@@ -329,7 +329,7 @@
             this.New_Location.Location = new System.Drawing.Point(111, 309);
             this.New_Location.Name = "New_Location";
             this.New_Location.Size = new System.Drawing.Size(570, 23);
-            this.New_Location.TabIndex = 86;
+            this.New_Location.TabIndex = 2;
             // 
             // Cancel
             // 
@@ -342,7 +342,7 @@
             this.Cancel.Location = new System.Drawing.Point(148, 467);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(130, 44);
-            this.Cancel.TabIndex = 56;
+            this.Cancel.TabIndex = 6;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Visible = false;
@@ -359,7 +359,7 @@
             this.Close.Location = new System.Drawing.Point(548, 467);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(133, 44);
-            this.Close.TabIndex = 54;
+            this.Close.TabIndex = 7;
             this.Close.Text = "Close";
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.Close_Click);
@@ -375,7 +375,7 @@
             this.Done.Location = new System.Drawing.Point(12, 467);
             this.Done.Name = "Done";
             this.Done.Size = new System.Drawing.Size(130, 44);
-            this.Done.TabIndex = 55;
+            this.Done.TabIndex = 5;
             this.Done.Text = "Done";
             this.Done.UseVisualStyleBackColor = true;
             this.Done.Visible = false;
@@ -397,7 +397,7 @@
             this.Edit.UseVisualStyleBackColor = true;
             this.Edit.Click += new System.EventHandler(this.Edit_Click);
             // 
-            // View_Project
+            // View_Edit_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -432,7 +432,7 @@
             this.Controls.Add(this.Edit);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "View_Project";
+            this.Name = "View_Edit_Project";
             this.Text = "View Project";
             this.ResumeLayout(false);
             this.PerformLayout();

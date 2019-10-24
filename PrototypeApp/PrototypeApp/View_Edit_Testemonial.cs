@@ -141,7 +141,7 @@ namespace PolyDoc
             SqlCommand comm = new SqlCommand(edit_record_set + edit_record_condition, conn);
             comm.ExecuteNonQuery();
             MessageBox.Show("Successfully edited file info!", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ((Testemonial_Form)Testemonial_Form).RefreshList();
+            ((Testemonials_Form)Testemonial_Form).RefreshList();
             this.Close();
         }
 

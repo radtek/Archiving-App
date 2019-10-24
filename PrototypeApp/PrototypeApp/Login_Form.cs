@@ -34,8 +34,8 @@ namespace PolyDoc
             if (Authentication.Text == "")
                 Authentication.Text = "Windows Authentication";
             //
-            UserName.Text = "maged";
-            Password.Text = "123";
+            //UserName.Text = "maged";
+            //Password.Text = "123";
             //
         }
 

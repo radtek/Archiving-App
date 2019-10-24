@@ -12,14 +12,14 @@ using System.IO;
 
 namespace PolyDoc
 {
-    public partial class Testemonial_Form : Form
+    public partial class Testemonials_Form : Form
     {
         static readonly Form MainForm = Application.OpenForms["Main_Form"];
         public string connectionString = ((Main_Form)MainForm).connectionString;
         readonly string Database = ((Main_Form)MainForm).database;
         readonly string User = ((Main_Form)MainForm).user;
         readonly GlobalFunc GF = new GlobalFunc();
-        public Testemonial_Form()
+        public Testemonials_Form()
         {
             InitializeComponent();
             GF.EditButtons(this);

@@ -46,6 +46,7 @@ namespace PolyDocServer
                     Process.Text = "";
                     Bar.Style = ProgressBarStyle.Continuous;
                     Bar.MarqueeAnimationSpeed = 0;
+                    Login.Enabled = true;
                 });
                 return;
             }
@@ -66,6 +67,7 @@ namespace PolyDocServer
             Process.Text = "Connecting to database server...";
             Bar.Style = ProgressBarStyle.Marquee;
             Bar.MarqueeAnimationSpeed = 30;
+            Login.Enabled = false;
             Thread checkConnection = new Thread(() => checkConn());
             checkConnection.Start();
         }

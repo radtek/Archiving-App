@@ -138,7 +138,15 @@ namespace PolyDoc
                 string path = GlobalFunc.FilesDirectory + @"\" + "Testemonial";
                 using (new NetworkConnection(GlobalFunc.FilesDirectory, new NetworkCredential(GlobalFunc.AppUser, GlobalFunc.AppPass)))
                 {
-                    File.Copy(row.Cells[8].Value.ToString() + @"\" + name + extension, GlobalFunc.FilesDirectory +  @"\Testemonial\" + name + extension);
+                    try
+                    {
+                        File.Copy(row.Cells[8].Value.ToString() + @"\" + name.ToString().Replace("''", "'") + extension, GlobalFunc.FilesDirectory + @"\Testemonial\" + name.ToString().Replace("''", "'") + extension);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
                 add_files += "('" + code + "',N'" + name + "',N'" + intername + "',N'" + location + "',N'" + locationN + "',N'" + profession + "','" + date + "','" + extension + "',N'" + path + "'),";
             }
@@ -164,7 +172,6 @@ namespace PolyDoc
                 RowMenu.Show(SelectedFiles, new Point(e.X, e.Y));
             }
         }
-
         private void RowMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             if(e.ClickedItem.Text == "Delete")

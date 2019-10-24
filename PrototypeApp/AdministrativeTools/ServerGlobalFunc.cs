@@ -28,7 +28,7 @@ namespace PolyDocServer
         {
             if (!File.Exists(LogsLoc))
             {
-                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Logs");
+                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PolyDoc Archiving Software/Logs");
                 using (StreamWriter outputFile = new StreamWriter(LogsLoc))
                 {
                     outputFile.WriteLine("Server=" + Environment.NewLine + "Database=" + Environment.NewLine + "Authentication=");
@@ -273,107 +273,6 @@ namespace PolyDocServer
             string[] parts = x.Split('/');
             string res = parts[0] + "/" + parts[1] + "/" + parts[2][0] + parts[2][1] + parts[2][2] + parts[2][3];
             return res;
-        }
-        public void GetLocations(ComboBox Locs, bool Search)
-        {
-            string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Locations.txt";
-            CheckData("Locations");
-            using (StreamReader file = new StreamReader(loc))
-            {
-                string ln;
-                while ((ln = file.ReadLine()) != null)
-                {
-                    Locs.Items.Add(ln);
-                }
-                file.Close();
-                if (Search)
-                {
-                    Locs.Items.Add("-Disable-");
-                    Locs.Text = "-Disable-";
-                }
-            }
-        }
-        public void GetProfessions(ComboBox Pros, bool Search)
-        {
-            string loc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data/Professions.txt";
-            CheckData("Professions");
-            using (StreamReader file = new StreamReader(loc))
-            {
-                string ln;
-                while ((ln = file.ReadLine()) != null)
-                {
-                    Pros.Items.Add(ln);
-                }
-                file.Close();
-                if (Search)
-                {
-                    Pros.Items.Add("-Disable-");
-                    Pros.Text = "-Disable-";
-                }
-            }
-        }
-        public void CheckData(string name)
-        {
-            if (name == "Locations")
-            {
-                string loc = DataLoc + "/Locations.txt";
-                if (!File.Exists(loc))
-                {
-                    Directory.CreateDirectory(DataLoc);
-                    var file = File.CreateText(loc);
-                    file.Close();
-                }
-            }
-            if (name == "Professions")
-            {
-                string loc = DataLoc + "/Professions.txt";
-                if (!File.Exists(loc))
-                {
-                    Directory.CreateDirectory(DataLoc);
-                    var file = File.CreateText(loc);
-                    file.Close();
-                }
-            }
-            if (name == "Settings")
-            {
-                string loc = DataLoc + "/Settings.txt";
-                if (!File.Exists(loc))
-                {
-                    Directory.CreateDirectory(DataLoc);
-                    using (StreamWriter outputFile = new StreamWriter(loc))
-                    {
-                        outputFile.WriteLine("Directory Path=" + Environment.NewLine);
-                    }
-                }
-            }
-        }
-        public string GetCode(string table, Dictionary<string, bool> map, string connectionString)
-        {
-            if (table == "Testemonial")
-            {
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                string code = "TES" + DateTime.Now.Year.ToString();
-                string check = "select count(*) from Testemonial where code = '";
-                int counter = -1;
-                string res;
-                string finalCode;
-                do
-                {
-                    counter++;
-                    if (counter % 10 == counter)
-                        finalCode = code + "0" + counter.ToString();
-                    else finalCode = code + counter.ToString();
-                    string temp_check = check + finalCode + "'";
-                    SqlCommand comm = new SqlCommand(temp_check, conn);
-                    res = comm.ExecuteScalar().ToString();
-                    comm.Dispose();
-                }
-                while (res == "1" || (map.ContainsKey(finalCode) && map[finalCode] == true));
-                conn.Close();
-                return finalCode;
-            }
-            return "Invalid";
         }
         public void EditButtons(Control parent)
         {

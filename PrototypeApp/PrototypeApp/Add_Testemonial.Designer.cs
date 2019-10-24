@@ -333,7 +333,7 @@
             this.AddDate.Location = new System.Drawing.Point(127, 222);
             this.AddDate.Name = "AddDate";
             this.AddDate.Size = new System.Drawing.Size(105, 21);
-            this.AddDate.TabIndex = 47;
+            this.AddDate.TabIndex = 4;
             // 
             // Browse
             // 

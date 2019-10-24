@@ -64,8 +64,8 @@
 			<Component Id="Cjwdev.WindowsApi.dll" Guid="cea15696-83d6-4311-b2fc-78ec92d62458">
 			  <File Id="Cjwdev.WindowsApi.dll" Name="Cjwdev.WindowsApi.dll" Source="$(var.PolyDocServer_TargetDir)Cjwdev.WindowsApi.dll" />
 			</Component>
-			<Component Id="Webp.net_resizeimage.ico" Guid="7d750e9a-ab19-4d2c-b561-1fc429a2e102">
-			  <File Id="Webp.net_resizeimage.ico" Name="Webp.net-resizeimage.ico" Source="$(var.PolyDocServer_TargetDir)Webp.net-resizeimage.ico" />
+			<Component Id="PolyDocLogo.ico" Guid="7d750e9a-ab19-4d2c-b561-1fc429a2e102">
+			  <File Id="PolyDocLogo.ico" Name="PolyDocLogo.ico" Source="$(var.PolyDocServer_TargetDir)PolyDocLogo.ico" />
 			</Component>
 		</ComponentGroup>
 	</Fragment>

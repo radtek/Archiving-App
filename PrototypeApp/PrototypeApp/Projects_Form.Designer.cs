@@ -133,7 +133,7 @@
             this.SearchCode.Location = new System.Drawing.Point(739, 114);
             this.SearchCode.Name = "SearchCode";
             this.SearchCode.Size = new System.Drawing.Size(497, 21);
-            this.SearchCode.TabIndex = 49;
+            this.SearchCode.TabIndex = 6;
             // 
             // label1
             // 
@@ -194,7 +194,7 @@
             this.SearchStartDate.Location = new System.Drawing.Point(109, 145);
             this.SearchStartDate.Name = "SearchStartDate";
             this.SearchStartDate.Size = new System.Drawing.Size(105, 21);
-            this.SearchStartDate.TabIndex = 50;
+            this.SearchStartDate.TabIndex = 7;
             // 
             // DisableStartDate
             // 
@@ -205,7 +205,7 @@
             this.DisableStartDate.Location = new System.Drawing.Point(220, 149);
             this.DisableStartDate.Name = "DisableStartDate";
             this.DisableStartDate.Size = new System.Drawing.Size(97, 19);
-            this.DisableStartDate.TabIndex = 60;
+            this.DisableStartDate.TabIndex = 8;
             this.DisableStartDate.Text = "Disable Date";
             this.DisableStartDate.UseVisualStyleBackColor = true;
             // 
@@ -239,7 +239,7 @@
             this.Projects_Grid.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.Projects_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Projects_Grid.Size = new System.Drawing.Size(1221, 347);
-            this.Projects_Grid.TabIndex = 58;
+            this.Projects_Grid.TabIndex = 16;
             this.Projects_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Projects_Grid_CellDoubleClick);
             // 
             // Code
@@ -324,7 +324,7 @@
             this.SearchEx.Location = new System.Drawing.Point(1061, 48);
             this.SearchEx.Name = "SearchEx";
             this.SearchEx.Size = new System.Drawing.Size(175, 21);
-            this.SearchEx.TabIndex = 44;
+            this.SearchEx.TabIndex = 2;
             // 
             // label9
             // 
@@ -344,7 +344,7 @@
             this.SearchProjectN.Location = new System.Drawing.Point(109, 81);
             this.SearchProjectN.Name = "SearchProjectN";
             this.SearchProjectN.Size = new System.Drawing.Size(525, 21);
-            this.SearchProjectN.TabIndex = 45;
+            this.SearchProjectN.TabIndex = 3;
             // 
             // SearchLoc
             // 
@@ -384,7 +384,7 @@
             this.SearchLoc.Location = new System.Drawing.Point(109, 112);
             this.SearchLoc.Name = "SearchLoc";
             this.SearchLoc.Size = new System.Drawing.Size(525, 23);
-            this.SearchLoc.TabIndex = 46;
+            this.SearchLoc.TabIndex = 5;
             // 
             // SearchP
             // 
@@ -395,7 +395,7 @@
             this.SearchP.Location = new System.Drawing.Point(109, 48);
             this.SearchP.Name = "SearchP";
             this.SearchP.Size = new System.Drawing.Size(847, 21);
-            this.SearchP.TabIndex = 43;
+            this.SearchP.TabIndex = 1;
             // 
             // SearchN
             // 
@@ -406,7 +406,7 @@
             this.SearchN.Location = new System.Drawing.Point(109, 15);
             this.SearchN.Name = "SearchN";
             this.SearchN.Size = new System.Drawing.Size(1127, 21);
-            this.SearchN.TabIndex = 42;
+            this.SearchN.TabIndex = 0;
             // 
             // label6
             // 
@@ -427,7 +427,7 @@
             this.SearchEndDate.Location = new System.Drawing.Point(109, 178);
             this.SearchEndDate.Name = "SearchEndDate";
             this.SearchEndDate.Size = new System.Drawing.Size(105, 21);
-            this.SearchEndDate.TabIndex = 70;
+            this.SearchEndDate.TabIndex = 9;
             // 
             // DisableEndDate
             // 
@@ -438,7 +438,7 @@
             this.DisableEndDate.Location = new System.Drawing.Point(220, 182);
             this.DisableEndDate.Name = "DisableEndDate";
             this.DisableEndDate.Size = new System.Drawing.Size(97, 19);
-            this.DisableEndDate.TabIndex = 72;
+            this.DisableEndDate.TabIndex = 10;
             this.DisableEndDate.Text = "Disable Date";
             this.DisableEndDate.UseVisualStyleBackColor = true;
             // 
@@ -461,7 +461,7 @@
             this.SearchPartner.Location = new System.Drawing.Point(739, 81);
             this.SearchPartner.Name = "SearchPartner";
             this.SearchPartner.Size = new System.Drawing.Size(497, 21);
-            this.SearchPartner.TabIndex = 73;
+            this.SearchPartner.TabIndex = 4;
             // 
             // Clear
             // 
@@ -474,7 +474,7 @@
             this.Clear.Location = new System.Drawing.Point(1106, 222);
             this.Clear.Name = "Clear";
             this.Clear.Size = new System.Drawing.Size(130, 44);
-            this.Clear.TabIndex = 56;
+            this.Clear.TabIndex = 15;
             this.Clear.Text = "Clear";
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
@@ -490,7 +490,7 @@
             this.View_Info.Location = new System.Drawing.Point(287, 222);
             this.View_Info.Name = "View_Info";
             this.View_Info.Size = new System.Drawing.Size(130, 44);
-            this.View_Info.TabIndex = 55;
+            this.View_Info.TabIndex = 13;
             this.View_Info.Text = "View";
             this.View_Info.UseVisualStyleBackColor = true;
             this.View_Info.Click += new System.EventHandler(this.View_Info_Click);
@@ -506,7 +506,7 @@
             this.Search.Location = new System.Drawing.Point(970, 222);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(130, 44);
-            this.Search.TabIndex = 54;
+            this.Search.TabIndex = 14;
             this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
             this.Search.Click += new System.EventHandler(this.Search_Click);
@@ -521,7 +521,7 @@
             this.Delete.Location = new System.Drawing.Point(151, 222);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(130, 44);
-            this.Delete.TabIndex = 53;
+            this.Delete.TabIndex = 12;
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = true;
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
@@ -536,7 +536,7 @@
             this.Add.Location = new System.Drawing.Point(15, 222);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(130, 44);
-            this.Add.TabIndex = 51;
+            this.Add.TabIndex = 11;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
@@ -576,6 +576,7 @@
             this.Controls.Add(this.SearchP);
             this.Controls.Add(this.SearchN);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Projects_Form";
             this.Text = "Projects";
             ((System.ComponentModel.ISupportInitialize)(this.Projects_Grid)).EndInit();

@@ -289,7 +289,7 @@ namespace PolyDocServer
                                           "EmpName VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
                                           "EmpBirthDate DATE NOT NULL," +
                                           "EmpEmploymentDate DATE NOT NULL," +
-                                          "EmpID INT NOT NULL," +
+                                          "EmpID VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
                                           "EmpJob VARCHAR(70)COLLATE Arabic_CI_AI_KS_WS NOT NULL," +
                                           "PRIMARY KEY (Name, Path, Extension)," +
                                           "FOREIGN KEY (EmpJob) REFERENCES Jobs(JobName)," +

@@ -29,7 +29,7 @@ namespace PolyDoc
         {
             InitializeComponent();
             GF.EditButtons(this);
-            Anim.AddAnimation(Testemonial, "Testemonial", 86, 347);
+            Anim.AddAnimation(Testemonial, "Testemonials", 86, 347);
             Anim.AddAnimation(Expenses, "Expenses", 86, 347);
             Anim.AddAnimation(Projects, "Projects", 86, 347);
             Anim.AddAnimation(HR, "HR", 86, 347);
@@ -146,6 +146,7 @@ namespace PolyDoc
                 b.Enabled = false;
             }
             Reconnect.Enabled = true;
+            Logout.Enabled = true;
         }
 
         private void Settings_Click(object sender, EventArgs e)
@@ -176,7 +177,7 @@ namespace PolyDoc
 
         private void Testemonial_Click(object sender, EventArgs e)
         {
-            Testemonial_Form form = new Testemonial_Form();
+            Testemonials_Form form = new Testemonials_Form();
             form.ShowDialog();
             form.Dispose();
         }

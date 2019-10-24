@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Webp.net-resizeimage.ico</ApplicationIcon>
+    <ApplicationIcon>PolyDocLogo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cjwdev.WindowsApi">
@@ -83,12 +83,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Add_Correspondence.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Add_Correspondence.Designer.cs">
-      <DependentUpon>Add_Correspondence.cs</DependentUpon>
-    </Compile>
     <Compile Include="Add_HR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,11 +149,11 @@
     <Compile Include="Settings_Form.Designer.cs">
       <DependentUpon>Settings_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Testemonial_Form.cs">
+    <Compile Include="Testemonials_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Testemonial_Form.Designer.cs">
-      <DependentUpon>Testemonial_Form.cs</DependentUpon>
+    <Compile Include="Testemonials_Form.Designer.cs">
+      <DependentUpon>Testemonials_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="View_Edit_Testemonial.cs">
       <SubType>Form</SubType>
@@ -185,9 +179,6 @@
     <Compile Include="View_Edit_Project.Designer.cs">
       <DependentUpon>View_Edit_Project.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Add_Correspondence.resx">
-      <DependentUpon>Add_Correspondence.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Add_HR.resx">
       <DependentUpon>Add_HR.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,8 +211,8 @@
     <EmbeddedResource Include="Settings_Form.resx">
       <DependentUpon>Settings_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Testemonial_Form.resx">
-      <DependentUpon>Testemonial_Form.cs</DependentUpon>
+    <EmbeddedResource Include="Testemonials_Form.resx">
+      <DependentUpon>Testemonials_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View_Edit_Testemonial.resx">
       <DependentUpon>View_Edit_Testemonial.cs</DependentUpon>
@@ -254,7 +245,6 @@
     <Content Include="Cjwdev.WindowsApi.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Webp.net-resizeimage.ico" />
     <EmbeddedResource Include="Resources\Uni Sans Heavy.ttf" />
     <None Include="Resources\AlegreyaSans-Light.ttf" />
     <None Include="Resources\Webp.net-resizeimage %281%29.png" />

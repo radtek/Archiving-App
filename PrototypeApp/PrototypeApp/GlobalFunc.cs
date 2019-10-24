@@ -256,12 +256,16 @@ namespace PolyDoc
                         string name = r.Cells[cell1].Value.ToString().Replace("'", "''"), path = r.Cells[cell2].Value.ToString().Replace("'", "''"), ext = r.Cells[cell3].Value.ToString();
                         try
                         {
-                            using (new NetworkConnection(FilesDirectory, new NetworkCredential("PolyDoc-AdminUser", "123")))
+                            using (new NetworkConnection(FilesDirectory, new NetworkCredential(AppUser, AppPass)))
                             {
-                                File.Delete(path + @"\" + name + ext);
+                                File.Delete(path + @"\" + name.Replace("''", "'") + ext);
                             }
                         }
-                        catch (Exception) { }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                         string delete_records = "delete from " + table + " where name = N'" + name + "' and path =N'" + path + "' and extension ='" + ext + "'";
                         using (SqlCommand comm = new SqlCommand(delete_records, conn))
                             comm.ExecuteNonQuery();

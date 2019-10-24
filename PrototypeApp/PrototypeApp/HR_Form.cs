@@ -126,7 +126,7 @@ namespace PolyDoc
                     {
                         DataTable Data = new DataTable();
                         sqlAdapt.Fill(Data);
-                        Projects_Grid.DataSource = Data;
+                        HR_Grid.DataSource = Data;
                     }
                 }
             }
@@ -164,12 +164,12 @@ namespace PolyDoc
 
         private void Delete_Click(object sender, EventArgs e)
         {
-            GF.DeleteRecords(Projects_Grid, "HR", "FileName", "Path", "Extension", connectionString, this, MainForm);
+            GF.DeleteRecords(HR_Grid, "HR", "FileName", "Path", "Extension", connectionString, this, MainForm);
         }
 
         private void Clear_Click(object sender, EventArgs e)
         {
-            GF.ClearRecords(Projects_Grid);
+            GF.ClearRecords(HR_Grid);
         }
 
         private void Add_Click(object sender, EventArgs e)
@@ -181,20 +181,25 @@ namespace PolyDoc
 
         private void View_Info_Click(object sender, EventArgs e)
         {
-            if (Projects_Grid.SelectedCells.Count == 0)
+            if (HR_Grid.SelectedCells.Count == 0)
                 return;
-            string code = Projects_Grid.CurrentRow.Cells["Code"].Value.ToString();
-            string empID = Projects_Grid.CurrentRow.Cells["EmpID"].Value.ToString();
-            string empName = Projects_Grid.CurrentRow.Cells["EmpName"].Value.ToString();
-            string empJob = Projects_Grid.CurrentRow.Cells["EmpJob"].Value.ToString();
-            string empBirthDate = Projects_Grid.CurrentRow.Cells["EmpBirthDate"].Value.ToString();
-            string empEmploymentDate = Projects_Grid.CurrentRow.Cells["EmpEmploymentDate"].Value.ToString();
-            string fileName = Projects_Grid.CurrentRow.Cells["FileName"].Value.ToString();
-            string path = Projects_Grid.CurrentRow.Cells["Path"].Value.ToString();
-            string extension = Projects_Grid.CurrentRow.Cells["Extension"].Value.ToString();
+            string code = HR_Grid.CurrentRow.Cells["Code"].Value.ToString();
+            string empID = HR_Grid.CurrentRow.Cells["EmpID"].Value.ToString();
+            string empName = HR_Grid.CurrentRow.Cells["EmpName"].Value.ToString();
+            string empJob = HR_Grid.CurrentRow.Cells["EmpJob"].Value.ToString();
+            string empBirthDate = HR_Grid.CurrentRow.Cells["EmpBirthDate"].Value.ToString();
+            string empEmploymentDate = HR_Grid.CurrentRow.Cells["EmpEmploymentDate"].Value.ToString();
+            string fileName = HR_Grid.CurrentRow.Cells["FileName"].Value.ToString();
+            string path = HR_Grid.CurrentRow.Cells["Path"].Value.ToString();
+            string extension = HR_Grid.CurrentRow.Cells["Extension"].Value.ToString();
             View_Edit_HR form = new View_Edit_HR(code, empID, empName, empJob, empBirthDate, empEmploymentDate, fileName, path, extension);
             form.ShowDialog();
             form.Dispose();
+        }
+
+        private void HR_Grid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            GF.OpenRecord(HR_Grid, e);
         }
     }
 }

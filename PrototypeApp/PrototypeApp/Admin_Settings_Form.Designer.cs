@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Admin_Settings_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label4 = new System.Windows.Forms.Label();
             this.Password = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,20 +44,20 @@
             this.PasswordCon = new System.Windows.Forms.TextBox();
             this.Admin = new System.Windows.Forms.CheckBox();
             this.CreateUserP = new System.Windows.Forms.Panel();
+            this.Expenses_Panel = new System.Windows.Forms.Panel();
+            this.Expenses_RO = new System.Windows.Forms.RadioButton();
+            this.Expenses_FC = new System.Windows.Forms.RadioButton();
             this.TablePanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.HR_RO = new System.Windows.Forms.RadioButton();
-            this.HR_FC = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Projects_RO = new System.Windows.Forms.RadioButton();
             this.Projects_FC = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.HR_RO = new System.Windows.Forms.RadioButton();
+            this.HR_FC = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.Testemonial_Panel = new System.Windows.Forms.Panel();
             this.Testemonial_RO = new System.Windows.Forms.RadioButton();
             this.Testemonial_FC = new System.Windows.Forms.RadioButton();
-            this.Expenses_Panel = new System.Windows.Forms.Panel();
-            this.Expenses_RO = new System.Windows.Forms.RadioButton();
-            this.Expenses_FC = new System.Windows.Forms.RadioButton();
             this.Create = new System.Windows.Forms.Button();
             this.ManageUserP = new System.Windows.Forms.Panel();
             this.Delete = new System.Windows.Forms.Button();
@@ -70,11 +70,11 @@
             this.CreateUserB = new System.Windows.Forms.Button();
             this.Close = new System.Windows.Forms.Button();
             this.CreateUserP.SuspendLayout();
-            this.TablePanel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.Testemonial_Panel.SuspendLayout();
             this.Expenses_Panel.SuspendLayout();
+            this.TablePanel.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.Testemonial_Panel.SuspendLayout();
             this.ManageUserP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Users_Grid)).BeginInit();
             this.RowMenu.SuspendLayout();
@@ -193,127 +193,6 @@
             this.CreateUserP.Size = new System.Drawing.Size(953, 459);
             this.CreateUserP.TabIndex = 27;
             // 
-            // TablePanel
-            // 
-            this.TablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TablePanel.Controls.Add(this.panel1);
-            this.TablePanel.Controls.Add(this.panel2);
-            this.TablePanel.Controls.Add(this.label1);
-            this.TablePanel.Controls.Add(this.Testemonial_Panel);
-            this.TablePanel.Location = new System.Drawing.Point(3, 281);
-            this.TablePanel.Name = "TablePanel";
-            this.TablePanel.Size = new System.Drawing.Size(818, 128);
-            this.TablePanel.TabIndex = 27;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.HR_RO);
-            this.panel2.Controls.Add(this.HR_FC);
-            this.panel2.Location = new System.Drawing.Point(217, 26);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(158, 99);
-            this.panel2.TabIndex = 34;
-            // 
-            // HR_RO
-            // 
-            this.HR_RO.AutoSize = true;
-            this.HR_RO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HR_RO.Location = new System.Drawing.Point(0, 0);
-            this.HR_RO.Name = "HR_RO";
-            this.HR_RO.Size = new System.Drawing.Size(103, 19);
-            this.HR_RO.TabIndex = 31;
-            this.HR_RO.TabStop = true;
-            this.HR_RO.Text = "HR Read Only";
-            this.HR_RO.UseVisualStyleBackColor = true;
-            // 
-            // HR_FC
-            // 
-            this.HR_FC.AutoSize = true;
-            this.HR_FC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HR_FC.Location = new System.Drawing.Point(0, 34);
-            this.HR_FC.Name = "HR_FC";
-            this.HR_FC.Size = new System.Drawing.Size(108, 19);
-            this.HR_FC.TabIndex = 32;
-            this.HR_FC.TabStop = true;
-            this.HR_FC.Text = "HR Full Control";
-            this.HR_FC.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.Projects_RO);
-            this.panel1.Controls.Add(this.Projects_FC);
-            this.panel1.Location = new System.Drawing.Point(428, 26);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(158, 99);
-            this.panel1.TabIndex = 33;
-            // 
-            // Projects_RO
-            // 
-            this.Projects_RO.AutoSize = true;
-            this.Projects_RO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Projects_RO.Location = new System.Drawing.Point(0, 0);
-            this.Projects_RO.Name = "Projects_RO";
-            this.Projects_RO.Size = new System.Drawing.Size(129, 19);
-            this.Projects_RO.TabIndex = 31;
-            this.Projects_RO.TabStop = true;
-            this.Projects_RO.Text = "Projects Read Only";
-            this.Projects_RO.UseVisualStyleBackColor = true;
-            // 
-            // Projects_FC
-            // 
-            this.Projects_FC.AutoSize = true;
-            this.Projects_FC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Projects_FC.Location = new System.Drawing.Point(0, 34);
-            this.Projects_FC.Name = "Projects_FC";
-            this.Projects_FC.Size = new System.Drawing.Size(134, 19);
-            this.Projects_FC.TabIndex = 32;
-            this.Projects_FC.TabStop = true;
-            this.Projects_FC.Text = "Projects Full Control";
-            this.Projects_FC.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 15);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "User gets access to : ";
-            // 
-            // Testemonial_Panel
-            // 
-            this.Testemonial_Panel.Controls.Add(this.Testemonial_RO);
-            this.Testemonial_Panel.Controls.Add(this.Testemonial_FC);
-            this.Testemonial_Panel.Location = new System.Drawing.Point(6, 26);
-            this.Testemonial_Panel.Name = "Testemonial_Panel";
-            this.Testemonial_Panel.Size = new System.Drawing.Size(158, 99);
-            this.Testemonial_Panel.TabIndex = 29;
-            // 
-            // Testemonial_RO
-            // 
-            this.Testemonial_RO.AutoSize = true;
-            this.Testemonial_RO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Testemonial_RO.Location = new System.Drawing.Point(0, 0);
-            this.Testemonial_RO.Name = "Testemonial_RO";
-            this.Testemonial_RO.Size = new System.Drawing.Size(153, 19);
-            this.Testemonial_RO.TabIndex = 29;
-            this.Testemonial_RO.TabStop = true;
-            this.Testemonial_RO.Text = "Testemonial Read Only";
-            this.Testemonial_RO.UseVisualStyleBackColor = true;
-            // 
-            // Testemonial_FC
-            // 
-            this.Testemonial_FC.AutoSize = true;
-            this.Testemonial_FC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Testemonial_FC.Location = new System.Drawing.Point(0, 34);
-            this.Testemonial_FC.Name = "Testemonial_FC";
-            this.Testemonial_FC.Size = new System.Drawing.Size(158, 19);
-            this.Testemonial_FC.TabIndex = 30;
-            this.Testemonial_FC.TabStop = true;
-            this.Testemonial_FC.Text = "Testemonial Full Control";
-            this.Testemonial_FC.UseVisualStyleBackColor = true;
-            // 
             // Expenses_Panel
             // 
             this.Expenses_Panel.Controls.Add(this.Expenses_RO);
@@ -347,6 +226,127 @@
             this.Expenses_FC.TabStop = true;
             this.Expenses_FC.Text = "Expenses Full Control";
             this.Expenses_FC.UseVisualStyleBackColor = true;
+            // 
+            // TablePanel
+            // 
+            this.TablePanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.TablePanel.Controls.Add(this.panel1);
+            this.TablePanel.Controls.Add(this.panel2);
+            this.TablePanel.Controls.Add(this.label1);
+            this.TablePanel.Controls.Add(this.Testemonial_Panel);
+            this.TablePanel.Location = new System.Drawing.Point(3, 281);
+            this.TablePanel.Name = "TablePanel";
+            this.TablePanel.Size = new System.Drawing.Size(818, 128);
+            this.TablePanel.TabIndex = 27;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Projects_RO);
+            this.panel1.Controls.Add(this.Projects_FC);
+            this.panel1.Location = new System.Drawing.Point(428, 26);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(158, 99);
+            this.panel1.TabIndex = 33;
+            // 
+            // Projects_RO
+            // 
+            this.Projects_RO.AutoSize = true;
+            this.Projects_RO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Projects_RO.Location = new System.Drawing.Point(0, 0);
+            this.Projects_RO.Name = "Projects_RO";
+            this.Projects_RO.Size = new System.Drawing.Size(129, 19);
+            this.Projects_RO.TabIndex = 0;
+            this.Projects_RO.TabStop = true;
+            this.Projects_RO.Text = "Projects Read Only";
+            this.Projects_RO.UseVisualStyleBackColor = true;
+            // 
+            // Projects_FC
+            // 
+            this.Projects_FC.AutoSize = true;
+            this.Projects_FC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Projects_FC.Location = new System.Drawing.Point(0, 34);
+            this.Projects_FC.Name = "Projects_FC";
+            this.Projects_FC.Size = new System.Drawing.Size(134, 19);
+            this.Projects_FC.TabIndex = 1;
+            this.Projects_FC.TabStop = true;
+            this.Projects_FC.Text = "Projects Full Control";
+            this.Projects_FC.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.HR_RO);
+            this.panel2.Controls.Add(this.HR_FC);
+            this.panel2.Location = new System.Drawing.Point(217, 26);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(158, 99);
+            this.panel2.TabIndex = 34;
+            // 
+            // HR_RO
+            // 
+            this.HR_RO.AutoSize = true;
+            this.HR_RO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HR_RO.Location = new System.Drawing.Point(0, 0);
+            this.HR_RO.Name = "HR_RO";
+            this.HR_RO.Size = new System.Drawing.Size(103, 19);
+            this.HR_RO.TabIndex = 0;
+            this.HR_RO.TabStop = true;
+            this.HR_RO.Text = "HR Read Only";
+            this.HR_RO.UseVisualStyleBackColor = true;
+            // 
+            // HR_FC
+            // 
+            this.HR_FC.AutoSize = true;
+            this.HR_FC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HR_FC.Location = new System.Drawing.Point(0, 34);
+            this.HR_FC.Name = "HR_FC";
+            this.HR_FC.Size = new System.Drawing.Size(108, 19);
+            this.HR_FC.TabIndex = 1;
+            this.HR_FC.TabStop = true;
+            this.HR_FC.Text = "HR Full Control";
+            this.HR_FC.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 15);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "User gets access to : ";
+            // 
+            // Testemonial_Panel
+            // 
+            this.Testemonial_Panel.Controls.Add(this.Testemonial_RO);
+            this.Testemonial_Panel.Controls.Add(this.Testemonial_FC);
+            this.Testemonial_Panel.Location = new System.Drawing.Point(6, 26);
+            this.Testemonial_Panel.Name = "Testemonial_Panel";
+            this.Testemonial_Panel.Size = new System.Drawing.Size(158, 99);
+            this.Testemonial_Panel.TabIndex = 29;
+            // 
+            // Testemonial_RO
+            // 
+            this.Testemonial_RO.AutoSize = true;
+            this.Testemonial_RO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Testemonial_RO.Location = new System.Drawing.Point(0, 0);
+            this.Testemonial_RO.Name = "Testemonial_RO";
+            this.Testemonial_RO.Size = new System.Drawing.Size(153, 19);
+            this.Testemonial_RO.TabIndex = 0;
+            this.Testemonial_RO.TabStop = true;
+            this.Testemonial_RO.Text = "Testemonial Read Only";
+            this.Testemonial_RO.UseVisualStyleBackColor = true;
+            // 
+            // Testemonial_FC
+            // 
+            this.Testemonial_FC.AutoSize = true;
+            this.Testemonial_FC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Testemonial_FC.Location = new System.Drawing.Point(0, 34);
+            this.Testemonial_FC.Name = "Testemonial_FC";
+            this.Testemonial_FC.Size = new System.Drawing.Size(158, 19);
+            this.Testemonial_FC.TabIndex = 1;
+            this.Testemonial_FC.TabStop = true;
+            this.Testemonial_FC.Text = "Testemonial Full Control";
+            this.Testemonial_FC.UseVisualStyleBackColor = true;
             // 
             // Create
             // 
@@ -388,7 +388,7 @@
             this.Delete.Location = new System.Drawing.Point(825, 33);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(130, 44);
-            this.Delete.TabIndex = 31;
+            this.Delete.TabIndex = 1;
             this.Delete.Text = "Delete";
             this.Delete.UseVisualStyleBackColor = true;
             this.Delete.Click += new System.EventHandler(this.Delete_Click);
@@ -403,7 +403,7 @@
             this.View.Location = new System.Drawing.Point(0, 33);
             this.View.Name = "View";
             this.View.Size = new System.Drawing.Size(130, 44);
-            this.View.TabIndex = 30;
+            this.View.TabIndex = 0;
             this.View.Text = "View";
             this.View.UseVisualStyleBackColor = true;
             this.View.Click += new System.EventHandler(this.View_Click);
@@ -412,47 +412,47 @@
             // 
             this.Users_Grid.AllowUserToAddRows = false;
             this.Users_Grid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Users_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Users_Grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.Users_Grid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Users_Grid.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Users_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Users_Grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.Users_Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Users_Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.User});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.Users_Grid.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Users_Grid.DefaultCellStyle = dataGridViewCellStyle3;
             this.Users_Grid.Location = new System.Drawing.Point(0, 83);
             this.Users_Grid.Name = "Users_Grid";
             this.Users_Grid.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Users_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Users_Grid.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Users_Grid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Users_Grid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Users_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Users_Grid.Size = new System.Drawing.Size(955, 376);
-            this.Users_Grid.TabIndex = 5;
+            this.Users_Grid.TabIndex = 2;
             this.Users_Grid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Users_Grid_CellDoubleClick);
             this.Users_Grid.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Users_Grid_MouseClick);
             // 
@@ -488,7 +488,7 @@
             this.ManageUserB.Location = new System.Drawing.Point(12, 12);
             this.ManageUserB.Name = "ManageUserB";
             this.ManageUserB.Size = new System.Drawing.Size(220, 44);
-            this.ManageUserB.TabIndex = 29;
+            this.ManageUserB.TabIndex = 0;
             this.ManageUserB.Text = "Manage users";
             this.ManageUserB.UseVisualStyleBackColor = true;
             this.ManageUserB.Click += new System.EventHandler(this.ManageUserB_Click);
@@ -503,7 +503,7 @@
             this.CreateUserB.Location = new System.Drawing.Point(232, 12);
             this.CreateUserB.Name = "CreateUserB";
             this.CreateUserB.Size = new System.Drawing.Size(220, 44);
-            this.CreateUserB.TabIndex = 28;
+            this.CreateUserB.TabIndex = 1;
             this.CreateUserB.Text = "Create users";
             this.CreateUserB.UseVisualStyleBackColor = true;
             this.CreateUserB.Click += new System.EventHandler(this.CreateUserB_Click);
@@ -519,7 +519,7 @@
             this.Close.Location = new System.Drawing.Point(837, 12);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(130, 44);
-            this.Close.TabIndex = 5;
+            this.Close.TabIndex = 2;
             this.Close.Text = "Close";
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.Close_Click);
@@ -533,8 +533,8 @@
             this.Controls.Add(this.ManageUserB);
             this.Controls.Add(this.CreateUserB);
             this.Controls.Add(this.Close);
-            this.Controls.Add(this.CreateUserP);
             this.Controls.Add(this.ManageUserP);
+            this.Controls.Add(this.CreateUserP);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin_Settings_Form";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -542,16 +542,16 @@
             this.Load += new System.EventHandler(this.Add_User_Form_Load);
             this.CreateUserP.ResumeLayout(false);
             this.CreateUserP.PerformLayout();
-            this.TablePanel.ResumeLayout(false);
-            this.TablePanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.Testemonial_Panel.ResumeLayout(false);
-            this.Testemonial_Panel.PerformLayout();
             this.Expenses_Panel.ResumeLayout(false);
             this.Expenses_Panel.PerformLayout();
+            this.TablePanel.ResumeLayout(false);
+            this.TablePanel.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.Testemonial_Panel.ResumeLayout(false);
+            this.Testemonial_Panel.PerformLayout();
             this.ManageUserP.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Users_Grid)).EndInit();
             this.RowMenu.ResumeLayout(false);

@@ -102,7 +102,7 @@
             this.Permissions_Grid.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.Permissions_Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Permissions_Grid.Size = new System.Drawing.Size(776, 341);
-            this.Permissions_Grid.TabIndex = 30;
+            this.Permissions_Grid.TabIndex = 0;
             this.Permissions_Grid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Permissions_Grid_CellContentClick);
             this.Permissions_Grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Permissions_Grid_CellValueChanged);
             // 
@@ -157,7 +157,7 @@
             this.Close.Location = new System.Drawing.Point(658, 393);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(130, 44);
-            this.Close.TabIndex = 31;
+            this.Close.TabIndex = 2;
             this.Close.Text = "Close";
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.Close_Click);
@@ -173,7 +173,7 @@
             this.Save.Location = new System.Drawing.Point(522, 393);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(130, 44);
-            this.Save.TabIndex = 32;
+            this.Save.TabIndex = 1;
             this.Save.Text = "Save";
             this.Save.UseVisualStyleBackColor = true;
             this.Save.Click += new System.EventHandler(this.Save_Click);

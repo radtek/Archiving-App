@@ -98,7 +98,15 @@ namespace PolyDoc
                 string path = GlobalFunc.FilesDirectory + @"\" + "Projects";
                 using (new NetworkConnection(GlobalFunc.FilesDirectory, new NetworkCredential(GlobalFunc.AppUser, GlobalFunc.AppPass)))
                 {
-                    File.Copy(row.Cells[8].Value.ToString() + @"\" + name + extension, GlobalFunc.FilesDirectory + @"\Projects\" + name + extension);
+                    try
+                    {
+                        File.Copy(row.Cells[8].Value.ToString() + @"\" + name.Replace("''", "'") + extension, GlobalFunc.FilesDirectory + @"\Projects\" + name.Replace("''", "'") + extension);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
                 add_files += "('" + code + "',N'" + name + "',N'" + projectName + "',N'" + location + "',N'" + partner + "','" + startDate + "','" + endDate + "','" + extension + "',N'" + path + "'),";
             }

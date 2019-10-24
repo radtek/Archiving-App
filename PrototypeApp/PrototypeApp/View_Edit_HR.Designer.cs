@@ -115,7 +115,7 @@
             this.New_EmpJob.Location = new System.Drawing.Point(132, 309);
             this.New_EmpJob.Name = "New_EmpJob";
             this.New_EmpJob.Size = new System.Drawing.Size(549, 21);
-            this.New_EmpJob.TabIndex = 114;
+            this.New_EmpJob.TabIndex = 2;
             // 
             // Code
             // 
@@ -134,7 +134,7 @@
             this.New_EmpName.Location = new System.Drawing.Point(132, 211);
             this.New_EmpName.Name = "New_EmpName";
             this.New_EmpName.Size = new System.Drawing.Size(549, 21);
-            this.New_EmpName.TabIndex = 90;
+            this.New_EmpName.TabIndex = 0;
             // 
             // New_EmpID
             // 
@@ -145,7 +145,7 @@
             this.New_EmpID.Location = new System.Drawing.Point(132, 260);
             this.New_EmpID.Name = "New_EmpID";
             this.New_EmpID.Size = new System.Drawing.Size(549, 21);
-            this.New_EmpID.TabIndex = 91;
+            this.New_EmpID.TabIndex = 1;
             this.New_EmpID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.New_EmpID_KeyPress);
             // 
             // New_EmpBirthDate
@@ -157,7 +157,7 @@
             this.New_EmpBirthDate.Location = new System.Drawing.Point(132, 356);
             this.New_EmpBirthDate.Name = "New_EmpBirthDate";
             this.New_EmpBirthDate.Size = new System.Drawing.Size(102, 21);
-            this.New_EmpBirthDate.TabIndex = 92;
+            this.New_EmpBirthDate.TabIndex = 3;
             // 
             // New_EmpEmploymentDate
             // 
@@ -168,7 +168,7 @@
             this.New_EmpEmploymentDate.Location = new System.Drawing.Point(132, 405);
             this.New_EmpEmploymentDate.Name = "New_EmpEmploymentDate";
             this.New_EmpEmploymentDate.Size = new System.Drawing.Size(102, 21);
-            this.New_EmpEmploymentDate.TabIndex = 108;
+            this.New_EmpEmploymentDate.TabIndex = 4;
             // 
             // label9
             // 
@@ -343,7 +343,7 @@
             this.Cancel.Location = new System.Drawing.Point(148, 467);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(130, 44);
-            this.Cancel.TabIndex = 89;
+            this.Cancel.TabIndex = 6;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Visible = false;
@@ -360,7 +360,7 @@
             this.Close.Location = new System.Drawing.Point(548, 467);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(133, 44);
-            this.Close.TabIndex = 87;
+            this.Close.TabIndex = 7;
             this.Close.Text = "Close";
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.Close_Click);
@@ -393,12 +393,12 @@
             this.Edit.Location = new System.Drawing.Point(12, 467);
             this.Edit.Name = "Edit";
             this.Edit.Size = new System.Drawing.Size(130, 44);
-            this.Edit.TabIndex = 107;
+            this.Edit.TabIndex = 5;
             this.Edit.Text = "Edit";
             this.Edit.UseVisualStyleBackColor = true;
             this.Edit.Click += new System.EventHandler(this.Edit_Click);
             // 
-            // View_HR
+            // View_Edit_HR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -432,7 +432,7 @@
             this.Controls.Add(this.Edit);
             this.Controls.Add(this.Done);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "View_HR";
+            this.Name = "View_Edit_HR";
             this.Text = "View Employee";
             this.ResumeLayout(false);
             this.PerformLayout();

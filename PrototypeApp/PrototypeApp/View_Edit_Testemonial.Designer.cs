@@ -86,7 +86,7 @@
             this.New_Location.Location = new System.Drawing.Point(132, 262);
             this.New_Location.Name = "New_Location";
             this.New_Location.Size = new System.Drawing.Size(549, 23);
-            this.New_Location.TabIndex = 141;
+            this.New_Location.TabIndex = 1;
             // 
             // Code
             // 
@@ -105,7 +105,7 @@
             this.New_InterName.Location = new System.Drawing.Point(132, 211);
             this.New_InterName.Name = "New_InterName";
             this.New_InterName.Size = new System.Drawing.Size(549, 21);
-            this.New_InterName.TabIndex = 118;
+            this.New_InterName.TabIndex = 0;
             // 
             // New_LocationN
             // 
@@ -116,7 +116,7 @@
             this.New_LocationN.Location = new System.Drawing.Point(132, 309);
             this.New_LocationN.Name = "New_LocationN";
             this.New_LocationN.Size = new System.Drawing.Size(549, 21);
-            this.New_LocationN.TabIndex = 119;
+            this.New_LocationN.TabIndex = 2;
             // 
             // New_Date
             // 
@@ -127,7 +127,7 @@
             this.New_Date.Location = new System.Drawing.Point(132, 405);
             this.New_Date.Name = "New_Date";
             this.New_Date.Size = new System.Drawing.Size(102, 21);
-            this.New_Date.TabIndex = 136;
+            this.New_Date.TabIndex = 4;
             // 
             // label9
             // 
@@ -293,7 +293,7 @@
             this.Cancel.Location = new System.Drawing.Point(148, 467);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(130, 44);
-            this.Cancel.TabIndex = 117;
+            this.Cancel.TabIndex = 6;
             this.Cancel.Text = "Cancel";
             this.Cancel.UseVisualStyleBackColor = true;
             this.Cancel.Visible = false;
@@ -310,7 +310,7 @@
             this.Close.Location = new System.Drawing.Point(548, 467);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(133, 44);
-            this.Close.TabIndex = 115;
+            this.Close.TabIndex = 7;
             this.Close.Text = "Close";
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.Close_Click);
@@ -342,7 +342,7 @@
             this.Done.Location = new System.Drawing.Point(12, 467);
             this.Done.Name = "Done";
             this.Done.Size = new System.Drawing.Size(130, 44);
-            this.Done.TabIndex = 116;
+            this.Done.TabIndex = 5;
             this.Done.Text = "Done";
             this.Done.UseVisualStyleBackColor = true;
             this.Done.Visible = false;
@@ -358,7 +358,7 @@
             this.New_Profession.Location = new System.Drawing.Point(132, 360);
             this.New_Profession.Name = "New_Profession";
             this.New_Profession.Size = new System.Drawing.Size(549, 21);
-            this.New_Profession.TabIndex = 142;
+            this.New_Profession.TabIndex = 3;
             // 
             // Profession
             // 

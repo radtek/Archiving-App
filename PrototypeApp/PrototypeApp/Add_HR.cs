@@ -127,7 +127,15 @@ namespace PolyDoc
                 string path = GlobalFunc.FilesDirectory + @"\" + "HR";
                 using (new NetworkConnection(GlobalFunc.FilesDirectory, new NetworkCredential(GlobalFunc.AppUser, GlobalFunc.AppPass)))
                 {
-                    File.Copy(row.Cells[8].Value.ToString() + @"\" + name + extension, GlobalFunc.FilesDirectory + @"\HR\" + name + extension);
+                    try
+                    {
+                        File.Copy(row.Cells[8].Value.ToString() + @"\" + name.Replace("''", "'") + extension, GlobalFunc.FilesDirectory + @"\HR\" + name.Replace("''", "'") + extension);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
                 add_files += "('" + code + "',N'" + name + "',N'" + empName + "',N'" + empJob + "','" + empID + "','" + empBirthDate + "','" + empEmploymentDate + "','" + extension + "',N'" + path + "'),";
             }
@@ -143,6 +151,33 @@ namespace PolyDoc
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) || (e.KeyChar == '.'))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void SelectedFiles_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                int pos = SelectedFiles.HitTest(e.X, e.Y).RowIndex;
+                if (pos < 0)
+                    return;
+                if (!SelectedFiles.Rows[pos].Selected)
+                {
+                    SelectedFiles.ClearSelection();
+                    SelectedFiles.Rows[pos].Selected = true;
+                }
+                RowMenu.Show(SelectedFiles, new Point(e.X, e.Y));
+            }
+        }
+
+        private void RowMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Text == "Delete")
+            {
+                foreach (DataGridViewRow row in SelectedFiles.SelectedRows)
+                {
+                    SelectedFiles.Rows.RemoveAt(row.Index);
+                }
             }
         }
     }

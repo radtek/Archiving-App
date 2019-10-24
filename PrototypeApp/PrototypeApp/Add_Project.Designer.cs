@@ -104,7 +104,7 @@
             this.AddStartDate.Location = new System.Drawing.Point(127, 175);
             this.AddStartDate.Name = "AddStartDate";
             this.AddStartDate.Size = new System.Drawing.Size(105, 21);
-            this.AddStartDate.TabIndex = 62;
+            this.AddStartDate.TabIndex = 3;
             // 
             // Browse
             // 
@@ -116,7 +116,7 @@
             this.Browse.Location = new System.Drawing.Point(496, 251);
             this.Browse.Name = "Browse";
             this.Browse.Size = new System.Drawing.Size(130, 44);
-            this.Browse.TabIndex = 52;
+            this.Browse.TabIndex = 5;
             this.Browse.Text = "Browse";
             this.Browse.UseVisualStyleBackColor = true;
             this.Browse.Click += new System.EventHandler(this.Browse_Click);
@@ -145,7 +145,7 @@
             this.SelectedFiles.ReadOnly = true;
             this.SelectedFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SelectedFiles.Size = new System.Drawing.Size(709, 402);
-            this.SelectedFiles.TabIndex = 55;
+            this.SelectedFiles.TabIndex = 8;
             this.SelectedFiles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectedFiles_MouseClick);
             // 
             // Code
@@ -231,7 +231,7 @@
             this.Cancel.Location = new System.Drawing.Point(148, 394);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(130, 44);
-            this.Cancel.TabIndex = 54;
+            this.Cancel.TabIndex = 7;
             this.Cancel.Text = "Close";
             this.Cancel.UseVisualStyleBackColor = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
@@ -247,7 +247,7 @@
             this.Add.Location = new System.Drawing.Point(12, 394);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(130, 44);
-            this.Add.TabIndex = 53;
+            this.Add.TabIndex = 6;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
@@ -308,7 +308,7 @@
             this.AddPartner.Location = new System.Drawing.Point(127, 130);
             this.AddPartner.Name = "AddPartner";
             this.AddPartner.Size = new System.Drawing.Size(499, 21);
-            this.AddPartner.TabIndex = 50;
+            this.AddPartner.TabIndex = 2;
             // 
             // AddProjectN
             // 
@@ -316,7 +316,7 @@
             this.AddProjectN.Location = new System.Drawing.Point(127, 36);
             this.AddProjectN.Name = "AddProjectN";
             this.AddProjectN.Size = new System.Drawing.Size(499, 21);
-            this.AddProjectN.TabIndex = 48;
+            this.AddProjectN.TabIndex = 0;
             // 
             // AddEndDate
             // 
@@ -327,7 +327,7 @@
             this.AddEndDate.Location = new System.Drawing.Point(127, 222);
             this.AddEndDate.Name = "AddEndDate";
             this.AddEndDate.Size = new System.Drawing.Size(105, 21);
-            this.AddEndDate.TabIndex = 64;
+            this.AddEndDate.TabIndex = 4;
             // 
             // label2
             // 
@@ -377,7 +377,7 @@
             this.AddLoc.Location = new System.Drawing.Point(127, 83);
             this.AddLoc.Name = "AddLoc";
             this.AddLoc.Size = new System.Drawing.Size(499, 23);
-            this.AddLoc.TabIndex = 65;
+            this.AddLoc.TabIndex = 1;
             // 
             // Add_Project
             // 

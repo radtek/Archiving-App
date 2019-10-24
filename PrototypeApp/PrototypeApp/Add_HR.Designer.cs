@@ -86,7 +86,8 @@
             this.RowMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuDelete});
             this.RowMenu.Name = "RowMenu";
-            this.RowMenu.Size = new System.Drawing.Size(108, 26);
+            this.RowMenu.Size = new System.Drawing.Size(181, 48);
+            this.RowMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.RowMenu_ItemClicked);
             // 
             // MenuDelete
             // 
@@ -102,7 +103,7 @@
             this.AddEmpJob.Location = new System.Drawing.Point(132, 83);
             this.AddEmpJob.Name = "AddEmpJob";
             this.AddEmpJob.Size = new System.Drawing.Size(494, 23);
-            this.AddEmpJob.TabIndex = 80;
+            this.AddEmpJob.TabIndex = 1;
             // 
             // AddEmpEmploymentDate
             // 
@@ -113,7 +114,7 @@
             this.AddEmpEmploymentDate.Location = new System.Drawing.Point(132, 222);
             this.AddEmpEmploymentDate.Name = "AddEmpEmploymentDate";
             this.AddEmpEmploymentDate.Size = new System.Drawing.Size(105, 21);
-            this.AddEmpEmploymentDate.TabIndex = 79;
+            this.AddEmpEmploymentDate.TabIndex = 4;
             // 
             // label2
             // 
@@ -134,7 +135,7 @@
             this.AddEmpBirthDate.Location = new System.Drawing.Point(132, 175);
             this.AddEmpBirthDate.Name = "AddEmpBirthDate";
             this.AddEmpBirthDate.Size = new System.Drawing.Size(105, 21);
-            this.AddEmpBirthDate.TabIndex = 77;
+            this.AddEmpBirthDate.TabIndex = 3;
             // 
             // Browse
             // 
@@ -146,7 +147,7 @@
             this.Browse.Location = new System.Drawing.Point(496, 251);
             this.Browse.Name = "Browse";
             this.Browse.Size = new System.Drawing.Size(130, 44);
-            this.Browse.TabIndex = 68;
+            this.Browse.TabIndex = 5;
             this.Browse.Text = "Browse";
             this.Browse.UseVisualStyleBackColor = true;
             this.Browse.Click += new System.EventHandler(this.Browse_Click);
@@ -175,7 +176,8 @@
             this.SelectedFiles.ReadOnly = true;
             this.SelectedFiles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SelectedFiles.Size = new System.Drawing.Size(709, 402);
-            this.SelectedFiles.TabIndex = 71;
+            this.SelectedFiles.TabIndex = 8;
+            this.SelectedFiles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectedFiles_MouseClick);
             // 
             // Code
             // 
@@ -261,7 +263,7 @@
             this.Cancel.Location = new System.Drawing.Point(148, 394);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(130, 44);
-            this.Cancel.TabIndex = 70;
+            this.Cancel.TabIndex = 7;
             this.Cancel.Text = "Close";
             this.Cancel.UseVisualStyleBackColor = false;
             this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
@@ -277,7 +279,7 @@
             this.Add.Location = new System.Drawing.Point(12, 394);
             this.Add.Name = "Add";
             this.Add.Size = new System.Drawing.Size(130, 44);
-            this.Add.TabIndex = 69;
+            this.Add.TabIndex = 6;
             this.Add.Text = "Add";
             this.Add.UseVisualStyleBackColor = true;
             this.Add.Click += new System.EventHandler(this.Add_Click);
@@ -338,7 +340,7 @@
             this.AddEmpID.Location = new System.Drawing.Point(132, 130);
             this.AddEmpID.Name = "AddEmpID";
             this.AddEmpID.Size = new System.Drawing.Size(494, 21);
-            this.AddEmpID.TabIndex = 67;
+            this.AddEmpID.TabIndex = 2;
             this.AddEmpID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AddEmpID_KeyPress);
             // 
             // AddEmpName
@@ -347,7 +349,7 @@
             this.AddEmpName.Location = new System.Drawing.Point(132, 36);
             this.AddEmpName.Name = "AddEmpName";
             this.AddEmpName.Size = new System.Drawing.Size(494, 21);
-            this.AddEmpName.TabIndex = 66;
+            this.AddEmpName.TabIndex = 0;
             // 
             // Add_HR
             // 
@@ -371,6 +373,7 @@
             this.Controls.Add(this.AddEmpID);
             this.Controls.Add(this.AddEmpName);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Add_HR";
             this.Text = "Add Employee";
             this.RowMenu.ResumeLayout(false);
