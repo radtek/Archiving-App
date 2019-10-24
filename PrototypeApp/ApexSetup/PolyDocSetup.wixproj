@@ -38,6 +38,14 @@
     <Folder Include="Images" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HTTPserver\HTTPserver.csproj">
+      <Name>HTTPserver</Name>
+      <Project>{5c68245d-c99b-4311-868d-554358e9430f}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\PrototypeApp\PolyDoc.csproj">
       <Name>PolyDoc</Name>
       <Project>{3689135b-679e-45cf-9672-c77a31d8e35d}</Project>

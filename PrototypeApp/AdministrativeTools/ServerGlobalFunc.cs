@@ -17,8 +17,8 @@ namespace PolyDocServer
 {
     class ServerGlobalFunc
     {
-        private readonly string LogsLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Logs/DatabaseInfo.txt";
-        private readonly string DataLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Apex Archiving Software/Data";
+        private readonly string LogsLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PolyDoc Archiving Software/Logs/DatabaseInfo.txt";
+        private readonly string DataLoc = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/PolyDoc Archiving Software/Data";
 
         public const string MainFolderName = "PolyDoc Storage";
         public const string FilesDirectory = @"\\192.168.1.5\" + MainFolderName;

@@ -11,9 +11,9 @@
     <WixVariable Id="WixUIDialogBmp" Value="Images\logo2 - Copy.bmp" />
      
     <UI>
-    <UIRef Id="WixUI_InstallDir" />
-    <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg" Order="2">1</Publish>
-    <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">1</Publish>
+      <UIRef Id="WixUI_InstallDir" />
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg" Order="2">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">1</Publish>
     </UI>
     
 		<MajorUpgrade DowngradeErrorMessage="A newer version of PolyDoc Archiving Software is already installed." />
@@ -71,7 +71,6 @@
 		<Component Id="PolyDoc.pdb" Guid="b6b7ff17-b9f4-42b0-8d40-5732e2a58b6c">
 		  <File Id="PolyDoc.pdb" Name="PolyDoc.pdb" Source="$(var.PolyDoc_TargetDir)PolyDoc.pdb" />
 		</Component>
-			
 		</ComponentGroup>
 	</Fragment>
 </Wix>

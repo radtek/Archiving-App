@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"><?define PolyDocServer_TargetDir=$(var.PolyDocServer.TargetDir)?>
+	<Product Id="811f5d77-2f65-4fb5-b74a-bdf7543f6636" Name="PolyDoc Server" Language="1033" Version="1.0.0.0" Manufacturer="Polygon Network Company" UpgradeCode="372110a3-440d-4b9b-b768-d3c959365f1a">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <Icon Id="PolyDocLogo.ico" SourceFile="$(var.ProjectDir)PolyDocLogo.ico" />
+    <Property Id="ARPPRODUCTICON" Value="PolyDocLogo.ico" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+
+    <WixVariable Id="WixUIBannerBmp" Value="Images\poli low.bmp" />
+    <WixVariable Id="WixUIDialogBmp" Value="Images\logo2 - Copy.bmp" />
+
+    <UI>
+      <UIRef Id="WixUI_InstallDir" />
+      <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="InstallDirDlg" Order="2">1</Publish>
+      <Publish Dialog="InstallDirDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="2">1</Publish>
+    </UI>
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="PolyDoc Server" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="PolyDoc Server" />
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="PolyDoc Server"/>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop"/>
+		</Directory>
+	</Fragment>
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="9bd13330-6540-406f-a3a8-d7f7c69ae7f9">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="PolyDoc Server" Description="PolyDoc Server" Target="[INSTALLFOLDER]PolyDoc Server.exe" WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\PolyDoc Server" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+    <DirectoryRef Id="DesktopFolder">
+      <Component Id="ApplicationShortcutDesktop" Guid="cde1e030-eb64-49a5-b7b8-400b379c2d1a">
+        <Shortcut Id="ApplicationDesktopShortcut" Name="PolyDoc Server" Description="PolyDoc Server" Target="[INSTALLFOLDER]PolyDoc Server.exe" WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="RemoveDesktopFolder" Directory="DesktopFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\PolyDoc Server" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+	<Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Id="PolyDoc_Server.exe" Guid="61f1fbc3-476c-4c86-9ee9-14e784f28ad0">
+			  <File Id="PolyDoc_Server.exe" Name="PolyDoc Server.exe" Source="$(var.PolyDocServer_TargetDir)PolyDoc Server.exe" />
+			</Component>
+			<Component Id="PolyDoc_Server.exe.config" Guid="3bf5baa9-72a4-446e-8bdb-7c99a9ac794f">
+			  <File Id="PolyDoc_Server.exe.config" Name="PolyDoc Server.exe.config" Source="$(var.PolyDocServer_TargetDir)PolyDoc Server.exe.config" />
+			</Component>
+			<Component Id="Cjwdev.WindowsApi.dll" Guid="cea15696-83d6-4311-b2fc-78ec92d62458">
+			  <File Id="Cjwdev.WindowsApi.dll" Name="Cjwdev.WindowsApi.dll" Source="$(var.PolyDocServer_TargetDir)Cjwdev.WindowsApi.dll" />
+			</Component>
+			<Component Id="Webp.net_resizeimage.ico" Guid="7d750e9a-ab19-4d2c-b561-1fc429a2e102">
+			  <File Id="Webp.net_resizeimage.ico" Name="Webp.net-resizeimage.ico" Source="$(var.PolyDocServer_TargetDir)Webp.net-resizeimage.ico" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
